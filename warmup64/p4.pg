@@ -23,8 +23,8 @@
   ######################################################################
   BEGIN_TEXT
 If the area of a triangle is
-[`160`] square feet and the base
-is [`20`] feet, what is the height?
+`160` square feet and the base
+is `20` feet, what is the height?
 \{ ans_rule(25) \}
 
 END_TEXT
