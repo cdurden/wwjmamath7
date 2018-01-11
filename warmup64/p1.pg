@@ -20,11 +20,11 @@ BEGIN_TEXT
   Simplify \( \displaystyle \frac{3}{4} + \frac{2}{3} + \frac{5}{6} \).
 \{ ans_rule(25) \}
 
-\{ 
-knowlLink("Click for a hint", 
-value=>'Rewrite the fractions as fractions with a common denominator') 
-\}
-END_TEXT
+#\{ 
+#knowlLink("Click for a hint", 
+#value=>'Rewrite the fractions as fractions with a common denominator') 
+#\}
+#END_TEXT
 
 $showHint = 1;
 BEGIN_TEXT

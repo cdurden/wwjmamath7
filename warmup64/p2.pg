@@ -31,6 +31,16 @@ common factor: \( \displaystyle 27x + 45 \).
 
 \{ ans_rule(25) \}
 END_TEXT
+$showHint = 1;
+BEGIN_TEXT
+$PAR
+If you don't get this in $showHint tries, you can get a hint.
+END_TEXT
+BEGIN_HINT
+To factor, rewrite the expression as a product. Your answer will have the form \( 
+\underline{\hspace{1em}}(\underline{\hspace{1em}}x+\underline{\hspace{1em}}) \). The first blank will be the greatest common factor of \( \underline{\hspace{1em}} \) and \( \underline{\hspace{1em}} \).
+END_HINT
+
 ANS($factoredform->cmp());
   ######################################################################
 
