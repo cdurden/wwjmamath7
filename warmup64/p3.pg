@@ -26,6 +26,19 @@ $BR
 \{ $mc->print_a() \}
 END_TEXT
   ######################################################################
+
+$showHint = 1;
+BEGIN_TEXT
+$PAR
+If you don't get this in $showHint tries, you can get a hint.
+END_TEXT
+BEGIN_HINT
+
+To find the probability of the event that a number greater than 1 is rolled, use the formula for finding the probability of an event:
+$BR
+\( \text{Probability of an event} = \frac{\text{Number of ways an event can happen}}{\text{Total number of possible outcomes}} \)
+END_HINT
+
 $showPartialCorrectAnswers = 0;
 
 ANS( radio_cmp( $mc->correct_ans() ) );
