@@ -27,7 +27,7 @@ Context()->texStrings;
 BEGIN_TEXT
 Factor the linear
 expression using the greatest
-common factor: [`27x + 45`]
+common factor: \( \displaystyle 27x + 45 \).
 
 \{ ans_rule(25) \}
 END_TEXT
