@@ -1,0 +1,40 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
+    "PGgraphmacros.pl",
+  );
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+  #Context("Numeric") ; 
+  #Context("Fraction-NoDecimals");
+  Context("LimitedFraction");
+  #Context()->flags->set(tolerance => 0.01);
+
+  ######################################################################
+  BEGIN_TEXT
+Chen needs a board that is
+`6 3/4` feet long to complete a
+project. If he has a board that
+is `8 3/8` feet long, how much
+must he cut off to create the
+correct length? 
+
+\{ ans_rule(25) \}
+
+END_TEXT
+ANS(num_cmp( '13/8', 'units'=>'ft' ));
+#ANS(Compute('13/8')->cmp(), 'units'=>'ft' );
+
+  ######################################################################
+
+  ENDDOCUMENT();

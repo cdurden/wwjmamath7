@@ -1,0 +1,28 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+    "contextInequalities.pl",
+    "PGgraphmacros.pl",
+  );
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+  Context("Numeric") ; 
+  Context()->flags->set(tolerance => 0.01);
+
+  ######################################################################
+  BEGIN_PGML
+In the expression [`3 + (-8)`],
+how far is the sum from [`3`]?
+  [____________]{"8"} units
+  END_PGML
+  ######################################################################
+
+  ENDDOCUMENT();
