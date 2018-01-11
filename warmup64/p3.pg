@@ -34,9 +34,9 @@ If you don't get this in $showHint tries, you can get a hint.
 END_TEXT
 BEGIN_HINT
 
-To find the probability of the event that a number greater than 1 is rolled, use the formula for finding the probability of an event:
+To determine whether an event is likely, we need to know whether the probability is greater than \( \frac{1}{2} \), less than \( \frac{1}{2} \), or equal to \( \frac{1}{2} \). Use the probability formula to find the probability of the event (In this case the event is rolling a number greater than 1):
 $BR
-\( \text{Probability of an event} = \frac{\text{Number of ways an event can happen}}{\text{Total number of possible outcomes}} \)
+\( \text{Probability of the event} = \frac{\text{Number of ways the event can happen}}{\text{Total number of possible outcomes}} \)
 END_HINT
 
 $showPartialCorrectAnswers = 0;

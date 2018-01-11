@@ -28,6 +28,23 @@ is `20` feet, what is the height?
 \{ ans_rule(25) \}
 
 END_TEXT
+
+$showHint = 1;
+BEGIN_TEXT
+$PAR
+If you don't get this in $showHint tries, you can get a hint.
+END_TEXT
+BEGIN_HINT
+
+To find the height, first recall the formula for the area of a triangle.
+
+\( A = \frac{1}{2} b \cdot h \).
+
+Here, \(A\) represents the area, \(b\) stands for the length of the base, and \(h\) stands for the height.
+
+Plug in all of the values that are known, and then find \(h \).
+END_HINT
+
 ANS(num_cmp( '16', 'units'=>'ft' ));
 #ANS(Compute('16')->cmp(), 'units'=>'ft' );
 
