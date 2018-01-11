@@ -31,7 +31,7 @@ common factor: [`27x + 45`]
 
 \{ ans_rule(25) \}
 END_TEXT
-ANS($factored_form->cmp());
+ANS($factoredform->cmp());
   ######################################################################
 
   ENDDOCUMENT();
