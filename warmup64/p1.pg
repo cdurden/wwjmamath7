@@ -1,16 +1,11 @@
-  DOCUMENT();
-  loadMacros(
-    "PGstandard.pl",
-    "PGML.pl",
-    "MathObjects.pl",
-    "PGcourse.pl",
-    "parserNumberWithUnits.pl",
-    "contextArbitraryString.pl",
-    "parserMultiAnswer.pl",
-    "parserPopUp.pl",
-    "contextInequalities.pl",
-    "PGgraphmacros.pl",
-  );
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"contextFraction.pl",
+"AnswerFormatHelp.pl",
+);
   TEXT(beginproblem());
   $showPartialCorrectAnswers = 1;
 
