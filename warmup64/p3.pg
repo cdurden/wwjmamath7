@@ -1,0 +1,35 @@
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+);
+
+$mc = new_multiple_choice();
+$mc->qa(
+"Is rolling a number greater
+than 1 on a number cube a
+likely event, unlikely event,
+or neither?",
+"likely event"
+);
+$mc->extra(
+"unlikely event",
+);
+$mc->makeLast("neither");
+
+
+  ######################################################################
+BEGIN_TEXT
+\{ $mc->print_q() \}
+$BR
+\{ $mc->print_a() \}
+END_TEXT
+  ######################################################################
+$showPartialCorrectAnswers = 0;
+
+ANS( radio_cmp( $mc->correct_ans() ) );
+
+ENDDOCUMENT();
+
+  ENDDOCUMENT();
