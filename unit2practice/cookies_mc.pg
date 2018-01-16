@@ -15,23 +15,26 @@ loadMacros(
     "parserImplicitEquation.pl",
 );
 
-Context("ImplicitEquation");
-Context()->variables->add(t=>"Real", n=>"Real");
-Context()->variables->set(
-n=>{limits=>[0,4]},
-t=>{limits=>[0,4]}
-);
+#Context("ImplicitEquation");
+#Context()->variables->add(n=>"Real");
+#Context()->variables->set(
+#n=>{limits=>[0,4]}
+#);
 
 $mc = new_multiple_choice();
 $mc->qa(
 "Which proportion can Mary use to find the number
 of cups of flour she needs to make 10 cookies?",
-"`2/6 = n/10`"
+"\( \frac{2}{6} = \frac{n}{10}  \)",
+#`2/6 = n/10`"
 );
 $mc->extra(
-"`6/10 = n/2`",
-"`2/6 = n/100`",
-"`6/2 = n/10`"
+"\( \frac{6}{10} = \frac{n}{2}  \)",
+"\( \frac{2}{6} = \frac{n}{100}  \)",
+"\( \frac{6}{2} = \frac{n}{10}  \)",
+#"`6/10 = n/2`",
+#"`2/6 = n/100`",
+#"`6/2 = n/10`"
 );
 
 
