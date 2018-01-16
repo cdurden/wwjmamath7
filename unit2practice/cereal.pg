@@ -22,7 +22,7 @@ the back of the cereal box, as shown in the table
 below.
 
 $BR
-\{ image( "cereal.png", width=>350, height=>450 )\}
+\{ image( "cereal.png", width=>400, height=>350 )\}
 
 $BR
 

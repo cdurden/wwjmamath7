@@ -28,7 +28,7 @@ f=>{limits=>[0,4]}
 Let `p` represent the number of phones and let `f` represent the number of families. Write an equation for the relationship between the number of phones and the number of families shown in the table below. 
 
 $BR
-\{ image( "table.png" ) \}
+\{ image( "table.png" , width=>300, height=>300) \}
 
 $BR
 \{ ans_rule(25) \}

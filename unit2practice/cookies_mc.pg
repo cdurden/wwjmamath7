@@ -46,7 +46,7 @@ A recipe for cookies calls for `2` cups of flour to
 make `6` cookies.
 
 $BR
-\{ image( "cookies.png" ) \}
+\{ image( "cookies.png", width=>500, height=>250 ) \}
 
 $BR
 

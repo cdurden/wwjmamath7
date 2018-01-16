@@ -21,7 +21,7 @@ A snail is trying to get to the other side of a park.
 At what rate is the snail traveling?
 
 $BR
-\{ image( "snail.png" ) \}
+\{ image( "snail.png", width=>400, height=>350 ) \}
 
 $BR
 \{ ans_rule(25) \} foot per minute

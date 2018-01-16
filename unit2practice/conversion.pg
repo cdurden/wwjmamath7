@@ -23,6 +23,10 @@ Elizabeth is mixing the ingredients for five batches
 at the same time, how many tablespoons of vanilla
 will she use?
 
+$BR
+\{ image( "conversion.png", width=>400, height=>100 )\}
+
+$BR
 \{ ans_rule(25) \}
 
 END_TEXT
