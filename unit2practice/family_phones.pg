@@ -18,8 +18,8 @@
 Context("ImplicitEquation");
 Context()->variables->add(p=>"Real", f=>"Real");
 Context()->variables->set(
-n=>{limits=>[0,4]},
-t=>{limits=>[0,4]}
+p=>{limits=>[0,4]},
+f=>{limits=>[0,4]}
 );
   $eqn = ImplicitEquation("p = 7/2 f");
 
