@@ -1,0 +1,52 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"contextFraction.pl",
+"AnswerFormatHelp.pl",
+);
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+  #Context("Numeric") ; 
+  Context("LimitedFraction");
+  #Context()->flags->set(tolerance => 0.01);
+  $answer = Compute('2 1/2');
+
+  ######################################################################
+Context()->texStrings;
+BEGIN_TEXT
+To make hot cereal, Macy uses the directions on
+the back of the cereal box, as shown in the table
+below.
+
+$BR
+\{ image( "cereal.png" ) \}
+
+$BR
+
+Macy wants to make `10` servings of hot cereal.
+Using this table, what is the total number of cups
+of dry cereal that she should use?
+
+$BR
+
+\{ ans_rule(25) \} cups
+
+END_TEXT
+
+$showHint = 1;
+BEGIN_TEXT
+$PAR
+If you don't get this in $showHint tries, you can get a hint.
+END_TEXT
+BEGIN_HINT
+Continue the pattern shown in the table. How can you use multiplication to find the answer quickly?
+END_HINT
+ANS($answer->cmp(allowMixedNumbers=>1, reduceConstants=>0));
+Context()->normalStrings;
+
+  ######################################################################
+
+  ENDDOCUMENT();

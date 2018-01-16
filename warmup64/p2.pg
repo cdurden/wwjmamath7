@@ -22,7 +22,6 @@ $factoredform = Compute("$a*($b*x+$c)");
 
 
   ######################################################################
-TEXT(beginproblem());
 Context()->texStrings;
 BEGIN_TEXT
 Factor the linear

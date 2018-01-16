@@ -1,0 +1,48 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+);
+
+$mc = new_multiple_choice();
+$mc->qa(
+"Which proportion can Mary use to nd the number
+of cups of our she needs to make 10 cookies?",
+`2/6 = n/10`
+);
+$mc->extra(
+`6/10 = n/2`,
+`2/6 = n/100`,
+`6/2 = n/10`
+);
+
+
+Context("ImplicitEquation");
+Context()->variables->add(t=>"Real", n=>"Real");
+Context()->variables->set(
+n=>{limits=>[0,4]},
+t=>{limits=>[0,4]}
+);
+  $eqn = ImplicitEquation("t = 1.75n");
+
+  ######################################################################
+  BEGIN_TEXT
+A recipe for cookies calls for 2 cups of our to
+make 6 cookies.
+
+$BR
+\{ image( "cookies.png" ) \}
+
+$BR
+
+\{ $mc->print_q() \}
+
+$BR
+\{ $mc->print_a() \}
+
+END_TEXT
+ANS($eqn->cmp);
+  ######################################################################
+
+  ENDDOCUMENT();

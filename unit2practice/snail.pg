@@ -1,0 +1,44 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"contextFraction.pl",
+"AnswerFormatHelp.pl",
+);
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+  #Context("Numeric") ; 
+  Context("LimitedFraction");
+  #Context()->flags->set(tolerance => 0.01);
+  $answer = Compute('1 1/2');
+
+  ######################################################################
+Context()->texStrings;
+BEGIN_TEXT
+A snail is trying to get to the other side of a park.
+At what rate is the snail traveling?
+
+$BR
+\{ image( "snail.png" ) \}
+
+$BR
+\{ ans_rule(25) \} foot per minute
+
+END_TEXT
+
+$showHint = 1;
+BEGIN_TEXT
+$PAR
+If you don't get this in $showHint tries, you can get a hint.
+END_TEXT
+BEGIN_HINT
+First, find how many teaspoons she will use. Then use the conversion chart to convert this amount into tablespoons.
+END_HINT
+ANS($answer->cmp(allowMixedNumbers=>1, reduceConstants=>0));
+Context()->normalStrings;
+
+  ######################################################################
+
+  ENDDOCUMENT();
