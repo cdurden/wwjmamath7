@@ -15,6 +15,13 @@ loadMacros(
     "parserImplicitEquation.pl",
 );
 
+Context("ImplicitEquation");
+Context()->variables->add(t=>"Real", n=>"Real");
+Context()->variables->set(
+n=>{limits=>[0,4]},
+t=>{limits=>[0,4]}
+);
+
 $mc = new_multiple_choice();
 $mc->qa(
 "Which proportion can Mary use to find the number
@@ -28,12 +35,6 @@ $mc->extra(
 );
 
 
-#Context("ImplicitEquation");
-#Context()->variables->add(t=>"Real", n=>"Real");
-#Context()->variables->set(
-#n=>{limits=>[0,4]},
-#t=>{limits=>[0,4]}
-#);
 #  $eqn = ImplicitEquation("t = 1.75n");
 
   ######################################################################
