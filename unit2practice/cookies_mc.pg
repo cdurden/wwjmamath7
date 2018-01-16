@@ -3,6 +3,16 @@ DOCUMENT();
 loadMacros(
 "PGstandard.pl",
 "PGchoicemacros.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+    "contextInequalities.pl",
+    "PGgraphmacros.pl",
+    "parserImplicitEquation.pl",
 );
 
 $mc = new_multiple_choice();
@@ -18,13 +28,13 @@ $mc->extra(
 );
 
 
-Context("ImplicitEquation");
-Context()->variables->add(t=>"Real", n=>"Real");
-Context()->variables->set(
-n=>{limits=>[0,4]},
-t=>{limits=>[0,4]}
-);
-  $eqn = ImplicitEquation("t = 1.75n");
+#Context("ImplicitEquation");
+#Context()->variables->add(t=>"Real", n=>"Real");
+#Context()->variables->set(
+#n=>{limits=>[0,4]},
+#t=>{limits=>[0,4]}
+#);
+#  $eqn = ImplicitEquation("t = 1.75n");
 
   ######################################################################
   BEGIN_TEXT
@@ -42,7 +52,10 @@ $BR
 \{ $mc->print_a() \}
 
 END_TEXT
-ANS($eqn->cmp);
+
+
+ANS( radio_cmp( $mc->correct_ans() ) );
+#ANS($eqn->cmp);
   ######################################################################
 
   ENDDOCUMENT();
