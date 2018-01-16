@@ -9,9 +9,9 @@ loadMacros(
   TEXT(beginproblem());
   $showPartialCorrectAnswers = 1;
 
-  #Context("Numeric") ; 
-  Context("LimitedFraction");
-  #Context()->flags->set(tolerance => 0.01);
+  Context("Numeric") ; 
+  #Context("LimitedFraction");
+  Context()->flags->set(tolerance => 0.01);
   $answer = Compute('1 1/2');
 
   ######################################################################
@@ -36,7 +36,7 @@ END_TEXT
 BEGIN_HINT
 We want to find the unit rate for the relationship shown in the graph. The best way to do this is to find a pair of x and y values that are on the graph. It is clear that the graph passes through the point (2,3). Therefore the snail travels 3 feet in 2 minutes. Use this information to find the unit rate.
 END_HINT
-ANS($answer->cmp(allowMixedNumbers=>1, reduceConstants=>0));
+ANS($answer->cmp());
 Context()->normalStrings;
 
   ######################################################################
