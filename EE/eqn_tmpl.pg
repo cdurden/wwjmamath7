@@ -52,7 +52,7 @@ TEXT(beginproblem());
 ######################################################################
 BEGIN_PGML
 
-During the month of January, [$name] sold two varieties of Tyrkisk Pebers, original and "Hot & Sour". A package of original pebers sell for $DOLLAR()[`$rate1`], and a package of Hot & Sour sells for $DOLLAR()[`$rate2`] in the United States. If [`T`] represents [$possessive] total sales for the month, in dollars, write an equation that could be used to [$possessive] total sales if [$name] sells [`o`] packages of original and [`h`] Hot & Sour packages.
+During the month of January, [$name] sold two varieties of Tyrkisk Pebers, original and "Hot & Sour". A package of original pebers sell for \$[`$rate1`], and a package of Hot & Sour sells for \$[`$rate2`] in the United States. If [`T`] represents [$possessive] total sales for the month, in dollars, write an equation that could be used to [$possessive] total sales if [$name] sells [`o`] packages of original and [`h`] Hot & Sour packages.
 
 *Solution:* [_________]{$eqn}
 
