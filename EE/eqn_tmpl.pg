@@ -32,13 +32,14 @@ $showPartialCorrectAnswers = 1;
 $rate1 = random(6,7,1)+random(0,9,1)/10;
 $rate2 = random(6,7,1)+random(0,9,1)/10;
 
-$rate1C = Currency($rate1);
-$rate2C = Currency($rate2);
-
 $sex = list_random('male','female');
 $name = RandomName(sex=>$sex);
 $pronoun = ($sex eq 'male') ? 'he' : 'she';
 $possessive = ($sex eq 'male') ? 'his' : 'her';
+
+Context("Currency");
+$rate1C = Currency("$rate1");
+$rate2C = Currency("$rate2");
 
 Context("ImplicitEquation");
 Context()->variables->add(T=>"Real", p=>"Real", q=>"Real");
