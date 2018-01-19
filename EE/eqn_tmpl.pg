@@ -17,6 +17,7 @@ loadMacros(
   "PGML.pl",
   "contextCurrency.pl",
   "PGcourse.pl",
+  "PCCmacros.pl",
 #  "parserNumberWithUnits.pl",
 #  "contextArbitraryString.pl",
 #  "parserMultiAnswer.pl",
