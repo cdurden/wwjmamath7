@@ -1,42 +1,80 @@
-  DOCUMENT();
-  loadMacros(
-    "PGstandard.pl",
-    "PGML.pl",
-    "MathObjects.pl",
-    "PGcourse.pl",
-    "parserNumberWithUnits.pl",
-    "contextArbitraryString.pl",
-    "parserMultiAnswer.pl",
-    "parserPopUp.pl",
-    "contextInequalities.pl",
-    "PGgraphmacros.pl",
-    "parserImplicitEquation.pl",
-  );
-  TEXT(beginproblem());
-  $showPartialCorrectAnswers = 1;
+## DBCCSS('7.RP.3','6.RP.3c')
+## DBsubject(Arithmetic)
+## DBchapter(Percents)
+## DBsection(Applications)
+## Institution(PCC)
+## Author(Carl Yao)
+## MLT(moneymoneymoney)
+## Level(3)
+## MO(1)
+## KEYWORDS('equation','application')
+
+#################################################
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "contextCurrency.pl",
+  "PGcourse.pl",
+#  "parserNumberWithUnits.pl",
+#  "contextArbitraryString.pl",
+#  "parserMultiAnswer.pl",
+#  "parserPopUp.pl",
+#  "contextInequalities.pl",
+#  "PGgraphmacros.pl",
+#  "parserImplicitEquation.pl",
+);
+
+$showPartialCorrectAnswers = 1;
+
+$rate1 = random(6,7,1)+random(0,9,1)/10;
+$rate2 = random(6,7,1)+random(0,9,1)/10;
+
+
+$sex = list_random('male','female');
+$name = RandomName(sex=>$sex);
+$pronoun = ($sex eq 'male') ? 'he' : 'she';
+$possessive = ($sex eq 'male') ? 'his' : 'her';
 
 Context("ImplicitEquation");
-Context()->variables->add(p=>"Real", f=>"Real");
+Context()->variables->add(T=>"Real", p=>"Real", q=>"Real");
 Context()->variables->set(
+T=>{limits=>[0,4]},
 p=>{limits=>[0,4]},
-f=>{limits=>[0,4]}
+q=>{limits=>[0,4]}
 );
-  $eqn = ImplicitEquation("p = 7/2 f");
+$eqn = ImplicitEquation("T = $rate1 p + $rate2 q ");
 
-  ######################################################################
-  BEGIN_TEXT
-Let `p` represent the number of phones and let `f` represent the number of families. Write an equation for the relationship between the number of phones and the number of families shown in the table below. 
+TEXT(beginproblem());
 
-$BR
-\{ image( "table.png" , width=>300, height=>300) \}
+######################################################################
+BEGIN_PGML
 
-$BR
-\{ ans_rule(25) \}
+During the month of January, [$name] sold two varieties of Tyrkisk Pebers, original and "Hot & Sour". A package of original pebers sell for $DOLLAR()[`$rate1`], and a package of Hot & Sour sells for $DOLLAR()[`$rate2`] in the United States. If [`T`] represents [$possessive] total sales for the month, in dollars, write an equation that could be used to [$possessive] total sales if [$name] sells [`o`] packages of original and [`h`] Hot & Sour packages.
+
+*Solution:* [_________]{$eqn}
+
+If you don't get this in [$showHint] tries, you can get a hint.
+
+END_PGML
+
+$showHint = 1;
+
+BEGIN_PGML_HINT
+END_PGML_HINT
+
+
+BEGIN_PGML_SOLUTION
+
+To find [$name]'s total sales in a month, we need to add $possessive$ sales of original pebers and $possessive$ sales of Hot & Spicy pebers. [@ucfirst($pronoun)@] sells [`o`] original packages and each package of original pebers costs $DOLLAR()[`$rate1`], so the total sales from original pebers is [:$rate1 o:]. Similarly, [$pronoun] sells [`h`] Hot & Sour packages and each package of Hot & Sour pebers costs $DOLLAR()[`$rate2`], so the total sales from original pebers is [:$rate2 h:]. The total sales [`T`] is the sum of $possessive$ sales of original pebers and $possessive$ sales of Hot & Spicy pebers. This can be represented by the equation [:`eqn`:].
+
+
+END_PGML_SOLUTION
 
 
 
-END_TEXT
 ANS($eqn->cmp);
-  ######################################################################
+######################################################################
 
-  ENDDOCUMENT();
+ENDDOCUMENT();
