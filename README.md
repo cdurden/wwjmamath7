@@ -1,3 +1,3 @@
 # wwjmamath7
 
-Testing 1, 2, 3, 4xxxc
+Testing 1, 2, 3
