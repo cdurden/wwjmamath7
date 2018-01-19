@@ -71,7 +71,7 @@ END_PGML_HINT
 
 BEGIN_PGML_SOLUTION
 
-To find [$name]'s total sales in a month, we need to add [$possessive] sales of original pebers and [$possessive] sales of Hot & Spicy pebers. [@ucfirst($pronoun)@] sells [`o`] original packages and each package of original pebers costs \$[$rate1], so the total sales from original pebers is [:"$rate1 o":]. Similarly, [$pronoun] sells [`h`] Hot & Sour packages and each package of Hot & Sour pebers costs \$[$rate2], so the total sales from original pebers is [:$rate2 h:]. The total sales [`T`] is the sum of [$possessive] sales of original pebers and $possessive$ sales of Hot & Spicy pebers. This can be represented by the equation [:`eqn`:].
+To find [$name]'s total sales in a month, we need to add [$possessive] sales of original pebers and [$possessive] sales of Hot & Spicy pebers. [@ucfirst($pronoun)@] sells [`o`] original packages and each package of original pebers costs \$[$rate1], so the total sales from original pebers is [:[$rate1] o:]. Similarly, [$pronoun] sells [`h`] Hot & Sour packages and each package of Hot & Sour pebers costs \$[$rate2], so the total sales from original pebers is [:[$rate2] h:]. The total sales [`T`] is the sum of [$possessive] sales of original pebers and $possessive$ sales of Hot & Spicy pebers. This can be represented by the equation [:[$eqn]:].
 
 
 END_PGML_SOLUTION
