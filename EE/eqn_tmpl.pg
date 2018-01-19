@@ -24,7 +24,7 @@ loadMacros(
 #  "parserPopUp.pl",
 #  "contextInequalities.pl",
 #  "PGgraphmacros.pl",
-#  "parserImplicitEquation.pl",
+  "parserImplicitEquation.pl",
 );
 
 $showPartialCorrectAnswers = 1;
