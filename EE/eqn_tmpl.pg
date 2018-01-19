@@ -42,13 +42,13 @@ $rate1C = Currency("$rate1");
 $rate2C = Currency("$rate2");
 
 Context("ImplicitEquation");
-Context()->variables->add(T=>"Real", p=>"Real", q=>"Real");
+Context()->variables->add(T=>"Real", h=>"Real", o=>"Real");
 Context()->variables->set(
 T=>{limits=>[0,30]},
-p=>{limits=>[0,4]},
-q=>{limits=>[0,4]}
+o=>{limits=>[0,4]},
+h=>{limits=>[0,4]}
 );
-$eqn = ImplicitEquation("T = $rate1 p + $rate2 q ");
+$eqn = ImplicitEquation("T = $rate1 o + $rate2 h ");
 
 TEXT(beginproblem());
 
