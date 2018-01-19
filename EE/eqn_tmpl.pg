@@ -1,0 +1,42 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+    "contextInequalities.pl",
+    "PGgraphmacros.pl",
+    "parserImplicitEquation.pl",
+  );
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+Context("ImplicitEquation");
+Context()->variables->add(p=>"Real", f=>"Real");
+Context()->variables->set(
+p=>{limits=>[0,4]},
+f=>{limits=>[0,4]}
+);
+  $eqn = ImplicitEquation("p = 7/2 f");
+
+  ######################################################################
+  BEGIN_TEXT
+Let `p` represent the number of phones and let `f` represent the number of families. Write an equation for the relationship between the number of phones and the number of families shown in the table below. 
+
+$BR
+\{ image( "table.png" , width=>300, height=>300) \}
+
+$BR
+\{ ans_rule(25) \}
+
+
+
+END_TEXT
+ANS($eqn->cmp);
+  ######################################################################
+
+  ENDDOCUMENT();
