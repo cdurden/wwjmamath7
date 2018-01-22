@@ -47,7 +47,7 @@ $BR
 Given how far Marty walked in 1 hour, what operation should we use to find how far Marty walked in 5 hours?
 END_HINT
 
-ANS(num_cmp( '17.5', 'units'=>'ft' ));
+ANS(num_cmp( '17.5', 'units'=>'mi' ));
 #ANS(Compute('16')->cmp(), 'units'=>'ft' );
 
   ######################################################################
