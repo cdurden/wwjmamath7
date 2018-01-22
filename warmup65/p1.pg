@@ -9,9 +9,10 @@ $mc = new_multiple_choice();
 $mc->qa(
 "Card C"
 );
-$mc->extra(
+$mc->makeLast(
 "Card A",
 "Card B",
+"Card C",
 "Card D",
 );
 
@@ -20,7 +21,7 @@ TEXT(beginproblem());
   ######################################################################
 BEGIN_TEXT
 
-\{ image( "cards.png" ) \}
+\{ image( "cards.png", width=>500, height=>250 ) \}
 $BR
 \{ $mc->print_a() \}
 

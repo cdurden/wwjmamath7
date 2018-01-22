@@ -18,7 +18,6 @@ loadMacros(
 Context()->texStrings;
 BEGIN_PGML
 Death Valley has an elevation of [`282`] feet below sea level. Townes Pass Summit has an elevation of [`4956`] feet above sea level. Which integer represents the difference in elevation from Death Valley to Townes Pass Summit?
-$BR
 
 END_PGML
 
