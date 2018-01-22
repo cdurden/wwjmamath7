@@ -1,0 +1,47 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"contextFraction.pl",
+"AnswerFormatHelp.pl",
+);
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+  #Context("Numeric") ; 
+  Context("LimitedFraction");
+  #Context()->flags->set(tolerance => 0.01);
+  $answer = Compute('5238');
+
+  ######################################################################
+Context()->texStrings;
+BEGIN_PGML
+Death Valley has an elevation of [`282`] feet below sea level. Townes Pass Summit has an elevation of [`4956`] feet above sea level. Which integer represents the difference in elevation from Death Valley to Townes Pass Summit?
+$BR
+
+END_PGML
+
+$showHint = 1;
+BEGIN_TEXT
+$PAR
+If you don't get this in $showHint tries, you can get a hint.
+END_TEXT
+BEGIN_HINT
+
+Method 1:
+
+Draw a number line. Make sure to include 0 (sea level) as well as positive and negative numbers. Locate the integer corresponding to `282` feet below sea level, and the integer corresponding to `4956` feet above sea level. Use the number line to determine the number of units between these two numbers.
+
+$BR
+Method 2:
+
+`282` feet below sea level can be represents by the integer `-282`, and `4956` feet above sea level can be represented by the integer `4956`. The difference in elevation is `4956- (-282)`. To simplify this expression, recall that subtracting a negative is equivalent to adding a positive (In general, to subtract a number, we add the opposite).
+
+END_HINT
+ANS(num_cmp( '5238', 'units'=>'ft' ));
+Context()->normalStrings;
+
+  ######################################################################
+
+  ENDDOCUMENT();

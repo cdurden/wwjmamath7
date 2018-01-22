@@ -1,0 +1,44 @@
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+);
+
+$mc = new_multiple_choice();
+$mc->qa(
+"Card C"
+);
+$mc->extra(
+"Card A",
+"Card B",
+"Card D",
+);
+
+$showHint = 1;
+TEXT(beginproblem());
+  ######################################################################
+BEGIN_TEXT
+
+\{ image( "cards.png" ) \}
+$BR
+\{ $mc->print_a() \}
+
+$PAR
+If you don't get this in $showHint tries, you can get a hint.
+END_TEXT
+BEGIN_HINT
+
+First, determine the sum of the cars that Toni already has. What integer would give zero if added to this sum?
+$BR
+
+Recall that the integer which gives zero when added to a number is called its additive inverse.
+END_HINT
+
+$showPartialCorrectAnswers = 0;
+
+ANS( radio_cmp( $mc->correct_ans() ) );
+
+ENDDOCUMENT();
+
+  ENDDOCUMENT();
