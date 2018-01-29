@@ -83,7 +83,7 @@ DataTable(
 
 $PAR
 
-Explain your answers in the box below.
+Justify your answers in the box below.
 $BR
 \{essay_box()\}
 END_TEXT
