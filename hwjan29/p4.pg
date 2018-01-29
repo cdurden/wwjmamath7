@@ -30,13 +30,16 @@ $tf->ra_pop_up_list( [
 
 
   ######################################################################
-  BEGIN_TEXT
+Context()->texStrings;
 $tf -> qa (
 "Does table A represent a proportional relationship?",
 "Yes",
 "Does table B represent a proportional relationship?",
 "Yes");
+$tf->choose(2);
 
+Context()->texStrings;
+BEGIN_TEXT
 $PAR
 \{
 DataTable(
@@ -74,8 +77,11 @@ DataTable(
   align => 'c | c',
 );
 \}
+
+\{ $tf -> print_q() \}
 
 END_TEXT
+Context()->normalStrings;
 
 ############################
 # Answer evaluation
