@@ -107,7 +107,7 @@ $ENV{'grader_scores'} = [1];
 #
 # All or nothing grader
 #
- install_problem_grader(~~&std_problem_grader);
+# install_problem_grader(~~&std_problem_grader);
 
 ANS( str_cmp( $tf->ra_correct_ans() ) );
 ANS(essay_cmp());
