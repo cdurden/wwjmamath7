@@ -46,7 +46,7 @@ DataTable(
   allcellcss => "border:solid 1px;",
 #  caption => 'Captains of the Enterprise',
   midrules => 1,
-  align => 'p{1in} X',
+  align => 'l | c | c | c | c | c',
 );
 \}
 
