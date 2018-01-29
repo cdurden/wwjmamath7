@@ -50,11 +50,11 @@ DataTable(
     ['-14], '-2'],
     ['-7', '-1'],
   ], 
-  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
-  allcellcss => "border:solid 1px;",
-  caption => 'Table A',
-  midrules => 1,
-  align => 'c | c',
+#  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+#  allcellcss => "border:solid 1px;",
+#  caption => 'Table A',
+#  midrules => 1,
+#  align => 'c | c',
 );
 \}
 
@@ -69,11 +69,11 @@ DataTable(
     ['-7', '-1'],
   ], 
 #  rowheaders => 1,
-  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
-  allcellcss => "border:solid 1px;",
-  caption => 'Table A',
-  midrules => 1,
-  align => 'c | c',
+#  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+#  allcellcss => "border:solid 1px;",
+#  caption => 'Table A',
+#  midrules => 1,
+#  align => 'c | c',
 );
 \}
 
