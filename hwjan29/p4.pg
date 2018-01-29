@@ -1,0 +1,106 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
+    "PGgraphmacros.pl",
+    "parserImplicitEquation.pl",
+    "niceTables.pl",
+"PGchoicemacros.pl",
+"PGgraders.pl",
+  );
+  TEXT(beginproblem());
+
+
+$tf = new_select_list();
+$tf->rf_print_q(~~&pop_up_list_print_q);
+
+$tf->ra_pop_up_list( [
+"No answer" => "?",
+"Yes" => "Yes",
+"No" => "No",
+]);
+
+
+  ######################################################################
+  BEGIN_TEXT
+$tf -> qa (
+"Does table A represent a proportional relationship?",
+"Yes",
+"Does table B represent a proportional relationship?",
+"Yes");
+
+$PAR
+\{
+DataTable(
+  [
+    [['x', headerrow=>1],'y'],
+    ['-70', '-10'],
+    ['-56', '-8'],
+    ['-14], '-2'],
+    ['-7', '-1'],
+  ], 
+#  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  caption => 'Table A',
+  midrules => 1,
+  align => 'c | c',
+);
+\}
+
+$PAR
+\{
+DataTable(
+  [
+    [['x', headerrow=>1],'y'],
+    ['-70', '-10'],
+    ['-56', '-8'],
+    ['-14], '-2'],
+    ['-7', '-1'],
+  ], 
+#  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  caption => 'Table A',
+  midrules => 1,
+  align => 'c | c',
+);
+\}
+
+END_TEXT
+
+############################
+# Answer evaluation
+
+$showPartialCorrectAnswers = 0;
+
+#
+# Incremental grader
+#
+#install_problem_grader(~~&custom_problem_grader_fluid);
+#$ENV{'grader_numright'} = [2,4,5];
+#$ENV{'grader_scores'} = [0.3,0.6,1];
+#$ENV{'grader_message'} = "You can earn " .
+#"30% partial credit for 2 - 3 correct answers, and " .
+#"60% partial credit for 4 correct answers.";
+
+#
+# All or nothing grader
+#
+ install_problem_grader(~~&std_problem_grader);
+
+ANS( str_cmp( $tf->ra_correct_ans() ) );
+
+
+
+  ######################################################################
+
+  ENDDOCUMENT();
