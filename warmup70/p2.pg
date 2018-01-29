@@ -22,7 +22,7 @@
   ######################################################################
   BEGIN_PGML
   If Ethan multiplied the amount on his dinner bill by [`1.15`] to find his total, what percent tip was he paying?
-  [____________]{"115%"}
+  [____________]{"15%"}
   END_PGML
   ######################################################################
 
