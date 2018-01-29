@@ -30,7 +30,7 @@ $tf->ra_pop_up_list( [
 
 
   ######################################################################
-Context()->texStrings;
+#Context()->texStrings;
 $tf -> qa (
 "Does table A represent a proportional relationship?",
 "Yes",
@@ -38,7 +38,7 @@ $tf -> qa (
 "Yes");
 $tf->choose(2);
 
-Context()->texStrings;
+#Context()->texStrings;
 BEGIN_TEXT
 $PAR
 \{
