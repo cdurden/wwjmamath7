@@ -1,0 +1,27 @@
+DOCUMENT();
+#Load the Essay Macros
+loadMacros("PG.pl","PGbasicmacros.pl","PGanswermacros.pl","MathObjects.pl","PGessaymacros.pl");
+
+$m = random(2,5);
+$b = random(20,30);
+Context("Numeric");
+Context()->variables->add(D => 'Real');
+$F = Formula("$m D + $b");
+$y1 = $F->eval(D=>1);
+$y2 = $F->eval(D=>2);
+
+BEGIN_TEXT
+The cost to download data using your phone is a linear function of the amount of data downloaded. Suppose it costs $y1 dollars to download 1 gigabyte of data and $y2 dollars to download 2 gigabytes of data.
+$PAR
+Find a formula for the cost C in terms of the amount downloaded D. $BR
+C=\{ans_rule()\}
+$PAR
+What do the slope and y-intercept of this function represent? $BR
+\{#Put an Essay Box where ever you want a essay type answer\}
+\{essay_box()\}
+END_TEXT
+
+ANS($F->cmp());
+#Essay Boxs use the essay_cmp evaluator.
+ANS(essay_cmp());
+ENDDOCUMENT(); 

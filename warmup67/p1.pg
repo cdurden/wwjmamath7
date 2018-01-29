@@ -1,0 +1,51 @@
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+);
+
+$mc = new_multiple_choice();
+$mc->qa(
+"",
+"Card C"
+);
+$mc->makeLast(
+"Card A",
+"Card B",
+"Card C",
+"Card D",
+);
+
+$showHint = 1;
+TEXT(beginproblem());
+  ######################################################################
+BEGIN_TEXT
+Two and one-half apple
+pies sit in front of 8 hungry
+people. If they finish the
+pies, and each person eats the
+same amount, find the unit
+rate in apple pie per person. 
+
+$BR
+\{ $mc->print_a() \}
+
+$PAR
+If you don't get this in $showHint tries, you can get a hint.
+END_TEXT
+BEGIN_HINT
+
+First, determine the sum of the cars that Toni already has. What integer would give zero if added to this sum?
+$BR
+
+Recall that the integer which gives zero when added to a number is called its additive inverse.
+END_HINT
+
+$showPartialCorrectAnswers = 0;
+
+ANS( radio_cmp( $mc->correct_ans() ) );
+
+ENDDOCUMENT();
+
+  ENDDOCUMENT();

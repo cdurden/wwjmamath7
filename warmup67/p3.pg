@@ -1,0 +1,54 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
+    "PGgraphmacros.pl",
+  );
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+  Context("Numeric") ; 
+  #Context("Fraction-NoDecimals");
+  #Context("LimitedFraction");
+  Context()->flags->set(tolerance => 0.01);
+
+  ######################################################################
+  BEGIN_TEXT
+Find the following sum:
+
+`55 + (-77) + (-27) + 16`
+
+$BR
+
+\{ ans_rule(25) \}
+
+END_TEXT
+
+$showHint = 1;
+BEGIN_TEXT
+$PAR
+If you don't get this in $showHint tries, you can get a hint.
+END_TEXT
+BEGIN_HINT
+
+First find the unit rate. How far did Marty walk in 1 hour?
+
+$BR
+
+Given how far Marty walked in 1 hour, what operation should we use to find how far Marty walked in 5 hours?
+END_HINT
+
+ANS(num_cmp( '17.5', 'units'=>'mi' ));
+#ANS(Compute('16')->cmp(), 'units'=>'ft' );
+
+  ######################################################################
+
+  ENDDOCUMENT();
