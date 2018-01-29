@@ -15,6 +15,10 @@
     "niceTables.pl",
 "PGchoicemacros.pl",
 "PGgraders.pl",
+"PGessaymacros.pl",
+#"PGanswermacros.pl",
+#"PGbasicmacros.pl",
+#"PG.pl",
   );
   TEXT(beginproblem());
 
@@ -77,6 +81,11 @@ DataTable(
 
 \{ $tf -> print_q() \}
 
+$PAR
+
+Explain your answers in the box below.
+$BR
+\{essay_box()\}
 END_TEXT
 Context()->normalStrings;
 
@@ -101,7 +110,7 @@ $showPartialCorrectAnswers = 0;
  install_problem_grader(~~&std_problem_grader);
 
 ANS( str_cmp( $tf->ra_correct_ans() ) );
-
+ANS(essay_cmp());
 
 
   ######################################################################
