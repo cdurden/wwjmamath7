@@ -35,7 +35,7 @@ $tf -> qa (
 "Does table A represent a proportional relationship?",
 "Yes",
 "Does table B represent a proportional relationship?",
-"Yes");
+"No");
 $tf->choose(2);
 
 #Context()->texStrings;
@@ -57,20 +57,19 @@ DataTable(
 );
 \}
 
-$PAR
 \{
 DataTable(
   [
     [['x', headerrow => 1],'y'],
-    ['-70', '-10'],
-    ['-56', '-8'],
-    ['-14', '-2'],
-    ['-7', '-1'],
+    ['9', '3'],
+    ['36', '6'],
+    ['64', '8'],
+    ['81', '9'],
   ], 
   rowheaders => 1,
   tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
   allcellcss => "border:solid 1px;",
-  caption => 'Table A',
+  caption => 'Table B',
   midrules => 1,
   align => 'c | c',
 );
