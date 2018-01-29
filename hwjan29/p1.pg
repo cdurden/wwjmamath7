@@ -43,6 +43,7 @@ DataTable(
   ], 
   rowheaders => 1,
   tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:separate;",
+  allcellcss => "border:solid 1px;",
 #  caption => 'Captains of the Enterprise',
   midrules => 1,
   align => 'p{1in} X',
