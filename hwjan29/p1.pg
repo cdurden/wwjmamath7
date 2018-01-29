@@ -42,7 +42,7 @@ DataTable(
     ['Bird houses painted', '15', '30', '18', '27', '6']
   ], 
   rowheaders => 1,
-  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:separate;",
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
   allcellcss => "border:solid 1px;",
 #  caption => 'Captains of the Enterprise',
   midrules => 1,
