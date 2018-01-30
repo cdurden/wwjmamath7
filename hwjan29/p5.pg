@@ -33,7 +33,7 @@ Find the final cost of the item, given the percent discount and the percent sale
 
 $BR
 
-Computer $PERCENT()$orig, $discount% discount, $tax% sales tax
+Computer $DOLLAR$orig, $discount% discount, $tax% sales tax
 
 $BR
 
