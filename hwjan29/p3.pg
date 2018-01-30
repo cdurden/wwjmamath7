@@ -26,7 +26,7 @@
 Context("ImplicitEquation");
 Context()->variables->add(d=>"Real", l=>"Real");
 Context()->variables->set(
-d=>{limits=>[0,4]},
+d=>{limits=>[0,172]},
 l=>{limits=>[0,4]}
 );
 $eqn = ImplicitEquation("d = 43 l");

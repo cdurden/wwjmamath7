@@ -20,7 +20,7 @@
 $orig = '$899.99';
 $discount = '10';
 $tax = '5';
-$ans = Compute("(1-$discount/100)(1+$tax/100) $orig');
+$ans = Compute("(1-$discount/100)(1+$tax/100) $orig");
 
   ######################################################################
 TEXT(beginproblem());
