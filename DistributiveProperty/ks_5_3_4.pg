@@ -59,6 +59,25 @@ $PAR
 Answer: \(A =\) \{ans_rule(20)\} and \(C =\) \{ans_rule(20)\}
 $HR
 END_TEXT
+$showHint = 1;
+BEGIN_TEXT
+$PAR
+If you don't get this in $showHint tries, you can get a hint.
+END_TEXT
+BEGIN_HINT
+We need to use a law of square roots to solve this problem. The law if the following:
+
+\[
+\sqrt{a \cdot b} = \sqrt{a} \cdot \sqrt{b}
+\]
+
+For example, since \(10 = 5 \cdot 2\):
+\[
+\sqrt{10} = \sqrt{5 \cdot 2} = \sqrt{5}\sqrt{2}
+\]
+
+END_HINT
+
 Context()->normalStrings;
 
 ########################################################################
