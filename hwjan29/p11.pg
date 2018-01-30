@@ -1,0 +1,83 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
+    "PGgraphmacros.pl",
+    "parserImplicitEquation.pl",
+    "niceTables.pl",
+"PGchoicemacros.pl",
+"PGgraders.pl",
+"PGessaymacros.pl",
+#"PGanswermacros.pl",
+#"PGbasicmacros.pl",
+#"PG.pl",
+  );
+  TEXT(beginproblem());
+
+
+$tf = new_select_list();
+$tf->rf_print_q(~~&pop_up_list_print_q);
+
+$tf->ra_pop_up_list( [
+"No answer" => "?",
+"10oz" => "10 ounce box",
+"1lb" => "1 pound box",
+]);
+
+
+  ######################################################################
+#Context()->texStrings;
+$tf -> qa (
+"You can buy your favorite crackers in a 10 ounce box for $2.69 or a 1 pound box for $3.28.  Which is a better buy?",
+"1lb");
+$tf->choose(1);
+
+#Context()->texStrings;
+BEGIN_TEXT
+
+
+\{ $tf -> print_q() \}
+
+$PAR
+
+Justify your answers in the box below.
+$BR
+\{essay_box()\}
+END_TEXT
+Context()->normalStrings;
+
+############################
+# Answer evaluation
+
+$showPartialCorrectAnswers = 0;
+
+#
+# Incremental grader
+#
+install_problem_grader(~~&custom_problem_grader_fluid);
+$ENV{'grader_numright'} = [1,2];
+$ENV{'grader_scores'} = [0.5,1];
+#$ENV{'grader_message'} = "You can earn " .
+#"30% partial credit for 2 - 3 correct answers, and " .
+#"60% partial credit for 4 correct answers.";
+
+#
+# All or nothing grader
+#
+# install_problem_grader(~~&std_problem_grader);
+
+ANS( str_cmp( $tf->ra_correct_ans() ) );
+ANS(essay_cmp());
+
+
+  ######################################################################
+
+  ENDDOCUMENT();

@@ -17,8 +17,9 @@
   #Context("Numeric") ;
   Context("Currency");
   Context()->flags->set(tolerance => 0.01);
-$orig = '$899.99';
-$discount = '10';
+$item = 'Necklace';
+$orig = '$39.97';
+$discount = '55';
 $tax = '5';
 $ans = Compute("(1-$discount/100)(1+$tax/100) $orig");
 
@@ -33,7 +34,7 @@ Find the final cost of the item, given the percent discount and the percent sale
 
 $BR
 
-Computer $orig, $discount% discount, $tax% sales tax
+$item $orig, $discount% discount, $tax% sales tax
 
 $BR
 
