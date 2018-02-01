@@ -12,7 +12,7 @@ loadMacros(
   #Context("Numeric") ; 
   Context("LimitedFraction");
   #Context()->flags->set(tolerance => 0.01);
-  $answer = Compute('(6 7/8) / (2 3/4)');
+  $answer = Compute('5/2');
 
   ######################################################################
 Context()->texStrings;
