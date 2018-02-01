@@ -50,11 +50,11 @@ Identify which set of ordered pairs show a proportional relationship and which o
 
 $BR
 
-(a) \( \{ (0,0) (2,6) (4,12) (6,18) \} \)
+(a) \{ \{ (0,0) (2,6) (4,12) (6,18) \} \}
 
 $BR
 
-(b) \( \{ (0,4) (2,10) (4,16) (6,22) \} \)
+(b) \{ \{ (0,4) (2,10) (4,16) (6,22) \} \}
 
 \{ $tf -> print_q() \}
 
