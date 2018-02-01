@@ -11,6 +11,7 @@
 #    "contextInequalities.pl",
     "contextFraction.pl",
     "PGgraphmacros.pl",
+    "extraAnswerEvaluators.pl",
   );
   TEXT(beginproblem());
   $showPartialCorrectAnswers = 1;
@@ -22,19 +23,22 @@
 
   ######################################################################
   BEGIN_TEXT
-Identify the constant of
-proportionality (unit rate)
-using the table below. Give
-the rate in phones per family. 
+Give the coordinates of
+the point on the graph. Then
+find the unit rate in miles per hour. 
 
 $BR
-\{ image( "table.png" ) \}
+\{ image( "graph.png", width=>500, height=>500 ) \}
 
 $BR
-\{ ans_rule(25) \} phones per family
+Coordinates:  \{ ans_rule(25) \}
+$BR
+Unit rate: \{ ans_rule(25) \} miles per hour
 
 END_TEXT
-ANS(Compute('7/2')->cmp());
+ANS(Compute('55')->cmp());
+
+ANS(interval_cmp("(3,165)", unions=>'no'))
 
   ######################################################################
 
