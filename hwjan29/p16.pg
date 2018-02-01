@@ -1,0 +1,95 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
+    "PGgraphmacros.pl",
+    "parserImplicitEquation.pl",
+    "niceTables.pl",
+"PGchoicemacros.pl",
+"PGgraders.pl",
+"PGessaymacros.pl",
+#"PGanswermacros.pl",
+#"PGbasicmacros.pl",
+#"PG.pl",
+  );
+  TEXT(beginproblem());
+
+
+$tf = new_select_list();
+$tf->rf_print_q(~~&pop_up_list_print_q);
+
+$tf->ra_pop_up_list( [
+"No answer" => "?",
+"Yes" => "Yes",
+"No" => "No",
+]);
+
+
+  ######################################################################
+#Context()->texStrings;
+$tf -> qa (
+"Does set (a) represent a proportional relationship?",
+"Yes",
+"Does set (b) represent a proportional relationship?",
+"No");
+$tf->choose(2);
+
+
+#Context()->texStrings;
+BEGIN_TEXT
+
+Identify which set of ordered pairs show a proportional relationship and which one does not.
+
+$BR
+
+(a) \( \{ (0,0) (2,6) (4,12) (6,18) \} \)
+
+$BR
+
+(b) \( \{ (0,4) (2,10) (4,16) (6,22) \} \)
+
+\{ $tf -> print_q() \}
+
+$PAR
+
+Justify your answers in the box below.
+$BR
+\{essay_box()\}
+END_TEXT
+Context()->normalStrings;
+
+############################
+# Answer evaluation
+
+$showPartialCorrectAnswers = 0;
+
+#
+# Incremental grader
+#
+install_problem_grader(~~&custom_problem_grader_fluid);
+$ENV{'grader_numright'} = [2,3];
+$ENV{'grader_scores'} = [0.5,1];
+#$ENV{'grader_message'} = "You can earn " .
+#"30% partial credit for 2 - 3 correct answers, and " .
+#"60% partial credit for 4 correct answers.";
+
+#
+# All or nothing grader
+#
+# install_problem_grader(~~&std_problem_grader);
+
+ANS( str_cmp( $tf->ra_correct_ans() ) );
+ANS(essay_cmp());
+
+
+  ######################################################################
+
+  ENDDOCUMENT();

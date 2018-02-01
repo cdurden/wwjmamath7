@@ -38,7 +38,7 @@ $PAR
 If you don't get this in $showHint tries, you can get a hint.
 END_TEXT
 BEGIN_HINT
-Continue the pattern shown in the table. How can you use multiplication to find the answer quickly?
+Simplify the numerator and the denominator first. Follow the order of operations.
 END_HINT
 ANS($answer->cmp(allowMixedNumbers=>1, reduceConstants=>0));
 Context()->normalStrings;

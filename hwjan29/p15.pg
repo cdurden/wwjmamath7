@@ -1,0 +1,54 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+    "contextInequalities.pl",
+    "contextCurrency.pl",
+    "PGgraphmacros.pl",
+  );
+  $showPartialCorrectAnswers = 1;
+
+  #Context("Numeric") ;
+  Context("Currency");
+  Context()->flags->set(tolerance => 0.01);
+$ans1 = Compute("1/7*47.25");
+$ans2 = Compute("40/7*47.25");
+
+  ######################################################################
+TEXT(beginproblem());
+Context()->texStrings;
+
+
+BEGIN_TEXT
+
+You are paid $47.25 for working 7 hours. 
+
+What is your hourly rate?  
+
+  $BR
+  \{ ans_rule(25) \} per hour 
+
+How much would you be paid for working a 40 hour week?
+
+  $BR
+  \{ ans_rule(25) \}
+
+$BR
+
+Computer $orig, $discount% discount, $tax% sales tax
+
+$BR
+
+  END_TEXT
+  ######################################################################
+ANS($ans1->cmp());
+ANS($ans2->cmp());
+
+
+  ENDDOCUMENT();
