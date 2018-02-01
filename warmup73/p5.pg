@@ -38,7 +38,7 @@ Unit rate: \{ ans_rule(25) \} miles per hour
 END_TEXT
 ANS(Compute('55')->cmp());
 
-ANS(interval_cmp("(3,165)", unions=>'no'))
+ANS(interval_cmp("(3,165)", unions=>'no'));
 
   ######################################################################
 
