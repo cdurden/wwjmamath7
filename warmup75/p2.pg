@@ -1,0 +1,32 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+    "contextInequalities.pl",
+    "PGgraphmacros.pl",
+    "contextPercent.pl",
+  );
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+  Context("LimitedPercent-strict");
+  #Context("Numeric") ; 
+  #Context()->flags->set(tolerance => 0.01);
+
+  ######################################################################
+  BEGIN_PGML
+  If the price of an item is
+represented by [`p`], a final price
+of [`0.55p`] indicates a discount
+of what percent?
+  [____________]{"45%"}
+  END_PGML
+  ######################################################################
+
+  ENDDOCUMENT();
