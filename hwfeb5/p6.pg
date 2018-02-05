@@ -28,25 +28,25 @@ loadMacros(
   ######################################################################
 Context()->texStrings;
 BEGIN_TEXT
-What is $perc1% of $base1?
+What is $perc1 $PERCENT of $base1?
 
 $BR
 \{ ans_rule(25) \}
 
 $BR
-What is $perc2% of $base2?
+What is $perc2 $PERCENT of $base2?
 
 $BR
 \{ ans_rule(25) \}
 
 $BR
-What is $perc3% of $base3?
+What is $perc3 $PERCENT of $base3?
 
 $BR
 \{ ans_rule(25) \}
 
 $BR
-What is $perc4% of $base4?
+What is $perc4 $PERCENT of $base4?
 
 $BR
 \{ ans_rule(25) \}
