@@ -22,12 +22,14 @@
   );
   TEXT(beginproblem());
 
-Context("LimitedFraction");
+Context("Numeric");
+#Context()->flags->set(tolerance => 0.001);
 $ans1 = Compute('722.975');
-$ans2 = Compute('10% discount');
+Context("LimitedFraction");
+$ans2 = Compute('10');
 $ans3 = Compute('1');
-$ans4 = Compute('230 sit-ups');
-$ans5 = Compute('d = 5 in.');
+$ans4 = Compute('230');
+$ans5 = Compute('5');
 
   ######################################################################
 #Context()->texStrings;
@@ -42,7 +44,7 @@ $BR
 1. \{ ans_rule(25) \}
 
 $BR
-2. \{ ans_rule(25) \}
+2. \{ ans_rule(25) \} percent
 
 $BR
 3. \{ ans_rule(25) \}
@@ -58,7 +60,7 @@ ANS($ans1->cmp());
 ANS($ans2->cmp());
 ANS($ans3->cmp());
 ANS($ans4->cmp());
-ANS($ans5->cmp());
+ANS($ans5->cmp(), 'units'=>'in' );
 
 #install_problem_grader(~~&custom_problem_grader_fluid);
 #$ENV{'grader_numright'} = [1,2,3,4,5];
