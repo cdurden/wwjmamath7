@@ -6,14 +6,14 @@
     "PGcourse.pl",
     "parserNumberWithUnits.pl",
 #    "contextArbitraryString.pl",
-    "parserMultiAnswer.pl",
-#    "parserPopUp.pl",
+#    "parserMultiAnswer.pl",
+"parserRadioButtons.pl",
+    "parserPopUp.pl",
 #    "contextInequalities.pl",
     "contextFraction.pl",
     "PGgraphmacros.pl",
     "parserImplicitEquation.pl",
     "niceTables.pl",
-"parserRadioButtons.pl",
 #"PGchoicemacros.pl",
 #"PGgraders.pl",
 "PGessaymacros.pl",
@@ -52,12 +52,12 @@ $BR
 
 $BR
 3. 
-\{ $ans3->buttons() \}
+\{ $ans3->menu() \}
 
 
 $BR
 4. 
-\{ $ans4->buttons() \}
+\{ $ans4->menu() \}
 
 $BR
 5. \{ ans_rule(25) \} people
