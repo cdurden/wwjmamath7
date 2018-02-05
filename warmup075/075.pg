@@ -51,12 +51,12 @@ $BR
 
 $BR
 3. 
-\{ $ans3->buttons() \
+\{ $ans3->buttons() \}
 
 
 $BR
 4. 
-\{ $ans4->buttons() \
+\{ $ans4->buttons() \}
 
 $BR
 5. \{ ans_rule(25) \} people
