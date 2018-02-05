@@ -13,6 +13,7 @@
     "PGgraphmacros.pl",
     "parserImplicitEquation.pl",
     "niceTables.pl",
+"parserRadioButtons.pl",
 "PGchoicemacros.pl",
 "PGgraders.pl",
 "PGessaymacros.pl",
