@@ -5,34 +5,51 @@
     "MathObjects.pl",
     "PGcourse.pl",
     "parserNumberWithUnits.pl",
-    "contextArbitraryString.pl",
+#    "contextArbitraryString.pl",
     "parserMultiAnswer.pl",
     "parserPopUp.pl",
-    "contextInequalities.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
     "PGgraphmacros.pl",
-    "contextPercent.pl",
+    "parserImplicitEquation.pl",
+    "niceTables.pl",
   );
   TEXT(beginproblem());
   $showPartialCorrectAnswers = 1;
 
-  Context("LimitedPercent-strict");
-  #Context("Numeric") ; 
-  #Context()->flags->set(tolerance => 0.01);
+Context("ImplicitEquation");
+Context()->variables->add(y=>"Real", x=>"Real");
+Context()->variables->set(
+y=>{limits=>[0,10]},
+x=>{limits=>[0,4]}
+);
+$eqn = ImplicitEquation("y = 2.5 x");
+
 
   ######################################################################
-  BEGIN_PGML
-  \( 0.15 \) is what as a percent? 
-  [____________]{"15%"}
+  BEGIN_TEXT
+Write an equation to represent the relationship between the variables \(x \) and \(y \) in the table below
+$PAR
+\{
+DataTable(
+  [
+    ['x','1','2','3','4'],
+    ['y', '2.5', '5', '7.5', '10']
+  ], 
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+#  caption => 'Captains of the Enterprise',
+  midrules => 1,
+  align => 'l | c | c | c | c | c',
+);
+\}
 
-  \( 4/100 \) is what as a percent?
-  [____________]{"4%"}
+\{ ans_rule(25) \}
 
-  Convert \( 18/40 \) to a percent.
-  [____________]{"45%"}
+END_TEXT
+ANS($eqn->cmp());
 
-  Convert \( 0.007 \) to a percent.
-  [____________]{"0.7%"}
-  END_PGML
   ######################################################################
 
   ENDDOCUMENT();
