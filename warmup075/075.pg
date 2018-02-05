@@ -1,0 +1,73 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
+    "PGgraphmacros.pl",
+    "parserImplicitEquation.pl",
+    "niceTables.pl",
+"PGchoicemacros.pl",
+"PGgraders.pl",
+"PGessaymacros.pl",
+#"PGanswermacros.pl",
+#"PGbasicmacros.pl",
+#"PG.pl",
+  );
+  TEXT(beginproblem());
+
+Context("LimitedFraction");
+$ans1 = Compute('-11');
+$ans2 = Compute('97');
+$ans3 = Compute('yes');
+$ans4 = Compute('triangle');
+$ans5 = Compute('468 people');
+
+  ######################################################################
+#Context()->texStrings;
+
+#Context()->texStrings;
+BEGIN_TEXT
+
+$BR
+\{ image( "7thGradeMathWarmUp075.png", width=>600, height=>825 ) \}
+
+$BR
+1. \{ ans_rule(25) \}
+
+$BR
+2. \{ ans_rule(25) \}
+
+$BR
+3. \{ ans_rule(25) \}
+
+$BR
+4. \{ ans_rule(25) \}
+
+$BR
+5. \{ ans_rule(25) \}
+
+END_TEXT
+ANS($ans1->cmp());
+ANS($ans2->cmp());
+ANS($ans3->cmp());
+ANS($ans4->cmp());
+ANS($ans5->cmp());
+
+#install_problem_grader(~~&custom_problem_grader_fluid);
+#$ENV{'grader_numright'} = [1,2,3,4,5];
+#$ENV{'grader_scores'} = [0.2,0.4,0.6,0.8,1];
+#$ENV{'grader_message'} = "You can earn " .
+#"30% partial credit for 2 - 3 correct answers, and " .
+#"60% partial credit for 4 correct answers.";
+
+
+  ######################################################################
+
+  ENDDOCUMENT();

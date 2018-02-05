@@ -1,0 +1,29 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+    "contextInequalities.pl",
+    "PGgraphmacros.pl",
+    "contextPercent.pl",
+  );
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+  Context("LimitedPercent-strict");
+  #Context("Numeric") ; 
+  #Context()->flags->set(tolerance => 0.01);
+
+  ######################################################################
+  BEGIN_PGML
+  If Ethan multiplied the amount on his dinner bill by [`1.15`] to find his total, what percent tip was he paying?
+  [____________]{"15%"}
+  END_PGML
+  ######################################################################
+
+  ENDDOCUMENT();

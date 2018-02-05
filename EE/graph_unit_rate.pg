@@ -1,0 +1,45 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
+    "PGgraphmacros.pl",
+    "extraAnswerEvaluators.pl",
+  );
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+  #Context("Numeric") ; 
+  #Context("Fraction-NoDecimals");
+  Context("LimitedFraction");
+  #Context()->flags->set(tolerance => 0.01);
+
+  ######################################################################
+  BEGIN_TEXT
+Give the coordinates of
+the point on the graph. Then
+find the unit rate in miles per hour. 
+
+$BR
+\{ image( "graph.png", width=>500, height=>500 ) \}
+
+$BR
+Coordinates:  \{ ans_rule(25) \}
+$BR
+Unit rate: \{ ans_rule(25) \} miles per hour
+
+END_TEXT
+ANS(interval_cmp("(3,165)", unions=>'no'));
+ANS(Compute('55')->cmp());
+
+
+  ######################################################################
+
+  ENDDOCUMENT();
