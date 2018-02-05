@@ -56,7 +56,7 @@ DataTable(
 What is the total number of cups of brown sugar in a \(7\)-pound package? Enter your answer as a reduced fraction or mixed number.
 
   $BR
-  \{ ans_rule(25) \}
+  \{ ans_rule(25) \} cups
 
 END_TEXT
 ANS($ans1->cmp());
