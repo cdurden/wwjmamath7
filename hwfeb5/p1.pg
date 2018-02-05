@@ -22,8 +22,8 @@
   Context("LimitedFraction");
   #Context()->flags->set(tolerance => 0.01);
   $ans1 = Compute('4');
-$ans2 = Compute('6')
-$ans3 = Compute('8')
+$ans2 = Compute('6');
+$ans3 = Compute('8');
 
 Context("ImplicitEquation");
 #Context()->variables->add(y=>"Real", x=>"Real");
