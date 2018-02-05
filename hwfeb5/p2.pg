@@ -40,7 +40,7 @@ $PAR
 \{
 DataTable(
   [
-    ['Boxes of cookes', '5', '7', '11']
+    ['Boxes of cookies', '5', '7', '11'],
     ['Cost (dollars)','11.25','15.75','24.75'],
   ], 
   rowheaders => 1,
