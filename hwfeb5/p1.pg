@@ -25,7 +25,7 @@
 $ans2 = Compute('6');
 $ans3 = Compute('8');
 
-Context("ImplicitEquation");
+#Context("ImplicitEquation");
 #Context()->variables->add(y=>"Real", x=>"Real");
 #Context()->variables->set(
 #y=>{limits=>[0,4]},
@@ -41,7 +41,7 @@ $PAR
 \{
 DataTable(
   [
-    ['Flour','2','\{ ans_rule(25) \}','',''],
+    ['Flour','2',ans_rule(25),'',''],
     ['Number of cookes', '3 dozen', '6 dozen', '9 dozen', '12 dozen']
   ], 
   rowheaders => 1,
