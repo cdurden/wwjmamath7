@@ -1,6 +1,7 @@
   DOCUMENT();
   loadMacros(
     "PGstandard.pl",
+    "contextInequalities.pl",
     "PGML.pl",
     "MathObjects.pl",
     "PGcourse.pl",
@@ -22,12 +23,23 @@
   );
   TEXT(beginproblem());
 
+Context("Numeric");
+Context()->flags->set(tolerance => 0.01);
+$ans1 = Compute('13.6666');
 Context("LimitedFraction");
-$ans1 = Compute('13.6666...');
+Context("Inequalities-Only");
+#Context()->variables->add(y=>"Real");
 $ans2 = Compute('x > 2');
-$ans3 = Compute('yes');
-$ans4 = Compute('unlikely event');
-$ans5 = Compute('180-112=x, 68°');
+$ans3 = PopUp(
+    [ "?", "Yes", "No" ],
+    "Yes" );
+$ans4 = PopUp(
+    [ "?", "Likely", "Unlikely", "Neither" ],
+    "Unlikely" );
+Context("ImplicitEquation");
+Context()->variables->set(x=>{limits=>[0,180]});
+$ans5 = Compute('180-112=x');
+$ans6 = Compute('68');
 
   ######################################################################
 #Context()->texStrings;
@@ -45,13 +57,18 @@ $BR
 2. \{ ans_rule(25) \}
 
 $BR
-3. \{ ans_rule(25) \}
+3. 
+\{ $ans3->menu() \}
 
 $BR
-4. \{ ans_rule(25) \}
+4. 
+\{ $ans4->menu() \}
 
 $BR
 5. \{ ans_rule(25) \}
+
+$BR
+6. \{ ans_rule(25) \}
 
 END_TEXT
 ANS($ans1->cmp());
@@ -59,6 +76,7 @@ ANS($ans2->cmp());
 ANS($ans3->cmp());
 ANS($ans4->cmp());
 ANS($ans5->cmp());
+ANS($ans6->cmp());
 
 #install_problem_grader(~~&custom_problem_grader_fluid);
 #$ENV{'grader_numright'} = [1,2,3,4,5];
