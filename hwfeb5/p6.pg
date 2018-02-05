@@ -53,15 +53,10 @@ $BR
 
 END_TEXT
 
-$showHint = 1;
-BEGIN_TEXT
-$PAR
-If you don't get this in $showHint tries, you can get a hint.
-END_TEXT
-BEGIN_HINT
-Continue the pattern shown in the table. How can you use multiplication to find the answer quickly?
-END_HINT
-ANS($answer->cmp(allowMixedNumbers=>1, reduceConstants=>0));
+ANS($ans1->cmp());
+ANS($ans2->cmp());
+ANS($ans3->cmp());
+ANS($ans4->cmp());
 Context()->normalStrings;
 
   ######################################################################
