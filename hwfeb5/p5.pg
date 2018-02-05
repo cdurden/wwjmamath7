@@ -1,0 +1,38 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+    "contextInequalities.pl",
+    "PGgraphmacros.pl",
+    "contextPercent.pl",
+  );
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+  Context("LimitedPercent-strict");
+  #Context("Numeric") ; 
+  #Context()->flags->set(tolerance => 0.01);
+
+  ######################################################################
+  BEGIN_PGML
+  \( 0.15 \) is what as a percent? 
+  [____________]{"15%"}
+
+  \( 4/100 \) is what as a percent?
+  [____________]{"4%"}
+
+  Convert \( 18/40 \) to a percent.
+  [____________]{"45%"}
+
+  Convert \( 0.007 \) to a percent.
+  [____________]{"0.7%"}
+  END_PGML
+  ######################################################################
+
+  ENDDOCUMENT();
