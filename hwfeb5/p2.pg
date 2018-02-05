@@ -51,6 +51,8 @@ DataTable(
   align => 'l | c | c | c | c | c',
 );
 \}
+  $BR
+  \{ ans_rule(25) \}
 
 
 END_TEXT

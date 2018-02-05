@@ -53,6 +53,9 @@ DataTable(
 
 What is the total number of cups of brown sugar in a \(7\)-pound package?
 
+  $BR
+  \{ ans_rule(25) \}
+
 END_TEXT
 ANS($ans1->cmp());
 #ANS(Compute('13/8')->cmp(), 'units'=>'ft' );
