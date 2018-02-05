@@ -41,7 +41,7 @@ $PAR
 \{
 DataTable(
   [
-    ['Flour','2',ans_rule(25),'',''],
+    ['Cups of flour','2',ans_rule(8),ans_rule(8),ans_rule(8)],
     ['Number of cookes', '3 dozen', '6 dozen', '9 dozen', '12 dozen']
   ], 
   rowheaders => 1,
