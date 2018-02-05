@@ -22,12 +22,17 @@
   );
   TEXT(beginproblem());
 
+
 Context("LimitedFraction");
 $ans1 = Compute('-11');
 $ans2 = Compute('97');
-$ans3 = Compute('yes');
-$ans4 = Compute('triangle');
-$ans5 = Compute('468 people');
+$ans3 = PopUp(
+    [ "?", "Yes", "No" ],
+    "Yes" );
+$ans4 = PopUp(
+    [ "?", "Triangle", "Square", "Rectangle", "Circle", "Rhombus", "Parallelogram", "Trapezoid" ],
+    "Triangle" );
+$ans5 = Compute('468');
 
   ######################################################################
 #Context()->texStrings;
@@ -45,13 +50,16 @@ $BR
 2. \{ ans_rule(25) \}
 
 $BR
-3. \{ ans_rule(25) \}
+3. 
+\{ $ans3->buttons() \
+
 
 $BR
-4. \{ ans_rule(25) \}
+4. 
+\{ $ans4->buttons() \
 
 $BR
-5. \{ ans_rule(25) \}
+5. \{ ans_rule(25) \} people
 
 END_TEXT
 ANS($ans1->cmp());
