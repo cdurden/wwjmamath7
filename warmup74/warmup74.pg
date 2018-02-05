@@ -26,7 +26,6 @@ Context("LimitedFraction");
 $ans1 = Compute('-62');
 $ans2 = Compute('237000');
 $ans3 = Compute('1/8');
-$ans4 = 
 $ans5 = Compute('1');
 $ans6 = Compute('15');
 
