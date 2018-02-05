@@ -12,17 +12,17 @@ loadMacros(
   #Context("Numeric") ; 
   Context("LimitedFraction");
   #Context()->flags->set(tolerance => 0.01);
-  $perc1 = '5'
-  $base1 = '400'
+  $perc1 = '5';
+  $base1 = '400';
   $ans1 = Compute("$perc1/100 $base1");
-  $perc2 = '35'
-  $base2 = '400'
+  $perc2 = '35';
+  $base2 = '400';
   $ans2 = Compute("$perc2/100 $base2");
-  $perc3 = '4'
-  $base3 = '625'
+  $perc3 = '4';
+  $base3 = '625';
   $ans3 = Compute("$perc3/100 $base3");
-  $perc4 = '40'
-  $base4 = '625'
+  $perc4 = '40';
+  $base4 = '625';
   $ans4 = Compute("$perc4/100 $base4");
 
   ######################################################################
