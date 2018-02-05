@@ -38,7 +38,8 @@ $ans4 = PopUp(
     "Unlikely" );
 Context("ImplicitEquation");
 Context()->variables->set(x=>{limits=>[0,180]});
-$ans5 = Compute('180-112=x');
+$ans5 = ImplicitEquation('180-112=x');
+Context("LimitedFraction");
 $ans6 = Compute('68');
 
   ######################################################################
