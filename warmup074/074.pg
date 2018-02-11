@@ -57,7 +57,7 @@ $BR
 ". essay_box(10,35) ."
 
 $BR
-5.". ans_rule(25) ." hour ". ans_rule(25) ."minutes"
+5.". ans_rule(8) ." hour ". ans_rule(8) ."minutes"
 
 ],
 align=>LEFT
