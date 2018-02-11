@@ -1,0 +1,84 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextPercent.pl",
+#    "contextFraction.pl",
+    "PGgraphmacros.pl",
+"parserNumberWithUnits.pl",
+#    "parserImplicitEquation.pl",
+#    "niceTables.pl",
+"unionTables.pl",
+"PGchoicemacros.pl",
+"PGgraders.pl",
+"PGessaymacros.pl",
+#"PGanswermacros.pl",
+#"PGbasicmacros.pl",
+#"PG.pl",
+  );
+  TEXT(beginproblem());
+
+#Context("LimitedFraction");
+Context("LimitedFraction");
+$ans1 = Compute('-62');
+$ans2 = Compute('237000');
+$ans3 = Compute('1/8');
+$ans5 = Compute('1');
+$ans6 = Compute('15');
+
+  ######################################################################
+#Context()->texStrings;
+BEGIN_TEXT
+
+$BR
+\{ 
+BeginTable(border=>0, tex_border=>"0pt", spacing=>0, padding=>4).
+AlignedRow([
+ image( "7thGradeMathWarmUp078.png", width=>425, height=>550 ), 
+"$BR
+1.". ans_rule(25)."
+
+$BR
+2.". ans_rule(25)."
+
+3. Justify your answers in the box below.
+$BR
+". essay_box() ."
+
+$BR
+4.". ans_rule(25)."
+
+$BR
+5.". ans_rule(25) ." hour ". ans_rule(25) ."minutes"
+
+],
+align=>LEFT
+).
+EndTable()
+\}
+END_TEXT
+ANS($ans1->cmp());
+ANS($ans2->cmp());
+ANS($essay_cmp());
+ANS($ans4->cmp());
+ANS($ans5->cmp());
+ANS($ans6->cmp());
+
+#install_problem_grader(~~&custom_problem_grader_fluid);
+#$ENV{'grader_numright'} = [1,2,3,4,5];
+#$ENV{'grader_scores'} = [0.2,0.4,0.6,0.8,1];
+#$ENV{'grader_message'} = "You can earn " .
+#"30% partial credit for 2 - 3 correct answers, and " .
+#"60% partial credit for 4 correct answers.";
+
+
+  ######################################################################
+
+  ENDDOCUMENT();
