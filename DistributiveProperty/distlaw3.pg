@@ -38,11 +38,12 @@ ANS(Formula($ans1)->cmp);
 
 BEGIN_SOLUTION
 $PAR Solution $PAR
-\($b\times ($d x+$e y)\)$BR
-The distributive law tells us to multiply $b by each of the terms in the parentheses to get$BR
-\($g x+$h y\)
+\($a\times (x+$b)\)$BR
+The distributive law tells us to multiply $a by each of the terms in the parentheses to get$BR
+\($a x+$c\)
 $PAR The others are solved in the same way.
 END_SOLUTION
+
 
 ;
 ENDDOCUMENT();
