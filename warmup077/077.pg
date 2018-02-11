@@ -44,7 +44,7 @@ $BR
 \{
 BeginTable(border=>0, tex_border=>"0pt", spacing=>0, padding=>4).
 AlignedRow([
- image( "7thGradeMathWarmUp078.png", width=>425, height=>550 ),
+ image( "7thGradeMathWarmUp077.png", width=>425, height=>550 ),
 "$BR
 
 1. ". ans_rule(25) ."
