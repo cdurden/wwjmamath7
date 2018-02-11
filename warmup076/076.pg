@@ -67,7 +67,12 @@ $BR
 4.". $ans4->menu()."
 
 $BR
-5. Equation: ". ans_rule(8).", x = ". ans_rule(8)."
+5. Equation: ". ans_rule(8).", x = ". ans_rule(8)
+],
+align=>LEFT
+).
+EndTable()
+\}
 
 END_TEXT
 ANS($ans1->cmp());
