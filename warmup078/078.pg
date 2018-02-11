@@ -41,7 +41,7 @@ $ans6 = Compute('96');
 BEGIN_TEXT
 
 $BR
-\{ image( "7thGradeMathWarmUp078.png", width=>600, height=>825 ) \}
+\{ image( "7thGradeMathWarmUp078.png", width=>425, height=>550 ) \}
 
 $BR
 1. \{ ans_rule(25) \}
