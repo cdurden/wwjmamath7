@@ -18,7 +18,7 @@ $a=random(2,8,1);
 $b=random(2,8,2);
 $c=random(3,9,2);
 $d=$a*$b;
-$e=$a*$c
+$e=$a*$c;
 $ans1="$d x-$e";
 
 BEGIN_TEXT
