@@ -1,21 +1,23 @@
   DOCUMENT();
   loadMacros(
     "PGstandard.pl",
-    "PGML.pl",
+#    "PGML.pl",
     "MathObjects.pl",
     "PGcourse.pl",
-    "parserNumberWithUnits.pl",
+#    "parserNumberWithUnits.pl",
 #    "contextArbitraryString.pl",
-    "parserMultiAnswer.pl",
+#    "parserMultiAnswer.pl",
     "parserPopUp.pl",
-#    "contextInequalities.pl",
+    "contextInequalities.pl",
+    "contextPercent.pl",
     "contextFraction.pl",
     "PGgraphmacros.pl",
     "parserImplicitEquation.pl",
-    "niceTables.pl",
+#    "niceTables.pl",
+"PGessaymacros.pl",
 "PGchoicemacros.pl",
 "PGgraders.pl",
-"PGessaymacros.pl",
+"unionTables.pl",
 #"PGanswermacros.pl",
 #"PGbasicmacros.pl",
 #"PG.pl",
@@ -23,11 +25,11 @@
   TEXT(beginproblem());
 
 Context("LimitedFraction");
-$ans1 = Compute('-5,120');
-$ans2 = Compute('4 1/2 mi/hr');
-$ans3 = Compute('P = 22 ft.');
-$ans4 = Compute('no');
-$ans5 = Compute('SA = 486 in 2');
+$ans1 = Compute('-5120');
+$ans2 = '4 1/2';
+$ans3 = '22';
+$ans4 = PopUp( [ "?", "Yes", "No" ], "No" );
+$ans5 = '486';
 
   ######################################################################
 #Context()->texStrings;
@@ -36,29 +38,40 @@ $ans5 = Compute('SA = 486 in 2');
 BEGIN_TEXT
 
 $BR
-\{ image( "7thGradeMathWarmUp079.png", width=>600, height=>825 ) \}
+\{
+BeginTable(border=>0, tex_border=>"0pt", spacing=>0, padding=>4).
+AlignedRow([
+ image( "7thGradeMathWarmUp078.png", width=>425, height=>550 ),
+"
+$BR
+1.".  ans_rule(25) ."
 
 $BR
-1. \{ ans_rule(25) \}
+2.". ans_rule(25) ."
 
 $BR
-2. \{ ans_rule(25) \}
+3. P = ". ans_rule(25) ."
 
 $BR
-3. \{ ans_rule(25) \}
+4.".
+#ans_rule(25) 
+$ans4->menu()
+."
 
 $BR
-4. \{ ans_rule(25) \}
-
-$BR
-5. \{ ans_rule(25) \}
+5.". ans_rule(25) .""
+],
+align=>LEFT
+).
+EndTable()
+\}
 
 END_TEXT
 ANS($ans1->cmp());
-ANS($ans2->cmp());
-ANS($ans3->cmp());
+ANS(num_cmp($ans2, 'units'=>'mi/hr'));
+ANS(num_cmp($ans3, 'units'=>'ft'));
 ANS($ans4->cmp());
-ANS($ans5->cmp());
+ANS(num_cmp($ans5, 'units'=>'in^2'));
 
 #install_problem_grader(~~&custom_problem_grader_fluid);
 #$ENV{'grader_numright'} = [1,2,3,4,5];
