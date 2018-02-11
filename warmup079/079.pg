@@ -24,9 +24,9 @@
   );
   TEXT(beginproblem());
 
-Context("LimitedFraction", allowMixedNumbers=>1);
+Context("LimitedFraction");
 $ans1 = Compute('-5120');
-$ans2 = '4 1/2';
+$ans2 = '9/2';
 $ans3 = '22';
 $ans4 = PopUp( [ "?", "Yes", "No" ], "No" );
 $ans5 = '486';
