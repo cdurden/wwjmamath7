@@ -15,6 +15,7 @@
 "parserNumberWithUnits.pl",
 #    "parserImplicitEquation.pl",
 #    "niceTables.pl",
+"unionTables.pl",
 "PGchoicemacros.pl",
 "PGgraders.pl",
 "PGessaymacros.pl",
