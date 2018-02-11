@@ -37,12 +37,10 @@ $ans6 = Compute('96');
 
   ######################################################################
 #Context()->texStrings;
-
-#Context()->texStrings;
 BEGIN_TEXT
 
 $BR
-\{ begintable(4) \}
+\{ begintable(2) \}
 \{ row( image( "7thGradeMathWarmUp078.png", width=>425, height=>550 ), 
 
 "$BR
