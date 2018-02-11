@@ -21,6 +21,8 @@
   #Context("Fraction-NoDecimals");
   #Context()->flags->set(tolerance => 0.01);
   Context("LimitedFraction");
+  Context()->flags->set(allowMixedNumbers=>1);
+  Context()->flags->set(showMixedNumbers=>0);
   $ans1 = Compute('16 1/3');
 
 #Context("ImplicitEquation");
@@ -39,8 +41,8 @@ $PAR
 \{
 DataTable(
   [
-    ['Number of cups', '3', '4', '5', '6'],
-    ['Number of pounds','7','9 1/3','11 2/3', '14'],
+    ['Number of pounds', '3', '4', '5', '6'],
+    ['Number of cups','7','9 1/3','11 2/3', '14'],
   ], 
   rowheaders => 1,
   tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
@@ -51,10 +53,10 @@ DataTable(
 );
 \}
 
-What is the total number of cups of brown sugar in a \(7\)-pound package?
+What is the total number of cups of brown sugar in a \(7\)-pound package? Enter your answer as a reduced fraction or mixed number.
 
   $BR
-  \{ ans_rule(25) \}
+  \{ ans_rule(25) \} cups
 
 END_TEXT
 ANS($ans1->cmp());
