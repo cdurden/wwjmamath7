@@ -14,13 +14,13 @@ loadMacros(
 );
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
-$signa="-"
-$signb="-"
-$signc="-"
+$signa="-";
+$signb="-";
+$signc="-";
 $a=$signa*random(2,8,1);
 $b=$signb*random(2,8,2);
 $c=$signc*random(3,9,2);
-$op="+"
+$op="+";
 $d=$a*$b;
 $e=$a*$c;
 $ans1="$d x $op $e";
