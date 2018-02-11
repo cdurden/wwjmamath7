@@ -71,7 +71,7 @@ ANS($ans1->cmp());
 ANS($ans2->cmp());
 ANS($ans3->cmp());
 ANS($ans4->cmp());
-ANS(num_cmp($ans5), 'units'=>'in' );
+ANS(num_cmp($ans5, 'units'=>'in' ));
 
 #install_problem_grader(~~&custom_problem_grader_fluid);
 #$ENV{'grader_numright'} = [1,2,3,4,5];
