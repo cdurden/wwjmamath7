@@ -45,20 +45,20 @@ $BR
 \{ row( image( "7thGradeMathWarmUp078.png", width=>425, height=>550 ), 
 
 "$BR
-1. \{ ans_rule(25) \}
+1.". ans_rule(25)."
 
 $BR
-2. \{ ans_rule(25) \}
+2.". ans_rule(25)."
 
 $BR
-3. \{ ans_rule(25) \}
+3.". ans_rule(25)."
 
 $BR
-4. \{ ans_rule(25) \}
+4.". ans_rule(25)."
 
 $BR
-5. x = \{ ans_rule(25) \},  y = \{ ans_rule(25) \}
-"
+5. x = ". ans_rule(25).", y = . ans_rule(25)
+
   ) \}
 \{ endtable() \}
 END_TEXT
@@ -68,6 +68,7 @@ ANS($ans3->cmp());
 ANS($ans4->cmp());
 ANS($ans5->cmp());
 #ANS($ans5->cmp(), 'units'=>'in' );
+#5. x = \{ ans_rule(25) \},  y = \{ ans_rule(25) \}
 
 #install_problem_grader(~~&custom_problem_grader_fluid);
 #$ENV{'grader_numright'} = [1,2,3,4,5];
