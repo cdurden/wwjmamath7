@@ -22,13 +22,14 @@
   );
   TEXT(beginproblem());
 
-Context("LimitedFraction");
+#Context("LimitedFraction");
+Context("Numeric");
 $ans1 = Compute('0');
 $ans2 = Compute('16.5');
 $ans3 = Compute('720');
 Context("Percent", promoteReals=>1);
 $ans4 = Compute('50%');
-Context("LimitedFraction");
+Context("Numeric");
 $ans5 = Compute('24');
 $ans6 = Compute('96');
 
