@@ -9,6 +9,7 @@
     "parserMultiAnswer.pl",
     "parserPopUp.pl",
 #    "contextInequalities.pl",
+    "contextPercent.pl",
     "contextFraction.pl",
     "PGgraphmacros.pl",
     "parserImplicitEquation.pl",
@@ -16,6 +17,7 @@
 "PGchoicemacros.pl",
 "PGgraders.pl",
 "PGessaymacros.pl",
+"unionTables.pl",
 #"PGanswermacros.pl",
 #"PGbasicmacros.pl",
 #"PG.pl",
@@ -25,8 +27,9 @@
 Context("Numeric");
 #Context()->flags->set(tolerance => 0.001);
 $ans1 = Compute('722.975');
+Context("Percent");
+$ans2 = Compute('10%');
 Context("LimitedFraction");
-$ans2 = Compute('10');
 $ans3 = Compute('1');
 $ans4 = Compute('230');
 $ans5 = Compute('5');
@@ -38,22 +41,30 @@ $ans5 = Compute('5');
 BEGIN_TEXT
 
 $BR
-\{ image( "7thGradeMathWarmUp077.png", width=>600, height=>825 ) \}
+\{
+BeginTable(border=>0, tex_border=>"0pt", spacing=>0, padding=>4).
+AlignedRow([
+ image( "7thGradeMathWarmUp078.png", width=>425, height=>550 ),
+"$BR
+
+1. ". ans_rule(25) ."
 
 $BR
-1. \{ ans_rule(25) \}
+2. ". ans_rule(25) ."
 
 $BR
-2. \{ ans_rule(25) \} percent
+3. ". ans_rule(25) ."
 
 $BR
-3. \{ ans_rule(25) \}
+4. ". ans_rule(25) ."
 
 $BR
-4. \{ ans_rule(25) \}
-
-$BR
-5. \{ ans_rule(25) \}
+5. ". ans_rule(25) 
+],
+align=>LEFT
+).
+EndTable()
+\}
 
 END_TEXT
 ANS($ans1->cmp());
