@@ -40,9 +40,10 @@ $ans6 = Compute('96');
 BEGIN_TEXT
 
 $BR
-\{ begintable(2) \}
-\{ row( image( "7thGradeMathWarmUp078.png", width=>425, height=>550 ), 
-
+\{ 
+BeginTable(border=>0, tex_border=>"0pt", spacing=>0, padding=>4).
+AlignedRow([
+ image( "7thGradeMathWarmUp078.png", width=>425, height=>550 ), 
 "$BR
 1.". ans_rule(25)."
 
@@ -56,10 +57,11 @@ $BR
 4.". ans_rule(25)."
 
 $BR
-5. x = ". ans_rule(25).", y = ". ans_rule(25)
-
-  ) \}
-\{ endtable() \}
+5. x = ". ans_rule(25).", y = ". ans_rule(25),
+align=>LEFT
+])
+EndTable()
+\}
 END_TEXT
 ANS($ans1->cmp());
 ANS(num_cmp($ans2, 'units'=>'in^2'));
