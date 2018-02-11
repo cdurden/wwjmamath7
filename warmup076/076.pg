@@ -17,6 +17,7 @@
 "PGchoicemacros.pl",
 "PGgraders.pl",
 "PGessaymacros.pl",
+"unionTables.pl",
 #"PGanswermacros.pl",
 #"PGbasicmacros.pl",
 #"PG.pl",
@@ -49,27 +50,24 @@ $ans6 = Compute('68');
 BEGIN_TEXT
 
 $BR
-\{ image( "7thGradeMathWarmUp076.png", width=>600, height=>825 ) \}
+\{
+BeginTable(border=>0, tex_border=>"0pt", spacing=>0, padding=>4).
+AlignedRow([
+ image( "7thGradeMathWarmUp076.png", width=>425, height=>550 ),
+"$BR
+1.". ans_rule(25)."
 
 $BR
-1. \{ ans_rule(25) \}
+2.". ans_rule(25)."
 
 $BR
-2. \{ ans_rule(25) \}
+3.". $ans3->menu()."
 
 $BR
-3. 
-\{ $ans3->menu() \}
+4.". $ans4->menu()."
 
 $BR
-4. 
-\{ $ans4->menu() \}
-
-$BR
-5. \{ ans_rule(25) \}
-
-$BR
-6. \{ ans_rule(25) \}
+5. Equation: ". ans_rule(8).", x = ". ans_rule(8)."
 
 END_TEXT
 ANS($ans1->cmp());
