@@ -24,10 +24,13 @@
 
 Context("LimitedFraction");
 $ans1 = Compute('0');
-$ans2 = Compute('A = 16.5 in 2');
-$ans3 = Compute('720 paper clips');
+$ans2 = Compute('16.5');
+$ans3 = Compute('720');
+Context("Percent", promoteReals=>1);
 $ans4 = Compute('50%');
-$ans5 = Compute('x = 24; y = 96');
+Context("LimitedFraction");
+$ans5 = Compute('24');
+$ans6 = Compute('96');
 
   ######################################################################
 #Context()->texStrings;
@@ -51,14 +54,18 @@ $BR
 4. \{ ans_rule(25) \}
 
 $BR
-5. \{ ans_rule(25) \}
+5. x = \{ ans_rule(25) \}
+
+$BR
+ y = \{ ans_rule(25) \}
 
 END_TEXT
 ANS($ans1->cmp());
-ANS($ans2->cmp());
+ANS($ans2->cmp(), 'units'=>'in^2');
 ANS($ans3->cmp());
 ANS($ans4->cmp());
 ANS($ans5->cmp());
+#ANS($ans5->cmp(), 'units'=>'in' );
 
 #install_problem_grader(~~&custom_problem_grader_fluid);
 #$ENV{'grader_numright'} = [1,2,3,4,5];
