@@ -42,27 +42,31 @@ $ans5 = Compute('468');
 BEGIN_TEXT
 
 $BR
-\{ image( "7thGradeMathWarmUp075.png", width=>600, height=>825 ) \}
+\{
+BeginTable(border=>0, tex_border=>"0pt", spacing=>0, padding=>4).
+AlignedRow([
+ image( "7thGradeMathWarmUp075.png", width=>425, height=>550 ),
+"$BR
+1.". ans_rule(25)."
 
 $BR
-1. \{ ans_rule(25) \}
+2.". ans_rule(25)."
 
 $BR
-2. \{ ans_rule(25) \}
+3.". $ans3->menu()."
 
 $BR
-3. 
-\{ $ans3->menu() \}
-
+4.". $ans4->menu()."
 
 $BR
-4. 
-\{ $ans4->menu() \}
-
-$BR
-5. \{ ans_rule(25) \} people
-
+5. ". ans_rule(5)." people"
+],
+align=>LEFT
+).
+EndTable()
+\}
 END_TEXT
+
 ANS($ans1->cmp());
 ANS($ans2->cmp());
 ANS($ans3->cmp());
