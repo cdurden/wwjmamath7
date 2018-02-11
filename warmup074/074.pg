@@ -54,7 +54,7 @@ $BR
 $BR
 4. Justify your answers in the box below.
 $BR
-". essay_box(10,75) ."
+". essay_box(10,50) ."
 
 $BR
 5.". ans_rule(25) ." hour ". ans_rule(25) ."minutes"
