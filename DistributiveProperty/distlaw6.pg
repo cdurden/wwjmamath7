@@ -1,0 +1,56 @@
+#DESCRIPTION
+##Type of
+#ENDDESCRIPTION
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "unionMacros.pl",
+  "answerHints.pl",
+  "problemPanic.pl",
+  "PGcourse.pl"
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$a=random(2,8,1);
+$b=random(2,8,2);
+$c=random(3,9,2);
+$d=$a*$b;
+$e=$a*$c
+$ans1="$d x-$e";
+
+BEGIN_TEXT
+Write each of these as a sum of two terms using the distributive law.
+$PAR
+\($a($b x-$c)\)=\{ans_rule(10)\}
+$PAR
+\{Panic::Button(label => " Ask for a Hint", penalty => .00)\}
+END_TEXT
+if ($panicked) {
+BEGIN_TEXT
+   Hint: The distributive law says that multiplying a number by a sum gives the same result as multiplying that number by each of the terms in the sum and adding these products.  Thus, for example 
+\(5\times(2+4)=(5\times 2)+(5\times 4)\)
+END_TEXT
+};
+Context("Numeric");
+Context()->variables->are(x=>'Real',y=>'Real');
+ANS(Formula($ans1)->cmp);
+
+BEGIN_SOLUTION
+$PAR Solution $PAR
+\($a\times ($b x-$c)\)$BR
+The distributive law tells us to multiply $a by each of the terms in the parentheses to get$BR
+\($d x-$e\)
+END_SOLUTION
+
+;
+ENDDOCUMENT();
+
+## DBsubject(ZZZ-Inserted Text)
+## DBchapter(ZZZ-Inserted Text)
+## DBsection(ZZZ-Inserted Text)
+## MO(1)
+
+
