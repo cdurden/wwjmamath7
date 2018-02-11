@@ -32,7 +32,7 @@ $ans2 = Compute('10%');
 Context("LimitedFraction");
 $ans3 = Compute('1');
 $ans4 = Compute('230');
-$ans5 = Compute('5');
+$ans5 = '5';
 
   ######################################################################
 #Context()->texStrings;
@@ -71,7 +71,7 @@ ANS($ans1->cmp());
 ANS($ans2->cmp());
 ANS($ans3->cmp());
 ANS($ans4->cmp());
-ANS($ans5->cmp(), 'units'=>'in' );
+ANS(num_cmp($ans5), 'units'=>'in' );
 
 #install_problem_grader(~~&custom_problem_grader_fluid);
 #$ENV{'grader_numright'} = [1,2,3,4,5];
