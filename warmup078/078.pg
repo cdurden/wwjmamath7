@@ -60,9 +60,8 @@ $BR
 $BR
 5. 
 $BR
-x = ". ans_rule(25).",
-$BR
-y = ". ans_rule(25)],
+x = ". ans_rule(12.5).",
+y = ". ans_rule(12.5)],
 align=>LEFT
 ).
 EndTable()
