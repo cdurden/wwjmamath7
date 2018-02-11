@@ -66,7 +66,7 @@ EndTable()
 END_TEXT
 ANS($ans1->cmp());
 ANS($ans2->cmp());
-ANS($essay_cmp());
+ANS(essay_cmp());
 ANS($ans4->cmp());
 ANS($ans5->cmp());
 ANS($ans6->cmp());
