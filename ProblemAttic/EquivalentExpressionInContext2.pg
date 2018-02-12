@@ -1,0 +1,90 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "contextInequalities.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
+    "PGgraphmacros.pl",
+    "parserImplicitEquation.pl",
+    "niceTables.pl",
+   "contextCurrency.pl",
+"PGchoicemacros.pl",
+"PGgraders.pl",
+"PGessaymacros.pl",
+"unionTables.pl",
+#"PGanswermacros.pl",
+#"PGbasicmacros.pl",
+#"PG.pl",
+  );
+  TEXT(beginproblem());
+
+#Context()->variables->add(y=>"Real");
+$ans1 = PopUp(
+    [ "?", "0.12% decrease", "0.88% decrease", "12% decrease", "88% decrease" ],
+    "88% decrease" );
+
+$ans2 = PopUp(
+    [ "?", "Yes","No" ],
+    "Yes" );
+
+Context("Numeric");
+$ans2 = Compute("0.88*3500");
+$ans3 = Compute("0.88*3500");
+  ######################################################################
+#Context()->texStrings;
+
+#Context()->texStrings;
+BEGIN_TEXT
+
+A. Leo bought a used car for \(x\) dollars. One year
+later, the value of the car was \(0.88x\). Which
+expression is another way to describe the change
+in the value of the car?
+
+$BR
+\{ $ans1->menu() \}
+
+B. Based on the answer to A, Leo wrote the following expression to represent the new value of the car. 
+
+\( x - 0.12 x \)
+
+Use the particular value \( x=3500\) to test whether the two expressions are equivalent.
+
+$BR
+B. If \( x = 3500 \), then \( 0.88 x = \) \{ ans_rule(25) \}.
+$BR
+C. If \( x = 3500 \), then \( x - 0.12 x = \) \{ ans_rule(25) \}.
+
+$BR
+D. Is the expression \( x - 0.12 x\) equivalent to \( 0.88 x\)?
+\{ $ans4->menu() \}
+
+$BR
+E. Justify your answer to part D.
+\{essay_box()\}
+
+END_TEXT
+ANS($ans1->cmp());
+ANS($ans2->cmp());
+ANS($ans3->cmp());
+ANS($ans4->cmp());
+ANS(essay_cmp());
+
+#install_problem_grader(~~&custom_problem_grader_fluid);
+#$ENV{'grader_numright'} = [1,2,3,4,5];
+#$ENV{'grader_scores'} = [0.2,0.4,0.6,0.8,1];
+#$ENV{'grader_message'} = "You can earn " .
+#"30% partial credit for 2 - 3 correct answers, and " .
+#"60% partial credit for 4 correct answers.";
+
+
+  ######################################################################
+
+  ENDDOCUMENT();

@@ -1,0 +1,57 @@
+#DESCRIPTION
+##Type of
+#ENDDESCRIPTION
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "unionMacros.pl",
+  "answerHints.pl",
+  "problemPanic.pl",
+  "PGcourse.pl",
+  "contextLimitedPolynomial.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+Context("LimitedPolynomial-Strict");
+Context()->variables->are(x=>'Real');
+$ans=Compute("8x-2");
+
+BEGIN_TEXT
+Simplify
+
+$PAR
+\( 3(x+4)+5x-14 \)=\{ans_rule(10)\}
+
+END_TEXT
+ANS($ans->cmp);
+
+BEGIN_SOLUTION
+$PAR Solution $PAR
+To put this expression into expanded form, the distributive law tells us to multiply 3 by each of the terms in the parentheses to get$BR
+\(3x+ 12\)
+
+$BR
+Then 
+$BR
+\( 3(x+4)+5x-14  = 3x+12 + 5x - 14\)
+We rewrite subtraction as addition using the additive inverse to get:
+
+\( 3x+12 + 5x + (-14) \).
+
+$BR Using the any order, any grouping property of addition, we can combine like terms, and we have
+
+\(8x  - 2 \).
+END_SOLUTION
+
+;
+ENDDOCUMENT();
+
+## DBsubject(ZZZ-Inserted Text)
+## DBchapter(ZZZ-Inserted Text)
+## DBsection(ZZZ-Inserted Text)
+## MO(1)
+
+
