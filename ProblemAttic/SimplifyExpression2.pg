@@ -21,7 +21,7 @@ $c=random(3,9,1);
 $d=random(2,5,1);
 $e=$b*$c;
 $f=$a-$e;
-$g=-$b*$d;
+$g=$b*$d;
 Context("LimitedPolynomial-Strict");
 Context()->variables->are(b=>'Real');
 $ans=Compute("$f b+$g");
