@@ -20,6 +20,7 @@ $b=random(3,9,1);
 $c=random(3,9,1);
 $d=$a+$b*$c;
 Context("LimitedPolynomial-Strict");
+Context()->variables->are(w=>'Real');
 $ans=Compute("$b w+$d");
 
 BEGIN_TEXT
@@ -29,8 +30,6 @@ $PAR
 \($a + $b($c + w)\)=\{ans_rule(10)\}
 
 END_TEXT
-Context("Numeric");
-Context()->variables->are(w=>'Real');
 ANS($ans->cmp);
 
 BEGIN_SOLUTION
