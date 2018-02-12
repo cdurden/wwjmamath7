@@ -1,0 +1,65 @@
+#DESCRIPTION
+##Type of
+#ENDDESCRIPTION
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "unionMacros.pl",
+  "answerHints.pl",
+  "problemPanic.pl",
+  "PGcourse.pl"
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$a=random(2,8,2);
+$b=random(3,9,2);
+$c=random(3,9,1);
+$d=random(2,5,1);
+$e=$b*$c;
+$f=$a-$e;
+$g=-$b*$d
+$ans1="$f b+$g";
+
+BEGIN_TEXT
+Simplify
+
+$PAR
+\($a b -$b($c-$d)\)=\{ans_rule(10)\}
+
+END_TEXT
+Context("Numeric");
+Context()->variables->are(b=>'Real');
+ANS(Formula($ans)->cmp);
+
+BEGIN_SOLUTION
+$PAR Solution $PAR
+\($b\times ($c b-$d)\)$BR
+The distributive law tells us to multiply $b by each of the terms in the parentheses to get$BR
+\($e b+$g\)
+
+$BR
+We need to subtract this from \($a b \). We rewrite subtraction as addition using the additive inverse.
+
+\($a b + (-($e b + $g)) \).
+
+The opposite of the sum \( ($e b + $g)\) is the sum of the opposites:
+$BR
+\($a b + (-$e b + -$g)) \).
+
+$BR Combining like terms, we have
+
+\($f b - $g \).
+END_SOLUTION
+
+;
+ENDDOCUMENT();
+
+## DBsubject(ZZZ-Inserted Text)
+## DBchapter(ZZZ-Inserted Text)
+## DBsection(ZZZ-Inserted Text)
+## MO(1)
+
+

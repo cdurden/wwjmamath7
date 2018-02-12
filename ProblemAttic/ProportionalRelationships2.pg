@@ -1,0 +1,61 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
+    "PGgraphmacros.pl",
+    "parserImplicitEquation.pl",
+    "niceTables.pl",
+  );
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+Context("ImplicitEquation");
+Context()->variables->add(c=>"Real", s=>"Real");
+Context()->variables->set(
+s=>{limits=>[0,16]},
+c=>{limits=>[0,8]}
+);
+$eqn = ImplicitEquation("s = 2 c");
+
+
+  ######################################################################
+  BEGIN_TEXT
+The table below shows how many scoops of
+hot chocolate mix are needed in order to make
+di erent numbers of cups of hot chocolate.
+
+$PAR
+\{
+DataTable(
+  [
+    ['Number of cups of Hot Chocolate (c)','2','4','6','8'],
+    ['Number of scoops of Mix Needed (s)', '4', '8', '12', '16']
+  ], 
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  caption => 'Hot Chocolate Mix Recipe',
+  midrules => 1,
+  align => 'l | c | c | c | c',
+);
+\}
+
+
+What equation can be used to find the number of scoops (s) of hot chocolate mix needed to make c cups of hot chocolate?
+
+\{ ans_rule(25) \}
+
+END_TEXT
+ANS($eqn->cmp());
+
+  ######################################################################
+
+  ENDDOCUMENT();
