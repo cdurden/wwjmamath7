@@ -24,6 +24,7 @@
 #"PG.pl",
   );
   TEXT(beginproblem());
+$showPartialCorrectAnswers = 0;
 
 #Context()->variables->add(y=>"Real");
 $ans1 = PopUp(
@@ -61,10 +62,10 @@ $BR
 For parts B and C, use the particular value \( x=3500\) to test whether the two expressions are equivalent.
 
 $BR
-B. What is the value of  \( 0.88 x = \) if  \( x = 3500 \)? \{ ans_rule(25) \}.
+B. What is the value of the expression \( 0.88 x \) if  \( x = 3500 \)? \{ ans_rule(25) \}.
 
 $BR
-C. What is the value of \( x - 0.12 x = \) if \( x = 3500 \)? \{ ans_rule(25) \}.
+C. What is the value of the expression \( x - 0.12 x \) if \( x = 3500 \)? \{ ans_rule(25) \}.
 
 $BR
 D. Is the expression \( x - 0.12 x\) equivalent to \( 0.88 x\)?
