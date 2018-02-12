@@ -28,9 +28,9 @@
 #Context()->variables->add(y=>"Real");
 $ans1 = PopUp(
     [ "?", "0.12% decrease", "0.88% decrease", "12% decrease", "88% decrease" ],
-    "88% decrease" );
+    "12% decrease" );
 
-Context("Numeric");
+Context("Numeric-strict");
 $ans2 = Compute("0.88*3500");
 $ans3 = Compute("0.88*3500");
 $ans4 = PopUp(
@@ -51,16 +51,20 @@ in the value of the car?
 $BR
 \{ $ans1->menu() \}
 
+$BR
 B. Based on the answer to A, Leo wrote the following expression to represent the new value of the car. 
 
+$BR
 \( x - 0.12 x \)
 
-Use the particular value \( x=3500\) to test whether the two expressions are equivalent.
+$BR
+For parts B and C, use the particular value \( x=3500\) to test whether the two expressions are equivalent.
 
 $BR
-B. If \( x = 3500 \), then \( 0.88 x = \) \{ ans_rule(25) \}.
+B. What is the value of  \( 0.88 x = \) if  \( x = 3500 \)? \{ ans_rule(25) \}.
+
 $BR
-C. If \( x = 3500 \), then \( x - 0.12 x = \) \{ ans_rule(25) \}.
+C. What is the value of \( x - 0.12 x = \) if \( x = 3500 \)? \{ ans_rule(25) \}.
 
 $BR
 D. Is the expression \( x - 0.12 x\) equivalent to \( 0.88 x\)?
