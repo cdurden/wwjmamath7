@@ -10,7 +10,8 @@ loadMacros(
   "unionMacros.pl",
   "answerHints.pl",
   "problemPanic.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "contextLimitedPolynomial.pl"
 );
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
@@ -21,7 +22,9 @@ $d=random(2,5,1);
 $e=$b*$c;
 $f=$a-$e;
 $g=-$b*$d;
-$ans="$f b+$g";
+Context("LimitedPolynomial-Strict");
+Context()->variables->are(b=>'Real');
+$ans=Compute("$f b+$g");
 
 BEGIN_TEXT
 Simplify
@@ -30,9 +33,7 @@ $PAR
 \($a b -$b($c b -$d)\)=\{ans_rule(10)\}
 
 END_TEXT
-Context("Numeric");
-Context()->variables->are(b=>'Real');
-ANS(Formula($ans)->cmp);
+ANS($ans->cmp);
 
 BEGIN_SOLUTION
 $PAR Solution $PAR

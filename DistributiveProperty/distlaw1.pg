@@ -10,14 +10,19 @@ loadMacros(
   "unionMacros.pl",
   "answerHints.pl",
   "problemPanic.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "contextLimitedPolynomial.pl"
 );
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
 $a=random(2,8,2);
 $b=random(3,9,2);
 $c=$a*$b;
-$ans1="$a"."x+$c";
+Context("LimitedPolynomial-Strict");
+Context()->variables->are(x=>'Real',y=>'Real');
+$ans1 = Compute("$a x+$c");
+$ans2 = Compute("$e y+$f ");
+$ans3 = Compute("$g x+$h y");
 $d=random(5,13,2);
 $e=random(6,14,2);
 $f=$d*$e;
@@ -47,9 +52,9 @@ $PAR
 END_TEXT
 Context("Numeric");
 Context()->variables->are(x=>'Real',y=>'Real');
-ANS(Formula("$a x+$c")->cmp);
-ANS(Formula("$e y+$f ")->cmp);
-ANS(Formula("$g x+$h y")->cmp);
+ANS($ans1->cmp);
+ANS($ans2->cmp);
+ANS($ans3->cmp);
 
 BEGIN_SOLUTION
 $PAR Solution $PAR
