@@ -33,7 +33,7 @@ Context("Numeric");
 Context()->variables->are(x=>'Real');
 ANS(Formula($ans)->cmp);
 
-$expr3 = join("+", ("x") x ($a+$c))."+$b";
+$expr3 = "(".join("+", ("x") x $a).")+(".join("+", ("x") x $c).")+$b";
 BEGIN_SOLUTION
 $PAR Solution $PAR
 
