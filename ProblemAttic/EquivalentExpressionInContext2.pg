@@ -23,8 +23,8 @@
 #"PGbasicmacros.pl",
 #"PG.pl",
   );
-  TEXT(beginproblem());
 $showPartialCorrectAnswers = 0;
+  TEXT(beginproblem());
 
 #Context()->variables->add(y=>"Real");
 $ans1 = PopUp(
