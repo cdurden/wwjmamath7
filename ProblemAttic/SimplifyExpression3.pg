@@ -10,7 +10,7 @@ loadMacros(
   "unionMacros.pl",
   "answerHints.pl",
   "problemPanic.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
   "contextLimitedPolynomial.pl",
 );
 TEXT(beginproblem());
