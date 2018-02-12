@@ -21,7 +21,7 @@ $d=random(2,5,1);
 $expr1 = join("+", ("x") x $a)."+ $b";
 $expr2 = join("+", ("x") x $c)."- $d";
 $e=$a+$c;
-$f=$b-$d
+$f=$b-$d;
 $ans="$e x + $f";
 
 BEGIN_TEXT
