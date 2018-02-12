@@ -19,7 +19,7 @@ $b=random(2,4,1);
 $c=random(2,5,1);
 $expr1 = join("+", ("x") x $a)."+ $b";
 $expr2 = join("+", ("x") x $c);
-$d=$a+c;
+$d=$a+$c;
 $ans="$d x + $b";
 
 BEGIN_TEXT
