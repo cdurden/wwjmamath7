@@ -30,13 +30,13 @@ $ans1 = PopUp(
     [ "?", "0.12% decrease", "0.88% decrease", "12% decrease", "88% decrease" ],
     "88% decrease" );
 
-$ans2 = PopUp(
-    [ "?", "Yes","No" ],
-    "Yes" );
-
 Context("Numeric");
 $ans2 = Compute("0.88*3500");
 $ans3 = Compute("0.88*3500");
+$ans4 = PopUp(
+    [ "?", "Yes","No" ],
+    "Yes" );
+
   ######################################################################
 #Context()->texStrings;
 
