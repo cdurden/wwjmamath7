@@ -30,7 +30,7 @@ $ans1 = PopUp(
     [ "?", "0.12% decrease", "0.88% decrease", "12% decrease", "88% decrease" ],
     "12% decrease" );
 
-Context("Numeric-strict");
+Context("LimitedNumeric");
 $ans2 = Compute("0.88*3500");
 $ans3 = Compute("0.88*3500");
 $ans4 = PopUp(
