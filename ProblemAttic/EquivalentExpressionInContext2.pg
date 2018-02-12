@@ -31,8 +31,8 @@ $ans1 = PopUp(
     "12% decrease" );
 
 Context("LimitedNumeric");
-$ans2 = Compute("0.88*3500");
-$ans3 = Compute("0.88*3500");
+$ans2 = Compute("3080");
+$ans3 = Compute("3080");
 $ans4 = PopUp(
     [ "?", "Yes","No" ],
     "Yes" );
