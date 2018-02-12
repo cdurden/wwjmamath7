@@ -39,7 +39,7 @@ $PAR Solution $PAR
 
 Using the any order, any grouping property of addition, we can rewrite the sum
 $BR
-\( $expr1 + $\expr2 \) 
+\( ($expr1) + ($expr2) \) 
 $BR
 as
 $BR
