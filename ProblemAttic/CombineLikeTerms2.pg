@@ -1,0 +1,71 @@
+#DESCRIPTION
+##Type of
+#ENDDESCRIPTION
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "unionMacros.pl",
+  "answerHints.pl",
+  "problemPanic.pl",
+  "PGcourse.pl"
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$a=random(2,5,1);
+$b=random(2,4,1);
+$c=random(2,5,1);
+$d=random(2,5,1);
+$expr1 = join("+", ("x") x $a)."+ $b";
+$expr2 = join("+", ("x") x $c)."- $d";
+$e=$a+$c;
+$f=$b-$d
+$ans="$e x + $f";
+
+BEGIN_TEXT
+Write the sum of \( $expr1 \) and \( $expr2 \) in simplified (standard) form.
+
+$PAR
+\{ans_rule(10)\}
+
+END_TEXT
+Context("Numeric");
+Context()->variables->are(x=>'Real');
+ANS(Formula($ans)->cmp);
+
+$expr3 = join("+", ("x") x $c)."+ (-$d)";
+$expr4 = "(".join("+", ("x") x $a).")+(".join("+", ("x") x $c).")+$b+(-$d)";
+BEGIN_SOLUTION
+$PAR Solution $PAR
+
+First, we can rewrite the subtraction in \( $expr2 \) as addition using the additive inverse:
+$BR
+\( $expr2 = $expr3 \).
+
+$BR
+So 
+\( ($expr1) + ($expr2) = $expr1 + $expr3 \) 
+$BR
+Next, using the any order, any grouping property of addition, we can rewrite the sum
+$BR
+\( $expr1 + $expr3 \) 
+$BR
+as
+$BR
+\( $expr4 \)
+$BR This is equivalent to 
+$BR
+\($e x + $f \).
+END_SOLUTION
+
+;
+ENDDOCUMENT();
+
+## DBsubject(ZZZ-Inserted Text)
+## DBchapter(ZZZ-Inserted Text)
+## DBsection(ZZZ-Inserted Text)
+## MO(1)
+
+
