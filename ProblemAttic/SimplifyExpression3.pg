@@ -18,7 +18,8 @@ $a=random(2,8,1);
 $b=random(3,9,1);
 $c=random(3,9,1);
 $d=$a+$b*$c;
-$ans="$b w+$d";
+Context("LimitedPolynomial-Strict");
+$ans=Compute("$b w+$d");
 
 BEGIN_TEXT
 Simplify
@@ -29,7 +30,7 @@ $PAR
 END_TEXT
 Context("Numeric");
 Context()->variables->are(w=>'Real');
-ANS(Formula($ans)->cmp);
+ANS($ans->cmp);
 
 BEGIN_SOLUTION
 $PAR Solution $PAR
