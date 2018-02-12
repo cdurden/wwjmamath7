@@ -35,11 +35,11 @@ BEGIN_TEXT
 Simplify
 
 $PAR
-\($a ($b x) + $c y ($d) =\{ans_rule(10)\}
+\($a ($b x) + $c y ($d) = \) \{ans_rule(10)\}
 $PAR
-\($e \cdot $f z =\{ans_rule(10)\}
+\($e \cdot $f z = \) \{ans_rule(10)\}
 $PAR
-\($a ($b x) + $c y ($d) + $e \cdot $f z =\{ans_rule(10)\}
+\($a ($b x) + $c y ($d) + $e \cdot $f z = \) \{ans_rule(10)\}
 
 END_TEXT
 ANS($ans1->cmp);
