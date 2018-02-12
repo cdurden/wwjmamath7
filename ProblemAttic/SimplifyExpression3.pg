@@ -11,6 +11,7 @@ loadMacros(
   "answerHints.pl",
   "problemPanic.pl",
   "PGcourse.pl"
+  "contextLimitedPolynomial.pl",
 );
 TEXT(beginproblem());
 $showPartialCorrectAnswers = 1;
