@@ -37,7 +37,7 @@ BEGIN_TEXT
 
 $BR
 \{
- image( "SimplifyProcedure1.png", width=>425, height=>550 ) \}
+ image( "SimplifyProcedure1.png", width=>462, height=>275 ) \}
 $BR
 \{ $ans->menu() \}
 

@@ -34,15 +34,18 @@ To put this expression into expanded form, the distributive law tells us to mult
 \(3x+ 12\)
 
 $BR
-Then 
+The expanded form of the expression is then
 $BR
-\( 3(x+4)+5x-14  = 3x+12 + 5x - 14\)
+\( 3x+12 + 5x - 14\).
+$BR
 We rewrite subtraction as addition using the additive inverse to get:
 
+$BR
 \( 3x+12 + 5x + (-14) \).
 
-$BR Using the any order, any grouping property of addition, we can combine like terms, and we have
+$BR Using the any order, any grouping property of addition, we can combine like terms, and we get the result:
 
+$BR
 \(8x  - 2 \).
 END_SOLUTION
 
