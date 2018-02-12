@@ -27,7 +27,7 @@ BEGIN_TEXT
 Simplify
 
 $PAR
-\($a b -$b($c-$d)\)=\{ans_rule(10)\}
+\($a b -$b($c b -$d)\)=\{ans_rule(10)\}
 
 END_TEXT
 Context("Numeric");
@@ -36,20 +36,20 @@ ANS(Formula($ans)->cmp);
 
 BEGIN_SOLUTION
 $PAR Solution $PAR
-\($b\times ($c b-$d)\)$BR
+\($b ($c b-$d)\)$BR
 The distributive law tells us to multiply $b by each of the terms in the parentheses to get$BR
 \($e b+$g\)
 
 $BR
 We need to subtract this from \($a b \). We rewrite subtraction as addition using the additive inverse.
 
-\($a b + (-($e b + $g)) \).
+\($a b + -($e b + $g) \).
 
 The opposite of the sum \( ($e b + $g)\) is the sum of the opposites:
 $BR
-\($a b + (-$e b + -$g)) \).
+\($a b + -($e b + $g) = $a b + (-$e b + -$g)) \).
 
-$BR Combining like terms, we have
+$BR Using the any order, any grouping property of addition, and combining like terms, we have
 
 \($f b - $g \).
 END_SOLUTION
