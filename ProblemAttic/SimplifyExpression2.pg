@@ -21,7 +21,7 @@ $d=random(2,5,1);
 $e=$b*$c;
 $f=$a-$e;
 $g=-$b*$d;
-$ans1="$f b+$g";
+$ans="$f b+$g";
 
 BEGIN_TEXT
 Simplify
