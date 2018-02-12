@@ -33,22 +33,20 @@ Context("Numeric");
 Context()->variables->are(x=>'Real');
 ANS(Formula($ans)->cmp);
 
+$expr3 = join("+", ("x") x ($a+$c))."+$b";
 BEGIN_SOLUTION
 $PAR Solution $PAR
-Consider the expression that is being subtracted: \( ($c b-$d)\)$BR
 
+Using the any order, any grouping property of addition, we can rewrite the sum
 $BR
-We need to subtract this from \($a b \). We rewrite subtraction as addition using the additive inverse.
-
-\($a b + -($e b + $g) \).
-
-The opposite of the sum \( ($e b + $g)\) is the sum of the opposites:
+\( $expr1 + $\expr2 \) 
 $BR
-\($a b + -($e b + $g) = $a b + (-$e b + -$g)) \).
-
-$BR Using the any order, any grouping property of addition, and combining like terms, we have
-
-\($f b - $g \).
+as
+$BR
+\( $expr3 \)
+$BR This is equivalent to 
+$BR
+\($d x + $b \).
 END_SOLUTION
 
 ;
