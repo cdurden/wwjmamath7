@@ -8,7 +8,8 @@ loadMacros(
   "PGchoicemacros.pl",
   "MathObjects.pl",
   "contextLeadingZero.pl",
-  "PGcourse.pl"
+  "PGcourse.pl",
+  "contextLimitedPolynomial.pl"
 );
 #for currency use context("Currency") then currency($A);
 TEXT(beginproblem());
@@ -40,6 +41,13 @@ $ce=$c*$e;
 $ca=$c*$a;
 $ccf=$ab+$ce;
 $con=$af+$ca;
+Context("LimitedPolynomial-Strict");
+Context()->variables->are(c=>'Real', a=>'Real', d=>'Real', x=>'Real',y=>'Real');
+$ans1 = Compute("$aa  c +($a*$d) d + $bb");
+$ans2 = Compute("$cc  a + $dd ");
+$ans3 = Compute("$ff  a + $ee ");
+$ans4 = Compute("$gg  x + $hh ");
+
 BEGIN_TEXT
 Write each of these as a sum of terms using the distributive law.
 $PAR
@@ -54,13 +62,10 @@ $PAR
 \($k [$c( x + $e) +$e($b x +$d)]  =\)  \{ans_rule(15)\}.
 
 END_TEXT
-Context("Numeric");
-Context()->variables->are(a=>'Real',b=>'Real',c=>'Real',d=>'Real',x=>'Real');
-
-ANS(Formula("$aa  c +($a*$d) d + $bb")->cmp);
-ANS(Formula("$cc  a + $dd ")->cmp);
-ANS(Formula("$ff  a + $ee ")->cmp);
-ANS(Formula("$gg  x + $hh ")->cmp);
+ANS($ans1->cmp);
+ANS($ans2->cmp);
+ANS($ans3->cmp);
+ANS($ans4->cmp);
 
 BEGIN_SOLUTION
 $PAR Solution $PAR
