@@ -1,0 +1,58 @@
+#DESCRIPTION
+##Type of
+#ENDDESCRIPTION
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "unionMacros.pl",
+  "answerHints.pl",
+  "problemPanic.pl",
+  "PGcourse.pl",
+  "contextLimitedPolynomial.pl",
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+Context("LimitedPolynomial-Strict");
+Context()->variables->are(a=>'Real');
+$ans=Compute("a+8");
+
+BEGIN_TEXT
+What expression is the result when \( 2a - 5\)
+subtracted from \(3a + 3\) ? Put your answer in simplest (standard) form.
+
+$PAR
+\{ans_rule(10)\}
+
+END_TEXT
+ANS($ans->cmp);
+
+BEGIN_SOLUTION
+$PAR Solution $PAR
+The expression we want to simplify is \(3a + 3 - (2a - 5)\).
+$BR
+We rewrite subtraction as addition using the additive inverse (oppposite) of \(2a - 5\).
+
+$BR
+\(3a + 3 - (2a - 5)\)
+$BR
+\(3a + 3 + -(2a - 5)\)
+$BR
+\(3a + 3 + -2a + 5\)
+$BR
+$BR Using the any order, any grouping property of addition, we can combine like terms, and we have
+
+\(a + 8 \).
+END_SOLUTION
+
+;
+ENDDOCUMENT();
+
+## DBsubject(ZZZ-Inserted Text)
+## DBchapter(ZZZ-Inserted Text)
+## DBsection(ZZZ-Inserted Text)
+## MO(1)
+
+

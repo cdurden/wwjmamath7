@@ -1,0 +1,61 @@
+#DESCRIPTION
+##Type of
+#ENDDESCRIPTION
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "PGchoicemacros.pl",
+  "MathObjects.pl",
+  "unionMacros.pl",
+  "answerHints.pl",
+  "problemPanic.pl",
+  "PGcourse.pl",
+  "contextLimitedPolynomial.pl"
+);
+TEXT(beginproblem());
+$showPartialCorrectAnswers = 1;
+$a=random(2,5,1);
+$b=random(2,4,1);
+$c=random(2,5,1);
+$expr1 = join("+", ("x") x $a)."+ $b";
+$expr2 = join("+", ("x") x $c);
+$d=$a+$c;
+Context("LimitedPolynomial-Strict");
+Context()->variables->are(x=>'Real');
+$ans=Compute("$d x + $b");
+
+BEGIN_TEXT
+Write the sum of \( $expr1 \) and \( $expr2 \) in simplified (standard) form.
+
+$PAR
+\{ans_rule(10)\}
+
+END_TEXT
+ANS($ans->cmp);
+
+$expr3 = "(".join("+", ("x") x $a).")+(".join("+", ("x") x $c).")+$b";
+BEGIN_SOLUTION
+$PAR Solution $PAR
+
+Using the any order, any grouping property of addition, we can rewrite the sum
+$BR
+\( ($expr1) + ($expr2) \) 
+$BR
+as
+$BR
+\( $expr3 \)
+$BR This is equivalent to 
+$BR
+\($d x + $b \).
+END_SOLUTION
+
+;
+ENDDOCUMENT();
+
+## DBsubject(ZZZ-Inserted Text)
+## DBchapter(ZZZ-Inserted Text)
+## DBsection(ZZZ-Inserted Text)
+## MO(1)
+
+
