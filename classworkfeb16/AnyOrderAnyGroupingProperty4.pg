@@ -33,6 +33,16 @@ $ans2=Compute("$a+($b+$c)");
 $ans3=Compute("($a-$b)+$c");
 $ans4=Compute("$a-($b+$c)");
 
+#$h=$a*$b;
+#$i=$c*$d;
+#$j=$e*$f;
+#Context("LimitedPolynomial-Strict");
+#Context()->variables->are(x=>'Real',y=>'Real',z=>'Real');
+#$ans1=Compute("($a+$b)+$c");
+#$ans2=Compute("$a+($b+$c)");
+#$ans3=Compute("($a-$b)+$c");
+#$ans4=Compute("$a-($b+$c)");
+
 BEGIN_TEXT
 Simplify
 
