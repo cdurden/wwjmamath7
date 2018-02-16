@@ -22,15 +22,25 @@ $d=random(2,5,1);
 $e=random(2,5,1);
 $f=random(2,5,1);
 
-$h=$a*$b;
-$i=$c*$d;
-$j=$e*$f;
+$h=$a+$c;
+$i=$b+$d;
+$j=$a-$c;
+$k=$b-$d;
 Context("LimitedPolynomial-Strict");
 Context()->variables->are(x=>'Real',y=>'Real',z=>'Real');
-$ans1=Compute("$a x+$b+$c x+$d");
-$ans2=Compute("$a x+$b+($c x+$d)");
-$ans3=Compute("$a x+$b-$c x+$d))");
-$ans4=Compute("$a x+$b-($c x +$d)");
+$ans1=Compute("$h x + $i");
+$ans2=Compute("$h x + $i");
+$ans3=Compute("$j x + $i");
+$ans4=Compute("$j x + $k");
+#$h=$a*$b;
+#$i=$c*$d;
+#$j=$e*$f;
+#Context("LimitedPolynomial-Strict");
+#Context()->variables->are(x=>'Real',y=>'Real',z=>'Real');
+#$ans1=Compute("$a x+$b+$c x+$d");
+#$ans2=Compute("$a x+$b+($c x+$d)");
+#$ans3=Compute("$a x+$b-$c x+$d))");
+#$ans4=Compute("$a x+$b-($c x +$d)");
 
 BEGIN_TEXT
 Simplify
