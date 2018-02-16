@@ -61,7 +61,7 @@ BEGIN_PGML
 
 Write an equivalent expression that has no grouping symbols.
 
-    [` [$func]`]  (Note: this can be read as the opposite of [` [$func0]`])
+    [` [$func]`]  (Note: this can be read as **the opposite of** [` [$func0]`])
 
     [`=`] [______________]{$ans} 
 
