@@ -27,7 +27,7 @@ BEGIN_TEXT
 Simplify
 
 $PAR
-\($a x + ($b x) + $c x)\)=\{ans_rule(10)\}
+\($a x + ($b x) + $c x\)=\{ans_rule(10)\}
 
 END_TEXT
 ANS($ans->cmp);
