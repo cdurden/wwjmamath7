@@ -45,6 +45,8 @@ $a = -1;
 $b = non_zero_random(-10,10,1);
 $func = Compute("$a*($var+$b)")->reduce;
 $ans = Compute("$a*$var+$a*$b")->reduce;
+$func0 = Compute("($var+$b)")->reduce;
+
 
 Context("LimitedPolynomial-Strict");
 Context()->variables->are( $var=>'Real');
@@ -57,9 +59,9 @@ TEXT(beginproblem());
 
 BEGIN_PGML
 
-Use the distributive property to write an equivalent expression that has no grouping symbols.
+Write an equivalent expression that has no grouping symbols.
 
-    [` [$func]`]  
+    [` [$func]`]  (Note: this can be read as the opposite of [` [$func0]`])
 
     [`=`] [______________]{$ans} 
 

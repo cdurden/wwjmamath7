@@ -23,15 +23,15 @@ $d=random(2,5,1);
 $e=random(2,5,1);
 $f=random(2,5,1);
 
-$h=$a+$b+$c;
-$i=$a-$b+$c;
-$j=$a-($b+$c);
+$h=$a+$c;
+$i=$a-$c;
+$j=-$b;
 Context("LimitedPolynomial-Strict");
 Context()->variables->are(x=>'Real',y=>'Real',z=>'Real');
-$ans1=Compute("$h");
-$ans2=Compute("$h");
-$ans3=Compute("$i");
-$ans4=Compute("$j");
+$ans1=Compute("$b x + $h");
+$ans2=Compute("$b x + $h");
+$ans3=Compute("$j x + $h");
+$ans4=Compute("$j x + $i");
 
 #$h=$a*$b;
 #$i=$c*$d;
@@ -57,13 +57,13 @@ BEGIN_TEXT
 Simplify
 
 $PAR
-\($a+$b + $c = \) \{ans_rule(10)\}
+\($a+$b x + $c = \) \{ans_rule(10)\}
 $PAR
-\($a+($b+$c) = \) \{ans_rule(10)\}
+\($a+($b x +$c) = \) \{ans_rule(10)\}
 $PAR
-\($a-$b + $c = \) \{ans_rule(10)\}
+\($a-$b x + $c = \) \{ans_rule(10)\}
 $PAR
-\($a-($b + $c) = \) \{ans_rule(10)\}
+\($a-($b x + $c) = \) \{ans_rule(10)\}
 
 END_TEXT
 ANS($ans1->cmp);
