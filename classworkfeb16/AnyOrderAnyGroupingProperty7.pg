@@ -19,7 +19,7 @@ $a=random(2,8,2);
 #do { $b = random(1, 10); } until ($a+$b+$c != 0);
 $b=random(3,9,1);
 $c=random(2,5,1);
-$d=random(2,5,1);
+$d=random(-10,-1,1);
 $e=random(2,5,1);
 $f=random(2,5,1);
 
