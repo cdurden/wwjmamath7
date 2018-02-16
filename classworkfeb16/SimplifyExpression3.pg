@@ -20,7 +20,7 @@ $c=random(3,9,1);
 $d=random(2,5,1);
 $e=$c;
 $f=$a-$e;
-$g=-$d;
+$g=$d;
 Context("LimitedPolynomial-Strict");
 Context()->variables->are(b=>'Real');
 $ans=Compute("$f b+$g");
@@ -29,7 +29,7 @@ BEGIN_TEXT
 Simplify
 
 $PAR
-\($a b -($c b +$d)\)=\{ans_rule(10)\}
+\($a b -($c b -$d)\)=\{ans_rule(10)\}
 
 END_TEXT
 ANS($ans->cmp);
