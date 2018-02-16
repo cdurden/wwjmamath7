@@ -29,7 +29,7 @@ $j=$a-($b+$c);
 Context("LimitedPolynomial-Strict");
 Context()->variables->are(x=>'Real',y=>'Real',z=>'Real');
 $ans1=Compute("$h");
-$ans2=Compute("$h)");
+$ans2=Compute("$h");
 $ans3=Compute("$i");
 $ans4=Compute("$j");
 
