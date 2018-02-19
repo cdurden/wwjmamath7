@@ -35,17 +35,12 @@ END_TEXT
 ANS($ans->cmp);
 
 BEGIN_SOLUTION
-$PAR Solution $PAR
-Consider the expression that is being subtracted: \( ($c b-$d)\)$BR
 
-$BR
-We need to subtract this from \($a b \). To subtract, we will add the opposite.
+$BR Using the any order, any grouping property of addition,
 
-The opposite of the expression \( ($c b - $d)\) is \( (-$c b + $d) \).
-$BR
-\($a b + (-$c b + $d) = $a b + -$c b + $d) \).
+\($a b + ($c b - $d) = $a b + $c b - $d) \).
 
-$BR Using the any order, any grouping property of addition, and combining like terms, we have
+Combining like terms, we have
 
 \($f b + $g \).
 END_SOLUTION
