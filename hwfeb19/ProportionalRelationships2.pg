@@ -39,7 +39,7 @@ The graph below represents the cost of purchasing
 different numbers of tickets to a school play.
 $BR
 \{
- image( "ProportionalRelationships2.png", width=>480, height=>824 ) \}
+ image( "ProportionalRelationships2.png", width=>240, height=>412 ) \}
 $BR
 As the number of tickets purchased increases by 1,
 how does the cost of the ticket purchase change?
