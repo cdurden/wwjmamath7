@@ -50,7 +50,7 @@ A. telling her about how long it takes to mow her WHOLE yard, and
 $BR
 B. explaining to her how you found your answer.
 
-\{ $essay_box() \}
+\{ essay_box() \}
 
 END_TEXT
 ANS(essay_cmp());
