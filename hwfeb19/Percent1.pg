@@ -30,7 +30,7 @@
 #    [ "?", "A", "B", "C", "D" ],
 #    "C" );
 Context("LimitedPercent-strict");
-$ans1 = '25%';
+$ans1 = Compute('25%');
 
   ######################################################################
 #Context()->texStrings;
