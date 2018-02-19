@@ -25,13 +25,13 @@
   TEXT(beginproblem());
 
 Context("LimitedFraction");
-$ans1 = Compute('340.833');
-$ans2 = Compute('0.7333....');
-$ans3 = Compute('27 mi/gal');
+$ans1 = Compute('-6');
+$ans2 = Compute('x = 5');
+$ans3 = Compute('12.5% error');
 #$ans3 = PopUp( [ "?", "Yes", "No" ], "Yes" );
-$ans4 = Compute('likely event');
+$ans4 = Compute('h = 12ft.');
 #$ans4 = PopUp( [ "?", "Likely", "Unlikely", "Neither" ], "Unlikely" );
-$ans5 = Compute('5.5 by 4.75 ft.');
+$ans5 = Compute('m ≥ 4');
 
   ######################################################################
 #Context()->texStrings;
@@ -43,7 +43,7 @@ $BR
 \{
 BeginTable(border=>0, tex_border=>"0pt", spacing=>0, padding=>4).
 AlignedRow([
- image( "warmup080.png", width=>425, height=>550 ),
+ image( "warmup082.png", width=>425, height=>550 ),
 "
 $BR
 1.".  ans_rule(25) ."
