@@ -49,7 +49,7 @@ $BR
 What percent of the total coins is in Stack B?
 $BR
 
-\{ ans_box(25) \}
+\{ ans_rule(25) \}
 
 END_TEXT
 ANS($ans1->cmp());
