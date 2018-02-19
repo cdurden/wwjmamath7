@@ -1,0 +1,68 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "contextInequalities.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
+    "PGgraphmacros.pl",
+    "parserImplicitEquation.pl",
+    "niceTables.pl",
+"PGchoicemacros.pl",
+"PGgraders.pl",
+"PGessaymacros.pl",
+"unionTables.pl",
+#"PGanswermacros.pl",
+#"PGbasicmacros.pl",
+#"PG.pl",
+  );
+  TEXT(beginproblem());
+
+#Context()->variables->add(y=>"Real");
+#$ans = PopUp(
+#    [ "?", "A", "B", "C", "D" ],
+#    "C" );
+
+  ######################################################################
+#Context()->texStrings;
+
+#Context()->texStrings;
+BEGIN_TEXT
+
+The shaded area of the picture below shows
+what part of the yard Jessie mowed in
+30 minutes.
+
+$BR
+\{
+ image( "ProportionalRelationships3.png", width=>480, height=>125 ) \}
+$BR
+She wonders about how long it takes her to mow
+the WHOLE yard. Write a note to Jessie
+$BR
+A. telling her about how long it takes to mow her WHOLE yard, and 
+$BR
+B. explaining to her how you found your answer.
+
+\{ $essay_box() \}
+
+END_TEXT
+ANS(essay_cmp());
+
+#install_problem_grader(~~&custom_problem_grader_fluid);
+#$ENV{'grader_numright'} = [1,2,3,4,5];
+#$ENV{'grader_scores'} = [0.2,0.4,0.6,0.8,1];
+#$ENV{'grader_message'} = "You can earn " .
+#"30% partial credit for 2 - 3 correct answers, and " .
+#"60% partial credit for 4 correct answers.";
+
+
+  ######################################################################
+
+  ENDDOCUMENT();

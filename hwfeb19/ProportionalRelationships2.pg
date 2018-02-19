@@ -1,0 +1,70 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "contextInequalities.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
+    "PGgraphmacros.pl",
+    "parserImplicitEquation.pl",
+    "niceTables.pl",
+"PGchoicemacros.pl",
+"PGgraders.pl",
+"PGessaymacros.pl",
+"unionTables.pl",
+#"PGanswermacros.pl",
+#"PGbasicmacros.pl",
+#"PG.pl",
+  );
+  TEXT(beginproblem());
+
+#Context()->variables->add(y=>"Real");
+$ans = PopUp(
+    [ "?", "A", "B", "C", "D" ],
+    "C" );
+
+  ######################################################################
+#Context()->texStrings;
+
+#Context()->texStrings;
+BEGIN_TEXT
+
+The graph below represents the cost of purchasing
+different numbers of tickets to a school play.
+$BR
+\{
+ image( "ProportionalRelationships2.png", width=>480, height=>824 ) \}
+$BR
+As the number of tickets purchased increases by 1,
+how does the cost of the ticket purchase change?
+$BR
+A. It increases by $0.50.
+$BR
+B. It increases by $1.00.
+$BR
+C. It increases by $2.00.
+$BR
+D. It increases by $4.00.
+$BR
+\{ $ans->menu() \}
+
+END_TEXT
+ANS($ans->cmp());
+
+#install_problem_grader(~~&custom_problem_grader_fluid);
+#$ENV{'grader_numright'} = [1,2,3,4,5];
+#$ENV{'grader_scores'} = [0.2,0.4,0.6,0.8,1];
+#$ENV{'grader_message'} = "You can earn " .
+#"30% partial credit for 2 - 3 correct answers, and " .
+#"60% partial credit for 4 correct answers.";
+
+
+  ######################################################################
+
+  ENDDOCUMENT();
