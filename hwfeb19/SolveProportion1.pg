@@ -1,0 +1,41 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"contextFraction.pl",
+"AnswerFormatHelp.pl",
+);
+  TEXT(beginproblem());
+  $showPartialCorrectAnswers = 1;
+
+  #Context("Numeric") ; 
+  Context("LimitedFraction");
+  #Context()->flags->set(tolerance => 0.01);
+  $answer = Compute('55');
+
+  ######################################################################
+Context()->texStrings;
+BEGIN_TEXT
+Solve the following proportion: \( \frac{15}{k} = \frac{6}{22} \)
+
+$BR
+
+k = \{ ans_rule(25) \}
+
+END_TEXT
+
+$showHint = 1;
+BEGIN_TEXT
+$PAR
+If you don't get this in $showHint tries, you can get a hint.
+END_TEXT
+BEGIN_HINT
+Cross multiply and divide.
+END_HINT
+ANS($answer->cmp(allowMixedNumbers=>1, reduceConstants=>0));
+Context()->normalStrings;
+
+  ######################################################################
+
+  ENDDOCUMENT();
