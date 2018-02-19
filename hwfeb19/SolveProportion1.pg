@@ -19,17 +19,17 @@ loadMacros(
 Context()->texStrings;
 BEGIN_TEXT
 Solve the following proportions: 
-$BR
-a. \( \frac{15}{k} = \frac{6}{22} \)
+$PAR
+(a) \( \frac{15}{k} = \frac{6}{22} \)
 
-$BR
+$PAR
 
 k = \{ ans_rule(25) \}
 
-$BR
-b. \( \frac{12}{25} = \frac{x}{88} \)
+$PAR
+(b) \( \frac{12}{25} = \frac{x}{88} \)
 
-$BR
+$PAR
 x = \{ ans_rule(25) \}
 
 END_TEXT

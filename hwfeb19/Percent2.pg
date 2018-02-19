@@ -38,7 +38,7 @@ $ans1 = Compute('36');
 #Context()->texStrings;
 BEGIN_TEXT
 
-A baseball team won 75% of its games. If the
+A baseball team won 75$PERCENT() of its games. If the
 team played 48 games, how many games did it
 win?
 
