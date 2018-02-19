@@ -38,7 +38,7 @@ BEGIN_SOLUTION
 
 $BR Using the any order, any grouping property of addition,
 
-\($a b + ($c b - $d) = $a b + $c b - $d) \).
+\($a b + ($c b - $d) = $a b + $c b - $d \).
 
 Combining like terms, we have
 
