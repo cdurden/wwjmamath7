@@ -59,7 +59,7 @@ What would be the price of \( 3 \) pounds of meat?
 
 END_TEXT
 ANS($eqn->cmp());
-ANS($ans2->cmp())
+ANS($ans2->cmp());
 
   ######################################################################
 
