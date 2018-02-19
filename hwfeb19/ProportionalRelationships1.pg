@@ -19,12 +19,12 @@
   $showPartialCorrectAnswers = 1;
 
 Context("ImplicitEquation");
-Context()->variables->add(t=>"Real", p=>"Real");
+Context()->variables->add(y=>"Real", x=>"Real");
 Context()->variables->set(
-p=>{limits=>[0,52]},
-t=>{limits=>[0,8]}
+y=>{limits=>[0,6.6]},
+x=>{limits=>[0,3]}
 );
-$eqn = ImplicitEquation("p = 6.5 t");
+$eqn = ImplicitEquation("y=2.2x");
 
 Context("Currency");
 $ans2 = Compute('$6.60');
