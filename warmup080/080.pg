@@ -80,7 +80,7 @@ ANS($ans1->cmp());
 ANS($ans2->cmp());
 #ANS(num_cmp($ans2, 'units'=>'mi/hr'));
 #ANS($ans3->cmp());
-ANS(num_cmp($ans3, 'units'=>'mi/gal'));
+ANS(num_cmp($ans3, 'units'=>'mi'));
 ANS($ans4->cmp());
 #ANS(num_cmp($ans4, 'units'=>'ft'));
 ANS($ans5->cmp());
