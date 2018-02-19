@@ -24,14 +24,16 @@
   );
   TEXT(beginproblem());
 
-Context("LimitedFraction");
+Context("Numeric",tolerance=>0.001);
 $ans1 = Compute('340.833');
-$ans2 = Compute('0.7333....');
-$ans3 = Compute('27 mi/gal');
+$ans2 = Compute('0.7333');
+$ans3 = '27';
+#$ans3 = Compute('27 mi/gal');
 #$ans3 = PopUp( [ "?", "Yes", "No" ], "Yes" );
-$ans4 = Compute('likely event');
-#$ans4 = PopUp( [ "?", "Likely", "Unlikely", "Neither" ], "Unlikely" );
-$ans5 = Compute('5.5 by 4.75 ft.');
+#$ans4 = Compute('likely event');
+$ans4 = PopUp( [ "?", "Likely", "Unlikely", "Neither" ], "Likely" );
+$ans5 = '5.5';
+$ans6 = '4.75';
 
   ######################################################################
 #Context()->texStrings;
@@ -59,8 +61,8 @@ ans_rule(25)
 
 $BR
 4.".
-ans_rule(25)
-#$ans4->menu()
+#ans_rule(25)
+$ans4->menu()
  ."
 
 $BR
@@ -76,12 +78,13 @@ ANS($ans1->cmp());
 #ANS(num_cmp($ans1, 'units'=>'in'));
 ANS($ans2->cmp());
 #ANS(num_cmp($ans2, 'units'=>'mi/hr'));
-ANS($ans3->cmp());
-#ANS(num_cmp($ans3, 'units'=>'mi'));
+#ANS($ans3->cmp());
+ANS(num_cmp($ans3, 'units'=>'mi'));
 ANS($ans4->cmp());
 #ANS(num_cmp($ans4, 'units'=>'ft'));
-ANS($ans5->cmp());
-#ANS(num_cmp($ans5, 'units'=>'in'));
+#ANS($ans5->cmp());
+ANS(num_cmp($ans5, 'units'=>'ft'));
+ANS(num_cmp($ans6, 'units'=>'ft'));
 
 #install_problem_grader(~~&custom_problem_grader_fluid);
 #$ENV{'grader_numright'} = [1,2,3,4,5];
