@@ -66,7 +66,6 @@ $ans1 = Compute("$per1 %");
 TEXT(beginproblem());
 
 BEGIN_PGML
-
 Fill in the blanks with percent. Don't use calculator or paper/pencil. Use mental math.
 
 a) [`[$part0]`] is [______]{$ans0} of [` [$num0] `]?
