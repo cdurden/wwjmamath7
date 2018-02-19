@@ -19,6 +19,7 @@ loadMacros(
 Context()->texStrings;
 BEGIN_TEXT
 Solve the following proportions: 
+$BR
 a. \( \frac{15}{k} = \frac{6}{22} \)
 
 $BR
