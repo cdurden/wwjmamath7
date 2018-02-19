@@ -1,0 +1,67 @@
+  DOCUMENT();
+  loadMacros(
+    "PGstandard.pl",
+    "contextInequalities.pl",
+    "PGML.pl",
+    "MathObjects.pl",
+    "PGcourse.pl",
+    "parserNumberWithUnits.pl",
+#    "contextArbitraryString.pl",
+    "parserMultiAnswer.pl",
+    "parserPopUp.pl",
+#    "contextInequalities.pl",
+    "contextFraction.pl",
+    "PGgraphmacros.pl",
+    "parserImplicitEquation.pl",
+    "niceTables.pl",
+"PGchoicemacros.pl",
+"PGgraders.pl",
+"PGessaymacros.pl",
+"unionTables.pl",
+"contextPercent",
+#"PGanswermacros.pl",
+#"PGbasicmacros.pl",
+#"PG.pl",
+  );
+  TEXT(beginproblem());
+
+#Context()->variables->add(y=>"Real");
+#$ans = PopUp(
+#    [ "?", "A", "B", "C", "D" ],
+#    "C" );
+Context("LimitedPercent-strict");
+$ans1 = '25%';
+
+  ######################################################################
+#Context()->texStrings;
+
+#Context()->texStrings;
+BEGIN_TEXT
+
+Here are three stacks of coins. Stack A has
+20 coins, stack B has 13 coins, and stack C has
+19 coins.
+
+$BR
+\{
+ image( "Percent1.png", width=>480, height=>302 ) \}
+$BR
+What percent of the total coins is in Stack B?
+$BR
+
+\{ ans_box(25) \}
+
+END_TEXT
+ANS($ans1->cmp());
+
+#install_problem_grader(~~&custom_problem_grader_fluid);
+#$ENV{'grader_numright'} = [1,2,3,4,5];
+#$ENV{'grader_scores'} = [0.2,0.4,0.6,0.8,1];
+#$ENV{'grader_message'} = "You can earn " .
+#"30% partial credit for 2 - 3 correct answers, and " .
+#"60% partial credit for 4 correct answers.";
+
+
+  ######################################################################
+
+  ENDDOCUMENT();
