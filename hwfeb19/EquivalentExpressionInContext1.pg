@@ -37,7 +37,7 @@ BEGIN_TEXT
 
 $BR
 \{
- image( "EquivalentExpressionInContext1.png", width=>480, height=>420 ) \}
+ image( "EquivalentExpressionInContext1.png", width=>480, height=>256 ) \}
 $BR
 \{ $ans->menu() \}
 
