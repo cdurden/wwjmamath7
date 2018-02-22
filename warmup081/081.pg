@@ -13,7 +13,9 @@
     "contextFraction.pl",
     "PGgraphmacros.pl",
     "parserImplicitEquation.pl",
+  "parserNumberWithUnits.pl",
 #    "niceTables.pl",
+    "contextCurrency.pl",
 "PGessaymacros.pl",
 "PGchoicemacros.pl",
 "PGgraders.pl",
@@ -26,12 +28,17 @@
 
 Context("LimitedFraction");
 $ans1 = Compute('-56');
-$ans2 = Compute('x ˂ 6');
+Context("Inequalities");
+$ans2 = Compute('x < 6');
+Context("Currency");
 $ans3 = Compute('$18.00');
 #$ans3 = PopUp( [ "?", "Yes", "No" ], "Yes" );
-$ans4 = Compute('A = 625π cm 2');
+$ans4 = NumberWithUnits("625 pi","cm^2");
 #$ans4 = PopUp( [ "?", "Likely", "Unlikely", "Neither" ], "Unlikely" );
-$ans5 = Compute('180-14=x, 166°');
+Context("ImplicitEquation");
+$ans5 = ImplicitEquation("180-14=x");
+Context("Numeric");
+$ans6 = Compute('166');
 
   ######################################################################
 #Context()->texStrings;
@@ -64,7 +71,7 @@ ans_rule(25)
  ."
 
 $BR
-5.". ans_rule(25) .""
+5. Equation: ". ans_rule(8) .", x = " . ans_rule(8) .""
 ],
 align=>LEFT
 ).
@@ -81,6 +88,7 @@ ANS($ans3->cmp());
 ANS($ans4->cmp());
 #ANS(num_cmp($ans4, 'units'=>'ft'));
 ANS($ans5->cmp());
+ANS($ans6->cmp());
 #ANS(num_cmp($ans5, 'units'=>'in'));
 
 #install_problem_grader(~~&custom_problem_grader_fluid);
