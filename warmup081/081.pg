@@ -38,7 +38,7 @@ $ans4 = NumberWithUnits("625 pi","cm^2");
 #Context("ImplicitEquation");
 #$ans5 = ImplicitEquation("180-14=x");
 Context("Inequalities");
-$ans5 = ImplicitEquation("180-14=x");
+$ans5 = Compute("180-14=x");
 Context("Numeric");
 $ans6 = Compute('166');
 
