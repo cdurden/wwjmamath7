@@ -19,7 +19,7 @@
   $showPartialCorrectAnswers = 1;
 
 Context("ImplicitEquation");
-Context()->variables->add(y=>"Real", x=>"Real");
+#Context()->variables->add(y=>"Real", x=>"Real");
 Context()->variables->set(
 y=>{limits=>[0,6.6]},
 x=>{limits=>[0,3]}
