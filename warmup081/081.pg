@@ -73,6 +73,9 @@ ans_rule(25)
  ."
 
 $BR
+Enter \( pi \) as 'pi'.
+
+$BR
 5. Equation: ". ans_rule(8) .", x = " . ans_rule(8) .""
 ],
 align=>LEFT
