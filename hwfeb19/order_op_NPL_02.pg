@@ -89,7 +89,7 @@ ANS($ans_b->cmp(studentsMustReduceFractions=>1));
 #  END_TEXT
 #}
 Context()->normalStrings;
-PeriodicStatus(); 
+#PeriodicStatus(); 
 
 COMMENT('Features Periodic Rerandomization. Edited and updated in 2012/2013.
 $BR

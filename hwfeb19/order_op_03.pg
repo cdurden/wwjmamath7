@@ -77,7 +77,7 @@ ANS(Compute($ans)->cmp());
 #  END_TEXT
 #}
 Context()->normalStrings;
-PeriodicStatus(); 
+#PeriodicStatus(); 
 
 COMMENT('Features Periodic Rerandomization');
 ENDDOCUMENT();

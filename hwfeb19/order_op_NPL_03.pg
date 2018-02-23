@@ -82,7 +82,7 @@ ANS($ans_b->cmp);
 #  END_TEXT
 #}
 Context()->normalStrings;
-PeriodicStatus(); 
+#PeriodicStatus(); 
 
 COMMENT('Features Periodic Rerandomization. Edited and updated in 2012/2013.
 $BR
