@@ -20,7 +20,7 @@ loadMacros(
   "PGstandard.pl",
   "Parser.pl",
   "MathObjects.pl",
-  "PeriodicRerandomization.pl",
+#  "PeriodicRerandomization.pl",
   "contextFraction.pl",
   "PGcourse.pl"
 );

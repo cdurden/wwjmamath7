@@ -19,7 +19,7 @@ DOCUMENT();
 loadMacros(
   "PGstandard.pl",
   "MathObjects.pl",
-  "PeriodicRerandomization.pl",
+#  "PeriodicRerandomization.pl",
   "contextLimitedNumeric.pl",
   "PGcourse.pl"
 );
