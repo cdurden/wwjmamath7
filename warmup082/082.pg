@@ -14,6 +14,7 @@
     "PGgraphmacros.pl",
     "parserImplicitEquation.pl",
   "parserNumberWithUnits.pl",
+"parserLinearInequality.pl",
 #    "niceTables.pl",
 "PGessaymacros.pl",
 "PGchoicemacros.pl",
@@ -38,17 +39,18 @@
 
 Context("LimitedFraction");
 $ans1 = Compute('-6');
-Context("Inequalities");
-$ans2 = Compute('x = 5');
+Context("Numeric");
+$ans2 = Compute('5');
 Context("LimitedPercent-strict");
 $ans3 = Compute('12.5%');
 #$ans3 = PopUp( [ "?", "Yes", "No" ], "Yes" );
 $ans4 = NumberWithUnits("12","ft");
 #$ans4 = Compute('12 ft');
 #$ans4 = PopUp( [ "?", "Likely", "Unlikely", "Neither" ], "Unlikely" );
-Context("Inequalities");
 Context()->variables->add(m=>"Real");
-$ans5 = Compute('m >= 4');
+$ans5 = LinearInequality("m >= 4");
+#Context("Inequalities");
+#$ans5 = Compute('m >= 4');
 
   ######################################################################
 #Context()->texStrings;
@@ -66,7 +68,7 @@ $BR
 1.".  ans_rule(25) ."
 
 $BR
-2.". ans_rule(25) ."
+2.x = ". ans_rule(25) ."
 
 $BR
 3.". 
