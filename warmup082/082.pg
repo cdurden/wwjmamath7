@@ -14,7 +14,7 @@
     "PGgraphmacros.pl",
     "parserImplicitEquation.pl",
   "parserNumberWithUnits.pl",
-"parserLinearInequality.pl",
+#"parserLinearInequality.pl",
 #    "niceTables.pl",
 "PGessaymacros.pl",
 "PGchoicemacros.pl",
