@@ -49,8 +49,10 @@ $ans4 = NumberWithUnits("12","ft");
 #$ans4 = PopUp( [ "?", "Likely", "Unlikely", "Neither" ], "Unlikely" );
 #Context()->variables->add(m=>"Real");
 #$ans5 = LinearInequality("m >= 4");
-Context("Inequalities");
-$ans5 = Compute('m >= 4');
+Context("Numeric");
+$ans5 = Compute('4');
+#Context("Inequalities");
+#$ans5 = Compute('m >= 4');
 
   ######################################################################
 #Context()->texStrings;
@@ -83,7 +85,7 @@ ans_rule(25)
  ."
 
 $BR
-5.". ans_rule(25) .""
+5. \( m \ge \) ". ans_rule(25) .""
 ],
 align=>LEFT
 ).
