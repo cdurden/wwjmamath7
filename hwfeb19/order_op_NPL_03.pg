@@ -25,7 +25,7 @@ loadMacros(
 );
 
 TEXT(beginproblem());
-PeriodicRerandomization("3");
+#PeriodicRerandomization("3");
 $showPartialCorrectAnswers = 1;
 
 
