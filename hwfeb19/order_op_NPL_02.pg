@@ -77,17 +77,17 @@ ANS($ans_b->cmp(studentsMustReduceFractions=>1));
 # use PeriodicRerandomization to write the answer and generate a new
 # version of the problem
 ###########################################################################
-if ($attempts_modp == 0 && $actualAttempts != 0) {
-  BEGIN_TEXT
-  $PAR
-  ${BBOLD}Answer:${EBOLD} (a) \($ans_a\), $SPACE (b) \($ans_b\)
-  $PAR
-  END_TEXT
-} else {
-  BEGIN_TEXT
-  $BR
-  END_TEXT
-}
+#if ($attempts_modp == 0 && $actualAttempts != 0) {
+#  BEGIN_TEXT
+#  $PAR
+#  ${BBOLD}Answer:${EBOLD} (a) \($ans_a\), $SPACE (b) \($ans_b\)
+#  $PAR
+#  END_TEXT
+#} else {
+#  BEGIN_TEXT
+#  $BR
+#  END_TEXT
+#}
 Context()->normalStrings;
 PeriodicStatus(); 
 
