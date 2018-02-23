@@ -70,7 +70,7 @@ $BR
 1.".  ans_rule(25) ."
 
 $BR
-2.x = ". ans_rule(25) ."
+2. \(x = \) ". ans_rule(25) ."
 
 $BR
 3.". 
