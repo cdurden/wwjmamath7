@@ -13,6 +13,7 @@
     "contextFraction.pl",
     "PGgraphmacros.pl",
     "parserImplicitEquation.pl",
+  "parserNumberWithUnits.pl",
 #    "niceTables.pl",
 "PGessaymacros.pl",
 "PGchoicemacros.pl",
@@ -24,14 +25,29 @@
   );
   TEXT(beginproblem());
 
+#Context("LimitedFraction");
+#$ans1 = Compute('-56');
+#Context("Inequalities");
+#$ans2 = Compute('x < 6');
+#Context("Currency");
+#$ans3 = Compute('$18.00');
+#$ans4 = NumberWithUnits("625 pi","cm^2");
+##Context("ImplicitEquation");
+##$ans5 = ImplicitEquation("180-14=x");
+#Context("Numeric");
+
 Context("LimitedFraction");
 $ans1 = Compute('-6');
+Context("Inequalities");
 $ans2 = Compute('x = 5');
-$ans3 = Compute('12.5% error');
+Context("LimitedPercent-strict");
+$ans3 = Compute('12.5%');
 #$ans3 = PopUp( [ "?", "Yes", "No" ], "Yes" );
-$ans4 = Compute('h = 12ft.');
+$ans4 = NumberWithUnits("12","ft");
+#$ans4 = Compute('12 ft');
 #$ans4 = PopUp( [ "?", "Likely", "Unlikely", "Neither" ], "Unlikely" );
-$ans5 = Compute('m ≥ 4');
+Context("Inequalities");
+$ans5 = Compute('m >= 4');
 
   ######################################################################
 #Context()->texStrings;

@@ -71,8 +71,6 @@ $BR
 ans_rule(25)
 #$ans4->menu()
  ."
-
-$BR
 Enter \( \pi \) as 'pi'.
 
 $BR
