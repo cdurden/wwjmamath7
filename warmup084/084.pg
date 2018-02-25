@@ -24,13 +24,21 @@
   );
   TEXT(beginproblem());
 
-Context("LimitedFraction");
+Context("Numeric");
 $ans1 = Compute('49 8/9');
+#Context("LimitedFraction");
 $ans2 = Compute('776');
+#Context("Inequalities");
+#$ans2 = Compute('776');
 $ans3 = Compute('40% decrease');
+#Context("Currency");
+#Context("ImplicitEquation");
+#$ans3 = ImplicitEquation("180-14=x");
+#$ans3 = Compute('40% decrease');
 #$ans3 = PopUp( [ "?", "Yes", "No" ], "Yes" );
 $ans4 = Compute('1/2');
 #$ans4 = PopUp( [ "?", "Likely", "Unlikely", "Neither" ], "Unlikely" );
+Context("Numeric");
 $ans5 = Compute('104 times');
 
   ######################################################################

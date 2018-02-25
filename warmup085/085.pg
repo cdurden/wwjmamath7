@@ -12,7 +12,6 @@
     "contextPercent.pl",
     "contextFraction.pl",
     "PGgraphmacros.pl",
-  "contextLimitedPolynomial.pl",
     "parserImplicitEquation.pl",
 #    "niceTables.pl",
 "PGessaymacros.pl",
@@ -26,28 +25,21 @@
   TEXT(beginproblem());
 
 Context("Numeric");
-$ans1 = Compute('-3.6');
+$ans1 = Compute('-15/16');
 #Context("LimitedFraction");
-$ans2 = Compute('63000');
+$ans2 = Compute('15% discount');
 #Context("Inequalities");
-#$ans2 = Compute('63,000');
-Context("LimitedPolynomial-Strict");
-$ans3 = Compute('32x^2');
+#$ans2 = Compute('15% discount');
+$ans3 = Compute('$2,240');
 #Context("Currency");
 #Context("ImplicitEquation");
 #$ans3 = ImplicitEquation("180-14=x");
-#$ans3 = Compute('A = 32x 2');
+#$ans3 = Compute('$2,240');
 #$ans3 = PopUp( [ "?", "Yes", "No" ], "Yes" );
-Context("Numeric");
-$ans4 = Compute('312');
+$ans4 = Compute('rectangle');
 #$ans4 = PopUp( [ "?", "Likely", "Unlikely", "Neither" ], "Unlikely" );
-Context("ImplicitEquation");
-Context()->variables->add(t=>"Real", n=>"Real");
-Context()->variables->set(
-t=>{limits=>[0,50]},
-n=>{limits=>[0,2]},
-);
-$ans5 = Compute('t = 25n');
+Context("Numeric");
+$ans5 = Compute('closed dot, to right');
 
   ######################################################################
 #Context()->texStrings;
@@ -59,7 +51,7 @@ $BR
 \{
 BeginTable(border=>0, tex_border=>"0pt", spacing=>0, padding=>4).
 AlignedRow([
- image( "warmup083.png", width=>425, height=>550 ),
+ image( "warmup085.png", width=>425, height=>550 ),
 "
 $BR
 1.".  ans_rule(25) ."
