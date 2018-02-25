@@ -47,7 +47,7 @@ Context()->variables->set(
 t=>{limits=>[0,50]},
 n=>{limits=>[0,2]},
 );
-$ans5 = Compute('t = 25n');
+$ans5 = ImplicitEquation('t=25n');
 
   ######################################################################
 #Context()->texStrings;
