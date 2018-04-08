@@ -213,8 +213,10 @@ Context()->normalStrings;
 # ANSWER section
 #########################################
 
+Context("Numeric");
+$ans2 = Compute("3.14);
 ANS( NumberWithUnits("3.14","cm")  ->cmp(tolerance=>0.01, tolType=>'absolute') );
-ANS( Number("3.14")  ->cmp(tolerance=>0.01, tolType=>'absolute') );
+ANS( $ans2->cmp(tolerance=>0.01, tolType=>'absolute') );
 ANS( NumberWithUnits("3.14$b","cm")  ->cmp(tolerance=>0.01, tolType=>'absolute') );
 ANS( NumberWithUnits("3.14$c","cm")->cmp(tolerance=>0.01, tolType=>'absolute') );
 
