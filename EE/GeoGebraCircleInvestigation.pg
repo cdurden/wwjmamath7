@@ -179,22 +179,22 @@ $BR
 (a) Set the diameter to \( d = 1 \) cm. Drag the red dot to the right along the ruler to measure the circumference of the circle.
 What is the circumference of the circle when the diameter is \( d = 1\) cm?
 $BR".
-\( C = \) ans_rule(20).
-What is the ratio of circumference to diameter?
+"\( C = \)". ans_rule(20).
+"What is the ratio of circumference to diameter?
 $BR
-\( pi = \) ans_rule(20).
+\( pi = \)". ans_rule(20).
 " (include ".helpLink('units').")
 $BR
 $BR
 (b) Set the diameter to \( d = $b \) cm? What is the circumference of the circle when the diameter is \( d = $b \) cm?
-$BR".
-\( C = \) ans_rule(20).
+$BR
+\( C = \)". ans_rule(20).
 " (include ".helpLink('units').")
 $BR
 $BR
 (b) Set the diameter to \( d = $c \) cm? What is the circumference of the circle when the diameter is \( d = $c \) cm?
-$BR".
-\( C = \) ans_rule(20).
+$BR
+\( C = \)". ans_rule(20).
 " (include ".helpLink('units').")"
 ,
 $BCENTER.
