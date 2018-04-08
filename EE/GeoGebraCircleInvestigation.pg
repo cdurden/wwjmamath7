@@ -1,0 +1,245 @@
+## DESCRIPTION
+## Using a GeoGebra applet to provide an interactive accumulation function
+## ENDDESCRIPTION
+
+
+## DBsubject(WeBWorK)
+## DBchapter(WeBWorK tutorial)
+## DBsection(PGML tutorial 2015)
+## Date(06/01/2015)
+## Institution(Hope College)
+## Author(Paul Pearson)
+## MO(1)
+## KEYWORDS('GeoGebra applet example','Accumulation function','Fundamental Theorem of Calculus')
+
+DOCUMENT();
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "AppletObjects.pl",
+  "unionTables.pl",
+  "parserNumberWithUnits.pl",
+  "PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 1;
+
+##########################################
+#  Setup
+
+Context("Numeric")->variables->are(t=>"Real");
+
+$a = random(2,4,1);
+$b = random(5,8,1);
+$c = random(1,3,1);
+$d = random(1,3,1);
+while ($c == $d) { $d = random(1,3,1); }
+
+# $f = Formula("$c / (1+(t-2)^2) + $d / (1+(t-4)^2)");
+$F = Formula("$c * arctan(t-2) + $d * arctan(t-4) - $c * arctan(-2) - $d * arctan(-4)");
+
+$Fa = $F->eval(t=>$a);
+$Fb = $F->eval(t=>$b);
+$disp = $Fb - $Fa;
+
+
+######################################
+# Create  link to applet:
+###################################
+# You can name your applet (anything reasonable :-) )
+# Adjust the height and width as desired
+# Paste the geogebra parameters in at the bottom of the page just above the
+# command end command
+# so that they don't get in the way
+###################################
+
+
+$appletName = "ggbfoo";
+
+$applet =  GeogebraWebApplet(
+   code       => "geogebra.GeoGebraApplet",
+   archive    => "geogebra.jar",
+   codebase                 => findAppletCodebase("geogebra.jar"),
+   appletName              => $appletName,
+   appletId                    => $appletName,
+   submitActionAlias     => 'getAppletValues',  # default actionAlias
+   initializeActionAlias   => 'configure',  # default actionAlias
+   setStateAlias             => 'setXML',
+   getStateAlias             => 'getXML',
+   setConfigAlias           => '',
+   getConfigAlias           => '',
+   returnFieldName       => '',
+   width                 => 497,              # may want to modify width
+   height                => 361,              # may want to modify height
+  # mayscript             => "true",
+   debugMode             => 0,   # set debugMode to 0 for no debug
+                                              # to 1 to make xml representation visible
+                                              # to 2 to add alerts detailing progression
+                                              # through the applet
+   onInit                => 'ggbOnInit',
+   type                  => 'geogebraweb',
+   #submitActionScript    => qq{ getQE('answerBox').value = getAppletValues() },
+   submitActionScript => '',
+   selfLoading           => 1,
+   params     => GEOGEBRA_PARAMS(),# paste parameters in
+
+);
+
+
+###############################################
+#
+#  PNG picture of GeoGebra applet for hardcopy
+
+$im = image( "AF7-c".$c."-d".$d.".png", width=>486, height=>335, tex_size=>900 );
+
+
+##################################
+# Setup GeogebraWebApplet --
+###################################
+
+###############################################
+#
+#  For persistence of GeoGebra applet state 
+#  when answers are submitted or page is refreshed.
+#  Uses JavaScript interface to GeoGebra.
+
+HEADER_TEXT(
+qq! 
+<script language="javascript">
+   function ggbOnInit(param) {
+       if (param == "$appletName") {
+           applet_loaded(param,1);  // report that applet is ready. 
+           ww_applet_list[param].safe_applet_initialize(2);
+       }
+   } 
+</script>
+<noscript>For this question to work properly, 
+you must enable JavaScript, or use another browser 
+(or computer) on which JavaScript works.</noscript>
+!);
+
+
+#######################################################
+#
+#  For setting initial values in GeoGebra from WeBWorK
+#  Uses JavaScript interface to GeoGebra.
+
+TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
+<script language="javascript">
+function setAppletCoefficients() {
+   var applet=getApplet("$appletName");   // alert("Updating coefficients");
+   if (typeof(applet)!="undefined") {
+     if (typeof(applet.setValue)!="undefined") {
+     
+     ////////////////////////////////////////////////////////////////
+     //  List the values of the parameters to be set in the applet here
+     
+          // Set variables "c" and "d" in GeoGebra to values $c and $d from WebWork
+          applet.setValue("c", $c); 
+          applet.setValue("d", $d);    
+
+     } else {
+          setTimeout("setAppletCoefficients()", 1000);
+     }
+   } else {
+      setTimeout("setAppletCoefficients()",1000);
+   }
+}
+ww_applet_list["$appletName"].setConfig = function() {setAppletCoefficients()};
+</script>
+END_SCRIPT
+
+###################################
+#insert applet into body  -- this does not need to be changed
+# except to adjust the insertion of the reinitialize_button or
+# a hidden AnswerBox
+###################################
+# TEXT($PAR,  MODES(TeX=>'geogebraweb code',
+#                      HTML=>$applet->insertAll(
+#                                debug =>0,
+#                                reinitialize_button => 1,
+#                                #includeAnswerBox=>1,
+# )));
+
+#######################################
+# TEXT
+#######################################
+Context()->texStrings;
+BEGIN_TEXT
+\{
+ColumnTable(
+"The figure shows an interactive graph of velocity \( v(t) \), in 
+meters per second, where time \( t \) is measured in seconds.  You can 
+change the value of \( t \) in the graph by clicking and dragging
+the red dot along the horizontal \( t \)-axis.
+$BR
+$BR
+(a) What is the displacement between \( t = 0 \) seconds
+and \( t = $a \) seconds?
+$BR".
+ans_rule(20).
+" (include ".helpLink('units').")
+$BR
+$BR
+(b) What is the displacement between \( t = 0 \) seconds
+and \( t = $b \) seconds?
+$BR".
+ans_rule(20).
+" (include ".helpLink('units').")
+$BR
+$BR
+(c) What is the displacement between \( t = $a \) seconds
+and \( t = $b \) seconds?
+$BR".
+ans_rule(20).
+" (include ".helpLink('units').")"
+,
+$BCENTER.
+$BBOLD."Graph of velocity \( y = v(t) \)".$EBOLD.$PAR.
+MODES(HTML=>$applet->insertAll(debug=>0, reinitialize_button=>1, includeAnswerBox=>0,), TeX=>$im).
+$ECENTER
+,
+indent => 0, separation => 30, valign => "TOP"
+);
+\}
+END_TEXT
+Context()->normalStrings;
+
+
+#########################################
+# ANSWER section
+#########################################
+
+ANS( NumberWithUnits("$Fa","m")  ->cmp(tolerance=>0.11, tolType=>'absolute') );
+ANS( NumberWithUnits("$Fb","m")  ->cmp(tolerance=>0.11, tolType=>'absolute') );
+ANS( NumberWithUnits("$disp","m")->cmp(tolerance=>0.21, tolType=>'absolute') );
+
+
+#########################################
+# The applet as a base64 string
+#########################################
+
+sub GEOGEBRA_PARAMS {
+    my $result = {
+showResetIcon=>"false" ,
+enableRightClick=>"false" ,
+enableLabelDrags=>"false",
+showMenuBar=>"false" ,
+showToolBar=>"false",
+showSpreadsheet=>"true",
+showAlgebraInput=>"false",
+useBrowserForJS=>"true",
+ggbbase64=>"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"
+};
+
+$result;
+}
+
+COMMENT('Uses GeoGebraWeb (JavaScript), so it should work on computers and tablets.');
+
+ENDDOCUMENT();
+
+
+
