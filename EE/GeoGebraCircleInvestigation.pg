@@ -70,8 +70,8 @@ $applet =  GeogebraWebApplet(
    setConfigAlias           => '',
    getConfigAlias           => '',
    returnFieldName       => '',
-   width                 => 497,              # may want to modify width
-   height                => 361,              # may want to modify height
+   width                 => 640,              # may want to modify width
+   height                => 480,              # may want to modify height
   # mayscript             => "true",
    debugMode             => 0,   # set debugMode to 0 for no debug
                                               # to 1 to make xml representation visible
@@ -169,28 +169,32 @@ Context()->texStrings;
 BEGIN_TEXT
 \{
 ColumnTable(
-"You can change the diameter of the circle by dragging the black dot under 'change the size'.
+"1. Change the diameter  \( d \) of the circle by dragging the black dot under 'change the size'.
 $BR
-You can measure the diameter by dragging the green x down onto the ruler.
+2. Measure the diameter \( d \) by dragging the green x down onto the ruler.
+3. Measure the circumference \( C \) by dragging the red x to the right along the ruler.
 $BR
 
 $BR
-(a) Set the diameter to 1cm. Drag the red dot along the ruler to measure the circumference of the circle.
-What is the circumference of the circle when the diameter is 1cm?
+(a) Set the diameter to \( d = 1 \) cm. Drag the red dot to the right along the ruler to measure the circumference of the circle.
+What is the circumference of the circle when the diameter is \( d = 1\) cm?
 $BR".
-ans_rule(20).
+\( C = \) ans_rule(20).
+What is the ratio of circumference to diameter?
+$BR
+\( C/d = \) ans_rule(20).
 " (include ".helpLink('units').")
 $BR
 $BR
 (b) Set the diameter to \( d = $b \) cm? What is the circumference of the circle when the diameter is \( d = $b \) cm?
 $BR".
-ans_rule(20).
+\( C = \) ans_rule(20).
 " (include ".helpLink('units').")
 $BR
 $BR
 (b) Set the diameter to \( d = $c \) cm? What is the circumference of the circle when the diameter is \( d = $c \) cm?
 $BR".
-ans_rule(20).
+\( C = \) ans_rule(20).
 " (include ".helpLink('units').")"
 ,
 $BCENTER.
@@ -209,9 +213,10 @@ Context()->normalStrings;
 # ANSWER section
 #########################################
 
-ANS( NumberWithUnits("3.14","cm")  ->cmp(tolerance=>0.11, tolType=>'absolute') );
-ANS( NumberWithUnits("3.14$b","cm")  ->cmp(tolerance=>0.11, tolType=>'absolute') );
-ANS( NumberWithUnits("3.14$c","cm")->cmp(tolerance=>0.21, tolType=>'absolute') );
+ANS( NumberWithUnits("3.14","cm")  ->cmp(tolerance=>0.01, tolType=>'absolute') );
+ANS( Number("3.14")  ->cmp(tolerance=>0.01, tolType=>'absolute') );
+ANS( NumberWithUnits("3.14$b","cm")  ->cmp(tolerance=>0.01, tolType=>'absolute') );
+ANS( NumberWithUnits("3.14$c","cm")->cmp(tolerance=>0.01, tolType=>'absolute') );
 
 
 #########################################
