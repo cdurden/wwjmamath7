@@ -182,7 +182,7 @@ $BR".
 \( C = \) ans_rule(20).
 What is the ratio of circumference to diameter?
 $BR
-\( C/d = \) ans_rule(20).
+\( pi = \) ans_rule(20).
 " (include ".helpLink('units').")
 $BR
 $BR
@@ -217,8 +217,8 @@ Context("Numeric");
 $ans2 = Compute("3.14");
 ANS( NumberWithUnits("3.14","cm")  ->cmp(tolerance=>0.01, tolType=>'absolute') );
 ANS( $ans2->cmp(tolerance=>0.01, tolType=>'absolute') );
-ANS( NumberWithUnits("3.14$b","cm")  ->cmp(tolerance=>0.01, tolType=>'absolute') );
-ANS( NumberWithUnits("3.14$c","cm")->cmp(tolerance=>0.01, tolType=>'absolute') );
+ANS( NumberWithUnits("3.14 $b","cm")  ->cmp(tolerance=>0.01, tolType=>'absolute') );
+ANS( NumberWithUnits("3.14 $c","cm")->cmp(tolerance=>0.01, tolType=>'absolute') );
 
 
 #########################################
