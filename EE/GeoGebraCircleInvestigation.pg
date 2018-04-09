@@ -71,7 +71,7 @@ $applet =  GeogebraWebApplet(
    getConfigAlias           => '',
    returnFieldName       => '',
    width                 => 640,              # may want to modify width
-   height                => 480,              # may want to modify height
+   height                => 640,              # may want to modify height
   # mayscript             => "true",
    debugMode             => 0,   # set debugMode to 0 for no debug
                                               # to 1 to make xml representation visible
