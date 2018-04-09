@@ -204,7 +204,7 @@ $BR
 "$BR
 What is the ratio of circumference to diameter?
 $BR
-\( pi = \)". ans_rule(20).
+\( pi = \)". ans_rule(20)
 ,
 $BCENTER.
 $BBOLD."Graph of velocity \( y = v(t) \)".$EBOLD.$PAR.
