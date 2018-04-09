@@ -182,27 +182,27 @@ $BR".
 "\( C = \)". ans_rule(20).
 " (include ".helpLink('units').")
 $BR
-"What is the ratio of circumference to diameter?
+What is the ratio of circumference to diameter?
 $BR
 \( C/d = \)". ans_rule(20).
-$BR
+"$BR
 $BR
 (b) Set the diameter to \( d = $b \) cm? What is the circumference of the circle when the diameter is \( d = $b \) cm?
 $BR
 \( C = \)". ans_rule(20).
 " (include ".helpLink('units').")
 $BR
-"What is the ratio of circumference to diameter?
+What is the ratio of circumference to diameter?
 $BR
 \( C/d = \)". ans_rule(20).
-$BR
+"$BR
 $BR
 (c) Set the diameter to \( d = $c \) cm? What is the circumference of the circle when the diameter is \( d = $c \) cm?
 $BR
 \( C = \)". ans_rule(20).
 " (include ".helpLink('units').")".
-$BR
-"What is the ratio of circumference to diameter?
+"$BR
+What is the ratio of circumference to diameter?
 $BR
 \( C/d = \)". ans_rule(20).
 ,
