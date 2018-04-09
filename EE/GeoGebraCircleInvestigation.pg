@@ -184,7 +184,7 @@ $BR".
 $BR
 What is the ratio of circumference to diameter?
 $BR
-\( C/d = \)". ans_rule(20).
+\( pi = \)". ans_rule(20).
 "$BR
 $BR
 (b) Set the diameter to \( d = $b \) cm? What is the circumference of the circle when the diameter is \( d = $b \) cm?
@@ -194,7 +194,7 @@ $BR
 $BR
 What is the ratio of circumference to diameter?
 $BR
-\( C/d = \)". ans_rule(20).
+\( pi = \)". ans_rule(20).
 "$BR
 $BR
 (c) Set the diameter to \( d = $c \) cm? What is the circumference of the circle when the diameter is \( d = $c \) cm?
@@ -204,7 +204,7 @@ $BR
 "$BR
 What is the ratio of circumference to diameter?
 $BR
-\( C/d = \)". ans_rule(20).
+\( pi = \)". ans_rule(20).
 ,
 $BCENTER.
 $BBOLD."Graph of velocity \( y = v(t) \)".$EBOLD.$PAR.
