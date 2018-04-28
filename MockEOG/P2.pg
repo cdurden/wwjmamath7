@@ -32,6 +32,13 @@ $PAR
 Suppose that a butterfly can fly 82 feet in 4 seconds. A dragonfly can fly 50 feet in 2 seconds. Which can fly faster and by how much?
 END_TEXT
 
+$ans_hash1 = $mc->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+if ($ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0) {
+$cp->part(2);
+} 
+
 if ($cp->part == 1) {
 #if ( $ans_hash1->{student_ans} eq '' || $ans_hash1->{score} == 1 ) {
 
@@ -43,12 +50,6 @@ END_TEXT
 
 ANS( $mc->cmp() );
 
-$ans_hash1 = $mc->cmp()->evaluate(
-    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
-
-if (!($ans_hash1->{student_ans} eq '' || $ans_hash1->{score} == 1)) {
-$cp->part(2);
-} 
 }
 
 if ($cp->part == 2) {
