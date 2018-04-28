@@ -52,16 +52,6 @@ END_TEXT
 
 ANS( $mc1->cmp() );
 
-BEGIN_TEXT
-$PAR
-$ans_hash1->{student_ans}
-$BR
-$ans_hash1->{score}
-$BR
-Part: $part
-
-END_TEXT
-
 if ($part == 2) {
 #Context("Numeric");
 Context("LimitedNumeric-Fraction");
