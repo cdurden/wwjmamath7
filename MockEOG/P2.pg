@@ -19,7 +19,7 @@ $mc = RadioButtons(
     labels => "ABC" );
 Context()->texStrings;
 DISPLAY_SECTION(  {  name=>"1: Set up problem", 
-             canshow =>1,  #always true
+             canshow =>1, #always true
              iscorrect=>$scaffold->requireCorrect(1), 
              section=>1 #designates that this is the first section
 } , <<'END_SECTION');
@@ -41,7 +41,7 @@ $unit_rate_b = Compute('50/2');
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Do something else", 
-             canshow =>$scaffold->requireCorrect(1),
+             canshow => !$scaffold->requireCorrect(1),
              iscorrect=>$scaffold->requireCorrect(2,3), 
              section=>2
 },   <<'END_SECTION'); 
