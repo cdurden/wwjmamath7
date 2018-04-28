@@ -53,9 +53,7 @@ $BR
 \{ $mc1->buttons() \}
 END_TEXT
 
-LABELED_ANS('mc1', $mc1->cmp() );
-
-}
+ANS( $mc1->cmp() );
 
 BEGIN_TEXT
 $PAR
