@@ -7,10 +7,9 @@ loadMacros(
 );
 
 $mc = RadioButtons(
-    [ "\( \sin(x) \)", "\( \tan(x) \)", "\( e^x \)", "None of these" ],
-    "\( e^x \)",
-    last => ["None of these"],
-    labels => ["Sine", "Tangent", "Exponential", "None of these"] );
+    [ "c = 0.18 p", "c = 0.54 p", "c = 0.09 p", "c = 0.72p" ],
+    "c = 0.18 p",
+    labels => "ABCD" );
 
 BEGIN_TEXT
 The table shows how much a store charges for certain numbers of pencils.
@@ -18,7 +17,7 @@ $BR
 \{
 DataTable(
   [
-    ['Number of pencils (p)','4','7','12''],
+    ['Number of pencils (p)','4','7','12'],
     ['Cost (c)', '$0.72', '$1.26', '$2.16']
   ],
   rowheaders => 1,
