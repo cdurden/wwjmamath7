@@ -74,10 +74,10 @@ $unit_rate_a = Compute('82/4');
 $unit_rate_b = Compute('50/2');
 $difference = Compute('50/2-82/4');
 
-NAMED_ANS(
-  a => $unit_rate_a->cmp(),
-  b => $unit_rate_b->cmp(),
-);
+#NAMED_ANS(
+#  a => $unit_rate_a->cmp(),
+#  b => $unit_rate_b->cmp(),
+#);
 
 BEGIN_TEXT
 $PAR
@@ -104,13 +104,15 @@ $PAR
 The question is asking us to compare the speed of the dragonfly to the speed of the butterfly. What are the speeds?
 
 $BR
-Speed of the dragonfly: \{SECTION_ANS($unit_rate_a->cmp),NAMED_ANS_RULE("a",$unit_rate_a)\}
+Speed of the dragonfly: \{SECTION_ANS($unit_rate_a->cmp),$unit_rate_a->ans_rule()\}
 
 $BR
-Speed of the butterfly: \{SECTION_ANS($unit_rate_b->cmp),NAMED_ANS_RULE("b",$unit_rate_b)\}
+Speed of the butterfly: \{SECTION_ANS($unit_rate_b->cmp),$unit_rate_b->ans_rule()\}
 
 END_SECTION
 
+#NAMED_ANS_RULE("a",$unit_rate_a)\}
+#NAMED_ANS_RULE("b",$unit_rate_b)\}
 ##############
 #  Section 2
 ##############
@@ -124,14 +126,16 @@ DISPLAY_SECTION( { name=>"2: Compare the unit rates",
 $PAR
 Which speed is greater?
 
-\{ $mc1->buttons() \}
+\{SECTION_ANS($mc2->cmp),$mc2->buttons()\}
 
 $PAR
 How much greater is its speed?
 $BR
-\{NAMED_ANS_RULE("d",$difference)\}
+\{SECTION_ANS($difference->cmp),$difference->ans_rule()\}
 
 END_TEXT
+#\{ $mc1->buttons() \}
+#\{NAMED_ANS_RULE("d",$difference)\}
 
 ANS( $mc1->cmp() );
 ANS( $difference->cmp() );
