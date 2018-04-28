@@ -53,7 +53,8 @@ ANS( $mc->cmp() );
 $ans_hash1 = $mc->cmp()->evaluate( 
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
-if ( $ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0 ) {
+if ( $numOfAttempts > 0) {
+#if ( $ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0 || $ans_hash2->{student_ans} ne '') {
 Context()->texStrings;
 BEGIN_TEXT
 $PAR
