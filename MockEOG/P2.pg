@@ -96,14 +96,6 @@ $rate_a = Compute('82/4');
 $rate_b = Compute('50/2');
 $difference = Compute('50/2-82/4');
 
-#NAMED_ANS(
-#  mc1 => $mc1->cmp(),
-#  rate_a => $rate_a->cmp(),
-#  rate_b => $rate_b->cmp(),
-#  mc2 => $mc2->cmp(),
-#  diff => $difference->cmp(),
-#);
-
 BEGIN_TEXT
 $PAR
 The answer that you entered was incorrect. The following sections will guide you through the solution.
@@ -112,7 +104,7 @@ END_TEXT
 
 $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
-TEXT(beginproblem());
+#TEXT(beginproblem());
 
 
 ##############
@@ -140,6 +132,35 @@ END_SECTION
 #Speed of the butterfly: \{SECTION_ANS($rate_b->cmp),NAMED_ANS_RULE("rate_b",5)\}
 #Speed of the dragonfly: \{SECTION_ANS($rate_a->cmp),$rate_a->ans_rule()\}
 #Speed of the butterfly: \{SECTION_ANS($unit_rate_b->cmp),$unit_rate_b->ans_rule()\}
+##############
+#  Section 2
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"2: Compare the unit rates", 
+             canshow =>$scaffold->requireCorrect(1,2),
+             iscorrect=>$scaffold->requireCorrect(3,4), 
+             section=>2 #designates that this is the first section
+},   <<'END_SECTION'); 
+$PAR
+Which speed is greater?
+$BR
+\{SECTION_ANS($mc2->cmp),$mc2->buttons()\}
+
+$PAR
+How much greater is its speed?
+$BR
+\{SECTION_ANS($difference->cmp),$difference->ans_rule()\}
+
+END_TEXT
+#\{SECTION_ANS($difference->cmp),NAMED_ANS_RULE("diff",5)\}
+#\{ $mc1->buttons() \}
+#\{NAMED_ANS_RULE("mc2",5)\}
+
+#ANS( $mc2->cmp() );
+#ANS( $difference->cmp() );
+
+END_SECTION
 
 
 PROCESS_ANSWERS();
