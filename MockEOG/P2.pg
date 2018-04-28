@@ -66,7 +66,8 @@ Part: $part
 END_TEXT
 
 if ($part == 2) {
-Context("Numeric");
+#Context("Numeric");
+Context("LimitedNumeric");
 $rate1 = Compute('50/2');
 $rate2 = Compute('82/4');
 $difference = Compute('50/2-82/4');
