@@ -1,0 +1,42 @@
+DOCUMENT();  
+
+loadMacros(
+"PGstandard.pl",
+"parserRadioButtons.pl",
+"niceTables.pl",
+);
+
+$mc = RadioButtons(
+    [ "\( \sin(x) \)", "\( \tan(x) \)", "\( e^x \)", "None of these" ],
+    "\( e^x \)",
+    last => ["None of these"],
+    labels => ["Sine", "Tangent", "Exponential", "None of these"] );
+
+BEGIN_TEXT
+The table shows how much a store charges for certain numbers of pencils.
+$BR
+\{
+DataTable(
+  [
+    ['Number of pencils (p)','4','7','12''],
+    ['Cost (c)', '$0.72', '$1.26', '$2.16']
+  ],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+#  caption => '',
+  midrules => 1,
+  align => 'l | c | c | c ',
+);
+\}
+$BR
+Based on the table, which equation could be used to calculate the cost, c, of any number of pencils, p?
+$BR
+\{ $mc->buttons() \}
+END_TEXT
+
+$showPartialCorrectAnswers = 0;
+
+ANS( $mc->cmp() );
+
+ENDDOCUMENT();
