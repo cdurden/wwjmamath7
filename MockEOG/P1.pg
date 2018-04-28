@@ -49,7 +49,9 @@ $ans_hash1->{student_ans}
 $BR
 $ans_hash1->{score}
 END_TEXT
-if ( $ans_hash1->{student_ans} != '' && $ans_hash1->{score} == 0 ) {
+
+#if ( $ans_hash1->{student_ans} != '' && $ans_hash1->{score} == 0 ) {
+if ( $ans_hash1->{student_ans} != '') {
 Context()->texStrings;
 BEGIN_TEXT
 ${BBOLD}Part 1 of 2:$EBOLD
