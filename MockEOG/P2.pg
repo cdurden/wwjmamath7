@@ -21,11 +21,6 @@ $mc = RadioButtons(
     "The dragonfly is 4.5 feet per second faster.",
     labels => "ABC" );
 
-NAMED_ANS(
-  a => Real(1)->cmp(checker=>sub {return 1}, ignoreInfinity=>0),
-  b => Real(2)->cmp(checker=>sub {return 1}, ignoreInfinity=>0),
-);
-
 BEGIN_TEXT
 $PAR
 Suppose that a butterfly can fly 82 feet in 4 seconds. A dragonfly can fly 50 feet in 2 seconds. Which can fly faster and by how much?
@@ -69,6 +64,11 @@ Part: $part
 END_TEXT
 
 if ($part == 2) {
+NAMED_ANS(
+  a => Real(1)->cmp(checker=>sub {return 1}, ignoreInfinity=>0),
+  b => Real(2)->cmp(checker=>sub {return 1}, ignoreInfinity=>0),
+);
+
 BEGIN_TEXT
 $PAR
 The answer that you entered was incorrect. The following sections will guide you through the solution.
