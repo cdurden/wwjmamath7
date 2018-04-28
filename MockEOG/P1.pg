@@ -63,6 +63,10 @@ ANS( $unit_rate->cmp());
 $ans_hash2 = $unit_rate->cmp()->evaluate( 
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 }
+BEGIN_TEXT
+$PAR
+$ans_hash2->{score}
+END_TEXT
 
 if ( $ans_hash2->{student_ans} ne '' && $ans_hash2->{score} == 1 ) {
 Context("ImplicitEquation");
