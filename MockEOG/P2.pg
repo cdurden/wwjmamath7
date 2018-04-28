@@ -49,21 +49,22 @@ $unit_rate_b = Compute('50/2');
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"1: Find the unit rates", 
              canshow =>1, #always true
-             iscorrect=>$scaffold->requireCorrect(1), 
+             iscorrect=>$scaffold->requireCorrect(1,2), 
              section=>1 #designates that this is the first section
 },   <<'END_SECTION'); 
 $PAR
 The question is asking us to compare the speed of the dragonfly to the speed of the butterfly. What are the speeds?
 
 $BR
-Speed of the dragonfly: \{SECTION_ANS($unit_rate_a->cmp), $unit_rate_a->ans_rule() \}
+Speed of the dragonfly: \{NAMED_ANS_RULE("a",$unit_rate_a)\}
 
 $BR
-Speed of the butterfly: \{SECTION_ANS($unit_rate_b->cmp), $unit_rate_b->ans_rule() \}
+Speed of the dragonfly: \{NAMED_ANS_RULE("b",$unit_rate_b)\}
 
 END_SECTION
 PROCESS_ANSWERS();
 
+#Speed of the butterfly: \{SECTION_ANS($unit_rate_b->cmp), $unit_rate_b->ans_rule() \}
 $last_correct_section = PROCESS_SECTIONS();
 
 $opensection = $last_correct_section + 1;
