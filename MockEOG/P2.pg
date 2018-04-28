@@ -99,14 +99,14 @@ $BR
 Speed of the dragonfly: \{SECTION_ANS($rate_a->cmp),$rate_a->ans_rule()\}
 
 $BR
-Speed of the butterfly: \{SECTION_ANS($unit_rate_b->cmp),$unit_rate_b->ans_rule()\}
+Speed of the butterfly: \{SECTION_ANS($rate_b->cmp),$rate_b->ans_rule()\}
 
 END_SECTION
 
 #Speed of the dragonfly: \{SECTION_ANS($rate_a->cmp),NAMED_ANS_RULE("rate_a",5)\}
 #Speed of the butterfly: \{SECTION_ANS($rate_b->cmp),NAMED_ANS_RULE("rate_b",5)\}
 #Speed of the dragonfly: \{SECTION_ANS($rate_a->cmp),$rate_a->ans_rule()\}
-#Speed of the butterfly: \{SECTION_ANS($unit_rate_b->cmp),$unit_rate_b->ans_rule()\}
+#Speed of the butterfly: \{SECTION_ANS($rate_b->cmp),$rate_b->ans_rule()\}
 ##############
 #  Section 2
 ##############
