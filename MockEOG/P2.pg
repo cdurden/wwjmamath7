@@ -53,8 +53,12 @@ ANS( $mc->cmp() );
 }
 
 BEGIN_TEXT
-
-$cp->part
+$BR
+$ans_hash1->{student_ans}
+$BR
+$ans_hash1->{score}
+$BR
+Part: $cp->part
 
 END_TEXT
 
