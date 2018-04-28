@@ -77,7 +77,14 @@ Section::End();
     
 Section::Begin("Part 2: The second part");
 BEGIN_PGML
-This is text for the second part.  [` 2 * 2 = `] [_________]{"4"}
+The question is asking us to compare the speed of the dragonfly to the speed of the butterfly. What are the speeds?
+
+$BR
+ \{SECTION_ANS($rate_a->cmp),$rate_a->ans_rule()\}
+
+$BR
+Speed of the dragonfly: [_________]{$unit_rate_a}
+Speed of the butterfly: [_________]{$unit_rate_b}
 END_PGML
 Section::End();
 
@@ -90,7 +97,7 @@ Section::End();
 Scaffold::End();
 }
 
-if ($part == 2) {
+if ($part == 3) {
 Context("Numeric");
 $rate_a = Compute('82/4');
 $rate_b = Compute('50/2');
