@@ -89,7 +89,7 @@ TEXT(beginproblem());
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"1: Find the unit rates", 
              canshow =>1, #always true
-             iscorrect=>$scaffold->requireCorrect(1,2), 
+             iscorrect=>$scaffold->requireCorrect(2,3), 
              section=>1 #designates that this is the first section
 },   <<'END_SECTION'); 
 $PAR
