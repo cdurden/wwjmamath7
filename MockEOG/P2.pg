@@ -65,8 +65,8 @@ END_TEXT
 
 if ($part == 2) {
 NAMED_ANS(
-  a => Real(1)->cmp(checker=>sub {return 1}, ignoreInfinity=>0),
-  b => Real(2)->cmp(checker=>sub {return 1}, ignoreInfinity=>0),
+  a => $unit_rate_a->cmp(),
+  b => $unit_rate_b->cmp(),
 );
 
 BEGIN_TEXT
