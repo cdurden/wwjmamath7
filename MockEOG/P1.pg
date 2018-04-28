@@ -13,7 +13,6 @@ $mc = RadioButtons(
 $unit_rate = Compute(0.18);
 
 ###########################################
-Section::Begin("Part 1: Identify the coefficients");
 
 BEGIN_TEXT
 $PAR
