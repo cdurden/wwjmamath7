@@ -5,6 +5,7 @@ loadMacros(
 "parserRadioButtons.pl",
 "compoundProblem.pl",
 #"compoundProblem5.pl",
+"PGML.pl",
 "scaffold.pl",
 );
 
@@ -70,6 +71,7 @@ Part: $part
 END_TEXT
 
 if ($part == 2) {
+TEXT(beginproblem());
 Scaffold::Begin();
     
 Section::Begin("Part 1: The first part");
