@@ -1,0 +1,69 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"parserRadioButtons.pl",
+"compoundProblem5.pl",
+);
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+##############
+#  Section 1
+##############
+$mc = RadioButtons(
+    [ "The dragonfly is 4.5 feet per second faster.", "The dragonfly is 20.5 feet per second faster.", "The butterfly is 4.5 feet per second faster.", "The butterfly is 24 feet per second faster." ],
+    "The dragonfly is 4.5 feet per second faster.",
+    labels => "ABC" );
+Context()->texStrings;
+DISPLAY_SECTION(  {  name=>"1: Set up problem", 
+             canshow =>1,  #always true
+             iscorrect=>$scaffold->requireCorrect(1), 
+             section=>1 #designates that this is the first section
+} , <<'END_SECTION');
+
+
+BEGIN_TEXT
+$PAR
+Suppose that a butterfly can fly 82 feet in 4 seconds. A dragonfly can fly 50 feet in 2 seconds. Which can fly faster and by how much?
+$BR
+\{SECTION_ANS($mc->cmp), $mc->buttons()\} 
+END_TEXT
+
+END_SECTION
+
+###############
+#  Section 2
+###############
+
+Context("Numeric");
+$unit_rate_a = Compute('82/4');
+$unit_rate_b = Compute('50/2');
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"2: Do something else", 
+             canshow =>$scaffold->requireCorrect(1). " or $isInstructor",
+             iscorrect=>$scaffold->requireCorrect(2,3), 
+             section=>2
+},   <<'END_SECTION'); 
+
+The question is asking us to compare the speed of the dragonfly to the speed of the butterfly. What are the speeds?
+
+$BR
+Speed of the dragonfly: \{SECTION_ANS($unit_rate_a->cmp), $unit_rate_a->ans_rule() \}
+
+$BR
+Speed of the butterfly: \{SECTION_ANS($unit_rate_b->cmp), $unit_rate_b->ans_rule() \}
+
+END_SECTION
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections($opensection);
+
+TEXT($END_ONE_COLUMN);
+ENDDOCUMENT();    
