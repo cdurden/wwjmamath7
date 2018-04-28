@@ -104,10 +104,10 @@ $PAR
 The question is asking us to compare the speed of the dragonfly to the speed of the butterfly. What are the speeds?
 
 $BR
-Speed of the dragonfly: \{NAMED_ANS_RULE("a",$unit_rate_a)\}
+Speed of the dragonfly: \{SECTION_ANS($unit_rate_a->cmp),NAMED_ANS_RULE("a",$unit_rate_a)\}
 
 $BR
-Speed of the butterfly: \{NAMED_ANS_RULE("b",$unit_rate_b)\}
+Speed of the butterfly: \{SECTION_ANS($unit_rate_b->cmp),NAMED_ANS_RULE("b",$unit_rate_b)\}
 
 END_SECTION
 
@@ -118,7 +118,7 @@ END_SECTION
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Compare the unit rates", 
              canshow =>$scaffold->requireCorrect(1,2),
-             iscorrect=>$scaffold->requireCorrect(3), 
+             iscorrect=>$scaffold->requireCorrect(3,4), 
              section=>2 #designates that this is the first section
 },   <<'END_SECTION'); 
 $PAR
