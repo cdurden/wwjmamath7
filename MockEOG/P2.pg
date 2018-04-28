@@ -39,7 +39,7 @@ if ($ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0) {
 $cp->part(2);
 } 
 
-if ($cp->part == 1) {
+if ($cp->part() == 1) {
 #if ( $ans_hash1->{student_ans} eq '' || $ans_hash1->{score} == 1 ) {
 
 BEGIN_TEXT
@@ -62,7 +62,7 @@ Part: $cp->part
 
 END_TEXT
 
-if ($cp->part == 2) {
+if ($cp->part() == 2) {
 BEGIN_TEXT
 $PAR
 The answer that you entered was incorrect. The following sections will guide you through the solution.
