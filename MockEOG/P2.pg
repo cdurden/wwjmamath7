@@ -40,10 +40,6 @@ $ans_hash1 = $mc1->cmp()->evaluate(
 if ($ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0) {
 #$cp->part(2);
 $cp->incrementPart();
-BEGIN_TEXT
-$PAR
-Answer incorrect
-END_TEXT
 } 
 
 $part = $cp->part();
@@ -75,7 +71,7 @@ $difference = Compute('4.5');
 
 BEGIN_TEXT
 $PAR
-The answer that you entered was incorrect. The following sections will guide you through the solution.
+${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
 
 END_TEXT
 
