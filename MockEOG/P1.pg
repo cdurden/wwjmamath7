@@ -11,6 +11,7 @@ $mc = RadioButtons(
     [ "c = 0.18 p", "c = 0.54 p", "c = 0.09 p", "c = 0.72p" ],
     "c = 0.18 p",
     labels => "ABCD" );
+Context("Numeric");
 $unit_rate = Compute('0.18');
 
 ###########################################
