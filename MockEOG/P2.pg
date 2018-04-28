@@ -14,7 +14,7 @@ $mc = RadioButtons(
 $ans_hash1 = $mc->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
-if ( $ans_hash1->{student_ans} eq '' ) {
+if ( $ans_hash1->{student_ans} eq '' || $ans_hash1->{score} == 1 ) {
 
 BEGIN_TEXT
 $PAR
