@@ -13,6 +13,13 @@ $mc = RadioButtons(
     labels => "ABCD" );
 Context("Numeric");
 $unit_rate = Compute('0.18');
+Context("ImplicitEquation");
+Context()->variables->add(c=>"Real", p=>"Real");
+Context()->variables->set(
+c=>{limits=>[0,12]},
+p=>{limits=>[0,2.16]}
+);
+$eqn = ImplicitEquation("c = $unit_rate p ");
 
 ###########################################
 
@@ -40,7 +47,7 @@ $BR
 \{ $mc->buttons() \}
 END_TEXT
 
-$showPartialCorrectAnswers = 0;
+$showPartialCorrectAnswers = 1;
 
 ANS( $mc->cmp() );
 $ans_hash1 = $mc->cmp()->evaluate( 
@@ -70,14 +77,6 @@ $ans_hash2->{score}
 END_TEXT
 
 if ( $ans_hash2->{student_ans} ne '' && $ans_hash2->{score} == 1 ) {
-Context("ImplicitEquation");
-Context()->variables->add(c=>"Real", p=>"Real");
-Context()->variables->set(
-c=>{limits=>[0,12]},
-p=>{limits=>[0,2.16]}
-);
-$eqn = ImplicitEquation("c = $unit_rate p ");
-
 BEGIN_TEXT
 $PAR
 ${BBOLD}Hint$EBOLD
