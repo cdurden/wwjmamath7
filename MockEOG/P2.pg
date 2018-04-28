@@ -53,7 +53,7 @@ ANS( $mc->cmp() );
 }
 
 BEGIN_TEXT
-$BR
+$PAR
 $ans_hash1->{student_ans}
 $BR
 $ans_hash1->{score}
