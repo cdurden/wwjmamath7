@@ -52,6 +52,12 @@ ANS( $mc->cmp() );
 
 }
 
+BEGIN_TEXT
+
+$cp->part
+
+END_TEXT
+
 if ($cp->part == 2) {
 BEGIN_TEXT
 $PAR
