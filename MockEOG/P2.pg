@@ -109,8 +109,8 @@ END_SECTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Compare the unit rates", 
-             canshow =>$scaffold->requireCorrect(1,2),
-             iscorrect=>$scaffold->requireCorrect(3,4), 
+             canshow =>$scaffold->requireCorrect(2,3),
+             iscorrect=>$scaffold->requireCorrect(4,5), 
              section=>2 #designates that this is the first section
 },   <<'END_SECTION'); 
 $PAR
