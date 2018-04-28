@@ -25,12 +25,10 @@ DISPLAY_SECTION(  {  name=>"1: Set up problem",
 } , <<'END_SECTION');
 
 
-BEGIN_TEXT
 $PAR
 Suppose that a butterfly can fly 82 feet in 4 seconds. A dragonfly can fly 50 feet in 2 seconds. Which can fly faster and by how much?
 $BR
 \{SECTION_ANS($mc->cmp), $mc->buttons()\} 
-END_TEXT
 
 END_SECTION
 
@@ -44,7 +42,7 @@ $unit_rate_b = Compute('50/2');
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Do something else", 
-             canshow =>$scaffold->requireCorrect(1). " or $isInstructor",
+             canshow =>$scaffold->requireCorrect(1),
              iscorrect=>$scaffold->requireCorrect(2,3), 
              section=>2
 },   <<'END_SECTION'); 
