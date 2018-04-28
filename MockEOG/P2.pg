@@ -5,7 +5,7 @@ loadMacros(
 "parserRadioButtons.pl",
 "compoundProblem.pl",
 "compoundProblem5.pl",
-"limitedNumeric.pl",
+"contextLimitedNumeric.pl",
 "PGML.pl",
 #"scaffold.pl",
 );
