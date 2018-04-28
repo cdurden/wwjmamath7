@@ -48,11 +48,14 @@ $ans_hash1 = $mc->cmp()->evaluate(
 if ( $ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0 ) {
 Context()->texStrings;
 BEGIN_TEXT
+$PAR
+${BBOLD}Hint$EBOLD
+$BR
 ${BBOLD}Part 1 of 2:$EBOLD
 $PAR
-Use the table to find the unit rate in dollars per pencil.
+Use the table to find the unit rate, \(k \), in dollars per pencil.
 $BR
-\(k = \) \{ $unit_rate->ans_rule() \}
+\(k = \) \{ $unit_rate->ans_rule() \} dollars per pencil
 END_TEXT
 Context()->normalStrings;
 ANS( $unit_rate->cmp());
@@ -71,6 +74,9 @@ p=>{limits=>[0,2.16]}
 $eqn = ImplicitEquation("c = $unit_rate p ");
 
 BEGIN_TEXT
+$PAR
+${BBOLD}Hint$EBOLD
+$BR
 ${BBOLD}Part 2 of 2:$EBOLD
 $PAR
 Write the equation of the proportional relationship in the form \( c = k p \):
