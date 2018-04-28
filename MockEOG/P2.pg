@@ -15,7 +15,7 @@ $cp = new compoundProblem(
   parserValues => 1,           # make parser objects from student answers
   allowReset => $isProfessor,  # professors get Reset button for testing
 );
-$part = $cp->part;
+#$part = $cp->part;
 
 $mc = RadioButtons(
     [ "The dragonfly is 4.5 feet per second faster.", "The dragonfly is 20.5 feet per second faster.", "The butterfly is 4.5 feet per second faster.", "The butterfly is 24 feet per second faster." ],
@@ -23,7 +23,6 @@ $mc = RadioButtons(
     labels => "ABC" );
 
 NAMED_ANS(
-  main => $mc
   a => Real(1)->cmp(checker=>sub {return 1}, ignoreInfinity=>0),
   b => Real(2)->cmp(checker=>sub {return 1}, ignoreInfinity=>0),
 );
@@ -33,7 +32,7 @@ $PAR
 Suppose that a butterfly can fly 82 feet in 4 seconds. A dragonfly can fly 50 feet in 2 seconds. Which can fly faster and by how much?
 END_TEXT
 
-if ($part == 1) {
+if (cp->part == 1) {
 #if ( $ans_hash1->{student_ans} eq '' || $ans_hash1->{score} == 1 ) {
 
 BEGIN_TEXT
@@ -48,11 +47,10 @@ $ans_hash1 = $mc->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
 if (!($ans_hash1->{student_ans} eq '' || $ans_hash1->{score} == 1)) {
-$part = 2;
 $cp->part(2);
 } 
 
-if ($part == 2) {
+if (cp->part == 2) {
 BEGIN_TEXT
 $PAR
 The answer that you entered was incorrect. The following sections will guide you through the solution.
