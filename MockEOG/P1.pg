@@ -10,6 +10,10 @@ $mc = RadioButtons(
     [ "c = 0.18 p", "c = 0.54 p", "c = 0.09 p", "c = 0.72p" ],
     "c = 0.18 p",
     labels => "ABCD" );
+$unit_rate = Compute(0.18);
+
+###########################################
+Section::Begin("Part 1: Identify the coefficients");
 
 BEGIN_TEXT
 $PAR
@@ -38,5 +42,22 @@ END_TEXT
 $showPartialCorrectAnswers = 0;
 
 ANS( $mc->cmp() );
+$ans_hash1 = $mc->cmp()->evaluate( 
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+if ( $ans_hash1->{score} == 0 ) {
+Context()->texStrings;
+BEGIN_TEXT
+${BBOLD}Part 1 of 2:$EBOLD
+$PAR
+Look at the answer options. What is the independent variable and what is the dependent variable?
+$PAR
+Use the table to find the unit rate in dollars per pencil.
+$BR
+\(k = \) \{ $unit_rate->ans_rule() \}
+END_TEXT
+Context()->normalStrings;
+ANS( $unit_rate->cmp());
+}
 
 ENDDOCUMENT();
