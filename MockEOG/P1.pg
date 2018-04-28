@@ -69,7 +69,7 @@ Context()->normalStrings;
 ANS( $unit_rate->cmp());
 
 $ans_hash2 = $unit_rate->cmp()->evaluate( 
-    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+    $inputs_ref->{ANS_NUM_TO_NAME(2)} );
 }
 BEGIN_TEXT
 $PAR
