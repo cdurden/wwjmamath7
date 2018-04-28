@@ -82,7 +82,29 @@ INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
 
-#PROCESS_ANSWERS();
+##############
+#  Section 1
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"1: Find the unit rates", 
+             canshow =>1, #always true
+             iscorrect=>$scaffold->requireCorrect(1,2), 
+             section=>1 #designates that this is the first section
+},   <<'END_SECTION'); 
+$PAR
+The question is asking us to compare the speed of the dragonfly to the speed of the butterfly. What are the speeds?
+
+$BR
+Speed of the dragonfly: \{SECTION_ANS($rate_a->cmp),$rate_a->ans_rule()\}
+
+$BR
+Speed of the butterfly: \{SECTION_ANS($unit_rate_b->cmp),$unit_rate_b->ans_rule()\}
+
+END_SECTION
+
+
+PROCESS_ANSWERS();
 
 $last_correct_section = PROCESS_SECTIONS();
 
