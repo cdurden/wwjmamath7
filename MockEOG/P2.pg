@@ -81,7 +81,9 @@ DISPLAY_SECTION( { name=>"1: Find the unit rates",
              section=>1 #designates that this is the first section
 },   <<'END_SECTION'); 
 $PAR
-The question is asking us to compare the speed of the dragonfly to the speed of the butterfly. What are the speeds?
+The question ${BBOLD}"Which can fly faster?"$EBOLD is asking us to compare the speed of the dragonfly to the speed of the butterfly.
+$PAR
+What are the speeds?
 
 $BR
 Speed of the dragonfly: \{SECTION_ANS($rate1->cmp),$rate1->ans_rule()\}
