@@ -15,7 +15,6 @@ $cp = new compoundProblem(
   parserValues => 1,           # make parser objects from student answers
   allowReset => $isProfessor,  # professors get Reset button for testing
 );
-#$part = $cp->part;
 
 $mc = RadioButtons(
     [ "The dragonfly is 4.5 feet per second faster.", "The dragonfly is 20.5 feet per second faster.", "The butterfly is 4.5 feet per second faster.", "The butterfly is 24 feet per second faster." ],
@@ -39,7 +38,9 @@ if ($ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0) {
 $cp->part(2);
 } 
 
-if ($cp->part() == 1) {
+$part = $cp->part();
+
+if ($part == 1) {
 #if ( $ans_hash1->{student_ans} eq '' || $ans_hash1->{score} == 1 ) {
 
 BEGIN_TEXT
@@ -58,11 +59,11 @@ $ans_hash1->{student_ans}
 $BR
 $ans_hash1->{score}
 $BR
-Part: $cp->part
+Part: $part
 
 END_TEXT
 
-if ($cp->part() == 2) {
+if ($part == 2) {
 BEGIN_TEXT
 $PAR
 The answer that you entered was incorrect. The following sections will guide you through the solution.
