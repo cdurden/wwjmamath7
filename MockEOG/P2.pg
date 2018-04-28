@@ -82,62 +82,6 @@ INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
 
-##############
-#  Section 1
-##############
-
-Context()->texStrings;
-DISPLAY_SECTION( { name=>"1: Find the unit rates", 
-             canshow =>1, #always true
-             iscorrect=>$scaffold->requireCorrect(1,2), 
-             section=>1 #designates that this is the first section
-},   <<'END_SECTION'); 
-$PAR
-The question is asking us to compare the speed of the dragonfly to the speed of the butterfly. What are the speeds?
-
-$BR
-Speed of the dragonfly: \{SECTION_ANS($rate_a->cmp),$rate_a->ans_rule()\}
-
-$BR
-Speed of the butterfly: \{SECTION_ANS($unit_rate_b->cmp),$unit_rate_b->ans_rule()\}
-
-END_SECTION
-
-#Speed of the dragonfly: \{SECTION_ANS($rate_a->cmp),NAMED_ANS_RULE("rate_a",5)\}
-#Speed of the butterfly: \{SECTION_ANS($rate_b->cmp),NAMED_ANS_RULE("rate_b",5)\}
-#Speed of the dragonfly: \{SECTION_ANS($rate_a->cmp),$rate_a->ans_rule()\}
-#Speed of the butterfly: \{SECTION_ANS($unit_rate_b->cmp),$unit_rate_b->ans_rule()\}
-##############
-#  Section 2
-##############
-
-Context()->texStrings;
-DISPLAY_SECTION( { name=>"2: Compare the unit rates", 
-             canshow =>$scaffold->requireCorrect(1,2),
-             iscorrect=>$scaffold->requireCorrect(3,4), 
-             section=>2 #designates that this is the first section
-},   <<'END_SECTION'); 
-$PAR
-Which speed is greater?
-$BR
-\{SECTION_ANS($mc2->cmp),$mc2->buttons()\}
-
-$PAR
-How much greater is its speed?
-$BR
-\{SECTION_ANS($difference->cmp),$difference->ans_rule()\}
-
-END_TEXT
-#\{SECTION_ANS($difference->cmp),NAMED_ANS_RULE("diff",5)\}
-#\{ $mc1->buttons() \}
-#\{NAMED_ANS_RULE("mc2",5)\}
-
-#ANS( $mc2->cmp() );
-#ANS( $difference->cmp() );
-
-END_SECTION
-
-
 #PROCESS_ANSWERS();
 
 $last_correct_section = PROCESS_SECTIONS();
