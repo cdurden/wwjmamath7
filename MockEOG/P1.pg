@@ -12,8 +12,9 @@ $mc = RadioButtons(
     labels => "ABCD" );
 
 BEGIN_TEXT
+$PAR
 The table shows how much a store charges for certain numbers of pencils.
-$BR
+$PAR
 \{
 DataTable(
   [
@@ -28,7 +29,7 @@ DataTable(
   align => 'l | c | c | c ',
 );
 \}
-$BR
+$PAR
 Based on the table, which equation could be used to calculate the cost, c, of any number of pencils, p?
 $BR
 \{ $mc->buttons() \}
