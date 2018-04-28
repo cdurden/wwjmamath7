@@ -71,7 +71,7 @@ $applet =  GeogebraWebApplet(
    getConfigAlias           => '',
    returnFieldName       => '',
    width                 => 640,              # may want to modify width
-   height                => 480,              # may want to modify height
+   height                => 640,              # may want to modify height
   # mayscript             => "true",
    debugMode             => 0,   # set debugMode to 0 for no debug
                                               # to 1 to make xml representation visible
@@ -91,7 +91,7 @@ $applet =  GeogebraWebApplet(
 #
 #  PNG picture of GeoGebra applet for hardcopy
 
-$im = image( "AF7-c".$c."-d".$d.".png", width=>486, height=>335, tex_size=>900 );
+#$im = image( "AF7-c".$c."-d".$d.".png", width=>486, height=>335, tex_size=>900 );
 
 
 ##################################
@@ -180,26 +180,36 @@ $BR
 What is the circumference of the circle when the diameter is \( d = 1\) cm?
 $BR".
 "\( C = \)". ans_rule(20).
-"What is the ratio of circumference to diameter?
-$BR
-\( pi = \)". ans_rule(20).
 " (include ".helpLink('units').")
 $BR
+What is the ratio of circumference to diameter?
+$BR
+\( pi = \)". ans_rule(20).
+"$BR
 $BR
 (b) Set the diameter to \( d = $b \) cm? What is the circumference of the circle when the diameter is \( d = $b \) cm?
 $BR
 \( C = \)". ans_rule(20).
 " (include ".helpLink('units').")
 $BR
+What is the ratio of circumference to diameter?
 $BR
-(b) Set the diameter to \( d = $c \) cm? What is the circumference of the circle when the diameter is \( d = $c \) cm?
+\( pi = \)". ans_rule(20).
+"$BR
+$BR
+(c) Set the diameter to \( d = $c \) cm? What is the circumference of the circle when the diameter is \( d = $c \) cm?
 $BR
 \( C = \)". ans_rule(20).
-" (include ".helpLink('units').")"
+" (include ".helpLink('units').")".
+"$BR
+What is the ratio of circumference to diameter?
+$BR
+\( pi = \)". ans_rule(20)
 ,
 $BCENTER.
 $BBOLD."Graph of velocity \( y = v(t) \)".$EBOLD.$PAR.
-MODES(HTML=>$applet->insertAll(debug=>0, reinitialize_button=>1, includeAnswerBox=>0,), TeX=>$im).
+#MODES(HTML=>$applet->insertAll(debug=>0, reinitialize_button=>1, includeAnswerBox=>0,), TeX=>$im).
+MODES(HTML=>$applet->insertAll(debug=>0, reinitialize_button=>1, includeAnswerBox=>0,)).
 $ECENTER
 ,
 indent => 0, separation => 30, valign => "TOP"
@@ -218,8 +228,9 @@ $ans2 = Compute("3.14");
 ANS( NumberWithUnits("3.14","cm")  ->cmp(tolerance=>0.01, tolType=>'absolute') );
 ANS( $ans2->cmp(tolerance=>0.01, tolType=>'absolute') );
 ANS( NumberWithUnits("3.14 $b","cm")  ->cmp(tolerance=>0.01, tolType=>'absolute') );
+ANS( $ans2->cmp(tolerance=>0.01, tolType=>'absolute') );
 ANS( NumberWithUnits("3.14 $c","cm")->cmp(tolerance=>0.01, tolType=>'absolute') );
-
+ANS( $ans2->cmp(tolerance=>0.01, tolType=>'absolute') );
 
 #########################################
 # The applet as a base64 string
