@@ -67,8 +67,8 @@ END_TEXT
 
 if ($part == 2) {
 Context("Numeric");
-$rate_a = Compute('82/4');
-$rate_b = Compute('50/2');
+$rate1 = Compute('50/2');
+$rate2 = Compute('82/4');
 $difference = Compute('50/2-82/4');
 
 BEGIN_TEXT
@@ -96,10 +96,10 @@ $PAR
 The question is asking us to compare the speed of the dragonfly to the speed of the butterfly. What are the speeds?
 
 $BR
-Speed of the dragonfly: \{SECTION_ANS($rate_a->cmp),$rate_a->ans_rule()\}
+Speed of the dragonfly: \{SECTION_ANS($rate1->cmp),$rate1->ans_rule()\}
 
 $BR
-Speed of the butterfly: \{SECTION_ANS($rate_b->cmp),$rate_b->ans_rule()\}
+Speed of the butterfly: \{SECTION_ANS($rate2->cmp),$rate2->ans_rule()\}
 
 END_SECTION
 
@@ -122,8 +122,6 @@ $PAR
 How much greater is its speed?
 $BR
 \{SECTION_ANS($difference->cmp),$difference->ans_rule()\}
-
-END_TEXT
 
 END_SECTION
 
