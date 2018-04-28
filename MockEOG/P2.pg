@@ -41,7 +41,7 @@ $unit_rate_b = Compute('50/2');
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Do something else", 
-             canshow =>not $scaffold->requireCorrect(1),
+             canshow =>$scaffold->requireCorrect(1),
              iscorrect=>$scaffold->requireCorrect(2,3), 
              section=>2
 },   <<'END_SECTION'); 
