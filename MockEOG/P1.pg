@@ -3,6 +3,7 @@ DOCUMENT();
 loadMacros(
 "PGstandard.pl",
 "parserRadioButtons.pl",
+"parserImplicitEquation.pl",
 "niceTables.pl",
 );
 
@@ -44,19 +45,10 @@ ANS( $mc->cmp() );
 $ans_hash1 = $mc->cmp()->evaluate( 
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
-BEGIN_TEXT
-$ans_hash1->{student_ans} 
-$BR
-$ans_hash1->{score}
-END_TEXT
-
 if ( $ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0 ) {
-#if ( $ans_hash1->{student_ans} != '') {
 Context()->texStrings;
 BEGIN_TEXT
 ${BBOLD}Part 1 of 2:$EBOLD
-$PAR
-Look at the answer options. What is the independent variable and what is the dependent variable?
 $PAR
 Use the table to find the unit rate in dollars per pencil.
 $BR
@@ -64,6 +56,34 @@ $BR
 END_TEXT
 Context()->normalStrings;
 ANS( $unit_rate->cmp());
+
+$ans_hash2 = $unit_rate->cmp()->evaluate( 
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 }
+
+if ( $ans_hash2->{student_ans} ne '' && $ans_hash2->{score} == 1 ) {
+Context("ImplicitEquation");
+Context()->variables->add(c=>"Real", p=>"Real");
+Context()->variables->set(
+c=>{limits=>[0,12]},
+p=>{limits=>[0,2.16]}
+);
+$eqn = ImplicitEquation("c = $unit_rate p ");
+
+BEGIN_TEXT
+${BBOLD}Part 2 of 2:$EBOLD
+$PAR
+Write the equation of the proportional relationship in the form \( c = k p \):
+$BR
+\{ $eqn->ans_rule() \}
+END_TEXT
+Context()->normalStrings;
+ANS( $eqn->cmp());
+
+$ans_hash3 = $eqn->cmp()->evaluate( 
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+}
+
+
 
 ENDDOCUMENT();
