@@ -48,11 +48,6 @@ $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
       my ( $n1, $d1, $n2, $d2 ) = @{$correct};
       $eqn_ans_hash = $prop_eqn->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
       return($eqn_ans_hash->{score});
-      #$eqn_checker = ANS($prop_eqn->cmp); 
-      #return( $eqn_checker($correct, ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu"), $self));
-      #return $correct == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu");
-      #return (ImplicitEquation("x/2 = 2") == ImplicitEquation("x=4") ? 1 : 0);
-      #return (ImplicitEquation("$n1/$d1 = $n2/$d2") == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu") ? 1 : 0);
   }
 );
 
@@ -109,11 +104,12 @@ $PAR
 \{SECTION_ANS($multians->cmp),
   LayoutTable(
   [
-  [$multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20),
+  [$multians->ans_rule(8).$BR.$HR.$multians->ans_rule(8),
   "=",
-  $multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20)]
+  $multians->ans_rule(8).$BR.$HR.$multians->ans_rule(8)]
   ],
-  indent => 0, separation => 10, valign => "MIDDLE"
+  indent => 0, separation => 5, align => 'ccc',
+  cellcss='vertical-align: middle;'
   );
 \}
 
