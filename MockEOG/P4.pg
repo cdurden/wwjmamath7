@@ -139,6 +139,10 @@ Does the table represent a proportional relationship?
 $BR
 \{SECTION_ANS($popup_yes->cmp), $popup_yes->menu() \}
 
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+$PAR
+All of the ratios found in the previous section are equal so the table ${BBOLD}does$EBOLD represent a proportional relationship.
+END_SOLUTION
 
 END_SECTION
 
