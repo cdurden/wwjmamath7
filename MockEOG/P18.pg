@@ -210,7 +210,7 @@ $PAR
 $BCENTER
  \(\frac{$P}{100} = \frac{x}{$subtotal} \)
 $PAR
- \(\frac{$P}{100} \cdot \{SECTION_ANS($subtotal->cmp, $subtotal->ans_rule() \} = x \)
+ \(\frac{$P}{100} \cdot \{SECTION_ANS($subtotal->cmp, $subtotal->ans_rule(6) \} = x \)
 $PAR
 \( $percent \cdot $subtotal = x \). 
 $ECENTER
