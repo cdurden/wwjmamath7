@@ -1,0 +1,255 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$cp = new compoundProblem(
+  parts => 2,                  # the total number of parts in this problem
+  totalAnswers => 3,           # total answers in all parts combined
+  parserValues => 1,           # make parser objects from student answers
+  allowReset => $isProfessor,  # professors get Reset button for testing
+);
+
+$mc = RadioButtons(
+    [ "6%", "7%", "8%", "9%" ],
+    "8%",
+    labels => "ABC" );
+
+ANS( $mc->cmp() );
+$ans_hash1 = $mc->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+Context("Currency");
+$subtotal = Compute('4.50');
+$total = Compute('4.86');
+$tax = Compute("$total - $subtotal");
+$ans = Compute("$tax/$total");
+Context("Numeric");
+$markup = Formula("x");
+$ans_desc = "sales tax rate";
+$popup1 = PopUp(["?", "markup", "markdown", "percent"], "markup");
+$popup2 = PopUp(["?", "multiply", "divide"], "multiply");
+$popup3 = PopUp(["?", "sales tax rate", "total cost", "cost without tax"], "sales tax rate");
+$num1 = Formula("x");
+$den1 = Formula("24.90");
+$num2 = Formula("106");
+$den2 = Formula("100");
+Context("ImplicitEquation");
+#$prop_eqn = Compute("x/$subtotal = $percent");
+Context()->variables->set(x=>{limits=>[0,50]});
+$prop_eqn = ImplicitEquation("x/24.90 = 1.06");
+Context("LimitedPercent-strict");
+$percent = Compute("1+$markup/100");
+Context("Numeric");
+$P = Compute("$percent*100");
+$ans = Compute("$subtotal*$percent");
+Context("LimitedNumeric-StrictFraction");
+$percent_frac = Compute("$P/100");
+#$percent = Compute('1.06');
+$multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
+  singleResult => 0,
+  allowBlankAnswers => 1,
+  checker => sub {
+      my ( $correct, $student, $self ) = @_;
+      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
+      my ( $n1, $d1, $n2, $d2 ) = @{$correct};
+      $eqn_ans_hash = $prop_eqn->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
+      return($eqn_ans_hash->{score});
+  }
+);
+
+BEGIN_TEXT
+$PAR
+A notebook costs ${DOLLAR}4.50 plus sales tax.  After sales tax, the notebook is ${DOLLAR}4.86.  What is the sales tax rate?
+
+END_TEXT
+
+if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
+  $cp->incrementPart();
+}
+
+$part = $cp->part();
+
+
+BEGIN_TEXT
+$PAR
+\{ $ans->ans_rule() \}
+END_TEXT
+
+ANS( $ans->cmp() );
+
+if ($part == 2) {
+
+BEGIN_TEXT
+$PAR
+${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+
+END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+##############
+#  Section 1
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"1: Markup, markdown, or simple percent?",
+             canshow =>1, #always true
+             iscorrect=>$scaffold->requireCorrect(2),
+             section=>1 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+The question tells us the cost of an item after sales tax. Does this cost result from a markup, markdown, or simple percent of the original amount?
+$PAR
+\{SECTION_ANS($popup1->cmp), $popup1->menu() \}
+
+END_SECTION
+
+SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
+$PAR
+Sales taxes are ${BBOLD}added${EBOLD} to the cost of the items purchased, so the total cost is a ${BBOLD}markup${EBOLD} of the original price.
+END_SOLUTION
+
+##############
+#  Section 2
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"2: Identify the unknown and define a variable",
+             canshow =>$scaffold->requireCorrect(2),
+             iscorrect=>$scaffold->requireCorrect(3),
+             section=>2 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+To solve this problem, we need to understand how the data \( $total \) and \( $subtotal \) are related to the unknown.
+$PAR
+Let \( x \) represent the unknown in this problem. What should \( x \) represent?
+$PAR
+\( x = \) \{SECTION_ANS($popup3->cmp), $popup3->menu() \}
+END_SECTION
+
+SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
+$PAR
+The problem tells us the original amount of the item and the cost after tax. 
+The unknown is the sales tax rate.
+END_SOLUTION
+
+##############
+#  Section 3
+##############
+
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"3: Set up a proportion",
+             canshow =>$scaffold->requireCorrect(2..3),
+             iscorrect=>$scaffold->requireCorrect(4),
+             section=>3 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Let \( x\) stand for the ${BBOLD}$ans_desc${EBOLD}. Set up a proportion that can be used to find \( x \).
+
+Hint: \( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
+
+$PAR
+\{SECTION_ANS($multians->cmp),
+  LayoutTable(
+  [
+  [$multians->ans_rule(8).$BR.$HR.$multians->ans_rule(8),
+  "=",
+  $multians->ans_rule(8).$BR.$HR.$multians->ans_rule(8)]
+  ],
+  indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
+  );
+\}
+
+$BR
+END_SECTION
+
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+$PAR
+We use the percent equation:
+$PAR
+$BCENTER
+\( \frac{ %}{100} = \frac{ \text{part} }{ \text{whole} } \).
+$ECENTER
+$PAR
+The whole, or base amount, is the subtotal, which was \( $subtotal \). The unknown \( x \) is the sales tax rate, which is the percent \($P% \). The part is the amount of the sales tax, which is \( $total - $subtotal = $tax\).
+$PAR
+$BCENTER
+ \(\frac{x}{100} = \frac{$tax}{$subtotal} \)
+$ECENTER
+END_SOLUTION
+
+##############
+#  Section 4
+##############
+
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"4: Solve the problem",
+             canshow =>$scaffold->requireCorrect(2..8),
+             iscorrect=>$scaffold->requireCorrect(9),
+             section=>4 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Solve the proportion from section 3.
+$PAR
+\( x = \) 
+\{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
+
+END_SECTION
+
+SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
+$PAR
+Solve the proportion
+$PAR
+$BCENTER
+ \(\frac{x}{100} = \frac{$tax}{$subtotal} \)
+$ECENTER
+
+$PAR
+${BBOLD}Solution 1: The butterfly method${EBOLD}
+$PAR
+\(x = $tax \cdot 100 \div $subtotal \)
+$PAR
+\( x = $ans \)
+
+$PAR
+${BBOLD}Solution 2: Multiply both sides of the proportion by 100 
+$PAR
+ \(\frac{x}{100} = \frac{$tax}{$subtotal} \)
+$PAR
+\( \frac{x}{100} \cdot 100 =  \frac{$tax}{$subtotal} \cdot 100 \)
+$PAR
+\( x = \frac{$tax}{$subtotal} \cdot 100 \)
+$PAR
+\( x = $ans \)
+END_SOLUTION
+
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+}
+ENDDOCUMENT();
