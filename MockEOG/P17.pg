@@ -82,7 +82,7 @@ How much money did the Smith family pay for the meal, including tax and tip?
 
 END_TEXT
 
-$ans_hash = $ans->cmp()->evaluate(
+$ans_hash = $ans2->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
 if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
