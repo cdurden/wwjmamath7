@@ -29,7 +29,9 @@ $ans = Compute("$subtotal*(1+$markup_percent)");
 $ans_desc = "total cost of Mr. Sanchez's purchases";
 $popup1 = PopUp(["?", "markup", "markdown", "percent"], "markup");
 $num1 = Formula("x");
-$den1 = 
+$den1 = Formula("24.90");
+$num2 = Formula("106");
+$den2 = Formula("100");
 Context("ImplicitEquation");
 #$prop_eqn = Compute("x/$subtotal = $percent");
 Context()->variables->set(x=>{limits=>[0,50]});
