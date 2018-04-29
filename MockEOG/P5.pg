@@ -39,9 +39,10 @@ Context()->variables->set(
 $var1=>{limits=>[0,26]},
 $var2=>{limits=>[0,318.50]}
 );
-#Context("Numeric");
 Context("LimitedNumeric-Fraction");
 $rate = Compute('12.25');
+Context("Numeric");
+Context()->variables->are($var1=>"Real", $var2=>"Real");
 $eqn = ImplicitEquation("$var2 = $rate $var1 ");
 
 BEGIN_TEXT
