@@ -25,16 +25,26 @@ $mc1 = RadioButtons(
     [ 'chocolate by \( \frac{1}{6} \) of a cake', 'strawberry by \( \frac{1}{6} \) of a cake', 'chocolate by \( \frac{1}{18} \) of a cake', 'strawberry by \( \frac{1}{18} \) of a cake' ],
     'chocolate by \( \frac{1}{18} \) of a cake',
     labels => "ABC" );
+$popup1 = PopUp(["?", "the sizes of the cake pieces", "the amount of each type of cake left"], "the sizes of the cake pieces");
+$popup2 = PopUp(["?", "chocolate", "strawberry"], "chocolate");
+Context("LimitedNumeric-Fraction");
+$frac1 = Compute('1/3');
+$frac2 = Compute('5/18');
+$diff = Compute('1/18');
 
 BEGIN_TEXT
 $PAR
 
 A baker made two cakes of the same size.
 
+$PAR
 At the end of the day, there was \( \frac{2}{3} \) of a chocolate cake left.
 There was \( \frac{5}{6} \) of a strawberry cake left.
 
-The baker divided the remaining chocolate cake into \(2\) equal pieces and the remaining strawberry cake into \(3\)
+$PAR
+The baker divided the remaining chocolate cake into \(2\) equal pieces and the remaining strawberry cake into \(3\) equal pieces.
+
+$PAR
 Which cake flavor had larger pieces and by how much?
 
 END_TEXT
@@ -74,14 +84,83 @@ TEXT(beginproblem());
 ##############
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"1: Verify that the relationship is proportional",
+DISPLAY_SECTION( { name=>"1: Find the two quantities to be compared",
              canshow =>1, #always true
 #             canshow =>$scaffold->requireCorrect(2..5), #always true
-             iscorrect=>$scaffold->requireCorrect(2..5),
+             iscorrect=>$scaffold->requireCorrect(2),
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 
+The quantities to be compared are: \{SECTION_ANS($popup1->cmp), $popup1->menu() \}. 
 END_SECTION
+
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+$PAR
+The question ${BBOLD}"Which cake flavor had larger pieces"${EBOLD} is asking us to compare the sizes of the pieces.
+END_SOLUTION
+
+##############
+#  Section 2
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"2: Find the two quantities to be compared",
+             canshow =>$scaffold->requireCorrect(2), #always true
+             iscorrect=>$scaffold->requireCorrect(3..4),
+             section=>2 #designates that this is the first section
+},   <<'END_SECTION');
+
+Each chocolate cake piece was what fraction of the whole cake?
+\{SECTION_ANS($frac1->cmp), $frac1->ans_rule()\}
+
+$BR
+Each strawberry cake piece was what fraction of the whole cake?
+\{SECTION_ANS($frac2->cmp), $frac2->ans_rule()\}
+END_SECTION
+
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+$PAR
+Each chocolate cake piece was \( \frac{1}{2} \) of \( \frac{2}{3} \) of the whole cake.
+$PAR
+\( \frac{1}{2} \cdot \frac{2}{3} = \frac{2}{6} = \frac{1}{3} \)
+$PAR
+So each piece was \( \frac{1}{3} \) of the whole cake.
+
+$PAR
+Each strawberry cake piece was \( \frac{1}{3} \) of \( \frac{5}{6} \) of the whole cake.
+$PAR
+\( \frac{1}{3} \cdot \frac{5}{6} = \frac{5}{18} \)
+$PAR
+So each piece was \( \frac{5}{18} \) of the whole cake.
+END_SOLUTION
+
+##############
+#  Section 3
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"3: Compare the two quantities",
+             canshow =>$scaffold->requireCorrect(2..4), #always true
+             iscorrect=>$scaffold->requireCorrect(5..6),
+             section=>3 #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Which cake flavor had larger pieces?
+\{SECTION_ANS($popup2->cmp), $popup2->menu() \}.
+
+$PAR
+How much larger were its pieces?
+\{SECTION_ANS($diff->cmp), $diff->ans_rule()\}
+
+END_SECTION
+
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+$PAR
+The chocolate cake piece were larger because \( \frac{1}{3} > \frac{5}{18} \).
+$PAR
+\( \frac{1}{3} - \frac{5}{18} = \frac{6}{18} - \frac{5}{18} = \frac{1}{18} \). 
+END_SOLUTION
 
 PROCESS_ANSWERS();
 
