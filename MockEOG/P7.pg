@@ -23,19 +23,19 @@ $cp = new compoundProblem(
 
 #Context("LimitedNumeric");
 Context("LimitedNumeric-Fraction");
-$rate = Compute('12.25');
+$rate = Compute('1.25');
 $ans = Compute('1.25');
 $popup1 = PopUp(["?", "multiply", "divide"], "divide");
-$quantity2 = "Hours worked";
-$quantity1 = "Amount earned";
-$quantity2_lc = lc($quantity2);
+$quantity1 = "number of cups of flour";
+$quantity2 = "number of pies";
 $quantity1_lc = lc($quantity1);
+$quantity2_lc = lc($quantity2);
 $popup2 = PopUp(["?", $quantity1, $quantity2], $quantity1);
 $popup3 = PopUp(["?", $quantity1, $quantity2], $quantity2);
 $var2 = "h";
 $var1 = "E";
-$unit2 = "hour";
-$unit1 = "dollar";
+$unit1 = "cup";
+$unit2 = "pie";
 
 BEGIN_TEXT
 $PAR
