@@ -2,7 +2,7 @@ DOCUMENT();
 
 loadMacros(
 "PGstandard.pl",
-"PGunion.pl",
+#"PGunion.pl",
 "parserRadioButtons.pl",
 "parserPopUp.pl",
 "compoundProblem5.pl",
@@ -107,7 +107,7 @@ $PAR
   [$multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20),
   "=",
   $multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20)]
-  ]
+  ],
   indent => 0, separation => 10, valign => "MIDDLE"
   );
 \}
