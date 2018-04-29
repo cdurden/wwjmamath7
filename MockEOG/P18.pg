@@ -1,0 +1,59 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"niceTables.pl",
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$cp = new compoundProblem(
+  parts => 2,                  # the total number of parts in this problem
+  totalAnswers => 3,           # total answers in all parts combined
+  parserValues => 1,           # make parser objects from student answers
+  allowReset => $isProfessor,  # professors get Reset button for testing
+);
+
+Context("Numeric");
+$subtotal = Compute('9.95+14.95');
+$markup_percent = Compute('0.06');
+$ans = Compute("$subtotal*(1+$markup_percent)");
+
+BEGIN_TEXT
+$PAR
+Mr. Sanchez bought 2 magazines for $9.95 each and 1 book for $14.95.  If the sales tax is 6%, what is the total cost of Mr. Sanchez's purchases?
+
+END_TEXT
+
+$ans_hash = $ans->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
+  $cp->incrementPart();
+}
+
+$part = $cp->part();
+
+
+BEGIN_TEXT
+$PAR
+\{ $ans->ans_rule() \}
+END_TEXT
+
+ANS( $ans->cmp() );
+
+if ($part == 2) {
+
+BEGIN_TEXT
+$PAR
+${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+
+END_TEXT
+ENDDOCUMENT();
+

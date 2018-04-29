@@ -127,7 +127,7 @@ $PAR
 What is the ${quantity1}?
 
 $PAR
-The ${quantity1} is \( 9 \) laps. Since each lap is \( \frac{1}{8} \) $unit1, the distance traveled is \( 9 \cdot \frac{1}{8} \) $unit1.
+The ${quantity1} is \( 9 \) laps. Since each lap is \( \frac{1}{8} \) $unit1, the distance traveled is \( 9 \cdot \frac{1}{8} \) $unit1, or \( \frac{9}{8} \) $unit1.
 
 $PAR
 What is the ${quantity2}?
