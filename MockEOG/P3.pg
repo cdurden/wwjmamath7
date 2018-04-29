@@ -53,8 +53,8 @@ $popup1 = PopUp(["?", "multiply", "divide"], "multiply");
 Context("ImplicitEquation");
 Context()->variables->add(a=>"Real", m=>"Real");
 Context()->variables->set(
-a=>{limits=>[0,2]},
-m=>{limits=>[0,30/7]}
+a=>{limits=>[0,7]},
+m=>{limits=>[0,15]}
 );
 $eqn = ImplicitEquation("a = $scale_frac m ");
 
@@ -102,7 +102,7 @@ DISPLAY_SECTION( { name=>"2: Write the equation for the relationship",
 $PAR
 Based on the sentence that you completed in the last section, how would you find the actual height (a), if you knew the height of the model (m)?
 
-To find \( a \), I would \{SECTION_ANS($popup1->cmp), $popup1->menu() \} \( m \) by \{SECTION_ANS($scale->cmp),$scale_frac->ans_rule()\}
+To find \( a \), I would \{SECTION_ANS($popup1->cmp), $popup1->menu() \} \( m \) by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
 $PAR
 Write an equation that models the relationship.
 $BR
