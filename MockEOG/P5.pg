@@ -132,11 +132,11 @@ DISPLAY_SECTION( { name=>"2: Find the ratios",
 $PAR
 Find the ratio of the ${BBOLD}$quantity1_lc${EBOLD} to the ${BBOLD}$quantity2_lc${EBOLD} for each column of the table above.
 $BR
-Ratio of $quantity1_lc to $quantity2_lc for the first column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+Ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD} for the first column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
 $BR
-Ratio of $quantity1_lc to $quantity2_lc for the second column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+Ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD} for the second column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
 $BR
-Ratio of $quantity1_lc to $quantity2_lc for the third column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+Ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD} for the third column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
 $BR 
 
 END_SECTION
@@ -174,9 +174,9 @@ DISPLAY_SECTION( { name=>"4: Unit rate",
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-What is the unit rate in price per yard?
+What is the unit rate in ${unit1}s per $unit2?
 $BR
-\{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
+\{SECTION_ANS($rate->cmp), $rate->ans_rule() \} ${unit1}s per $unit2
 
 
 END_SECTION
@@ -184,7 +184,7 @@ END_SECTION
 
 SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
 $PAR
-The unit rate, in ${unit1}s per $unit2, is the common ratio of $quantity1_lc to $quantity2_lc, which was found in section 2.
+The unit rate, in ${unit1}s per $unit2, is the common ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD}, which was found in section 2.
 
 The common ratio found in section 2 was \[ $rate \] ${unit1}s per $unit2.
 END_SOLUTION
@@ -210,9 +210,9 @@ END_SECTION
 
 SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
 $PAR
-The unit rate, in price per yard, is the common ratio of price to number of yards, which was found in section 2.
+The unit rate, in ${unit1}s per $unit2, is the common ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD}, which was found in section 2.
 
-The common ratio found in section 2 was \[ $rate \] dollars per yard.
+The common ratio found in section 2 was \[ $rate \] ${unit1}s per $unit2.
 END_SOLUTION
 
 PROCESS_ANSWERS();
