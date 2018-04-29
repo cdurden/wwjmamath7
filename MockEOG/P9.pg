@@ -28,14 +28,16 @@ $ans = Compute('0.45');
 $val1 = Compute('9/8');
 $val2 = Compute('2.5');
 $popup1 = PopUp(["?", "multiply", "divide"], "divide");
-$quantity1 = "distance";
-$quantity2 = "time";
+$quantity1 = "distance traveled";
+$quantity2 = "time elapsed";
 $quantity1_lc = lc($quantity1);
 $quantity2_lc = lc($quantity2);
 $popup2 = PopUp(["?", $quantity1, $quantity2], $quantity1);
 $popup3 = PopUp(["?", $quantity1, $quantity2], $quantity2);
 $unit1 = "mile";
 $unit2 = "minute";
+$unit1_pl = "${unit1}s"
+$unit2_pl = "${unit2}s"
 
 BEGIN_TEXT
 $PAR
@@ -106,10 +108,12 @@ DISPLAY_SECTION( { name=>"2: Find the unit rate",
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-What is the ${quantity1}? \{SECTION_ANS($val1->cmp), $val1->ans_rule() \}
+What is the ${quantity1}? \{SECTION_ANS($val1->cmp), $val1->ans_rule() \} $unit1_pl
 
-What is the ${quantity2}? \{SECTION_ANS($val2->cmp), $val2->ans_rule() \}
+$PAR
+What is the ${quantity2}? \{SECTION_ANS($val2->cmp), $val2->ans_rule() \} $unit2_pl
 
+$PAR
 What is the unit rate in ${BBOLD}${unit1}s per ${unit2}${EBOLD}?
 $BR
 \{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
