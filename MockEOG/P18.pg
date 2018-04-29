@@ -165,10 +165,22 @@ $PAR
   );
 \}
 
+$BR
 END_SECTION
 
 SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
 $PAR
+We use the percent equation:
+$PAR
+$BCENTER
+\( \frac{ \text{%}}{100} = \frac{ \text{part} }{ \text{whole} } \).
+$ECENTER
+$PAR
+The whole is the subtotal \( $subtotal \). The unknown \( x \) is the part, which is \($P% \) of the whole. So the percent equation gives us the proportion
+$PAR
+$BCENTER
+ \(\frac{$P}{100} = \frac{x}{$subtotal} \)
+$ECENTER
 END_SOLUTION
 
 ##############
@@ -192,6 +204,16 @@ END_SECTION
 
 SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
 $PAR
+${BBOLD}Solution 1: The butterfly method${EBOLD}
+\(x = $P \cdot $subtotal \div 100 \)
+
+${BBOLD}Solution 2: Multiply both sides of the proportion by $subtotal
+$PAR
+\( \frac{$P}{100} \cdot $subtotal = \frac{x}{$subtotal}\cdot $subtotal \)
+$PAR
+\( \frac{$P}{100} \cdot $subtotal = \frac{x}{\cancel{$subtotal}}\cdot \cancel{$subtotal} \)
+$PAR
+\( \frac{$P}{100} \cdot $subtotal = x \)
 END_SOLUTION
 
 ##############
