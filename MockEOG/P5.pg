@@ -1,0 +1,225 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"niceTables.pl",
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$cp = new compoundProblem(
+  parts => 2,                  # the total number of parts in this problem
+  totalAnswers => 3,           # total answers in all parts combined
+  parserValues => 1,           # make parser objects from student answers
+  allowReset => $isProfessor,  # professors get Reset button for testing
+);
+
+
+$mc1 = RadioButtons(
+    [ '\(E = 18.75 + h\)', '(E = 12.25 + h\)', '(E = 18.75 h\)', '(E = 12.25 h\)'],
+    '\(E = 12.25 h\)',
+    labels => "ABC" );
+$popup1 = PopUp(["?", "multiply", "divide"], "divide");
+$quantity1 = "Hours worked";
+$quantity2 = "Amount earned";
+$popup2 = PopUp(["?", $quantity1, $quantity2], $quantity1);
+$popup3 = PopUp(["?", $quantity1, $quantity2], $quantity2);
+$var1 = "h";
+$var2 = "E";
+$popup_yes = PopUp(["?", "Yes", "No"], "Yes");
+Context("ImplicitEquation");
+Context()->variables->add(E=>"Real", h=>"Real");
+Context()->variables->set(
+$var1=>{limits=>[0,26]},
+$var2=>{limits=>[0,318.50]}
+);
+#Context("Numeric");
+Context("LimitedNumeric-Fraction");
+$rate = Compute('12.25');
+$eqn = ImplicitEquation("$var2 = $rate $var1 ");
+
+BEGIN_TEXT
+$PAR
+Mike earned the amounts listed the table below.
+$PAR
+\{
+DataTable(
+  [
+    [$quantity1 . " ($var1)", '15', '22', '26'],
+    [$quantity2 . " ($var2)", '$183.75','$269.50','$318.50']
+  ],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+#  caption => '',
+  midrules => 1,
+  align => 'l | c | c | c ',
+);
+\}
+$PAR
+Which equation could be used to find the amount of money Mike earns, \( E\), for any number of hours worked, \(h \)?
+
+END_TEXT
+
+$ans_hash1 = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+if ($ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0) {
+#$cp->part(2);
+$cp->incrementPart();
+}
+
+$part = $cp->part();
+
+BEGIN_TEXT
+$PAR
+$BR
+\{ $mc1->buttons() \}
+END_TEXT
+
+ANS( $mc1->cmp() );
+
+if ($part == 2) {
+
+BEGIN_TEXT
+$PAR
+${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+
+END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+##############
+#  Section 1
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"1: Review the procedure for finding a unit rate",
+             canshow =>1, #always true
+             iscorrect=>$scaffold->requireCorrect(2..4),
+             section=>1 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+To find the unit rate in price per yard, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup2->cmp), $popup2->menu() \} by the \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
+
+END_SECTION
+
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+$PAR
+To find a unit rate in price per yard, we set up a ratio between the first quantity (price) and the second quantity (yards of fabric). In our ratio the numerator represents the first quantity (price) and the denominator represents the second quantity (yards of fabric), so we need to divide price by the number of yards.
+END_SOLUTION
+##############
+#  Section 2
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"2: Find the ratios",
+             canshow =>$scaffold->requireCorrect(2..4), #always true
+             iscorrect=>$scaffold->requireCorrect(5..7),
+             section=>2 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Find the ratio of the total cost to the number of yards for each column of the table above.
+$BR
+First column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+$BR
+Second column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+$BR
+Third column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+$BR 
+
+END_SECTION
+
+##############
+#  Section 3
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"3: Determine if the relationship is proportional",
+             canshow =>$scaffold->requireCorrect(2..7), #always true
+             iscorrect=>$scaffold->requireCorrect(8),
+             section=>3 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Does the table represent a proportional relationship?
+$BR
+\{SECTION_ANS($popup_yes->cmp), $popup_yes->menu() \}
+$BR
+END_SECTION
+
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+$PAR
+All of the ratios found in the previous section are equal so the table ${BBOLD}does$EBOLD represent a proportional relationship.
+END_SOLUTION
+
+##############
+#  Section 4
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"4: Unit rate",
+             canshow =>$scaffold->requireCorrect(2..8), #always true
+             iscorrect=>$scaffold->requireCorrect(9),
+             section=>4 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+What is the unit rate in price per yard?
+$BR
+\{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
+
+
+END_SECTION
+
+
+SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
+$PAR
+The unit rate, in price per yard, is the common ratio of price to number of yards, which was found in section 2.
+
+The common ratio found in section 2 was \[ $rate \] dollars per yard.
+END_SOLUTION
+
+##############
+#  Section 5
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"5: Write the equation of the relationship",
+             canshow =>$scaffold->requireCorrect(2..9), #always true
+             iscorrect=>$scaffold->requireCorrect(10),
+             section=>5 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Write the equation of the proportional relationship in the form \( $var2 = k $var1 \):
+$BR
+\{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
+
+
+END_SECTION
+
+
+SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
+$PAR
+The unit rate, in price per yard, is the common ratio of price to number of yards, which was found in section 2.
+
+The common ratio found in section 2 was \[ $rate \] dollars per yard.
+END_SOLUTION
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+}
+
+TEXT($END_ONE_COLUMN);
+ENDDOCUMENT();
+
