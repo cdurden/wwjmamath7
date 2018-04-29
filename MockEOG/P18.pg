@@ -29,6 +29,7 @@ Context("Numeric");
 $markup = Compute('0.06');
 $ans_desc = "total cost of Mr. Sanchez's purchases";
 $popup1 = PopUp(["?", "markup", "markdown", "percent"], "markup");
+$popup2 = PopUp(["?", "multiply", "divide"], "multiply");
 $num1 = Formula("x");
 $den1 = Formula("24.90");
 $num2 = Formula("106");
@@ -39,6 +40,8 @@ Context()->variables->set(x=>{limits=>[0,50]});
 $prop_eqn = ImplicitEquation("x/24.90 = 1.06");
 Context("LimitedPercent-strict");
 $percent = Compute("1+$markup");
+Context("LimitedNumeric-StrictFraction");
+$percent_frac = Compute("$P/100");
 Context("Numeric");
 $P = Compute("$percent*100");
 $ans = Compute("$subtotal*$percent");
@@ -179,6 +182,28 @@ Solve the proportion from section 3.
 $PAR
 \( x = \) 
 \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
+
+END_SECTION
+
+SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
+$PAR
+END_SOLUTION
+
+##############
+#  Section 5
+##############
+
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"5: Reflect on your reasoning",
+             canshow =>$scaffold->requireCorrect(2..9),
+             iscorrect=>$scaffold->requireCorrect(10),
+             section=>5 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+What is \( ${P}% \) as a fraction? \{SECTION_ANS($percent_frac->cmp),$percent_frac->ans_rule()\}
+$PAR
+The proportion in section 3 can be rewritten in the form (\frac{$percent}{100} \cdot $subtotal = x \). Thus, to find a  \( ${P}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup1->cmp), $popup1->menu() \} $subtotal by \{SECTION_ANS($percent->cmp),$percent->ans_rule()\}.
 
 END_SECTION
 
