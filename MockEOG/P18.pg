@@ -106,5 +106,13 @@ SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
 $PAR
 END_SOLUTION
 
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
 }
+
 ENDDOCUMENT();
