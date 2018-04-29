@@ -10,6 +10,7 @@ loadMacros(
 "contextLimitedNumeric.pl",
 "parserImplicitEquation.pl",
 "parserMultiAnswer.pl",
+"contextPercent.pl",
 "niceTables.pl",
 );
 
@@ -36,6 +37,7 @@ Context("ImplicitEquation");
 #$prop_eqn = Compute("x/$subtotal = $percent");
 Context()->variables->set(x=>{limits=>[0,50]});
 $prop_eqn = ImplicitEquation("x/24.90 = 1.06");
+Context("LimitedPercent-strict");
 $percent = Compute("1+$markup");
 $ans = Compute("$subtotal*$percent");
 #$percent = Compute('1.06');
