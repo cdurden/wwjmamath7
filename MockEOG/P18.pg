@@ -104,6 +104,7 @@ $PAR
 \{SECTION_ANS($multians->cmp),
   ColumnTable(
   $multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20),
+  "=",
   $multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20),
   indent => 0, separation => 10, valign => "MIDDLE"
   );
