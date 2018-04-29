@@ -55,5 +55,5 @@ $PAR
 ${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
 
 END_TEXT
+}
 ENDDOCUMENT();
-
