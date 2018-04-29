@@ -130,7 +130,7 @@ DISPLAY_SECTION( { name=>"2: Find the ratios",
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-Find the ratio of the $quantity1_lc to the $quantity2_lc for each column of the table above.
+Find the ratio of the ${BBOLD}$quantity1_lc${EBOLD} to the ${BBOLD}$quantity2_lc${EBOLD} for each column of the table above.
 $BR
 Ratio of $quantity1_lc to $quantity2_lc for the first column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
 $BR
