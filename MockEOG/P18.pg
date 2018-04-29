@@ -44,11 +44,11 @@ $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
   allowBlankAnswers => 1,
   checker => sub {
       my ( $correct, $student, $self ) = @_;
-      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = $student->value;
-      my ( $n1, $d1, $n2, $d2 ) = $correct->value;
+      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
+      my ( $n1, $d1, $n2, $d2 ) = @{$correct};
  
       #return $correct == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu");
-      return ImplicitEquation("$n1/$d1 = $n2/$d2") == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu");
+      return (ImplicitEquation("$n1/$d1 = $n2/$d2") == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu") ? 1 : 0);
   }
 );
 
