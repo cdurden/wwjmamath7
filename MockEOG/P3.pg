@@ -6,6 +6,7 @@ loadMacros(
 "compoundProblem5.pl",
 "compoundProblem.pl",
 "contextLimitedNumeric.pl",
+"contextImplicitEquation.pl",
 );
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
@@ -86,6 +87,27 @@ Every inch in the model represents \{SECTION_ANS($scale->cmp),$scale->ans_rule()
 $PAR
 Write your answer as a fraction:
 Every inch in the model represents \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\} feet in the actual statue.
+
+END_SECTION
+
+##############
+#  Section 2
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"2: Write the equation for the relationship",
+             canshow =>$scaffold->requireCorrect(2,3),
+             iscorrect=>$scaffold->requireCorrect(4,5),
+             section=>2 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Based on the sentence that you completed in the last section, how would you find the actual height (a), if you knew the height of the model (m)?
+
+To find \( a \), I would \{SECTION_ANS($popup1->cmp), $popup1->menu() \} \( m \) by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
+$PAR
+Write an equation that models the relationship.
+$BR
+\{SECTION_ANS($eqn->cmp),$eqn->ans_rule()\}
 
 END_SECTION
 
