@@ -92,7 +92,7 @@ TEXT(beginproblem());
 ##############
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"1: Find the unit rate",
+DISPLAY_SECTION( { name=>"1: Review the procedure for finding a unit rate",
              canshow =>1, #always true
              iscorrect=>$scaffold->requireCorrect(2..4),
              section=>1 #designates that this is the first section
@@ -107,7 +107,7 @@ END_SECTION
 ##############
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"2: Find the unit rate",
+DISPLAY_SECTION( { name=>"2: Find the ratios",
              canshow =>$scaffold->requireCorrect(2..4), #always true
              iscorrect=>$scaffold->requireCorrect(5..7),
              section=>2 #designates that this is the first section
