@@ -34,7 +34,7 @@ $var1 = "h";
 $var2 = "E";
 $popup_yes = PopUp(["?", "Yes", "No"], "Yes");
 Context("ImplicitEquation");
-Context()->variables->add($var1=>"Real", $var2=>"Real");
+Context()->variables->are($var1=>"Real", $var2=>"Real");
 Context()->variables->set(
 $var1=>{limits=>[0,26]},
 $var2=>{limits=>[0,318.50]}
