@@ -122,6 +122,8 @@ $BR
 Third column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
 $BR 
 
+END_SECTION
+
 ##############
 #  Section 3
 ##############
@@ -136,6 +138,9 @@ $PAR
 Does the table represent a proportional relationship?
 $BR
 \{SECTION_ANS($popup_yes->cmp), $popup_yes->menu() \}
+
+
+END_SECTION
 
 ##############
 #  Section 4
