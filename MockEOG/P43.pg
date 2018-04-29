@@ -111,11 +111,11 @@ DISPLAY_SECTION( { name=>"2: Use the scale factor to calculate actual dimensions
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-To get the actual dimensions, I would \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the dimensions of the model by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
+To get the actual dimensions (in feet), I would \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the dimensions of the model (in cm) by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
 $PAR
-The height of the garden is \( $dim1m \) cm in the model, so the actual height will be \{SECTION_ANS($dim1a->cmp), $dim1a->ans_rule() \}.
+The height of the garden is \( $dim1m \) cm in the model, so the actual height will be \{SECTION_ANS($dim1a->cmp), $dim1a->ans_rule() \} ft.
 $PAR
-The width of the garden is \( $dim2m \) cm in the model, so the actual height will be \{SECTION_ANS($dim2a->cmp), $dim2a->ans_rule() \}.
+The width of the garden is \( $dim2m \) cm in the model, so the actual height will be \{SECTION_ANS($dim2a->cmp), $dim2a->ans_rule() \} ft.
 
 END_SECTION
 
