@@ -265,23 +265,26 @@ END_SECTION
 SECTION_SOLUTION({section=>5},<<'END_SOLUTION');
 $PAR
 What is \( ${P}% \) as a fraction?
-$PAR
 \( ${P}% \) as a fraction is \( \frac{$P}{100} \).
 $PAR
 What is \( ${P}% \) as a decimal?
 \( ${P}% \) as a decimal is \( $percent \).
 $PAR
-Consider the first equation
+To fill in the blank, start with the first equation:
 $PAR
 $BCENTER
  \(\frac{$P}{100} = \frac{x}{$subtotal} \)
 $ECENTER
 $PAR
-To get \( x \) by itself, multiply both sides by $subtotal.
+To get \( x \) by itself, multiply both sides by $subtotal:
 $PAR
+$BCENTER
 \( \frac{$P}{100} \cdot $subtotal = \frac{x}{$subtotal}\cdot $subtotal \)
 $PAR
 \( \frac{$P}{100} \cdot $subtotal = x \)
+$PAR
+\( $percent \cdot $subtotal = x \)
+$ECENTER
 
 $PAR
 Thus, to find a \( ${P}% \) of \( $subtotal \) quickly, we can ${BBOLD}multiply${EBOLD} our subtotal \( $subtotal \) by \( $percent \).
