@@ -23,23 +23,32 @@ $cp = new compoundProblem(
 
 #Context("LimitedNumeric");
 Context("LimitedNumeric-Fraction");
-$rate = Compute('1.25');
-$ans = Compute('1.25');
+$rate = Compute('0.6');
+$ans = Compute('0.6');
 $popup1 = PopUp(["?", "multiply", "divide"], "divide");
-$quantity1 = "number of cups of flour";
-$quantity2 = "number of pies";
+$quantity1 = "liters of yellow paint";
+$quantity2 = "liters of red paint";
 $quantity1_lc = lc($quantity1);
 $quantity2_lc = lc($quantity2);
 $popup2 = PopUp(["?", $quantity1, $quantity2], $quantity1);
 $popup3 = PopUp(["?", $quantity1, $quantity2], $quantity2);
 $var2 = "h";
 $var1 = "E";
-$unit1 = "cup";
-$unit2 = "pie";
+$unit1 = "liter of yellow";
+$unit1_pl = "liters of yellow";
+$unit2 = "liter of red";
 
 BEGIN_TEXT
 $PAR
-Betty makes pies. To make \( 6 \) pies, she uses \( 7 \frac{1}{2} \) cups of flour. How many cups of flour are needed to make \( 1 \) pie?
+John mixed \( \frac{3}{4} \) liter of yellow paint with \( 1 \frac{1}{4} \) liters of red paint to make \( 2 \) liters of orange paint.
+
+$PAR
+He needed more orange paint.
+$BR
+To make a new batch of orange paint, he used exactly 1 liter of red paint.
+
+$PAR
+Using the same ratio, how many liters of yellow paint should John use to make the new batch of orange paint?
 
 END_TEXT
 
@@ -82,14 +91,14 @@ DISPLAY_SECTION( { name=>"1: Review the procedure for finding a unit rate",
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-To find the unit rate in ${BBOLD}${unit1}s per ${unit2}${EBOLD}, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup2->cmp), $popup2->menu() \} by the \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
+To find the unit rate in ${BBOLD}${unit1_pl} per ${unit2}${EBOLD}, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup2->cmp), $popup2->menu() \} by the \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
 
 $BR
 END_SECTION
 
 SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
 $PAR
-To find a unit rate in ${BBOLD}${unit1}s per ${unit2}${EBOLD}, we set up a ratio between the first quantity ($quantity1) and the second quantity ($quantity2). In our ratio the numerator represents the first quantity ($quantity1) and the denominator represents the second quantity ($quantity2), so we need to divide $quantity1_lc by the $quantity2_lc.
+To find a unit rate in ${BBOLD}${unit1_pl} per ${unit2}${EBOLD}, we set up a ratio between the first quantity ($quantity1) and the second quantity ($quantity2). In our ratio the numerator represents the first quantity ($quantity1) and the denominator represents the second quantity ($quantity2), so we need to divide $quantity1_lc by the $quantity2_lc.
 END_SOLUTION
 
 ##############
@@ -103,7 +112,7 @@ DISPLAY_SECTION( { name=>"2: Find the unit rate",
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-What is the unit rate in ${BBOLD}${unit1}s per ${unit2}${EBOLD}price per yard?
+What is the unit rate in ${BBOLD}${unit1_pl} per ${unit2}${EBOLD}price per yard?
 $BR
 \{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
 
@@ -113,10 +122,39 @@ END_SECTION
 
 SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
 $PAR
-To find a unit rate in ${BBOLD}${unit1}s per ${unit2}${EBOLD}, we set up a ratio between the first quantity ($quantity1) and the second quantity ($quantity2). In our ratio the numerator represents the first quantity ($quantity1) and the denominator represents the second quantity ($quantity2), so we need to divide $quantity1_lc by the $quantity2_lc.
+To find a unit rate in ${BBOLD}${unit1_pl} per ${unit2}${EBOLD}, we set up a ratio between the first quantity ($quantity1) and the second quantity ($quantity2). In our ratio the numerator represents the first quantity ($quantity1) and the denominator represents the second quantity ($quantity2), so we need to divide $quantity1_lc by the $quantity2_lc.
 
 \( 7 \frac{1}{2} \div 6 = \frac{15}{2} \div 6 = \frac{15}{2} \cdot \frac{1}{6} = \frac{15}{12} = \frac{5}{4} = 1 \frac{1}{4} = 1.25 \)
 END_SOLUTION
+
+##############
+#  Section 3
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"3: Solve the problem",
+             canshow =>$scaffold->requireCorrect(2..3), #always true
+             iscorrect=>$scaffold->requireCorrect(4),
+             section=>3 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Using the same ratio, how many liters of yellow paint should John use to make the new batch of orange paint?
+$BR
+\{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
+$BR
+END_SECTION
+
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+$PAR
+The new batch of orange paint contains \( 1 \) liter of red paint. The unit rate tells us how much yellow paint we need:
+
+\( $rate = \frac{0.6}{1} \frac{\text{$unit1_pl}}{\text{$unit2}} \)
+
+If we let $x$ be the number of liters of yellow paint needed, we also could have set this up as a proportion:
+\( $rate = \frac{x}{1} \frac{\text{$unit1_pl}}{\text{$unit2}} \)
+
+END_SOLUTION
+
 
 PROCESS_ANSWERS();
 

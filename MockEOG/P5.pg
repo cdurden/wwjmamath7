@@ -117,7 +117,7 @@ TEXT(beginproblem());
 #
 #SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
 #$PAR
-#To find a unit rate in ${unit1}s per ${unit2}, we set up a ratio between the first quantity ($quantit1) and the second quantity ($quantity2). In our ratio the numerator represents the first quantity ($quantity1) and the denominator represents the second quantity ($quantity2), so we need to divide $quantity1_lc by the $quantity2_lc.
+#To find a unit rate in ${unit1}s per ${unit2}, we set up a ratio between the first quantity ($quantity1) and the second quantity ($quantity2). In our ratio the numerator represents the first quantity ($quantity1) and the denominator represents the second quantity ($quantity2), so we need to divide $quantity1_lc by the $quantity2_lc.
 #END_SOLUTION
 
 ##############
