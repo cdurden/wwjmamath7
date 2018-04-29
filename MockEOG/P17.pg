@@ -118,7 +118,7 @@ TEXT(beginproblem());
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"1: Markup, markdown, or simple percent?",
              canshow =>1, #always true
-             iscorrect=>$scaffold->requireCorrect(2),
+             iscorrect=>$scaffold->requireCorrect(2..3),
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -145,8 +145,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Translate the first markup into a percent problem",
-             canshow =>$scaffold->requireCorrect(2),
-             iscorrect=>$scaffold->requireCorrect(3..4),
+             canshow =>$scaffold->requireCorrect(2..3),
+             iscorrect=>$scaffold->requireCorrect(4),
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -169,8 +169,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Find the result of the first markup",
-             canshow =>$scaffold->requireCorrect(2..9),
-             iscorrect=>$scaffold->requireCorrect(10),
+             canshow =>$scaffold->requireCorrect(2..4),
+             iscorrect=>$scaffold->requireCorrect(5..7),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 The first markup results in a cost of \( ${P1}% \) of \( $subtotal \). This includes the sales tax but not the tip.
@@ -192,8 +192,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Translate the second markup into a percent problem",
-             canshow =>$scaffold->requireCorrect(2),
-             iscorrect=>$scaffold->requireCorrect(3..4),
+             canshow =>$scaffold->requireCorrect(2..7),
+             iscorrect=>$scaffold->requireCorrect(8..9),
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -218,7 +218,7 @@ END_SOLUTION
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Find the result of the first markup",
              canshow =>$scaffold->requireCorrect(2..9),
-             iscorrect=>$scaffold->requireCorrect(10),
+             iscorrect=>$scaffold->requireCorrect(10..12),
              section=>5 #designates that this is the first section
 },   <<'END_SECTION');
 The second markup results in a cost of \( ${P2}% \) of \( $ans1 \). This includes both the sales tax and the tip.
