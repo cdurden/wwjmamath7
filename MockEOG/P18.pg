@@ -215,7 +215,7 @@ $PAR
 \( $percent \cdot $subtotal = x \). 
 $ECENTER
 $PAR
-Thus, to find a  \( ${P}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup2->cmp), $popup2->menu() \} $subtotal by \{SECTION_ANS($percent->cmp),$percent->ans_rule()\}.
+Thus, to find a  \( ${P}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup2->cmp), $popup2->menu() \} our subtotal $subtotal by \{SECTION_ANS($percent->cmp),$percent->ans_rule()\}.
 
 $PAR
 Check that this work:
