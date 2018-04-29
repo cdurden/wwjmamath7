@@ -195,7 +195,7 @@ END_SOLUTION
 
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"5: Reflect on your reasoning",
+DISPLAY_SECTION( { name=>"5: Reflect on your reasoning (How to find a percent of a number quickly)",
              canshow =>$scaffold->requireCorrect(2..9),
              iscorrect=>$scaffold->requireCorrect(10),
              section=>5 #designates that this is the first section
@@ -218,7 +218,7 @@ $PAR
 Thus, to find a  \( ${P}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup2->cmp), $popup2->menu() \} our subtotal $subtotal by \{SECTION_ANS($percent->cmp),$percent->ans_rule()\}.
 
 $PAR
-Check that this work:
+Check that this gives the same answer:
  \(1.06 \cdot $subtotal = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
 END_SECTION
 
