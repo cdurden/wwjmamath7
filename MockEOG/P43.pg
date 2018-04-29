@@ -94,7 +94,7 @@ DISPLAY_SECTION( { name=>"1: Identify the scale factor",
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-Fill in the blank below.
+Fill in the blank:
 $PAR
 Every cm in the model represents \{SECTION_ANS($scale->cmp),$scale->ans_rule()\} feet in the actual garden.
 
