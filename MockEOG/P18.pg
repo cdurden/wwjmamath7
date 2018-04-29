@@ -47,8 +47,9 @@ $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
       my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
       my ( $n1, $d1, $n2, $d2 ) = @{$correct};
  
+      return( ANS($prop_eqn->cmp)($correct, ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu"), $self));
       #return $correct == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu");
-      return (ImplicitEquation("x/2 = 2") == ImplicitEquation("x=4") ? 1 : 0);
+      #return (ImplicitEquation("x/2 = 2") == ImplicitEquation("x=4") ? 1 : 0);
       #return (ImplicitEquation("$n1/$d1 = $n2/$d2") == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu") ? 1 : 0);
   }
 );
