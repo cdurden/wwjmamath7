@@ -132,11 +132,11 @@ DISPLAY_SECTION( { name=>"2: Find the ratios",
 $PAR
 Find the ratio of the $quantity1_lc to the $quantity2_lc for each column of the table above.
 $BR
-First column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+Ratio of $quantity1_lc to $quantity2_lc for the first column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
 $BR
-Second column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+Ratio of $quantity1_lc to $quantity2_lc for the second column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
 $BR
-Third column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+Ratio of $quantity1_lc to $quantity2_lc for the third column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
 $BR 
 
 END_SECTION
