@@ -6,7 +6,7 @@ loadMacros(
 "compoundProblem5.pl",
 "compoundProblem.pl",
 "contextLimitedNumeric.pl",
-"contextImplicitEquation.pl",
+"parserImplicitEquation.pl",
 );
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
