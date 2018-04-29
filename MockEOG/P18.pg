@@ -218,7 +218,8 @@ $PAR
 Thus, to find a  \( ${P}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup2->cmp), $popup2->menu() \} $subtotal by \{SECTION_ANS($percent->cmp),$percent->ans_rule()\}.
 
 $PAR
- \(\frac{$P}{100} \cdot $subtotal = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
+Check that this work:
+ \(1.06 \cdot $subtotal = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
 END_SECTION
 
 SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
