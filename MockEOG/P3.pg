@@ -25,8 +25,8 @@ Chad built a scale model of a statue. He built the model \( 7\) inches tall to r
 END_TEXT
 
 $mc1 = RadioButtons(
-    [ "\( a = \frac{7}{15} m\)", "\( m = \frac{7}{15} a\)", "\( a = 0.75 m \)", "\( m = 0.75 a\)" ],
-    "\( a = \frac{7}{15} m\)",
+    [ "\(a = \frac{7}{15} m\)", "\( m = \frac{7}{15} a\)", "\( a = 0.75 m \)", "\( m = 0.75 a\)" ],
+    "\(m = \frac{7}{15} a\)",
     labels => "ABC" );
 
 $ans_hash1 = $mc1->cmp()->evaluate(
