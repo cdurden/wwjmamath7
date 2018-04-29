@@ -43,7 +43,7 @@ Context()->variables->set(
 $var2=>{limits=>[0,26]},
 $var1=>{limits=>[0,318.50]}
 );
-$eqn = ImplicitEquation("$var2 = $rate $var1 ");
+$eqn = ImplicitEquation("$var1 = $rate $var2 ");
 Context("LimitedNumeric-Fraction");
 $rate = Compute('12.25');
 
