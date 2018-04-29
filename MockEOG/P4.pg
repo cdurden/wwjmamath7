@@ -28,6 +28,7 @@ $mc1 = RadioButtons(
 $popup1 = PopUp(["?", "multiply", "divide"], "divide");
 $popup2 = PopUp(["?", "number of yards", "total cost"], "total cost");
 $popup3 = PopUp(["?", "number of yards", "total cost"], "number of yards");
+$popup_yes = PopUp(["?", "Yes", "No"], "Yes");
 
 BEGIN_TEXT
 $PAR
@@ -120,6 +121,36 @@ Second column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
 $BR
 Third column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
 $BR 
+
+##############
+#  Section 3
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"3: Determine if the relationship is proportional",
+             canshow =>$scaffold->requireCorrect(2..7), #always true
+             iscorrect=>$scaffold->requireCorrect(8),
+             section=>3 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Does the table represent a proportional relationship?
+$BR
+\{SECTION_ANS($popup_yes->cmp), $popup_yes->menu() \}
+
+##############
+#  Section 4
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"4: Unit rate",
+             canshow =>$scaffold->requireCorrect(2..8), #always true
+             iscorrect=>$scaffold->requireCorrect(9),
+             section=>4 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+What is the unit rate in price per yard?
+$BR
+\{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
 
 
 END_SECTION
