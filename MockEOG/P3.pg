@@ -108,7 +108,8 @@ DISPLAY_SECTION( { name=>"2: Write the equation for the relationship",
 $PAR
 Based on the sentence that you completed in the last section, how would you find the actual height (a), if you knew the height of the model (m)?
 
-To find \( a \), I would \{SECTION_ANS($popup1->cmp), $popup1->menu() \} \( m \) by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
+$PAR
+To get the value of \( a \), I would \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the value of \( m \) by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
 $PAR
 Write an equation that models the relationship.
 $BR
