@@ -207,6 +207,8 @@ $PAR
 ${BBOLD}Solution 1: The butterfly method${EBOLD}
 $PAR
 \(x = $P \cdot $subtotal \div 100 \)
+$PAR
+\( x = $ans \)
 
 $PAR
 ${BBOLD}Solution 2: Multiply both sides of the proportion by $subtotal
@@ -214,6 +216,10 @@ $PAR
 \( \frac{$P}{100} \cdot $subtotal = \frac{x}{$subtotal}\cdot $subtotal \)
 $PAR
 \( \frac{$P}{100} \cdot $subtotal = x \)
+$PAR
+\( 1.06 \cdot $subtotal = x \)
+$PAR
+\( x = $ans \)
 END_SOLUTION
 
 ##############
