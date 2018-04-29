@@ -25,7 +25,7 @@ $mc1 = RadioButtons(
     [ '$1.05', '$1.10','$1.15','$1.50'],
     '$1.15',
     labels => "ABC" );
-$popup1 = PopUp(["?", "multiply", "divide"], "multiply");
+$popup1 = PopUp(["?", "multiply", "divide"], "divide");
 $popup2 = PopUp(["?", "number of yards", "total cost"], "total cost");
 $popup3 = PopUp(["?", "number of yards", "total cost"], "number of yards");
 
@@ -98,7 +98,7 @@ DISPLAY_SECTION( { name=>"1: Find the unit rate",
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-To find the unit rate in price per yard, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup1->cmp), $popup1->menu() \} by the \{SECTION_ANS($popup2->cmp), $popup3->menu() \}.
+To find the unit rate in price per yard, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup2->cmp), $popup2->menu() \} by the \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
 
 END_SECTION
 
