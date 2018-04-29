@@ -50,6 +50,18 @@ $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
       return $correct == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu");
   }
 );
+Context()->texStrings;
+if ($displayMode eq 'TeX') {
+  $showfraction =
+  "\[ ".$multians->ans_rule(10).$multians->ans_rule(10)." = ".$multians->ans_rule(10).$multians->ans_rule(10)." \]";
+} else {
+  $showfraction =
+  ColumnTable(
+  $multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20),
+  $multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20),
+  indent => 0, separation => 10, valign => "MIDDLE"
+  );
+}
 
 BEGIN_TEXT
 $PAR
@@ -90,18 +102,6 @@ TEXT(beginproblem());
 #  Section 1
 ##############
 
-Context()->texStrings;
-if ($displayMode eq 'TeX') {
-  $showfraction =
-  "\[ ".$multians->ans_rule(10).$multians->ans_rule(10)." = ".$multians->ans_rule(10).$multians->ans_rule(10)." \]";
-} else {
-  $showfraction =
-  ColumnTable(
-  $multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20),
-  $multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20),
-  indent => 0, separation => 10, valign => "MIDDLE"
-  );
-}
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"1: Set up ",
              canshow =>1, #always true
