@@ -170,7 +170,7 @@ Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Solve the problem",
              canshow =>$scaffold->requireCorrect(2..8),
              iscorrect=>$scaffold->requireCorrect(9),
-             section=>3 #designates that this is the first section
+             section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
 Solve the proportion from section 3.
