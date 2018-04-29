@@ -112,6 +112,7 @@ END_SECTION
 
 SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
 $PAR
+Sales taxes are ${BBOLD}added${EBOLD} to the cost of the items purchased, so the total cost will be marked ${BBOLD}up${EBOLD}.
 END_SOLUTION
 
 ##############
@@ -130,6 +131,10 @@ END_SECTION
 
 SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
 $PAR
+To find the total after a 6% markup, we need to find 106% of the subtotal (\(106% = 100%+6%\)).
+
+$PAR
+Mr. Sanchez's subtotal is the sum of the cost of his items: \( ${DOLLAR}9.95+${DOLLAR}14.95 = ${DOLLAR}20.90 \).
 END_SOLUTION
 
 ##############
