@@ -37,6 +37,8 @@ $var1 = "E";
 $unit2 = "hour";
 $unit1 = "dollar";
 $popup_yes = PopUp(["?", "Yes", "No"], "Yes");
+Context("LimitedNumeric-Fraction");
+$rate = Compute('12.25');
 Context("ImplicitEquation");
 Context()->variables->are($var1=>"Real", $var2=>"Real");
 Context()->variables->set(
@@ -44,8 +46,6 @@ $var2=>{limits=>[0,26]},
 $var1=>{limits=>[0,318.50]}
 );
 $eqn = ImplicitEquation("$var1 = $rate $var2 ");
-Context("LimitedNumeric-Fraction");
-$rate = Compute('12.25');
 
 BEGIN_TEXT
 $PAR
