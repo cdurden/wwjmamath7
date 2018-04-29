@@ -132,7 +132,7 @@ DISPLAY_SECTION( { name=>"1: Verify that the relationship is proportional",
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-We can use an equation of the form \( $var2 = k $var1 \), where \( k \) to represent the relationship ${BBOLD}if it is proportional${EBOLD}.
+We can use an equation of the form \( $var1 = k $var2 \) to represent the relationship ${BBOLD}if it is proportional${EBOLD}.
 $PAR
 To determine whether the relationship is proportional, find the ratio of the ${BBOLD}$quantity1_lc${EBOLD} to the ${BBOLD}$quantity2_lc${EBOLD} for each column of the table above.
 $BR
