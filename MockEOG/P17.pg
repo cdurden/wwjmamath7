@@ -94,10 +94,10 @@ $part = $cp->part();
 
 BEGIN_TEXT
 $PAR
-\{ $ans->ans_rule() \}
+\{ $ans2->ans_rule() \}
 END_TEXT
 
-ANS( $ans->cmp() );
+ANS( $ans2->cmp() );
 
 if ($part == 2) {
 
