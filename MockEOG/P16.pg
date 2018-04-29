@@ -80,7 +80,7 @@ $part = $cp->part();
 
 BEGIN_TEXT
 $PAR
-\{ $ans->ans_rule() \}
+\{ mc->buttons() \}
 END_TEXT
 
 ANS( $ans->cmp() );
