@@ -181,7 +181,7 @@ $BCENTER
 \( \frac{ %}{100} = \frac{ \text{part} }{ \text{whole} } \).
 $ECENTER
 $PAR
-The whole, or base amount, is the cost without tax, which was \( $subtotal \). The unknown \( x \) is the sales tax rate, which is the percent \($P% \). The part is the amount of the sales tax, which is \( $total - $subtotal = $tax\).
+The whole (or base) amount is the cost without tax, which was \( $subtotal \). The unknown \( x \) is the sales tax rate, which is the percent \($P% \). The part is the amount of the sales tax, which is \( $total - $subtotal = $tax\).
 $PAR
 $BCENTER
  \(\frac{x}{100} = \frac{$tax}{$subtotal} \)
