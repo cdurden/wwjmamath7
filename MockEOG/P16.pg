@@ -34,7 +34,7 @@ Context("Currency");
 $subtotal = Compute('4.50');
 $total = Compute('4.86');
 $tax = Compute("$total - $subtotal");
-$ans = Compute("$tax/$subtotal");
+$ans = Compute("$tax/$subtotal*100");
 Context("Numeric");
 $markup = Formula("x");
 $ans_desc = "sales tax rate";
