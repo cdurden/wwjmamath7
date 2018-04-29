@@ -125,7 +125,7 @@ DISPLAY_SECTION( { name=>"2: Translate into a simple percent problem",
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-To find the total after a 6% markup, we need to find \{SECTION_ANS($P->cmp), $P->ans_rule(5)\} percent of \{SECTION_ANS($subtotal->cmp), $subtotal->ans_rule()\}.
+To find the total after a 6% markup, we need to find \{SECTION_ANS($P->cmp), $P->ans_rule(5)\}% of \{SECTION_ANS($subtotal->cmp), $subtotal->ans_rule()\}.
 END_SECTION
 
 SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
@@ -205,12 +205,12 @@ What is \( ${P}% \) as a fraction? \{SECTION_ANS($percent_frac->cmp),$percent_fr
 $PAR
 What is \( ${P}% \) as a decimal? \{SECTION_ANS($percent->cmp),$percent->ans_rule()\}
 $PAR
-The following equations are equivalent:
+Fill in the blank so that the following equations equivalent:
 $PAR
 $BCENTER
  \(\frac{$P}{100} = \frac{x}{$subtotal} \)
 $PAR
- \(\frac{$P}{100} \cdot $subtotal = x \)
+ \(\frac{$P}{100} \cdot \{SECTION_ANS($subtotal->cmp, $subtotal->ans_rule() \} = x \)
 $PAR
 \( $percent \cdot $subtotal = x \). 
 $ECENTER
