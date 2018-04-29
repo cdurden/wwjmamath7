@@ -48,6 +48,10 @@ END_TEXT
 ANS( $mc1->cmp() );
 if ($part == 2) {
 Context("Numeric");
+Context()->flags->set(
+  tolerance => 0.01,
+  tolType => "absolute",
+);
 $scale = Compute('15/7');
 Context("LimitedNumeric-Fraction");
 $scale_frac = Compute('15/7');
