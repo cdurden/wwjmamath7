@@ -26,14 +26,16 @@ $mc1 = RadioButtons(
     '\(E = 12.25 h\)',
     labels => "ABC" );
 $popup1 = PopUp(["?", "multiply", "divide"], "divide");
-$quantity1 = "Hours worked";
-$quantity2 = "Amount earned";
-$popup2 = PopUp(["?", $quantity1, $quantity2], $quantity2);
-$popup3 = PopUp(["?", $quantity1, $quantity2], $quantity1);
-$var1 = "h";
-$var2 = "E";
-$unit1 = "hour";
-$unit2 = "dollar";
+$quantity2 = "Hours worked";
+$quantity1 = "Amount earned";
+$quantity2_lc = lc(quantity2);
+$quantity1_lc = lc(quantity1);
+$popup2 = PopUp(["?", $quantity1, $quantity2], $quantity1);
+$popup3 = PopUp(["?", $quantity1, $quantity2], $quantity2);
+$var2 = "h";
+$var1 = "E";
+$unit2 = "hour";
+$unit1 = "dollar";
 $popup_yes = PopUp(["?", "Yes", "No"], "Yes");
 Context("ImplicitEquation");
 Context()->variables->are($var1=>"Real", $var2=>"Real");
@@ -109,13 +111,13 @@ DISPLAY_SECTION( { name=>"1: Review the procedure for finding a unit rate",
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-To find the unit rate in ${unit2}s per ${unit1}, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup2->cmp), $popup2->menu() \} by the \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
+To find the unit rate in ${unit1}s per ${unit2}, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup2->cmp), $popup2->menu() \} by the \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
 
 END_SECTION
 
 SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
 $PAR
-To find a unit rate in price per yard, we set up a ratio between the first quantity (price) and the second quantity (yards of fabric). In our ratio the numerator represents the first quantity (price) and the denominator represents the second quantity (yards of fabric), so we need to divide price by the number of yards.
+To find a unit rate in ${unit1}s per ${unit2}, we set up a ratio between the first quantity ($quantit1) and the second quantity ($quantity2). In our ratio the numerator represents the first quantity ($quantity1) and the denominator represents the second quantity ($quantity2), so we need to divide $quantity1_lc by the $quantity2_lc.
 END_SOLUTION
 ##############
 #  Section 2
