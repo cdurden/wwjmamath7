@@ -2,14 +2,14 @@ DOCUMENT();
 
 loadMacros(
 "PGstandard.pl",
-#"PGunion.pl",
+"PGunion.pl",
 "parserRadioButtons.pl",
 "parserPopUp.pl",
 "compoundProblem5.pl",
 "compoundProblem.pl",
 "contextLimitedNumeric.pl",
 "parserImplicitEquation.pl",
-#"parserMultiAnswer.pl",
+"parserMultiAnswer.pl",
 "niceTables.pl",
 );
 
@@ -39,17 +39,17 @@ Context()->variables->set(x=>{limits=>[0,50]});
 $prop_eqn = ImplicitEquation("x/24.90 = 1.06");
 $percent = Compute("1+$markup_percent");
 $percent = '1.06';
-#$multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
-#  singleResult => 0,
-#  allowBlankAnswers => 1,
-#  checker => sub {
-#      my ( $correct, $student, $self ) = @_;
-#      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = $student->value;
-#      my ( $n1, $d1, $n2, $d2 ) = $correct->value;
-# 
-#      return $correct == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu");
-#  }
-#);
+$multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
+  singleResult => 0,
+  allowBlankAnswers => 1,
+  checker => sub {
+      my ( $correct, $student, $self ) = @_;
+      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = $student->value;
+      my ( $n1, $d1, $n2, $d2 ) = $correct->value;
+ 
+      return $correct == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu");
+  }
+);
 
 BEGIN_TEXT
 $PAR
@@ -93,12 +93,21 @@ TEXT(beginproblem());
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"1: Set up ",
              canshow =>1, #always true
-             iscorrect=>$scaffold->requireCorrect(2),
+             iscorrect=>$scaffold->requireCorrect(2..4),
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
 The questions asks for the ${BBOLD}"$ans_desc"${EBOLD} after 6% sales tax. Is this a markup, markdown, or simple percent problem?
 \{SECTION_ANS($popup1->cmp), $popup1->menu() \}
+
+$PAR
+\{SECTION_ANS($multians->cmp),
+  ColumnTable(
+  $multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20),
+  $multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20),
+  indent => 0, separation => 10, valign => "MIDDLE"
+  );
+\}
 
 END_SECTION
 
@@ -113,6 +122,6 @@ $last_correct_section = PROCESS_SECTIONS();
 $opensection = $last_correct_section + 1;
 $scaffold->openSections(1..$opensection);
 
-}
 
+}
 ENDDOCUMENT();
