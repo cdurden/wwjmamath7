@@ -1,0 +1,59 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"niceTables.pl",
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$cp = new compoundProblem(
+  parts => 2,                  # the total number of parts in this problem
+  totalAnswers => 3,           # total answers in all parts combined
+  parserValues => 1,           # make parser objects from student answers
+  allowReset => $isProfessor,  # professors get Reset button for testing
+);
+
+
+$mc1 = RadioButtons(
+    [ 'chocolate by \( \frac{1}{6} \) of a cake', 'strawberry by \( \frac{1}{6} \) of a cake', 'chocolate by \( \frac{1}{18} \) of a cake', 'strawberry by \( \frac{1}{18} \) of a cake' ],
+    'chocolate by \( \frac{1}{18} \) of a cake',
+    labels => "ABC" );
+
+BEGIN_TEXT
+$PAR
+
+A baker made two cakes of the same size.
+
+At the end of the day, there was \( \frac{2}{3} \) of a chocolate cake left.
+There was \( \frac{5}{6} \) of a strawberry cake left.
+
+The baker divided the remaining chocolate cake into \(2\) equal pieces and the remaining strawberry cake into \(3\)
+Which cake flavor had larger pieces and by how much?
+
+END_TEXT
+
+$ans_hash1 = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+if ($ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0) {
+#$cp->part(2);
+$cp->incrementPart();
+}
+
+$part = $cp->part();
+
+BEGIN_TEXT
+$PAR
+$BR
+\{ $mc1->buttons() \}
+END_TEXT
+
+ENDDOCUMENT();
+
