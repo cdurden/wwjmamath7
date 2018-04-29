@@ -118,7 +118,7 @@ END_SOLUTION
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Translate into a simple percent problem",
              canshow =>$scaffold->requireCorrect(2),
-             iscorrect=>$scaffold->requireCorrect(3),
+             iscorrect=>$scaffold->requireCorrect(3..4),
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -136,8 +136,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Set up a proportion",
-             canshow =>$scaffold->requireCorrect(2..3),
-             iscorrect=>$scaffold->requireCorrect(4),
+             canshow =>$scaffold->requireCorrect(2..4),
+             iscorrect=>$scaffold->requireCorrect(5),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
