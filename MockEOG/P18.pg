@@ -32,7 +32,7 @@ $num1 = Formula("x");
 $den1 = 
 Context("ImplicitEquation");
 #$prop_eqn = Compute("x/$subtotal = $percent");
-Context()->variables->set(x=>{limits=>[0,50]})
+Context()->variables->set(x=>{limits=>[0,50]});
 $prop_eqn = ImplicitEquation("x/24.90 = 1.06");
 $percent = Compute('1+$markup_percent');
 $percent = '1.06';
