@@ -1,0 +1,121 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"parserRadioButtons.pl",
+"compoundProblem5.pl",
+"contextLimitedNumeric.pl",
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$cp = new compoundProblem(
+  parts => 2,                  # the total number of parts in this problem
+  totalAnswers => 3,           # total answers in all parts combined
+  parserValues => 1,           # make parser objects from student answers
+  allowReset => $isProfessor,  # professors get Reset button for testing
+);
+
+BEGIN_TEXT
+$PAR
+Chad built a scale model of a statue. He built the model \( 7\) inches tall to represent the actual height of \( 15 \) feet. Which equation below represents the relationship between the actual height (\( a \)), in feet, and the height of the model ( \( m \)), in inches?
+END_TEXT
+
+$mc1 = RadioButtons(
+    [ "\( a = \frac{7}{15} m\)", "\( m = \frac{7}{15} a\)", "\( a = 0.75 m \)", "\( m = 0.75 a\)" ],
+    "\( a = \frac{7}{15} m\)",
+    labels => "ABC" );
+
+$ans_hash1 = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+if ($ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0) {
+#$cp->part(2);
+$cp->incrementPart();
+}
+
+$part = $cp->part();
+
+BEGIN_TEXT
+$PAR
+$BR
+\{ $mc1->buttons() \}
+END_TEXT
+
+ANS( $mc1->cmp() );
+f ($part == 2) {
+#Context("Numeric");
+Context("LimitedNumeric-Fraction");
+$scale = Compute('15/7');
+$scale_frac = Compute('15/7');
+$popup1 = PopUp(["?", "multiply", "divide"], "multiply");
+Context("ImplicitEquation");
+Context()->variables->add(a=>"Real", m=>"Real");
+Context()->variables->set(
+a=>{limits=>[0,2]},
+m=>{limits=>[0,30/7]}
+);
+$eqn = ImplicitEquation("a = $scale_frac m ");
+
+BEGIN_TEXT
+$PAR
+${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+
+END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+
+##############
+#  Section 1
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"1: Identify the scale factor",
+             canshow =>1, #always true
+             iscorrect=>$scaffold->requireCorrect(2,3),
+             section=>1 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Fill in the blank below.
+$PAR
+Every inch in the model represents \{SECTION_ANS($scale->cmp),$scale->ans_rule()\} feet in the actual statue.
+$PAR
+Write your answer as a fraction:
+Every inch in the model represents \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\} feet in the actual statue.
+
+END_SECTION
+
+##############
+#  Section 2
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"2: Write the equation for the relationship",
+             canshow =>$scaffold->requireCorrect(2,3),
+             iscorrect=>$scaffold->requireCorrect(4,5),
+             section=>2 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Based on the sentence that you completed in the last section, how would you find the actual height (a), if you knew the height of the model (m)?
+
+To find \( a \), I would \{SECTION_ANS($popup1->cmp), $popup1->menu() \} \( m \) by \{SECTION_ANS($scale->cmp),$scale_frac->ans_rule()\}
+$PAR
+Write an equation that models the relationship.
+$BR
+\{SECTION_ANS($eqn->cmp),$eqn->ans_rule()\}
+
+END_SECTION
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+}
+
+TEXT($END_ONE_COLUMN);
+ENDDOCUMENT();
