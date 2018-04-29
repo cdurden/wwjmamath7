@@ -3,6 +3,7 @@ DOCUMENT();
 loadMacros(
 "PGstandard.pl",
 "parserRadioButtons.pl",
+"parserPopUp.pl",
 "compoundProblem5.pl",
 "compoundProblem.pl",
 "contextLimitedNumeric.pl",
