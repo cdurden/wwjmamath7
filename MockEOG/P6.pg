@@ -25,7 +25,7 @@ $mc1 = RadioButtons(
     [ 'chocolate by \( \frac{1}{6} \) of a cake', 'strawberry by \( \frac{1}{6} \) of a cake', 'chocolate by \( \frac{1}{18} \) of a cake', 'strawberry by \( \frac{1}{18} \) of a cake' ],
     'chocolate by \( \frac{1}{18} \) of a cake',
     labels => "ABC" );
-$popup1 = PopUp(["?", "the sizes of the cake pieces", "the amount of each type of cake left"], "the sizes of the cake pieces");
+$popup1 = PopUp(["?", "the amount of each type of cake left", "the number of cake pieces", "the sizes of the cake pieces"], "the sizes of the cake pieces");
 $popup2 = PopUp(["?", "chocolate", "strawberry"], "chocolate");
 Context("LimitedNumeric-Fraction");
 $frac1 = Compute('1/3');
@@ -84,7 +84,7 @@ TEXT(beginproblem());
 ##############
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"1: Find the two quantities to be compared",
+DISPLAY_SECTION( { name=>"1: Understand the problem",
              canshow =>1, #always true
 #             canshow =>$scaffold->requireCorrect(2..5), #always true
              iscorrect=>$scaffold->requireCorrect(2),
@@ -158,6 +158,8 @@ END_SECTION
 SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
 $PAR
 The chocolate cake piece were larger because \( \frac{1}{3} > \frac{5}{18} \).
+$PAR
+How much larger is \( \frac{1}{3} \) than \( \frac{5}{18} \)?
 $PAR
 \( \frac{1}{3} - \frac{5}{18} = \frac{6}{18} - \frac{5}{18} = \frac{1}{18} \). 
 END_SOLUTION
