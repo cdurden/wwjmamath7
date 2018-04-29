@@ -84,6 +84,7 @@ DISPLAY_SECTION( { name=>"1: Review the procedure for finding a unit rate",
 $PAR
 To find the unit rate in ${unit1}s per ${unit2}, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup2->cmp), $popup2->menu() \} by the \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
 
+$BR
 END_SECTION
 
 SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
@@ -106,7 +107,7 @@ What is the unit rate in price per yard?
 $BR
 \{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
 
-
+$BR
 END_SECTION
 
 
