@@ -150,11 +150,11 @@ $PAR
 The new batch of orange paint contains \( 1 \) liter of red paint. The unit rate tells us how much yellow paint we need:
 
 $PAR
-\( $rate  \frac{\text{$unit1_pl}}{\text{$unit2}} = \frac{0.6 \text{$unit1_pl}}{1 \text{$unit2}} \)
+\( $rate  \frac{\text{ $unit1_pl}}{\text{$unit2}} = \frac{0.6 \text{ $unit1_pl}}{1 \text{ $unit2}} \)
 
 $PAR
 If we let $x$ be the number of liters of yellow paint needed, we also could have set this up as a proportion:
-\( $rate \frac{\text{$unit1_pl}}{\text{$unit2}} = \frac{x}{1} \frac{\text{$unit1_pl}}{\text{$unit2}} \).
+\( \frac{ $rate \text{ $unit1_pl}}{1 \text{$unit2}} = \frac{x \text{ $unit1_pl}}{1 \text{$unit2}} \).
 
 $PAR
 From this we see that the number of $unit1_pl must be \( $rate \).
