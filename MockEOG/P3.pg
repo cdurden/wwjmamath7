@@ -4,6 +4,7 @@ loadMacros(
 "PGstandard.pl",
 "parserRadioButtons.pl",
 "compoundProblem5.pl",
+"compoundProblem.pl",
 "contextLimitedNumeric.pl",
 );
 
