@@ -55,5 +55,40 @@ $BR
 \{ $mc1->buttons() \}
 END_TEXT
 
+ANS( $mc1->cmp() );
+
 ENDDOCUMENT();
+f ($part == 2) {
+
+BEGIN_TEXT
+$PAR
+${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+
+END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+##############
+#  Section 1
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"1: Verify that the relationship is proportional",
+             canshow =>1, #always true
+#             canshow =>$scaffold->requireCorrect(2..5), #always true
+             iscorrect=>$scaffold->requireCorrect(2..5),
+             section=>1 #designates that this is the first section
+},   <<'END_SECTION');
+
+END_SECTION
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+}
 
