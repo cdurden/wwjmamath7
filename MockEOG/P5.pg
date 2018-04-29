@@ -32,6 +32,8 @@ $popup2 = PopUp(["?", $quantity1, $quantity2], $quantity1);
 $popup3 = PopUp(["?", $quantity1, $quantity2], $quantity2);
 $var1 = "h";
 $var2 = "E";
+$unit1 = "hour";
+$unit2 = "dollar";
 $popup_yes = PopUp(["?", "Yes", "No"], "Yes");
 Context("ImplicitEquation");
 Context()->variables->are($var1=>"Real", $var2=>"Real");
@@ -107,7 +109,7 @@ DISPLAY_SECTION( { name=>"1: Review the procedure for finding a unit rate",
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-To find the unit rate in price per yard, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup2->cmp), $popup2->menu() \} by the \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
+To find the unit rate in ${unit2}s per ${unit1}, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup2->cmp), $popup2->menu() \} by the \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
 
 END_SECTION
 
