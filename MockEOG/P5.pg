@@ -159,8 +159,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Find the constant of proportionality",
-             canshow =>$scaffold->requireCorrect(2..8), #always true
-             iscorrect=>$scaffold->requireCorrect(9),
+             canshow =>$scaffold->requireCorrect(2..5), #always true
+             iscorrect=>$scaffold->requireCorrect(6),
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -185,8 +185,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Write the equation of the relationship",
-             canshow =>$scaffold->requireCorrect(2..9), #always true
-             iscorrect=>$scaffold->requireCorrect(10),
+             canshow =>$scaffold->requireCorrect(2..6), #always true
+             iscorrect=>$scaffold->requireCorrect(7),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
