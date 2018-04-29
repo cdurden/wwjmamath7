@@ -119,6 +119,7 @@ DISPLAY_SECTION( { name=>"2: Translate into a simple percent problem",
 },   <<'END_SECTION');
 $PAR
 To find the total after a 6% markup, we need to find \{SECTION_ANS($percent->cmp), $percent->ans_rule()\} of \( $subtotal \).
+END_SECTION
 
 SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
 $PAR
