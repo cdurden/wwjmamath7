@@ -98,7 +98,7 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Find the unit rate",
-             canshow =>$scaffold->requireCorrect(2), #always true
+             canshow =>$scaffold->requireCorrect(2),
              iscorrect=>$scaffold->requireCorrect(3),
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');

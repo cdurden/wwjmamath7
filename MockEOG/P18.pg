@@ -91,7 +91,7 @@ TEXT(beginproblem());
 ##############
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"1: Set up ",
+DISPLAY_SECTION( { name=>"1: Markup, markdown, or simple percent?",
              canshow =>1, #always true
              iscorrect=>$scaffold->requireCorrect(2..4),
              section=>1 #designates that this is the first section
@@ -101,6 +101,40 @@ The questions asks for the ${BBOLD}"$ans_desc"${EBOLD} after 6% sales tax. Is th
 $BR
 \{SECTION_ANS($popup1->cmp), $popup1->menu() \}
 
+END_SECTION
+
+SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
+$PAR
+END_SOLUTION
+
+##############
+#  Section 2
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"2: Translate into a simple percent problem",
+             canshow =>$scaffold->requireCorrect(2),
+             iscorrect=>$scaffold->requireCorrect(3),
+             section=>2 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+To find the total after a 6% markup, we need to find \{SECTION_ANS($percent->cmp), $percent->ans_rule\} of \( $subtotal \).
+
+SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
+$PAR
+END_SOLUTION
+
+##############
+#  Section 3
+##############
+
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"3: Set up a proportion",
+             canshow =>$scaffold->requireCorrect(2..3),
+             iscorrect=>$scaffold->requireCorrect(4),
+             section=>3 #designates that this is the first section
+},   <<'END_SECTION');
 $PAR
 Let \( x\) stand for the ${BBOLD}$ans_desc${EBOLD}. Set up a proportion that can be used to find \( x \).
 
