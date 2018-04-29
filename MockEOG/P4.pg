@@ -8,6 +8,7 @@ loadMacros(
 "compoundProblem.pl",
 "contextLimitedNumeric.pl",
 "parserImplicitEquation.pl",
+"niceTables.pl",
 );
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
@@ -21,8 +22,8 @@ $cp = new compoundProblem(
 
 
 $mc1 = RadioButtons(
-    [ "$1.05", "$1.10","$1.15","$1.50"],
-    "$1.15",
+    [ '$1.05', '$1.10','$1.15','$1.50'],
+    '$1.15',
     labels => "ABC" );
 $popup1 = PopUp(["?", "multiply", "divide"], "multiply");
 $popup2 = PopUp(["?", "number of yards", "total cost"], "total cost");
@@ -36,7 +37,7 @@ $PAR
 DataTable(
   [
     ['Yards of fabric','2.2','3.6','4.2'],
-    ['Total cost', '$DOLLAR 2.53','$DOLLAR 4.14','$DOLLAR 4.83']
+    ['Total cost', '$2.53','$4.14','$4.83']
   ],
   rowheaders => 1,
   tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
