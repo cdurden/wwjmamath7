@@ -40,8 +40,8 @@ $popup_yes = PopUp(["?", "Yes", "No"], "Yes");
 Context("ImplicitEquation");
 Context()->variables->are($var1=>"Real", $var2=>"Real");
 Context()->variables->set(
-$var1=>{limits=>[0,26]},
-$var2=>{limits=>[0,318.50]}
+$var2=>{limits=>[0,26]},
+$var1=>{limits=>[0,318.50]}
 );
 $eqn = ImplicitEquation("$var2 = $rate $var1 ");
 Context("LimitedNumeric-Fraction");
