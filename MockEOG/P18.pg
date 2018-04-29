@@ -41,7 +41,6 @@ $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
       my ( $n1, $d1, $n2, $d2 ) = $correct->value;
  
       return $correct == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu");
-      }
   }
 );
 
