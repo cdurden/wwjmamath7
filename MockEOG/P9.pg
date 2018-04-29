@@ -116,7 +116,7 @@ What is the ${quantity2}? \{SECTION_ANS($val2->cmp), $val2->ans_rule() \} $unit2
 $PAR
 What is the unit rate in ${BBOLD}${unit1}s per ${unit2}${EBOLD}?
 $BR
-\{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
+\{SECTION_ANS($rate->cmp), $rate->ans_rule() \} $unit1_pl per $unit2
 
 $BR
 END_SECTION
