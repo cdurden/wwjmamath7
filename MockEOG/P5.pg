@@ -150,7 +150,7 @@ END_SECTION
 
 SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
 $PAR
-All of the ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD} are equal to \[ $rate \], so the table ${BBOLD}does$EBOLD represent a proportional relationship.
+All of the ratios of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD} are equal to \[ $rate \], so the table ${BBOLD}does$EBOLD represent a proportional relationship.
 END_SOLUTION
 
 ##############

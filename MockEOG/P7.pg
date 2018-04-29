@@ -1,0 +1,130 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"niceTables.pl",
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$cp = new compoundProblem(
+  parts => 2,                  # the total number of parts in this problem
+  totalAnswers => 3,           # total answers in all parts combined
+  parserValues => 1,           # make parser objects from student answers
+  allowReset => $isProfessor,  # professors get Reset button for testing
+);
+
+
+#Context("LimitedNumeric");
+Context("LimitedNumeric-Fraction");
+$rate = Compute('12.25');
+$ans = Compute('1.25');
+$popup1 = PopUp(["?", "multiply", "divide"], "divide");
+$quantity2 = "Hours worked";
+$quantity1 = "Amount earned";
+$quantity2_lc = lc($quantity2);
+$quantity1_lc = lc($quantity1);
+$popup2 = PopUp(["?", $quantity1, $quantity2], $quantity1);
+$popup3 = PopUp(["?", $quantity1, $quantity2], $quantity2);
+$var2 = "h";
+$var1 = "E";
+$unit2 = "hour";
+$unit1 = "dollar";
+
+BEGIN_TEXT
+$PAR
+Betty makes pies. To make \( 6 \) pies, she uses \( 7 \frac{1}{2} \) cups of flour. How many cups of flour are needed to make \( 1 \) pie?
+
+END_TEXT
+
+$ans_hash = $ans->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
+  $cp->incrementPart();
+}
+
+$part = $cp->part();
+
+BEGIN_TEXT
+$PAR
+\{ $ans->ans_rule() \}
+END_TEXT
+
+ANS( $ans->cmp() );
+
+if ($part == 2) {
+
+BEGIN_TEXT
+$PAR
+${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+
+END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+##############
+#  Section 1
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"1: Review the procedure for finding a unit rate",
+             canshow =>1, #always true
+             iscorrect=>$scaffold->requireCorrect(2..4),
+             section=>1 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+To find the unit rate in ${unit1}s per ${unit2}, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup2->cmp), $popup2->menu() \} by the \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
+
+END_SECTION
+
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+$PAR
+To find a unit rate in ${unit1}s per ${unit2}, we set up a ratio between the first quantity ($quantit1) and the second quantity ($quantity2). In our ratio the numerator represents the first quantity ($quantity1) and the denominator represents the second quantity ($quantity2), so we need to divide $quantity1_lc by the $quantity2_lc.
+END_SOLUTION
+
+##############
+#  Section 2
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"2: Find the unit rate",
+             canshow =>$scaffold->requireCorrect(2), #always true
+             iscorrect=>$scaffold->requireCorrect(3),
+             section=>2 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+What is the unit rate in price per yard?
+$BR
+\{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
+
+
+END_SECTION
+
+
+SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
+$PAR
+To find a unit rate in ${unit1}s per ${unit2}, we set up a ratio between the first quantity ($quantit1) and the second quantity ($quantity2). In our ratio the numerator represents the first quantity ($quantity1) and the denominator represents the second quantity ($quantity2), so we need to divide $quantity1_lc by the $quantity2_lc.
+
+\( $quantity1_lc \div $quantity2_lc = $rate \)
+END_SOLUTION
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+}
+
+TEXT($END_ONE_COLUMN);
+ENDDOCUMENT();
+
