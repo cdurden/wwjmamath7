@@ -141,10 +141,10 @@ END_SECTION
 #  Section 4
 ##############
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"3: Write the equation of the relatinship",
+DISPLAY_SECTION( { name=>"4: Rewrite the equation of the relatinship",
              canshow =>$scaffold->requireCorrect(6),
              iscorrect=>$scaffold->requireCorrect(7),
-             section=>3 #designates that this is the first section
+             section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
 Is the equation that you found in the previous section one of the answers listed in the original problem? If not, you may need to write an equivalent equation by solving for \( m \).
