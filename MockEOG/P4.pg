@@ -36,7 +36,7 @@ $PAR
 DataTable(
   [
     ['Yards of fabric','2.2','3.6','4.2'],
-    ['Total cost', '$2.53','$4.14','$4.83']
+    ['Total cost', '$DOLLAR 2.53','$DOLLAR 4.14','$DOLLAR 4.83']
   ],
   rowheaders => 1,
   tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
