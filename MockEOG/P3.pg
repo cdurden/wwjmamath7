@@ -64,8 +64,8 @@ m=>{limits=>[0,15]}
 );
 $eqn = ImplicitEquation("a = $scale_frac m ");
 Context("Numeric");
-Context()->variables->add(y => 'Real');
-$m = Formula("7/15y");
+Context()->variables->add(a => 'Real');
+$m = Formula("7/15a");
 
 BEGIN_TEXT
 $PAR
