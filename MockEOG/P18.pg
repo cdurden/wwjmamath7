@@ -102,6 +102,7 @@ if ($displayMode eq 'TeX') {
   indent => 0, separation => 10, valign => "MIDDLE"
   );
 }
+Context()->texStrings;
 DISPLAY_SECTION( { name=>"1: Set up ",
              canshow =>1, #always true
              iscorrect=>$scaffold->requireCorrect(2..4),
@@ -115,11 +116,7 @@ $PAR
 $BCENTER
 \{SECTION_ANS($multians->cmp),$showfraction \}
 $ECENTER
-END_TEXT
 
-
-$PAR
-$BR
 END_SECTION
 
 SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
