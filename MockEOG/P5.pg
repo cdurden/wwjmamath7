@@ -130,7 +130,7 @@ DISPLAY_SECTION( { name=>"2: Find the ratios",
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-Find the ratio of the total cost to the number of yards for each column of the table above.
+Find the ratio of the $quantity1_lc to the $quantity2_lc for each column of the table above.
 $BR
 First column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
 $BR
@@ -184,9 +184,9 @@ END_SECTION
 
 SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
 $PAR
-The unit rate, in price per yard, is the common ratio of price to number of yards, which was found in section 2.
+The unit rate, in ${unit1}s per $unit2, is the common ratio of $quantity1_lc to $quantity2_lc, which was found in section 2.
 
-The common ratio found in section 2 was \[ $rate \] dollars per yard.
+The common ratio found in section 2 was \[ $rate \] ${unit1}s per $unit2.
 END_SOLUTION
 
 ##############
