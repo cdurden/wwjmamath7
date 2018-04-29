@@ -108,8 +108,7 @@ $PAR
   "=",
   $multians->ans_rule(8).$BR.$HR.$multians->ans_rule(8)]
   ],
-  indent => 0, separation => 5, align => 'ccc',
-  cellcss='vertical-align: middle;'
+  indent => 0, separation => 5, align => 'ccc', cellcss => 'vertical-align: middle;'
   );
 \}
 
