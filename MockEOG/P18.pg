@@ -105,7 +105,7 @@ DISPLAY_SECTION( { name=>"1: Markup, markdown, or simple percent?",
 },   <<'END_SECTION');
 $PAR
 The questions asks for the ${BBOLD}"$ans_desc"${EBOLD} after 6% sales tax. Is this a markup, markdown, or simple percent problem?
-$BR
+$PAR
 \{SECTION_ANS($popup1->cmp), $popup1->menu() \}
 
 END_SECTION
@@ -134,7 +134,7 @@ $PAR
 To find the total after a 6% markup, we need to find 106% of the subtotal (\(106% = 100%+6%\)).
 
 $PAR
-Mr. Sanchez's subtotal is the sum of the cost of his items: \( ${DOLLAR}9.95+${DOLLAR}14.95 = ${DOLLAR}20.90 \).
+Mr. Sanchez's subtotal is the sum of the costs of his items: \( 9.95+14.95 = 24.90 \).
 END_SOLUTION
 
 ##############
