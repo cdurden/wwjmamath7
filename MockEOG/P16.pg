@@ -196,8 +196,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Solve the problem",
-             canshow =>$scaffold->requireCorrect(2..8),
-             iscorrect=>$scaffold->requireCorrect(9),
+             canshow =>$scaffold->requireCorrect(2..4),
+             iscorrect=>$scaffold->requireCorrect(5),
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
