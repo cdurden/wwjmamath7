@@ -173,7 +173,7 @@ $PAR
 We use the percent equation:
 $PAR
 $BCENTER
-\( \frac{ \text{%}}{100} = \frac{ \text{part} }{ \text{whole} } \).
+\( \frac{ %}{100} = \frac{ \text{part} }{ \text{whole} } \).
 $ECENTER
 $PAR
 The whole, or base amount, is Mr. Sanchez's subtotal, which was \( $subtotal \). The unknown \( x \) is the part, which is \($P% \) of the whole. So the percent equation gives us the proportion

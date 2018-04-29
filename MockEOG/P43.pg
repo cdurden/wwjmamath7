@@ -1,0 +1,130 @@
+# TODO: add GeoGebra applet
+# https://www.geogebra.org/o/Zw8QRvQm
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$cp = new compoundProblem(
+  parts => 2,                  # the total number of parts in this problem
+  totalAnswers => 3,           # total answers in all parts combined
+  parserValues => 1,           # make parser objects from student answers
+  allowReset => $isProfessor,  # professors get Reset button for testing
+);
+
+BEGIN_TEXT
+$PAR
+
+Laurie will draw a scale model of the garden she wants to plant.  Her scale will be 1 cm = 2.5 ft.
+
+\{ image( "img/P43.png", width=>224, height=>119 ) \}
+
+What will be the actual dimensions of Laurie's garden?
+END_TEXT
+
+$mc1 = RadioButtons(
+    [ "\(a = \frac{7}{15} m\)", "\(m = \frac{7}{15} a\)", "\( a = 0.75 m \)", "\( m = 0.75 a\)" ],
+    "\(m = \frac{7}{15} a\)",
+    labels => "ABC" );
+
+Context("Numeric");
+Context()->flags->set(
+  tolerance => 0.01,
+  tolType => "absolute",
+);
+$dim1m = Compute('4');
+$dim2m = Compute('8.5');
+$scale = Compute('2.5');
+$dim1a = Compute("$scale*$dim1m");
+$dim2a = Compute("$scale*$dim2m");
+Context("LimitedNumeric-Fraction");
+$scale_frac = Compute('5/2');
+$popup1 = PopUp(["?", "multiply", "divide"], "multiply");
+
+$ans_hash1 = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+if ($ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0) {
+#$cp->part(2);
+$cp->incrementPart();
+}
+
+$part = $cp->part();
+
+BEGIN_TEXT
+$PAR
+$BR
+\{ $mc1->buttons() \}
+END_TEXT
+
+ANS( $mc1->cmp() );
+if ($part == 2) {
+
+BEGIN_TEXT
+$PAR
+${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+
+END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+
+##############
+#  Section 1
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"1: Identify the scale factor",
+             canshow =>1, #always true
+             iscorrect=>$scaffold->requireCorrect(2),
+             section=>1 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Fill in the blank below.
+$PAR
+Every cm in the model represents \{SECTION_ANS($scale->cmp),$scale->ans_rule()\} feet in the actual garden.
+
+END_SECTION
+
+##############
+#  Section 2
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"2: Use the scale factor to calculate actual dimensions based on the model",
+             canshow =>$scaffold->requireCorrect(2),
+             iscorrect=>$scaffold->requireCorrect(3..5),
+             section=>2 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+To get the actual dimensions \( a \), I would \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the dimensions of the model \( m \) by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
+$PAR
+The height of the garden is \( $dim1m \) cm in the model, so the actual height will be \{SECTION_ANS($dim1a-cmp), $dim1a->ans_rule() \}.
+$PAR
+The width of the garden is \( $dim2m \) cm in the model, so the actual height will be \{SECTION_ANS($dim2a-cmp), $dim2a->ans_rule() \}.
+
+END_SECTION
+
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+}
+
+TEXT($END_ONE_COLUMN);
+ENDDOCUMENT();
