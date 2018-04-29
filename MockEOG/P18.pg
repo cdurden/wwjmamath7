@@ -24,7 +24,7 @@ $cp = new compoundProblem(
   allowReset => $isProfessor,  # professors get Reset button for testing
 );
 Context("Currency");
-$subtotal = Compute('$9.95+$14.95');
+$subtotal = Compute('9.95+14.95');
 Context("Numeric");
 $markup = Compute('0.06');
 $ans_desc = "total cost of Mr. Sanchez's purchases";
