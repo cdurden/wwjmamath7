@@ -25,8 +25,7 @@ $cp = new compoundProblem(
 Context("Numeric");
 $subtotal = Compute('9.95+14.95');
 $subtotal = '24.90';
-$markup_percent = Compute('0.06');
-$ans = Compute("$subtotal*(1+$markup_percent)");
+$markup = Compute('0.06');
 $ans_desc = "total cost of Mr. Sanchez's purchases";
 $popup1 = PopUp(["?", "markup", "markdown", "percent"], "markup");
 $num1 = Formula("x");
@@ -37,8 +36,9 @@ Context("ImplicitEquation");
 #$prop_eqn = Compute("x/$subtotal = $percent");
 Context()->variables->set(x=>{limits=>[0,50]});
 $prop_eqn = ImplicitEquation("x/24.90 = 1.06");
-$percent = Compute("1+$markup_percent");
-$percent = '1.06';
+$percent = Compute("1+$markup");
+$ans = Compute("$subtotal*$percent");
+#$percent = Compute('1.06');
 $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
   singleResult => 0,
   allowBlankAnswers => 1,
