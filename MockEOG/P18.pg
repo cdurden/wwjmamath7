@@ -39,6 +39,8 @@ Context()->variables->set(x=>{limits=>[0,50]});
 $prop_eqn = ImplicitEquation("x/24.90 = 1.06");
 Context("LimitedPercent-strict");
 $percent = Compute("1+$markup");
+Context("Numeric");
+$P = Compute($percent*100);
 $ans = Compute("$subtotal*$percent");
 #$percent = Compute('1.06');
 $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
@@ -120,7 +122,7 @@ DISPLAY_SECTION( { name=>"2: Translate into a simple percent problem",
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-To find the total after a 6% markup, we need to find \{SECTION_ANS($percent->cmp), $percent->ans_rule()\} of \( $subtotal \).
+To find the total after a 6% markup, we need to find \{SECTION_ANS($P->cmp), $P->ans_rule()\} percent of \{SECTION_ANS($subtotal->cmp), $subtotal->ans_rule()\}.
 END_SECTION
 
 SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
