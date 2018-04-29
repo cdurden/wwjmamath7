@@ -27,14 +27,16 @@ $PAR
 
 Laurie will draw a scale model of the garden she wants to plant.  Her scale will be 1 cm = 2.5 ft.
 
+$PAR
 \{ image( "img/P43.png", width=>224, height=>119 ) \}
 
+$PAR
 What will be the actual dimensions of Laurie's garden?
 END_TEXT
 
 $mc1 = RadioButtons(
-    [ "\(a = \frac{7}{15} m\)", "\(m = \frac{7}{15} a\)", "\( a = 0.75 m \)", "\( m = 0.75 a\)" ],
-    "\(m = \frac{7}{15} a\)",
+    [ "1.6 ft by 3.4 ft", "4 ft by 34 ft", "8 ft by 34 ft", "10 ft by 21.25 ft" ],
+    "10 ft by 21.25 ft",
     labels => "ABC" );
 
 Context("Numeric");
