@@ -11,6 +11,7 @@ loadMacros(
 "parserImplicitEquation.pl",
 "parserMultiAnswer.pl",
 "contextPercent.pl",
+"contextCurrency.pl",
 "niceTables.pl",
 );
 
@@ -22,9 +23,9 @@ $cp = new compoundProblem(
   parserValues => 1,           # make parser objects from student answers
   allowReset => $isProfessor,  # professors get Reset button for testing
 );
-
+Context("Currency");
+$subtotal = Compute('$9.95+$14.95');
 Context("Numeric");
-$subtotal = Compute('9.95+14.95');
 $markup = Compute('0.06');
 $ans_desc = "total cost of Mr. Sanchez's purchases";
 $popup1 = PopUp(["?", "markup", "markdown", "percent"], "markup");
@@ -121,7 +122,7 @@ DISPLAY_SECTION( { name=>"2: Translate into a simple percent problem",
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-To find the total after a 6% markup, we need to find \{SECTION_ANS($P->cmp), $P->ans_rule()\} percent of \{SECTION_ANS($subtotal->cmp), $subtotal->ans_rule()\}.
+To find the total after a 6% markup, we need to find \{SECTION_ANS($P->cmp), $P->ans_rule(5)\} percent of \{SECTION_ANS($subtotal->cmp), $subtotal->ans_rule()\}.
 END_SECTION
 
 SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
