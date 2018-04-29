@@ -43,7 +43,7 @@ $BR
 END_TEXT
 
 ANS( $mc1->cmp() );
-f ($part == 2) {
+if ($part == 2) {
 #Context("Numeric");
 Context("LimitedNumeric-Fraction");
 $scale = Compute('15/7');
