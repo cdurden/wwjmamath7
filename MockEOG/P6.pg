@@ -57,8 +57,7 @@ END_TEXT
 
 ANS( $mc1->cmp() );
 
-ENDDOCUMENT();
-f ($part == 2) {
+if ($part == 2) {
 
 BEGIN_TEXT
 $PAR
@@ -92,3 +91,4 @@ $opensection = $last_correct_section + 1;
 $scaffold->openSections(1..$opensection);
 }
 
+ENDDOCUMENT();
