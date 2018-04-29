@@ -192,7 +192,7 @@ DISPLAY_SECTION( { name=>"3: Write the equation of the relationship",
 $PAR
 Write the equation of the proportional relationship in the form \( $var1 = k $var2 \), where \( k \) is the ${BBOLD}constant of proportionality${EBOLD}, in ${unit1}s per $unit2.
 $PAR
-\{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
+\{SECTION_ANS($eqn->cmp), $eqn->ans_rule() \}
 
 
 END_SECTION
