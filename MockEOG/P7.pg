@@ -103,7 +103,7 @@ DISPLAY_SECTION( { name=>"2: Find the unit rate",
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-What is the unit rate in ${BBOLD}${unit1}s per ${unit2}${EBOLD}price per yard?
+What is the unit rate in ${BBOLD}${unit1}s per ${unit2}${EBOLD}?
 $BR
 \{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
 
