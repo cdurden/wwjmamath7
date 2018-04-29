@@ -178,7 +178,7 @@ $PAR
 To find \( ${P1}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup2->cmp), $popup2->menu() \} the cost $subtotal by \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}.
 
 $PAR
- \($\percent1 \cdot $subtotal = \) \{SECTION_ANS($ans1->cmp),$ans1->ans_rule()\}
+ \($percent1 \cdot $subtotal = \) \{SECTION_ANS($ans1->cmp),$ans1->ans_rule()\}
 END_SECTION
 
 SECTION_SOLUTION({section=>5},<<'END_SOLUTION');
@@ -226,7 +226,7 @@ $PAR
 To find \( ${P2}% \) of \( $ans1 \) quickly, we can \{SECTION_ANS($popup2->cmp), $popup2->menu() \} our subtotal $ans1 by \{SECTION_ANS($percent2->cmp),$percent2->ans_rule()\}.
 
 $PAR
- \($\percent2 \cdot $ans1 = \) \{SECTION_ANS($ans2->cmp),$ans2->ans_rule()\}
+ \($percent2 \cdot $ans1 = \) \{SECTION_ANS($ans2->cmp),$ans2->ans_rule()\}
 END_SECTION
 
 SECTION_SOLUTION({section=>5},<<'END_SOLUTION');
