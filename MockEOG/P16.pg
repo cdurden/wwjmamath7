@@ -29,9 +29,6 @@ $mc = RadioButtons(
     "8%",
     labels => "ABC" );
 
-ANS( $mc->cmp() );
-$ans_hash = $mc->cmp()->evaluate(
-    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
 Context("Currency");
 $subtotal = Compute('4.50');
@@ -71,6 +68,10 @@ A notebook costs ${DOLLAR}4.50 plus sales tax.  After sales tax, the notebook is
 
 END_TEXT
 
+ANS( $mc->cmp() );
+$ans_hash = $mc->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
 if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
   $cp->incrementPart();
 }
@@ -82,8 +83,6 @@ BEGIN_TEXT
 $PAR
 \{ $mc->buttons() \}
 END_TEXT
-
-ANS( $ans->cmp() );
 
 if ($part == 2) {
 
