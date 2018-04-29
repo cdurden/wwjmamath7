@@ -8,6 +8,7 @@ loadMacros(
 "compoundProblem.pl",
 "contextLimitedNumeric.pl",
 "parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
 "niceTables.pl",
 );
 
@@ -24,6 +25,25 @@ Context("Numeric");
 $subtotal = Compute('9.95+14.95');
 $markup_percent = Compute('0.06');
 $ans = Compute("$subtotal*(1+$markup_percent)");
+$ans_desc = "total cost of Mr. Sanchez's purchases";
+$popup1 = PopUp(["?", "markup", "markdown", "percent"], "markup");
+$num1 = Formula("x");
+$den1 = 
+Context("ImplicitEquation");
+$prop_eqn = Compute("x/$subtotal = $percent");
+$percent = Compute('1+$markup_percent');
+$multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
+  singleResult => 0,
+  allowBlankAnswers => 1,
+  checker => sub {
+      my ( $correct, $student, $self ) = @_;
+      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = $student->value;
+      my ( $n1, $d1, $n2, $d2 ) = $correct->value;
+ 
+      return $correct == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu");
+      }
+  }
+);
 
 BEGIN_TEXT
 $PAR
@@ -55,5 +75,50 @@ $PAR
 ${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
 
 END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+##############
+#  Section 1
+##############
+
+Context()->texStrings;
+if ($displayMode eq 'TeX') {
+  $showfraction =
+  "\[ ".$multians->ans_rule(10).$multians->ans_rule(10)." = ".$multians->ans_rule(10).$multians->ans_rule(10)." \]";
+} else {
+  $showfraction =
+  ColumnTable(
+  $multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20),
+  $multians->ans_rule(20).$BR.$HR.$multians->ans_rule(20),
+  indent => 0, separation => 10, valign => "MIDDLE"
+  );
+}
+DISPLAY_SECTION( { name=>"1: Set up ",
+             canshow =>1, #always true
+             iscorrect=>$scaffold->requireCorrect(2..4),
+             section=>1 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+The questions asks for the ${BBOLD}"$ans_desc"${EBOLD} after 6% sales tax. Is this a markup, markdown, or simple percent problem?
+\{SECTION_ANS($popup1->cmp), $popup1->menu() \}
+
+$PAR
+$BCENTER
+\{SECTION_ANS($multians->cmp),$showfraction \}
+$ECENTER
+END_TEXT
+
+
+$PAR
+$BR
+END_SECTION
+
+SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
+$PAR
+END_SOLUTION
+
 }
 ENDDOCUMENT();
