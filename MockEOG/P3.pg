@@ -47,9 +47,9 @@ END_TEXT
 
 ANS( $mc1->cmp() );
 if ($part == 2) {
-#Context("Numeric");
-Context("LimitedNumeric-Fraction");
+Context("Numeric");
 $scale = Compute('15/7');
+Context("LimitedNumeric-Fraction");
 $scale_frac = Compute('15/7');
 $popup1 = PopUp(["?", "multiply", "divide"], "multiply");
 Context("ImplicitEquation");
