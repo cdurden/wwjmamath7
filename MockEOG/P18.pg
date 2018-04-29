@@ -143,7 +143,7 @@ DISPLAY_SECTION( { name=>"3: Set up a proportion",
 $PAR
 Let \( x\) stand for the ${BBOLD}$ans_desc${EBOLD}. Set up a proportion that can be used to find \( x \).
 
-Hint: \( \frac{ \text{\%}}{100} = \frac{ \text{part} }{ \text{whole} } \).
+Hint: \( \frac{ \text{%}}{100} = \frac{ \text{part} }{ \text{whole} } \).
 
 $PAR
 \{SECTION_ANS($multians->cmp),
