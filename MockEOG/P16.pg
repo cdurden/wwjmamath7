@@ -47,7 +47,7 @@ $num2 = Formula("$tax");
 $den2 = Formula("$total");
 Context("ImplicitEquation");
 #$prop_eqn = Compute("x/$subtotal = $percent");
-Context()->variables->set(x=>{limits=>[0,50]});
+Context()->variables->set(x=>{limits=>[0,100]});
 $prop_eqn = ImplicitEquation("x/100 = $tax/$total");
 #$percent = Compute('1.06');
 $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
@@ -181,7 +181,7 @@ $BCENTER
 \( \frac{ %}{100} = \frac{ \text{part} }{ \text{whole} } \).
 $ECENTER
 $PAR
-The whole, or base amount, is the subtotal, which was \( $subtotal \). The unknown \( x \) is the sales tax rate, which is the percent \($P% \). The part is the amount of the sales tax, which is \( $total - $subtotal = $tax\).
+The whole, or base amount, is the cost without tax, which was \( $subtotal \). The unknown \( x \) is the sales tax rate, which is the percent \($P% \). The part is the amount of the sales tax, which is \( $total - $subtotal = $tax\).
 $PAR
 $BCENTER
  \(\frac{x}{100} = \frac{$tax}{$subtotal} \)
