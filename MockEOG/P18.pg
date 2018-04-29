@@ -39,17 +39,17 @@ Context()->variables->set(x=>{limits=>[0,50]});
 $prop_eqn = ImplicitEquation("x/24.90 = 1.06");
 $percent = Compute("1+$markup_percent");
 $percent = '1.06';
-$multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
-  singleResult => 0,
-  allowBlankAnswers => 1,
-  checker => sub {
-      my ( $correct, $student, $self ) = @_;
-      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = $student->value;
-      my ( $n1, $d1, $n2, $d2 ) = $correct->value;
- 
-      return $correct == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu");
-  }
-);
+#$multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
+#  singleResult => 0,
+#  allowBlankAnswers => 1,
+#  checker => sub {
+#      my ( $correct, $student, $self ) = @_;
+#      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = $student->value;
+#      my ( $n1, $d1, $n2, $d2 ) = $correct->value;
+# 
+#      return $correct == ImplicitEquation("$n1stu/$d1stu = $n2stu/$d2stu");
+#  }
+#);
 
 BEGIN_TEXT
 $PAR
