@@ -124,9 +124,24 @@ END_SECTION
 
 SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
 $PAR
-To find a unit rate in ${BBOLD}${unit1}s per ${unit2}${EBOLD}, we set up a ratio between the first quantity ($quantity1) and the second quantity ($quantity2). In our ratio the numerator represents the first quantity ($quantity1) and the denominator represents the second quantity ($quantity2), so we need to divide $quantity1_lc by the $quantity2_lc.
+What is the ${quantity1}?
 
-\( 7 \frac{1}{2} \div 6 = \frac{15}{2} \div 6 = \frac{15}{2} \cdot \frac{1}{6} = \frac{15}{12} = \frac{5}{4} = 1 \frac{1}{4} = 1.25 \)
+$PAR
+The ${quantity1} is \( 9 \) laps. Since each lap is \( \frac{1}{8} \) $unit1, the distance traveled is \( 9 \cdot \frac{1}{8} \) $unit1.
+
+$PAR
+What is the ${quantity2}?
+
+$PAR
+The ${quantity2} is \( 2 \) minutes \( 30 \) seconds. This equals \( 2 \frac{1}{2} \) minutes.
+
+$PAR
+What is the unit rate in ${BBOLD}${unit1}s per ${unit2}${EBOLD}?
+
+$PAR
+To find the unit rate in ${BBOLD}${unit1}s per ${unit2}${EBOLD}, we set up a ratio between the first quantity ($quantity1) and the second quantity ($quantity2). In other words, we divide $quantity1_lc by the $quantity2_lc.
+
+\( \frac{9}{8} \div 2 \frac{1}{2} = \frac{9}{8} \div \frac{5}{2} = \frac{9}{8} \cdot \frac{2}{5} = \frac{9}{20} \text{ or } 0.45 \)
 END_SOLUTION
 
 PROCESS_ANSWERS();
