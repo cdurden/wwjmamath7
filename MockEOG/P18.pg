@@ -204,6 +204,13 @@ END_SECTION
 
 SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
 $PAR
+Solve the proportion
+$PAR
+$BCENTER
+ \(\frac{$P}{100} = \frac{x}{$subtotal} \)
+$ECENTER
+
+$PAR
 ${BBOLD}Solution 1: The butterfly method${EBOLD}
 $PAR
 \(x = $P \cdot $subtotal \div 100 \)
@@ -274,9 +281,10 @@ To get \( x \) by itself, multiply both sides by $subtotal.
 $PAR
 \( \frac{$P}{100} \cdot $subtotal = \frac{x}{$subtotal}\cdot $subtotal \)
 $PAR
-\( \frac{$P}{100} \cdot $subtotal = \frac{x}{\cancel{$subtotal}}\cdot \cancel{$subtotal} \)
-$PAR
 \( \frac{$P}{100} \cdot $subtotal = x \)
+
+$PAR
+Thus, to find a 106%106% of 24.924.9 quickly, we can ${BBOLD}multiple${EBOLD} our subtotal $subtotal by $percent.
 END_SOLUTION
 
 
