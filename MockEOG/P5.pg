@@ -104,31 +104,32 @@ TEXT(beginproblem());
 #  Section 1
 ##############
 
+#Context()->texStrings;
+#DISPLAY_SECTION( { name=>"1: Review the procedure for finding a unit rate",
+#             canshow =>1, #always true
+#             iscorrect=>$scaffold->requireCorrect(2..4),
+#             section=>1 #designates that this is the first section
+#},   <<'END_SECTION');
+#$PAR
+#To find the unit rate in ${unit1}s per ${unit2}, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup2->cmp), $popup2->menu() \} by the \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
+#
+#END_SECTION
+#
+#SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+#$PAR
+#To find a unit rate in ${unit1}s per ${unit2}, we set up a ratio between the first quantity ($quantit1) and the second quantity ($quantity2). In our ratio the numerator represents the first quantity ($quantity1) and the denominator represents the second quantity ($quantity2), so we need to divide $quantity1_lc by the $quantity2_lc.
+#END_SOLUTION
+
+##############
+#  Section 1
+##############
+
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"1: Review the procedure for finding a unit rate",
+DISPLAY_SECTION( { name=>"1: Verify that the relationship is proportional",
              canshow =>1, #always true
-             iscorrect=>$scaffold->requireCorrect(2..4),
+#             canshow =>$scaffold->requireCorrect(2..5), #always true
+             iscorrect=>$scaffold->requireCorrect(2..5),
              section=>1 #designates that this is the first section
-},   <<'END_SECTION');
-$PAR
-To find the unit rate in ${unit1}s per ${unit2}, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup2->cmp), $popup2->menu() \} by the \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
-
-END_SECTION
-
-SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
-$PAR
-To find a unit rate in ${unit1}s per ${unit2}, we set up a ratio between the first quantity ($quantit1) and the second quantity ($quantity2). In our ratio the numerator represents the first quantity ($quantity1) and the denominator represents the second quantity ($quantity2), so we need to divide $quantity1_lc by the $quantity2_lc.
-END_SOLUTION
-
-##############
-#  Section 2
-##############
-
-Context()->texStrings;
-DISPLAY_SECTION( { name=>"3: Verify that the relationship is proportional",
-             canshow =>$scaffold->requireCorrect(2..4), #always true
-             iscorrect=>$scaffold->requireCorrect(5..8),
-             section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
 We can use an equation of the form \( $var2 = k $var1 \), where \( k \) to represent the relationship ${BBOLD}if it is proportional${EBOLD}.
@@ -147,23 +148,23 @@ $BR
 $BR
 END_SECTION
 
-SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
 $PAR
-All of the ratios found in the previous section are equal so the table ${BBOLD}does$EBOLD represent a proportional relationship.
+All of the ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD} are equal to \[ $rate \], so the table ${BBOLD}does$EBOLD represent a proportional relationship.
 END_SOLUTION
 
 ##############
-#  Section 3
+#  Section 2
 ##############
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"3: Find the constant of proportionality",
+DISPLAY_SECTION( { name=>"2: Find the constant of proportionality",
              canshow =>$scaffold->requireCorrect(2..8), #always true
              iscorrect=>$scaffold->requireCorrect(9),
-             section=>3 #designates that this is the first section
+             section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-What is the unit rate in ${unit1}s per $unit2?
+What is the constant of proportionality in ${unit1}s per $unit2?
 $BR
 \{SECTION_ANS($rate->cmp), $rate->ans_rule() \} ${unit1}s per $unit2
 
@@ -171,25 +172,25 @@ $BR
 END_SECTION
 
 
-SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
 $PAR
-The unit rate, in ${unit1}s per $unit2, is the common ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD}, which was found in section 2.
+For a proportional relationship, the constant of proportionality is the unit rate, in ${unit1}s per $unit2. It is the common ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD}, which was found in section 1.
 
-The common ratio found in section 2 was \[ $rate \] ${unit1}s per $unit2.
+The common ratio found in section 1 was \[ $rate \] ${unit1}s per $unit2.
 END_SOLUTION
 
 ##############
-#  Section 4
+#  Section 3
 ##############
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"5: Write the equation of the relationship",
+DISPLAY_SECTION( { name=>"3: Write the equation of the relationship",
              canshow =>$scaffold->requireCorrect(2..9), #always true
              iscorrect=>$scaffold->requireCorrect(10),
-             section=>5 #designates that this is the first section
+             section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-Write the equation of the proportional relationship in the form \( $var2 = k $var1 \), where \( k \) is the ${BBOLD}constant of proportionality${EBOLD}:
+Write the equation of the proportional relationship in the form \( $var2 = k $var1 \), where \( k \) is the ${BBOLD}constant of proportionality${EBOLD}, in ${unit1}s per $unit2.
 $PAR
 \{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
 
@@ -197,11 +198,14 @@ $PAR
 END_SECTION
 
 
-SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
 $PAR
-The unit rate, in ${unit1}s per $unit2, is the common ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD}, which was found in section 2.
+The equation of a proportional relationship has the form \( $var2 = k $var1 \), where \( k \) is the ${BBOLD}constant of proportionality${EBOLD}:
 
-The common ratio found in section 2 was \[ $rate \] ${unit1}s per $unit2.
+Since \( k = $rate\), the equation is
+
+\( $var2 = $rate $var1 \).
+
 END_SOLUTION
 
 PROCESS_ANSWERS();
