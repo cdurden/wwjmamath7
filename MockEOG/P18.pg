@@ -203,7 +203,9 @@ DISPLAY_SECTION( { name=>"5: Reflect on your reasoning",
 $PAR
 What is \( ${P}% \) as a fraction? \{SECTION_ANS($percent_frac->cmp),$percent_frac->ans_rule()\}
 $PAR
-The proportion in section 3 can be rewritten in the form (\frac{$percent}{100} \cdot $subtotal = x \). Thus, to find a  \( ${P}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup1->cmp), $popup1->menu() \} $subtotal by \{SECTION_ANS($percent->cmp),$percent->ans_rule()\}.
+The proportion in section 3 can be rewritten in the form \(\frac{$P}{100} \cdot $subtotal = x \). 
+$PAR
+Thus, to find a  \( ${P}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup1->cmp), $popup1->menu() \} $subtotal by \{SECTION_ANS($percent->cmp),$percent->ans_rule()\}.
 
 END_SECTION
 
