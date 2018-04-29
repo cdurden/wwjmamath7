@@ -9,7 +9,7 @@ loadMacros(
 "compoundProblem.pl",
 "contextLimitedNumeric.pl",
 "parserImplicitEquation.pl",
-"parserMultiAnswer.pl",
+#"parserMultiAnswer.pl",
 "niceTables.pl",
 );
 
