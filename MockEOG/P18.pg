@@ -40,10 +40,10 @@ Context()->variables->set(x=>{limits=>[0,50]});
 $prop_eqn = ImplicitEquation("x/24.90 = 1.06");
 Context("LimitedPercent-strict");
 $percent = Compute("1+$markup");
-Context("LimitedNumeric-StrictFraction");
-$percent_frac = Compute("$P/100");
 Context("Numeric");
 $P = Compute("$percent*100");
+Context("LimitedNumeric-StrictFraction");
+$percent_frac = Compute("$P/100");
 $ans = Compute("$subtotal*$percent");
 #$percent = Compute('1.06');
 $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
