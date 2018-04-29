@@ -43,7 +43,7 @@ $percent = Compute("1+$markup");
 Context("Numeric");
 $P = Compute("$percent*100");
 Context("LimitedNumeric-StrictFraction");
-$percent_frac = Compute("$P/100");
+$percent_frac = Compute("$percent");
 $ans = Compute("$subtotal*$percent");
 #$percent = Compute('1.06');
 $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
