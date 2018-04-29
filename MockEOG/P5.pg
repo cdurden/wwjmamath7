@@ -22,7 +22,7 @@ $cp = new compoundProblem(
 
 
 $mc1 = RadioButtons(
-    [ '\(E = 18.75 + h\)', '(E = 12.25 + h\)', '(E = 18.75 h\)', '(E = 12.25 h\)'],
+    [ '\(E = 18.75 + h\)', '\(E = 12.25 + h\)', '\(E = 18.75 h\)', '\(E = 12.25 h\)'],
     '\(E = 12.25 h\)',
     labels => "ABC" );
 $popup1 = PopUp(["?", "multiply", "divide"], "divide");
