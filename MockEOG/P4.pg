@@ -1,0 +1,114 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$cp = new compoundProblem(
+  parts => 2,                  # the total number of parts in this problem
+  totalAnswers => 3,           # total answers in all parts combined
+  parserValues => 1,           # make parser objects from student answers
+  allowReset => $isProfessor,  # professors get Reset button for testing
+);
+
+
+$mc1 = RadioButtons(
+    [ "$1.05", "$1.10","$1.15","$1.50"],
+    "$1.15",
+    labels => "ABC" );
+$popup1 = PopUp(["?", "multiply", "divide"], "multiply");
+$popup2 = PopUp(["?", "number of yards", "total cost"], "total cost");
+$popup3 = PopUp(["?", "number of yards", "total cost"], "number of yards");
+
+BEGIN_TEXT
+$PAR
+Michelle bought the same fabric on 3 different occasions and recorded the data below.
+$PAR
+\{
+DataTable(
+  [
+    ['Yards of fabric','2.2','3.6','4.2'],
+    ['Total cost', '$2.53','$4.14','$4.83']
+  ],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+#  caption => '',
+  midrules => 1,
+  align => 'l | c | c | c ',
+);
+\}
+$PAR
+What is the price per yard of fabric?
+
+END_TEXT
+
+$ans_hash1 = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+if ($ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0) {
+#$cp->part(2);
+$cp->incrementPart();
+}
+
+$part = $cp->part();
+
+BEGIN_TEXT
+$PAR
+$BR
+\{ $mc1->buttons() \}
+END_TEXT
+
+ANS( $mc1->cmp() );
+
+if ($part == 2) {
+#Context("Numeric");
+Context("LimitedNumeric-Fraction");
+$rate1 = Compute('50/2');
+$rate2 = Compute('82/4');
+$difference = Compute('4.5');
+
+BEGIN_TEXT
+$PAR
+${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+
+END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+##############
+#  Section 1
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"1: Find the unit rate",
+             canshow =>1, #always true
+             iscorrect=>$scaffold->requireCorrect(2..4),
+             section=>1 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+To find the unit rate in price per yard, we need to \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the \{SECTION_ANS($popup1->cmp), $popup1->menu() \} by the \{SECTION_ANS($popup2->cmp), $popup3->menu() \}.
+
+END_SECTION
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+}
+
+TEXT($END_ONE_COLUMN);
+ENDDOCUMENT();
+
