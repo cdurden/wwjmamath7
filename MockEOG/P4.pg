@@ -138,7 +138,7 @@ $PAR
 Does the table represent a proportional relationship?
 $BR
 \{SECTION_ANS($popup_yes->cmp), $popup_yes->menu() \}
-
+$BR
 END_SECTION
 
 SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
