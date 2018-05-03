@@ -92,7 +92,7 @@ TEXT(beginproblem());
 #  Section 1
 ##############
 
-if ($choice1_hash->{student_ans} eq 'B1') {
+#if ($choice1_hash->{student_ans} eq 'B1') {
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"1: Identify the unknown and define a variable",
@@ -111,6 +111,7 @@ $PAR
 The problem tells us the total cost. 
 The unknown is the sales tax rate.
 END_SOLUTION
+#}
 
 ##############
 #  Section 2
@@ -135,9 +136,6 @@ How does this principle apply to this problem? Fill in the blanks in the verbal 
 Total \{SECTION_ANS($popup4->cmp), $popup4->menu() \} = \{SECTION_ANS($popup5->cmp), $popup5->menu() \} + \{SECTION_ANS($popup6->cmp), $popup6->menu() \}.
 
   
-} else {
-
-}
 ##############
 #  Section 3
 ##############
