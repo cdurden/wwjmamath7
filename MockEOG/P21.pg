@@ -69,7 +69,7 @@ END_TEXT
 
 $choice1 = RadioButtons(
     [ "Define a variable and set up an equation", "" ],
-    "c = 0.18 p",
+    "Define a variable and set up an equation",
     labels => "ABC" );
 $choice1_hash = $choice1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(2)} );
