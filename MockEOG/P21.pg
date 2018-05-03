@@ -35,6 +35,7 @@ Context()->variables->add(a => 'Real');
 $expr1 = Formula("156");
 $expr2 = Formula("0.2*156");
 $expr3 = Formula("2x");
+$ans = Compute('63.4');
 
 Context("ImplicitEquation");
 #$prop_eqn = Compute("x/$subtotal = $percent");
