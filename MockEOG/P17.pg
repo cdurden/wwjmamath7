@@ -181,7 +181,7 @@ $PAR
  \($percent1 \cdot $subtotal = \) \{SECTION_ANS($ans1->cmp),$ans1->ans_rule()\}
 END_SECTION
 
-SECTION_SOLUTION({section=>5},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
 $PAR
 To find a \( ${P1}% \) of \( $subtotal \) quickly, we can ${BBOLD}multiply${EBOLD} our subtotal \( $subtotal \) by \( $percent1 \).
 END_SOLUTION
@@ -202,7 +202,7 @@ $PAR
 To find the total after adding the ${markup1}% tip, we need to find \{SECTION_ANS($P1->cmp), $P2->ans_rule(5)\}% of \{SECTION_ANS($ans1->cmp), $ans1->ans_rule()\}.
 END_SECTION
 
-SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
 $PAR
 To find the total after a  \( ${P2}% \) markup, we need to find \( ${percent2}% \) of the cost (\(${percent2}% = 100%+${P2}%\)).
 $PAR
