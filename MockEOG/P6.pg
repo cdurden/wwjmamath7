@@ -94,7 +94,7 @@ DISPLAY_SECTION( { name=>"1: Understand the problem",
 The quantities to be compared are: \{SECTION_ANS($popup1->cmp), $popup1->menu() \}. 
 END_SECTION
 
-SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
 $PAR
 The question ${BBOLD}"Which cake flavor had larger pieces"${EBOLD} is asking us to compare the sizes of the pieces.
 END_SOLUTION
@@ -118,7 +118,7 @@ Each strawberry cake piece was what fraction of the whole cake?
 \{SECTION_ANS($frac2->cmp), $frac2->ans_rule()\}
 END_SECTION
 
-SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
 $PAR
 Each chocolate cake piece was \( \frac{1}{2} \) of \( \frac{2}{3} \) of the whole cake.
 $PAR
