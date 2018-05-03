@@ -129,12 +129,20 @@ $PAR
 To set up an equation, we will use the following general principle:
 
 ${BBOLD}
-Total = sum of its parts
+Total = sum of the parts
 ${EBOLD}
 
-How does this principle apply to this problem? Fill in the blanks in the verbal equation below:
+$PAR
+What is the total and what are the parts in this problem? Fill in the blanks:
 
+$PAR
 Total \{SECTION_ANS($popup4->cmp), $popup4->menu() \} = \{SECTION_ANS($popup5->cmp), $popup5->menu() \} + \{SECTION_ANS($popup6->cmp), $popup6->menu() \}.
+
+END_SECTION
+
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+$PAR
+END_SOLUTION
 
   
 ##############
