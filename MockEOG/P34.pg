@@ -117,6 +117,9 @@ $PAR
 The amount of Mr. Tucker's commission was \{SECTION_ANS($commission->cmp),$commission->ans_rule()\}
 $PAR
 Mr. Tucker's total income was \{SECTION_ANS($income->cmp),$income->ans_rule()\}
+
+END_SECTION
+
 SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
 $PAR
 END_SOLUTION
