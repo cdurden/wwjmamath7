@@ -111,7 +111,6 @@ DISPLAY_SECTION( { name=>"2: Solve the problem",
              iscorrect=>$scaffold->requireCorrect(3),
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
-END_SECTION
 
 $PAR
 The amount of Mr. Tucker's commission was \{SECTION_ANS($commission->cmp),$commission->ans_rule()\}
