@@ -101,7 +101,7 @@ To find the unit rate in price per yard, we need to \{SECTION_ANS($popup1->cmp),
 
 END_SECTION
 
-SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
 $PAR
 To find a unit rate in price per yard, we set up a ratio between the first quantity (price) and the second quantity (yards of fabric). In our ratio the numerator represents the first quantity (price) and the denominator represents the second quantity (yards of fabric), so we need to divide price by the number of yards.
 END_SOLUTION
