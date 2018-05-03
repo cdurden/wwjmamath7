@@ -97,8 +97,8 @@ TEXT(beginproblem());
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"1: Identify the unknown and define a variable",
-             canshow =>$scaffold->requireCorrect(2),
-             iscorrect=>$scaffold->requireCorrect(3),
+             canshow =>1,
+             iscorrect=>$scaffold->requireCorrect(2),
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -121,8 +121,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Apply a general principle to relate the quantities in the problem",
-             canshow =>$scaffold->requireCorrect(2..3),
-             iscorrect=>$scaffold->requireCorrect(4),
+             canshow =>$scaffold->requireCorrect(2),
+             iscorrect=>$scaffold->requireCorrect(3..5),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -144,8 +144,8 @@ Total \{SECTION_ANS($popup4->cmp), $popup4->menu() \} = \{SECTION_ANS($popup5->c
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Set up an equation",
-             canshow =>$scaffold->requireCorrect(2..4),
-             iscorrect=>$scaffold->requireCorrect(5),
+             canshow =>$scaffold->requireCorrect(2..5),
+             iscorrect=>$scaffold->requireCorrect(6..9),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -178,8 +178,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Solve the problem",
-             canshow =>$scaffold->requireCorrect(2..8),
-             iscorrect=>$scaffold->requireCorrect(9),
+             canshow =>$scaffold->requireCorrect(2..9),
+             iscorrect=>$scaffold->requireCorrect(10),
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
