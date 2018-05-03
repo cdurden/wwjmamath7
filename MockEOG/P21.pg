@@ -29,7 +29,7 @@ $popup2 = PopUp(["?", "multiply", "divide"], "multiply");
 $popup3 = PopUp(["?", "total cost", "price per ticket", "cost without tax"], "price per ticket");
 $popup4 = PopUp(["?", "amount Mr. Jones spent", "number of tickets", "price for a ticket"], "amount Mr. Jones spent");
 $popup5 = PopUp(["?", "amount Mr. Jones spent on a parking pass", "number of tickets", "amount Mr. Jones spent on one ticket"], "amount Mr. Jones spent on a parking pass");
-$popup6 = PopUp(["?", "amount Mr. Jones spent on one ticket", "amount Mr. Jones spent on two tickets", "twenty percent"], "amount Mr. Jones spend on two tickets");
+$popup6 = PopUp(["?", "amount Mr. Jones spent on one ticket", "amount Mr. Jones spent on two tickets", "twenty percent"], "amount Mr. Jones spent on two tickets");
 Context("Numeric");
 Context()->variables->add(a => 'Real');
 $expr1 = Formula("156");
