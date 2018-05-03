@@ -27,7 +27,7 @@ $ans_desc = "price per ticket";
 $popup1 = PopUp(["?", "markup", "markdown", "percent"], "markup");
 $popup2 = PopUp(["?", "multiply", "divide"], "multiply");
 $popup3 = PopUp(["?", "total cost", "price per ticket", "cost without tax"], "price per ticket");
-$popup4 = PopUp(["?", "amount Mr. Jones spent", "number of tickets", "price for a ticket"], "amount Mr. Jones spent");
+$popup4 = PopUp(["?", "Total amount Mr. Jones spent", "Total number of tickets", "Total price for a ticket"], "Total amount Mr. Jones spent");
 $popup5 = PopUp(["?", "amount Mr. Jones spent on a parking pass", "number of tickets", "amount Mr. Jones spent on one ticket"], "amount Mr. Jones spent on a parking pass");
 $popup6 = PopUp(["?", "amount Mr. Jones spent on one ticket", "amount Mr. Jones spent on two tickets", "twenty percent"], "amount Mr. Jones spent on two tickets");
 Context("Numeric");
@@ -128,15 +128,18 @@ DISPLAY_SECTION( { name=>"2: Apply a general principle to relate the quantities 
 $PAR
 To set up an equation, we will use the following general principle:
 
+$PAR
+$BCENTER
 ${BBOLD}
 Total = sum of the parts
 ${EBOLD}
+$ECENTER
 
 $PAR
 What is the total and what are the parts in this problem? Fill in the blanks:
 
 $PAR
-Total \{SECTION_ANS($popup4->cmp), $popup4->menu() \} = \{SECTION_ANS($popup5->cmp), $popup5->menu() \} + \{SECTION_ANS($popup6->cmp), $popup6->menu() \}.
+\{SECTION_ANS($popup4->cmp), $popup4->menu() \} = \{SECTION_ANS($popup5->cmp), $popup5->menu() \} + \{SECTION_ANS($popup6->cmp), $popup6->menu() \}.
 
 END_SECTION
 

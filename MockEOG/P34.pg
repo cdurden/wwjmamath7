@@ -1,0 +1,134 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$cp = new compoundProblem(
+  parts => 2,                  # the total number of parts in this problem
+  totalAnswers => 3,           # total answers in all parts combined
+  parserValues => 1,           # make parser objects from student answers
+  allowReset => $isProfessor,  # professors get Reset button for testing
+);
+
+$mc = RadioButtons(
+    [ "6%", "7%", "8%", "9%" ],
+    "8%",
+    labels => "ABC" );
+
+
+Context("Currency");
+$percent = Compute('0.02');
+$P = Compute("$percent*100");
+$wages = Compute('250');
+$sales = Compute('2800');
+$commission = Compute("$percent*$sales");
+$income = Compute("$wages+$commission");
+$popup1 = PopUp(["?", "multiply", "divide"], "multiply");
+#$popup1 = PopUp(["?", "markup", "markdown", "commission", "percent"], "commission");
+$popup2 = PopUp(["?", "Add the commission to the value of his sales", "Add the commission to his earnings"], "Add the commission to his earnings");
+$ans = $income;
+
+BEGIN_TEXT
+$PAR
+Mr. Tucker earns $250 per week working in an appliance store.  In addition, he earns 2% commission on all of his sales.  Last week, he sold $2,800 worth of appliances.  What was Mr. Tucker's total income for the week?
+
+END_TEXT
+
+ANS( $mc->cmp() );
+$ans_hash = $mc->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
+  $cp->incrementPart();
+}
+
+$part = $cp->part();
+
+
+BEGIN_TEXT
+$PAR
+\{ $mc->buttons() \}
+END_TEXT
+
+if ($part == 2) {
+
+BEGIN_TEXT
+$PAR
+${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+
+END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+##############
+#  Section 1
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"1: Devise a plan",
+             canshow =>1, #always true
+             iscorrect=>$scaffold->requireCorrect(2),
+             section=>1 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+To find Mr. Tucker's total income, we need to 
+\{SECTION_ANS($popup2->cmp), $popup2->menu() \}
+$PAR
+To find \( ${P}% \) commission on \( ${sales} \) in sales, we can \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the value of goods sold $sales by \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}.
+
+END_SECTION
+
+SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
+$PAR
+To find \( ${P}% \) commission on \( ${sales} \) in sales, we can ${BBOLD}multiply${EBOLD} the value of goods sold $sales by \( $percent1 \).
+
+
+END_SOLUTION
+
+##############
+#  Section 2
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"2: Solve the problem",
+             canshow =>$scaffold->requireCorrect(2),
+             iscorrect=>$scaffold->requireCorrect(3),
+             section=>2 #designates that this is the first section
+},   <<'END_SECTION');
+END_SECTION
+
+$PAR
+The amount of Mr. Tucker's commission was \{SECTION_ANS($commission->cmp),$commission->ans_rule()\}
+$PAR
+Mr. Tucker's total income was \{SECTION_ANS($income->cmp),$income->ans_rule()\}
+SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
+$PAR
+END_SOLUTION
+
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+}
+ENDDOCUMENT();
