@@ -123,7 +123,7 @@ Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Apply a general principle to relate the quantities in the problem",
              canshow =>$scaffold->requireCorrect(2),
              iscorrect=>$scaffold->requireCorrect(3..5),
-             section=>3 #designates that this is the first section
+             section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
 To set up an equation, we will use the following general principle:
@@ -140,7 +140,7 @@ Total \{SECTION_ANS($popup4->cmp), $popup4->menu() \} = \{SECTION_ANS($popup5->c
 
 END_SECTION
 
-SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
 $PAR
 END_SOLUTION
 
