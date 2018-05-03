@@ -39,7 +39,7 @@ $commission = Compute("$percent*$sales");
 $income = Compute("$wages+$commission");
 $popup1 = PopUp(["?", "multiply", "divide"], "multiply");
 #$popup1 = PopUp(["?", "markup", "markdown", "commission", "percent"], "commission");
-$popup2 = PopUp(["?", "Add the commission to the value of his sales", "Add the commission to his earnings"], "Add the commission to his earnings");
+$popup2 = PopUp(["?", "Find his commission and add it to the value of his sales", "Find his commission and add it to his earnings"],  "Find his commission and add it to his earnings");
 $ans = $income;
 
 BEGIN_TEXT
@@ -90,7 +90,7 @@ $PAR
 To find Mr. Tucker's total income, we need to 
 \{SECTION_ANS($popup2->cmp), $popup2->menu() \}
 $PAR
-To find \( ${P}% \) commission on \( ${sales} \) in sales, we can \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the value of goods sold $sales by \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}.
+To find \( ${P}% \) commission on \( ${sales} \) in sales, we can \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the amount he sold $sales by \{SECTION_ANS($percent->cmp),$percent->ans_rule()\}.
 
 END_SECTION
 
