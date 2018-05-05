@@ -1,0 +1,139 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+#$cp = new compoundProblem(
+#  parts => 2,                  # the total number of parts in this problem
+#  totalAnswers => 3,           # total answers in all parts combined
+#  parserValues => 1,           # make parser objects from student answers
+#  allowReset => $isProfessor,  # professors get Reset button for testing
+#);
+Context("Currency");
+$ans_desc = "difference between the sale prices of the two stores";
+#Context("ImplicitEquation");
+Context()->variables->add(s=>"Real",b=>"Real");
+#Context()->variables->set(m=>{limits=>[0,50]},r=>{limits=>[0,50]},f=>{limits=>[0,50]});
+$total = Compute("518");
+$frac1 = Compute("12/100");
+$frac2 = Compute("1/10");
+$frac3 = Compute("2/9");
+$frac = Compute("1-12/100-1/10-2/9");
+$percent_frac = Compute("12/100");
+$ans = Compute("$total*$frac");
+$popup1 = PopUp(["?", "$frac3 of $total", "$frac2 of $total", "$frac1 of $total", "$frac of $total"], "$frac of $total");
+$popup2 = PopUp(["?", "multiply the number by the fraction", "divide the number by the fraction"], "multiply the number by the fraction");
+
+BEGIN_TEXT
+Karen spends ${DOLLAR}450 on monthly bills. Of this total amount, \( 12% \) is for phone service, \( \frac{1}{10} \) is for Internet service, and \( \frac{2}{9} \) is for utilities. If the rest of the total amount is for food, how much does Karen have for food?
+
+$PAR
+\{ $ans->ans_rule() \}
+END_TEXT
+
+ANS( $ans->cmp() );
+
+#if ($part == 2) {
+
+#BEGIN_TEXT
+#$PAR
+#${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+#
+#END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+$section = 0;
+##############
+#  Section
+##############
+$section += 1;
+@nextRequireCorrect = 2;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Determine what fraction of the total amount is for food",
+             canshow =>1, #always true
+             #canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+What is \(12%\) as a fraction?
+$PAR
+\{SECTION_ANS($percent_frac->cmp),$percent_frac->ans_rule()\}
+$PAR
+What fraction of the total is for food?
+$PAR
+\{SECTION_ANS($frac->cmp),$frac->ans_rule()\}
+
+
+END_SECTION
+
+SECTION_SOLUTION({section=>$section},<<'END_SOLUTION');
+The fraction of the total bill that is for food is
+$PAR
+\( 1 - \frac{12}{100} - \frac{1}{10} - \frac{2}{9}  = \frac{900}{900} - \frac{108}{900} - \frac{90}{900} - \frac{200}{900} = \frac{508}{900} \)
+END_SOLUTION
+
+##############
+#  Section
+##############
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Solve the problem",
+#             canshow =>1, #always true
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+To determine how much Karen has for food, we need to find
+\{SECTION_ANS($popup1->cmp), $popup1->menu() \}
+$PAR
+To find a fraction of a number:
+\{SECTION_ANS($popup2->cmp), $popup2->menu() \}.
+$PAR
+How many guests brought chips?
+$PAR
+\{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
+
+END_SECTION
+
+SECTION_SOLUTION({section=>$section},<<'END_SOLUTION');
+$PAR
+\( \frac{5}{12} \text{ of } 24 \) guests brought chips. This is
+$PAR
+\( \frac{5}{12} \cdot 24 = $ans \)
+END_SOLUTION
+
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+#}
+ENDDOCUMENT();
