@@ -71,6 +71,7 @@ TEXT(beginproblem());
 #  Section 1
 ##############
 
+$terms_text = '';
 $ansNum = 2;
 if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
 $outer_paren_text = <<'END_TEXT';
@@ -92,8 +93,7 @@ END_TEXT
 
 } else {
 
-$PAR
-$exponents_text = <<'END_TEXT';
+$terms_text = <<'END_TEXT';
 $PAR 
 
 Evaluate the terms inside the parentheses:
@@ -115,6 +115,8 @@ What is the value of \( 4^2 + (\frac{1}{2})^2 \)?  \{SECTION_ANS($outer_paren->c
 $PAR
 \{EV3($outer_paren_text);\}
 
+$PAR
+\{EV3($terms_text);\}
 
 
 END_SECTION
