@@ -31,6 +31,7 @@ $expr1 = Formula("-3(3y-2x)");
 $expr2 = Formula("2(5x-4y)");
 $expr = Compute("$expr1+$expr2");
 Context("LimitedPolynomial-Strict");
+Context()->variables->add(y=>"Real");
 $term11 = Compute("-9y");
 $term12 = Compute("6x");
 $term21 = Compute("10x");
