@@ -59,36 +59,6 @@ $ans = Compute("$saleprice1-$saleprice2");
 Context("LimitedNumeric-StrictFraction");
 $percent_frac1 = Compute("$P1/100");
 $percent_frac2 = Compute("$P2/100");
-#$percent = Compute('1.06');
-$multiansa = MultiAnswer($num1a, $den1a, $num2a, $den2a)->with(
-  singleResult => 0,
-  allowBlankAnswers => 1,
-  checker => sub {
-      my ( $correct, $student, $self ) = @_;
-      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
-      my ( $n1, $d1, $n2, $d2 ) = @{$correct};
-      $eqn_ans_hash = $prop_eqna->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
-      return($eqn_ans_hash->{score});
-  }
-);
-$multiansb = MultiAnswer($num1b, $den1b, $num2b, $den2b)->with(
-  singleResult => 0,
-  allowBlankAnswers => 1,
-  checker => sub {
-      my ( $correct, $student, $self ) = @_;
-      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
-      my ( $n1, $d1, $n2, $d2 ) = @{$correct};
-      $eqn_ans_hash = $prop_eqnb->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
-      return($eqn_ans_hash->{score});
-  }
-);
-$choice1 = RadioButtons(
-    [ "Set up a proportion", "Convert the percent to a fraction or decimal and multiply it by the regular price" ],
-    "Set up a proportion",
-    labels => "ABC" );
-$choice1_hash = $choice1->cmp()->evaluate(
-    $inputs_ref->{ANS_NUM_TO_NAME(9)} );
-
 
 BEGIN_TEXT
 $PAR
@@ -191,6 +161,125 @@ END_SECTION
 SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
 $PAR
 END_SOLUTION
+
+if ($choice1_hash->{student_ans} eq 'A') {
+##############
+#  Section 4a
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"4: Set up a proportion",
+             canshow =>$scaffold->requireCorrect(2..9),
+             iscorrect=>$scaffold->requireCorrect(10..11),
+             section=>4 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Choice: $choice1_hash->{student_ans}
+$PAR
+Let \( x\) stand for the sale price from the first store, which is \( $P1 \)% of $DOLLAR\( $subtotal1 \). Set up a proportion that can be used to find \( x \).
+
+Hint: \( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
+
+$PAR
+\{SECTION_ANS($multiansa->cmp),
+  LayoutTable(
+  [
+  [$multiansa->ans_rule(8).$BR.$HR.$multiansa->ans_rule(8),
+  "=",
+  $multiansa->ans_rule(8).$BR.$HR.$multiansa->ans_rule(8)]
+  ],
+  indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
+  );
+\}
+
+Let \( y \) stand for the sale price from the second store, which is \( $P2 \)% of $DOLLAR\( $subtotal2 \). Set up a proportion that can be used to find \( y \).
+
+$PAR
+\{SECTION_ANS($multiansb->cmp),
+  LayoutTable(
+  [
+  [$multiansb->ans_rule(8).$BR.$HR.$multiansb->ans_rule(8),
+  "=",
+  $multiansb->ans_rule(8).$BR.$HR.$multiansb->ans_rule(8)]
+  ],
+  indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
+  );
+\}
+
+$BR
+END_SECTION
+
+SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
+$PAR
+We use the percent equation:
+$PAR
+$BCENTER
+\( \frac{ %}{100} = \frac{ \text{part} }{ \text{whole} } \).
+$ECENTER
+$PAR
+The whole, or base amount, is Mr. Sanchez's subtotal, which was \( $subtotal \). The unknown \( x \) is the part, which is \($P% \) of the whole. So the percent equation gives us the proportion
+$PAR
+$BCENTER
+ \(\frac{$P}{100} = \frac{x}{$subtotal} \)
+$ECENTER
+END_SOLUTION
+
+} else {
+
+##############
+#  Section 4b
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"4: Reflect on your reasoning (How to find a percent of a number quickly)",
+             canshow =>$scaffold->requireCorrect(2..9),
+             iscorrect=>$scaffold->requireCorrect(10),
+             section=>4 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+What is \( ${P1}% \) as a fraction or decimal? \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}
+$PAR
+Thus, to find a  \( ${P1}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup2->cmp), $popup2->menu() \} our subtotal $subtotal by \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}.
+$PAR
+ \(${percent1} \cdot $subtotal1 = \) \{SECTION_ANS($saleprice1->cmp),$saleprice1->ans_rule()\}
+
+$PAR
+What is \( ${P2}% \) as a fraction or decimal? \{SECTION_ANS($percent2->cmp),$percent2->ans_rule()\}
+$PAR
+Thus, to find a  \( ${P2}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup2->cmp), $popup2->menu() \} our subtotal $subtotal by \{SECTION_ANS($percent2->cmp),$percent2->ans_rule()\}.
+$PAR
+ \(${percent2} \cdot $subtotal2 = \) \{SECTION_ANS($saleprice2->cmp),$saleprice2->ans_rule()\}
+END_SECTION
+
+SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
+$PAR
+What is \( ${P}% \) as a fraction?
+\( ${P}% \) as a fraction is \( \frac{$P}{100} \).
+$PAR
+What is \( ${P}% \) as a decimal?
+\( ${P}% \) as a decimal is \( $percent \).
+$PAR
+To fill in the blank, start with the first equation:
+$PAR
+$BCENTER
+ \(\frac{$P}{100} = \frac{x}{$subtotal} \)
+$ECENTER
+$PAR
+To get \( x \) by itself, multiply both sides by $subtotal:
+$PAR
+$BCENTER
+\( \frac{$P}{100} \cdot $subtotal = \frac{x}{$subtotal}\cdot $subtotal \)
+$PAR
+\( \frac{$P}{100} \cdot $subtotal = x \)
+$PAR
+\( $percent \cdot $subtotal = x \)
+$ECENTER
+
+$PAR
+Thus, to find a \( ${P}% \) of \( $subtotal \) quickly, we can ${BBOLD}multiply${EBOLD} our subtotal \( $subtotal \) by \( $percent \).
+END_SOLUTION
+
+}
 
 ##############
 #  Section 5
