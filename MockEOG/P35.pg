@@ -120,7 +120,7 @@ TEXT(beginproblem());
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"1: Devise a plan",
              canshow =>1, #always true
-             iscorrect=>$scaffold->requireCorrect(2),
+             iscorrect=>$scaffold->requireCorrect(2..3),
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -134,8 +134,8 @@ END_SECTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Markup, markdown, or simple percent?",
-             canshow =>$scaffold->requireCorrect(2), #always true
-             iscorrect=>$scaffold->requireCorrect(3),
+             canshow =>$scaffold->requireCorrect(2..3), #always true
+             iscorrect=>$scaffold->requireCorrect(4),
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 Is finding each sale price a markup, markdown, or simple percent problem?
@@ -155,14 +155,18 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Express the sale prices as percents of the regular prices",
-             canshow =>$scaffold->requireCorrect(2),
-             iscorrect=>$scaffold->requireCorrect(3..4),
+             canshow =>$scaffold->requireCorrect(2..4),
+             iscorrect=>$scaffold->requireCorrect(5..7),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
 To find the total after $\( $subtotal1 \) is marked down by \( $P1 \}%, we need to find \{SECTION_ANS($P1->cmp), $P1->ans_rule(5)\}% of \{SECTION_ANS($subtotal1->cmp), $subtotal1->ans_rule()\}.
 $PAR
 To find the total after $\( $subtotal2 \) is marked down by \( $P2 \}%, we need to find \{SECTION_ANS($P2->cmp), $P2->ans_rule(5)\}% of \{SECTION_ANS($subtotal2->cmp), $subtotal2->ans_rule()\}.
+$PAR
+Choose a method for finding this percent:
+\{SECTION_ANS($choice1->cmp), $choice1->buttons() \}
+
 END_SECTION
 
 SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
@@ -177,8 +181,8 @@ if (1) {
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Set up proportion",
-             canshow =>$scaffold->requireCorrect(2..4),
-             iscorrect=>$scaffold->requireCorrect(5),
+             canshow =>$scaffold->requireCorrect(2..7),
+             iscorrect=>$scaffold->requireCorrect(8),
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -218,16 +222,16 @@ $BCENTER
 $ECENTER
 END_SOLUTION
 
+} else {
+
 ##############
 #  Section 4b
 ##############
 
-} else {
-
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Reflect on your reasoning (How to find a percent of a number quickly)",
-             canshow =>$scaffold->requireCorrect(2..9),
-             iscorrect=>$scaffold->requireCorrect(10),
+             canshow =>$scaffold->requireCorrect(2..7),
+             iscorrect=>$scaffold->requireCorrect(8),
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR

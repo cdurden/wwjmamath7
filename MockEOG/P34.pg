@@ -42,7 +42,7 @@ $popup1 = PopUp(["?", "multiply", "divide"], "multiply");
 #$popup1 = PopUp(["?", "markup", "markdown", "commission", "percent"], "commission");
 $popup2 = PopUp(["?", "Find his commission and add it to his sales", "Find his commission and add it to his weekly earnings"],  "Find his commission and add it to his weekly earnings");
 $popup3 = PopUp(["?", "${P}% of $sales", "${P}% of $wages", "${P100}% of $sales", "${P100}% of $wages"],  "${P}% of $sales");
-$popup4 = PopUp(["?", "Set up a proportion", "Convert the percent to a fraction or decimal and multiply");
+#$popup4 = PopUp(["?", "Set up a proportion", "Convert the percent to a fraction or decimal and multiply"], );
 $ans = $income;
 
 BEGIN_TEXT
@@ -95,8 +95,8 @@ To find Mr. Tucker's total income for the week, we need to
 $PAR
 To find \( ${P}% \) commission on $DOLLAR\( ${sales} \) in sales, we need to find \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
 
-Choose a method for finding this percent:
-\{SECTION_ANS($popup4->cmp), $popup4->menu() \}
+#Choose a method for finding this percent:
+#\{SECTION_ANS($popup4->cmp), $popup4->menu() \}
 END_SECTION
 
 #To find \( ${P}% \) commission on \( ${sales} \) in sales, we can \{SECTION_ANS($popup1->cmp), $popup1->menu() \} his sales, \( $sales \), by \{SECTION_ANS($percent->cmp),$percent->ans_rule()\}.
