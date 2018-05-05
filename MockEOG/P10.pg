@@ -38,7 +38,7 @@ $P2 = Compute("100-$markdown2");
 $ans_desc = "difference between the sale prices of the two stores";
 $popup1 = PopUp(["?", "40% of the manufacturer price", "60% of the manufacturer price", "140% of the manufacturer price", "160% of the manufacturer price"], "140% of the manufacturer price");
 $popup2 = PopUp(["?", "multiply the manufacturer price by this number", "divide the manufacturer price by this number", "multiply the retail price by this number", "divide the retail price by this number"], "multiply the manufacturer price by this number");
-$popup3 = PopUp(["?", "25% of the manufacturer price", "25% of the retail price", "125% of the retail price", "125% of the manufacturer price", "75% of the retail price", "75% of the manufacturer price"], "75% of the retail price");
+$popup3 = PopUp(["?", "25% of the retail price", "125% of the retail price", "75% of the retail price"], "75% of the retail price");
 $popup4 = PopUp(["?", "multiply the manufacturer price by this number", "divide the manufacturer price by this number", "multiply the retail price by this number", "divide the retail price by this number"], "multiply the retail price by this number");
 Context()->variables->add(r=>"Real",m=>"Real",f=>"Real");
 $base_amount1_desc = 'manufacturer price';
@@ -175,6 +175,15 @@ if ($choice1_hash->{student_ans} eq 'A') {
 ##############
 #  Section 2
 ##############
+#$PAR
+#${BBOLD}
+#Even though we do not know \( m \), we can set up a proportion that could be used to find \( $P1\)% of \( m \). 
+#${EBOLD}
+#
+#In the last section, we found that the retail price, after the \( $markup1 \)% markup, is \( $P1\)% of \( m \).
+#${BBOLD}
+#Instead of entering a dollar amount for the manufacturer price, use the variable \( m \).
+#${EBOLD}
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Set up a proportion to relate the retail price to the manufacturer price",
@@ -183,21 +192,14 @@ DISPLAY_SECTION( { name=>"2: Set up a proportion to relate the retail price to t
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 
-Let the variable \( m \) stand for the manufacturer price. 
-$PAR
-${BBOLD}
-Even though we do not know \( m \), we can set up a proportion that could be used to find \( $P1\)% of \( m \). 
-${EBOLD}
-
-In the last section, we found that the retail price, after the \( $markup1 \)% markup, is \( $P1\)% of \( m \).
+Let \( m \) stand for the manufacturer price. 
 
 $PAR
-Let \( r\) stand for the retail price. Set up a proportion that represents the fact that  \( r\) is \( $P1 \)% of \( m \). 
+Let \( r\) stand for the retail price.
+$PAR
+Set up a proportion that represents the fact that  \( r\) is \( $P1 \)% of \( m \). 
 
-${BBOLD}
-Instead of entering a dollar amount for the manufacturer price, use the variable \( m \).
-${EBOLD}
-
+$PAR
 Hint: \( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
 
 $PAR
@@ -277,7 +279,7 @@ DISPLAY_SECTION( { name=>"2: Describe the method for finding ${P1}% of the manuf
 },   <<'END_SECTION');
 
 $PAR
-Even though we do not know the manufacturer price, we can describe how we ${BBOLD}would${EBOLD} find \( $P1\)% of the manufacturer price ${BBOLD}if the price was known${EBOLD}:
+Even though we do not know the manufacturer price, we can describe how we ${BBOLD}would${EBOLD} find \( $P1\)% of the manufacturer price ${BBOLD}if the manufacturer price was known${EBOLD}:
 $PAR
 First, express \( ${P1}% \) as a fraction or decimal: \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}
 $PAR
@@ -310,7 +312,7 @@ DISPLAY_SECTION( { name=>"3: Write an expression for the retail price",
 },   <<'END_SECTION');
 
 $PAR
-Let the variable \( m \) stand for the manufacturer price.
+Let \( m \) stand for the manufacturer price.
 $PAR
 Write an expression, in terms of \( m \), to represent the procedure that was outlined in the last section for finding \( $P1\)% of the manufacturer price.
 
@@ -350,6 +352,7 @@ if ($choice1_hash->{student_ans} eq 'A') {
 }
 @nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+2;
 
+#After the manufacturer price was marked up to give the original retail price, the retail price was marked down. 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Devise a plan to represent the markdown",
              canshow =>$scaffold->requireCorrect(@requireCorrect),
@@ -358,7 +361,7 @@ DISPLAY_SECTION( { name=>"4: Devise a plan to represent the markdown",
 },   <<'END_SECTION');
 
 $PAR
-After the manufacturer price was marked up to give the original retail price, the retail price was marked down. We are told that the retail price was marked down by \( $markdown2 \)%. What is the final price as a percent of the retail price?
+We are told that the retail price was marked down by \( $markdown2 \)%. What is the final price as a percent of the retail price?
 
 $PAR
 The final price is \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
@@ -379,6 +382,17 @@ if ($choice2_hash->{student_ans} eq 'A') {
 ##############
 @nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+4;
 
+#$PAR
+#${BBOLD}
+#Even though we do not know \( r \), we can set up a proportion that could be used to find \( $P2\)% of \( r \). 
+#${EBOLD}
+#
+#In the last section, we found that the retail price, after the \( $markdown2 \)% markdown, is \( $P2\)% of \( r \).
+#${BBOLD}
+#Instead of entering a dollar amount for the retail price, use the variable \( r \).
+#${EBOLD}
+
+
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Set up a proportion to relate the final price to the retail price",
              canshow =>$scaffold->requireCorrect(@requireCorrect),
@@ -386,20 +400,11 @@ DISPLAY_SECTION( { name=>"5: Set up a proportion to relate the final price to th
              section=>5 #designates that this is the first section
 },   <<'END_SECTION');
 
-Let the variable \( r \) stand for the retail price. 
+Let \( r \) stand for the retail price. 
 $PAR
-${BBOLD}
-Even though we do not know \( r \), we can set up a proportion that could be used to find \( $P2\)% of \( r \). 
-${EBOLD}
-
-In the last section, we found that the retail price, after the \( $markdown2 \)% markdown, is \( $P2\)% of \( r \).
-
+Let \( f\) stand for the retail price.
 $PAR
-Let \( f\) stand for the retail price. Set up a proportion that represents the fact that  \( f\) is \( $P2 \)% of \( r \). 
-
-${BBOLD}
-Instead of entering a dollar amount for the retail price, use the variable \( r \).
-${EBOLD}
+Set up a proportion that represents the fact that  \( f\) is \( $P2 \)% of \( r \). 
 
 Hint: \( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
 
