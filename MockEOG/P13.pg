@@ -122,14 +122,11 @@ if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{sco
     $text .= $outer_paren_text;
     $ansNum = 5;
     if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
-      $text .= $final_eval_text;
+      $text .= $replace_outer_paren_text;
       $ansNum = 6;
-      if ($ans->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 0) {
-        $text .= $replace_outer_paren_text;
+      if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
         $ansNum = 7;
-        if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
-          $text .= $final_eval_text;
-        }
+        $text .= $final_eval_text;
       }
     }
   }
