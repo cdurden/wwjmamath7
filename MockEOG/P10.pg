@@ -40,7 +40,9 @@ $popup1 = PopUp(["?", "40% of the manufacturer price", "60% of the manufacturer 
 $popup2 = PopUp(["?", "multiply the manufacturer price by this number", "divide the manufacturer price by this number", "multiply the retail price by this number", "divide the retail price by this number"], "multiply the manufacturer price by this number");
 Context()->variables->add(r=>"Real",m=>"Real",f=>"Real");
 $base_amount1 = 'm';
+$part1 = 'r';
 $base_amount2 = 'r';
+$part2 = 'f';
 $num1a = Formula("r");
 $den1a = Formula("m");
 $num2a = Formula("$P1");
@@ -202,10 +204,24 @@ $PAR
 \}
 END_SECTION
 
-SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
 $PAR
+
+To set up the proportion, we use the percent equation:
+$PAR
+\( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
+
+$PAR
+The part is the retail price \( $part1 \), which is \( ${P1} \)% of the whole \( $base_amount1 \) (representing the manufacturer price). Substituting \( $part1 \) for the part, \( ${P1} \) for the %, and \( $base_amount1 \) for the whole gives us the proportion:
+
+$PAR
+\( \frac{${P1}}{100} = \frac{ $part1 }{ $base_amount1 } \).
+
 END_SOLUTION
 
+##############
+#  Section 3
+##############
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Write an expression for the retail price",
@@ -225,6 +241,17 @@ END_SECTION
 
 SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
 $PAR
+The proportion that we found in the last section was:
+$PAR
+\( \frac{${P1}}{100} = \frac{ $part1 }{ $base_amount1 } \).
+$PAR
+To solve this equation for \( $part1 \), we need to multiply both sides of the equation by \( m \).
+$PAR
+\( \frac{${P1}}{100} \cdot $base_amount1 = \frac{ $part1 }{ $base_amount1 } \cdot $base_amount1 \).
+$PAR
+The \( $base_amount \) in the numerator and denominator of the right hand side cancel, so this equation is equivalent to:
+$PAR
+\( \frac{${P1}}{100} \cdot $base_amount1 = $part1 \).
 END_SOLUTION
 
 } else {
