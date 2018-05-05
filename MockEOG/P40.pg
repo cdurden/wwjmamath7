@@ -79,9 +79,7 @@ $ansNum = 2;
 $terms_text = <<'END_TEXT';
 $PAR
 
-${BBOLD}
 Find each of the terms in the expanded form of \( $expr1 \):
-${EBOLD}
 $PAR
 \( 2\cdot x= \) \{SECTION_ANS($term1->cmp),$term1->ans_rule()\}
 $PAR
@@ -98,6 +96,11 @@ $PAR
 
 END_TEXT
 
+##############
+$terms_to_expand_text = <<'END_TEXT';
+$PAR 
+The expanded form of \( $expr1 \) is the sum of these terms.
+END_TEXT
 ##############
 $expand_text = <<'END_TEXT';
 $PAR 
@@ -124,7 +127,7 @@ if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score}
   $text1 .= $terms_text;
   $ansNum += 1;
   if ($term1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $term2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
-    #$text .= $terms_to_outer_paren_text;
+    $text .= $terms_to_expanded_text;
     $text1 .= $expand_text;
     $ansNum += 2;
     if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
