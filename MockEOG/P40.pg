@@ -116,6 +116,9 @@ $text1 = $expand_text;
 if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
   $text1 .= $replace_paren_text;
   $ansNum += 1;
+  if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+    $done_expanding = 1;
+  }
 } else {
   $text1 .= $terms_text;
   $ansNum += 1;
@@ -126,10 +129,11 @@ if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score}
     if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
       $text1 .= $replace_paren_text;
       $ansNum += 1;
-      #if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
-      #  $ansNum += 1;
-      #  $text .= $final_eval_text;
-      #}
+      if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+        $done_expanding = 1;
+        #$ansNum += 1;
+        #$text .= $final_eval_text;
+      }
     }
   }
 }
@@ -163,8 +167,9 @@ $section += 1;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Combine like terms",
-             canshow =>1, #always true
+             #canshow =>1, #always true
              #canshow =>$scaffold->requireCorrect(@requireCorrect),
+             canshow =>$done_expanding,
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
