@@ -59,17 +59,6 @@ $multiansa = MultiAnswer($num1a, $den1a, $num2a, $den2a)->with(
       return($eqn_ans_hash->{score});
   }
 );
-$multiansb = MultiAnswer($num1b, $den1b, $num2b, $den2b)->with(
-  singleResult => 0,
-  allowBlankAnswers => 1,
-  checker => sub {
-      my ( $correct, $student, $self ) = @_;
-      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
-      my ( $n1, $d1, $n2, $d2 ) = @{$correct};
-      $eqn_ans_hash = $prop_eqnb->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
-      return($eqn_ans_hash->{score});
-  }
-);
 $choice1 = RadioButtons(
     [ "Set up a proportion", "Convert the percent to a fraction or decimal and multiply it by the regular price" ],
     "Set up a proportion",
@@ -211,7 +200,7 @@ DISPLAY_SECTION( { name=>"3: Find how much money Anna has left",
 $PAR
 What is \( ${P1}% \) as a fraction or decimal? \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}
 $PAR
-Thus, to find a  \( ${P1}% \) of ${DOLLAR}\( $savings \) quickly, we can \{SECTION_ANS($popup4->cmp), $popup4->menu() \} our subtotal ${DOLLAR}\($savings\) by \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}.
+Thus, to find a  \( ${P1}% \) of ${DOLLAR}\( $savings \) quickly, we can \{SECTION_ANS($popup4->cmp), $popup4->menu() \} our savings ${DOLLAR}\($savings\) by \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}.
 $PAR
  \(${percent1} \text{ of } $savings = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
 
@@ -219,13 +208,13 @@ END_SECTION
 
 SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
 $PAR
-What is \( ${P}% \) as a fraction?
-\( ${P}% \) as a fraction is \( \frac{$P}{100} \).
+What is \( ${P1}% \) as a fraction?
+\( ${P1}% \) as a fraction is \( \frac{$P}{100} \).
 $PAR
-What is \( ${P}% \) as a decimal?
-\( ${P}% \) as a decimal is \( $percent \).
+What is \( ${P1}% \) as a decimal?
+\( ${P1}% \) as a decimal is \( $percent \).
 $PAR
-Thus, to find a \( ${P}% \) of \( $subtotal \) quickly, we can ${BBOLD}multiply${EBOLD} our subtotal \( $subtotal \) by \( $percent \).
+Thus, to find a \( ${P1}% \) of \( $savings \) quickly, we can ${BBOLD}multiply${EBOLD} our savings \( $savings \) by \( $percent \).
 END_SOLUTION
 
 
