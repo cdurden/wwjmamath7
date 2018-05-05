@@ -104,7 +104,7 @@ END_TEXT
 ##############
 $final_eval_text = <<'END_TEXT';
 $PAR 
-Evaluate \( 2 \cdot $outer_paren)} \):
+Evaluate \( 2 \cdot $outer_paren \):
 $PAR
 \( 2  \cdot $outer_paren = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\} 
 
