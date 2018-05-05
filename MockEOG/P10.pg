@@ -31,6 +31,8 @@ $markdown2 = Compute('25');
 Context("Numeric");
 $percent1 = Compute("1+$markup1/100");
 $percent2 = Compute("1-$markdown2/100");
+$percent = Compute("$percent2*$percent1");
+$markup = Compute("$percent*100-100");
 $ans = Compute("$percent2*$percent1");
 Context("Numeric");
 $P1 = Compute("100+$markup1");
@@ -573,6 +575,49 @@ END_SOLUTION
 
 
 }
+
+##############
+#  Section 7
+##############
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+3;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"7: Answer the question",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             #canshow =>$scaffold->requireCorrect(2..3), #always true
+             #iscorrect=>$scaffold->requireCorrect(4),
+             section=>6 #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Look at the expression that you found for the final price in terms of the manufacturer price \( m \).
+$PAR
+What did you have to multiply the manufacturer price by to get the final price?
+$PAR
+\{SECTION_ANS($percent->cmp),$percent->ans_rule()\}
+$PAR
+What is this number as a percent?
+$PAR
+\{SECTION_ANS($percent->cmp),$percent->ans_rule()\}
+$PAR
+What is the markup?
+$PAR
+\{SECTION_ANS($markup->cmp),$markup->ans_rule()\}
+
+END_SECTION
+
+SECTION_SOLUTION({section=>5},<<'END_SOLUTION');
+$PAR
+The $part2_desc is \( ${P2}% \) of the $base_amount2_desc.
+
+$PAR
+To find the $part2_desc, we multiply the $base_amount2_desc \( $base_amount2 \) by \( $percent2 \). The expression that represents this is 
+$PAR
+\( ${percent2} \cdot r \).
+
+END_SOLUTION
 
 
 
