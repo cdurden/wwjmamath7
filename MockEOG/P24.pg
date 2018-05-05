@@ -58,7 +58,7 @@ TEXT(beginproblem());
 ##############
 
 
-@requireCorrect = [2]
+@requireCorrect = [2];
 @requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
 
