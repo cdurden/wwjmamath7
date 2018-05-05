@@ -350,8 +350,8 @@ if ($choice1_hash->{student_ans} eq 'A') {
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Devise a plan to represent the markdown",
-             canshow =>$scaffold->requireCorrect($requireCorrect),
-             iscorrect=>$scaffold->requireCorrect($nextRequireCorrect),
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 
