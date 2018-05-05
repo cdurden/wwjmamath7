@@ -319,7 +319,7 @@ $PAR
 Using this variable, write an expression to represent your procedure for finding the retail price \( r \).
 
 $PAR
-\(r = \): \{SECTION_ANS($r->cmp),$r->ans_rule()\}
+\(r = \) \{SECTION_ANS($r->cmp),$r->ans_rule()\}
 
 END_SECTION
 
@@ -460,7 +460,7 @@ $PAR
 \( f = \) \{SECTION_ANS($f1->cmp),$f1->ans_rule()\}
 
 $PAR
-In section 4, you found an expression for the retail price \( r\) in terms of \( m \). 
+In section 3, you found an expression for the retail price \( r\) in terms of \( m \). 
 
 In the expression that you just found for \( f \), replace \( r \) by the expression that you found.
 
@@ -549,14 +549,12 @@ Let \( r \) stand for the retail price.
 Using this variable, write an expression to represent your procedure for finding the final price \( f \).
 
 $PAR
-\( f = \): \{SECTION_ANS($f1->cmp),$f1->ans_rule()\}
+\( f = \) \{SECTION_ANS($f1->cmp),$f1->ans_rule()\}
 
 $PAR
-In section 4, you found an expression for the retail price in terms of \( m \). 
+In section 3, you found an expression for the retail price in terms of \( m \). 
 
-In the expression that you just found for the final price, replace \( r \) by the expression that you found for the retail price.
-
- You should then obtain an expression for the final price, in terms of \( m \).
+Substitute the expression that you found for \( r \) to obtain a new expression in terms of \( m \).
 
 $PAR
 Expression for the final price in terms of \( m \): \{SECTION_ANS($f2->cmp),$f2->ans_rule()\}
