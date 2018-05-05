@@ -75,7 +75,7 @@ $outer_paren_text = <<"END_TEXT";
 $PAR 
 Replace \( 4^2 + (\frac{1}{2})^2 \) by the value that you found in part a:
 $PAR
-\( 2 \left(4^2 + \left(\frac{1}{2}\right)^2 \right) = \)  ${ans->ans_rule()}
+\( 2 \left(4^2 + \left(\frac{1}{2}\right)^2 \right) = \)  \{$ans->ans_rule()\}
 
 END_TEXT
 } else {
