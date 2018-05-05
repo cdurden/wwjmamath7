@@ -41,7 +41,7 @@ $popup4 = PopUp(["?", "multiply", "divide"], "multiply");
 Context()->variables->add(r=>"Real",m=>"Real",f=>"Real");
 $num1a = Formula("r");
 $den1a = Formula("m");
-$num2a = Formula("$P1");
+$num2a = Formula("140");
 $den2a = Formula("100");
 $num1b = Formula("f");
 $den1b = Formula("r");
