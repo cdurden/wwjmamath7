@@ -80,7 +80,7 @@ DISPLAY_SECTION( { name=>"1: Write an expression for the amount of money Evan ea
 },   <<'END_SECTION');
 
 $PAR
-Write an expression that can be used to find the amount of money that Evan earns if he works for \( s \) 15 minute intervals picking strawberries and \( b \) 15 minute intervals picking blueberries.
+Write an expression that can be used to find the amount of money that Evan earns the number of 15-minute intervals that he picks strawberries is \( s \) and the number of 15-minute intervals that he picks blueberries is \( b \).
 
 \{SECTION_ANS($expr->cmp),$expr->ans_rule()\}
 
