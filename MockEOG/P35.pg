@@ -260,6 +260,58 @@ $BCENTER
 $ECENTER
 END_SOLUTION
 
+##############
+#  Section 5
+##############
+
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"5: Solve the problem",
+             canshow =>$scaffold->requireCorrect(2..10),
+             iscorrect=>$scaffold->requireCorrect(11),
+             section=>5 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Solve the proportions from section 4.
+$PAR
+\( x = \) 
+\{SECTION_ANS($saleprice1->cmp),$saleprice1->ans_rule()\}
+$PAR
+\( y = \) 
+\{SECTION_ANS($saleprice2->cmp),$saleprice2->ans_rule()\}
+$PAR
+What is the difference between the two sale prices?
+\{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
+
+END_SECTION
+
+SECTION_SOLUTION({section=>5},<<'END_SOLUTION');
+$PAR
+Solve the proportion
+$PAR
+$BCENTER
+ \(\frac{$P}{100} = \frac{x}{$subtotal} \)
+$ECENTER
+
+$PAR
+${BBOLD}Solution 1: The butterfly method${EBOLD}
+$PAR
+\(x = $P \cdot $subtotal \div 100 \)
+$PAR
+\( x = $ans \)
+
+$PAR
+${BBOLD}Solution 2: Multiply both sides of the proportion by $subtotal
+$PAR
+\( \frac{$P}{100} \cdot $subtotal = \frac{x}{$subtotal}\cdot $subtotal \)
+$PAR
+\( \frac{$P}{100} \cdot $subtotal = x \)
+$PAR
+\( 1.06 \cdot $subtotal = x \)
+$PAR
+\( x = $ans \)
+END_SOLUTION
+
 } else {
 
 ##############
@@ -315,12 +367,9 @@ $PAR
 Thus, to find a \( ${P}% \) of \( $subtotal \) quickly, we can ${BBOLD}multiply${EBOLD} our subtotal \( $subtotal \) by \( $percent \).
 END_SOLUTION
 
-}
-
 ##############
 #  Section 5
 ##############
-
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Solve the problem",
@@ -329,39 +378,19 @@ DISPLAY_SECTION( { name=>"5: Solve the problem",
              section=>5 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-Solve the proportion from section 3.
-$PAR
-\( x = \) 
+What is the difference between the two sale prices?
 \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
 
 END_SECTION
 
 SECTION_SOLUTION({section=>5},<<'END_SOLUTION');
 $PAR
-Solve the proportion
+To find the difference, we subtract the smaller price from the larger price:
 $PAR
-$BCENTER
- \(\frac{$P}{100} = \frac{x}{$subtotal} \)
-$ECENTER
-
-$PAR
-${BBOLD}Solution 1: The butterfly method${EBOLD}
-$PAR
-\(x = $P \cdot $subtotal \div 100 \)
-$PAR
-\( x = $ans \)
-
-$PAR
-${BBOLD}Solution 2: Multiply both sides of the proportion by $subtotal
-$PAR
-\( \frac{$P}{100} \cdot $subtotal = \frac{x}{$subtotal}\cdot $subtotal \)
-$PAR
-\( \frac{$P}{100} \cdot $subtotal = x \)
-$PAR
-\( 1.06 \cdot $subtotal = x \)
-$PAR
-\( x = $ans \)
+\( $saleprice1 - $saleprice2 = $ans \)
 END_SOLUTION
+
+}
 
 
 
