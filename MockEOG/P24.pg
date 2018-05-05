@@ -30,7 +30,7 @@ $popup2 = PopUp(["?", "multiply the manufacturer price by this number", "divide 
 $popup3 = PopUp(["?", "25% of the retail price", "125% of the retail price", "75% of the retail price"], "75% of the retail price");
 $popup4 = PopUp(["?", "multiply the manufacturer price by this number", "divide the manufacturer price by this number", "multiply the retail price by this number", "divide the retail price by this number"], "multiply the retail price by this number");
 #Context("ImplicitEquation");
-Context()->variables->add(r=>"Real",m=>"Real",f=>"Real");
+Context()->variables->add(s=>"Real",b=>"Real");
 #Context()->variables->set(m=>{limits=>[0,50]},r=>{limits=>[0,50]},f=>{limits=>[0,50]});
 $expr = ImplicitEquation("2s+2.4b");
 
