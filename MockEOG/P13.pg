@@ -112,6 +112,7 @@ END_TEXT
 
 ###############
 
+$ansNum = 1;
 $text = $outer_paren_text;
 if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
   $text .= $replace_outer_paren_text;
@@ -122,15 +123,15 @@ if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{sco
   }
 } else {
   $text .= $terms_text;
-  $ansNum = 3;
+  $ansNum += 1;
   if ($expr3->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expr4->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
     $text .= $outer_paren_text;
-    $ansNum = 5;
+    $ansNum += 2;
     if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
       $text .= $replace_outer_paren_text;
-      $ansNum = 6;
+      $ansNum += 1;
       if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
-        $ansNum = 7;
+        $ansNum += 1;
         $text .= $final_eval_text;
       }
     }
