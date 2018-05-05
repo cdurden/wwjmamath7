@@ -177,6 +177,9 @@ DISPLAY_SECTION( { name=>"2: Set up a proportion to relate the retail price to t
 Let the variable \( m \) stand for the manufacturer price. Based on the last section we know that the retail price, after the \( $markup1 \)% markup, is \( $P1\)% of \( m \).
 
 $PAR
+${BBOLD}Even though we do not know \( m \), we can set up a proportion that could be used to find \( $P1\)% of \( m \). Instead of entering a dollar amount for the manufacturer price, we use the variable \( m \).
+${EBOLD}
+$PAR
 Let \( r\) stand for the retail price, which is \( $P1 \)% of \( m \). Set up a proportion containing both of the variables \( r \) and \( m \) that represents the fact that  \( r\) is \( $P1 \)% of \( m \). 
 
 Hint: \( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
