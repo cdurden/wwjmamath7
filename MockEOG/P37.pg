@@ -37,6 +37,7 @@ $frac3 = Compute("2/9");
 #$frac = Compute("1-12/100-1/10-2/9");
 $frac = Compute("502/900");
 $percent_frac = Compute("12/100");
+Context("Numeric");
 $ans = Compute("$total*$frac");
 $popup1 = PopUp(["?", "$frac3 of $total", "$frac2 of $total", "$frac1 of $total", "$frac of $total"], "$frac of $total");
 $popup2 = PopUp(["?", "multiply the number by the fraction", "divide the number by the fraction"], "multiply the number by the fraction");
