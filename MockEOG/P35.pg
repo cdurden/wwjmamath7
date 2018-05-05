@@ -56,7 +56,7 @@ Context("ImplicitEquation");
 #$prop_eqn = Compute("x/$subtotal = $percent");
 Context()->variables->set(x=>{limits=>[0,50]});
 $prop_eqna = ImplicitEquation("x/$den1a = $num2a/$den2a");
-$prop_eqnb = ImplicitEquation("x/$den1b = $num2b/$den2b");
+$prop_eqnb = ImplicitEquation("y/$den1b = $num2b/$den2b");
 Context("LimitedNumeric-StrictFraction");
 $percent_frac1 = Compute("$P1/100");
 $percent_frac2 = Compute("$P2/100");
