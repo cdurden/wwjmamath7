@@ -102,7 +102,9 @@ END_TEXT
 $expand_text = <<'END_TEXT';
 $PAR 
 
-Expand \( $expr1 \):
+Expand \( $expr1 \)
+
+$PAR
 \( $expr1 = \) \{SECTION_ANS($expanded->cmp),$expanded->ans_rule()\} 
 
 END_TEXT
@@ -112,7 +114,7 @@ END_TEXT
 $ansNum = 2;
 $text1 = $expand_text;
 if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
-  $text .= $replace_paren_text;
+  $text1 .= $replace_paren_text;
   $ansNum += 1;
 } else {
   $text1 .= $terms_text;
