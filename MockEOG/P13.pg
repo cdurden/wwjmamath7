@@ -29,10 +29,6 @@ $expr1 = Compute("2(4^2+(1/2)^2)");
 $expr2 = Compute("(4^2+(1/2)^2)");
 $outer_paren = $expr2;
 $ans = $expr1;
-$popup1 = PopUp(["?", "Evaluate the expression inside the outer set of parentheses", "Multiply);
-$popup2 = PopUp(["?", "multiply the manufacturer price by this number", "divide the manufacturer price by this number", "multiply the retail price by this number", "divide the retail price by this number"], "multiply the manufacturer price by this number");
-$popup3 = PopUp(["?", "25% of the retail price", "125% of the retail price", "75% of the retail price"], "75% of the retail price");
-$popup4 = PopUp(["?", "multiply the manufacturer price by this number", "divide the manufacturer price by this number", "multiply the retail price by this number", "divide the retail price by this number"], "multiply the retail price by this number");
 
 BEGIN_TEXT
 $PAR
@@ -81,8 +77,6 @@ DISPLAY_SECTION( { name=>"1: Devise a plan to relate the retail price to the man
 
 $PAR
 What is \( 4^2 + (\frac{1}{2})^2 \)?  \{SECTION_ANS($outer_paren->cmp),$outer_paren->ans_rule()\}
-
-
 
 END_SECTION
 
