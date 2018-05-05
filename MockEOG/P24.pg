@@ -109,7 +109,7 @@ END_SOLUTION
 ##############
 $section += 1;
 @requireCorrect = @nextRequireCorrect;
-@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
+@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+3;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Evaluate the expression using the given data",
