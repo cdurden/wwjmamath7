@@ -435,6 +435,7 @@ END_SOLUTION
 #  Section 6
 ##############
 
+@requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+2;
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
@@ -519,6 +520,7 @@ END_SOLUTION
 ##############
 #  Section 6
 ##############
+@requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+2;
 
 Context()->texStrings;
