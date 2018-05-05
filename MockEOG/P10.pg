@@ -346,7 +346,7 @@ Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Devise a plan to represent the markdown",
              canshow =>1, #always true
              iscorrect=>$scaffold->requireCorrect(2..3),
-             section=>1 #designates that this is the first section
+             section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 
 $PAR
