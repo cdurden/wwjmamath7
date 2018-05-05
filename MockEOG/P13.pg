@@ -112,6 +112,7 @@ $ansNum = 3;
 if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 0) {
 $text .= $terms_text;
 }
+}
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"1: Devise a plan to relate the retail price to the manufacturer price",
