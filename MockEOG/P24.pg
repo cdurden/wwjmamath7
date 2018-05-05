@@ -119,7 +119,7 @@ DISPLAY_SECTION( { name=>"$section: Evaluate the expression using the given data
 },   <<'END_SECTION');
 
 $PAR
-Use the data from the problem to determine the values of \(s \) and \( b\), and \( expr \).
+Use the data from the problem to determine the values of \(s \) and \( b\), and \( $expr \).
 
 $PAR
 \( s = \) \{SECTION_ANS($s->cmp),$s->ans_rule()\}
