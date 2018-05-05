@@ -145,7 +145,7 @@ $section = 0;
 #  Section
 ##############
 $section += 1;
-@nextRequireCorrect = 2..$ansNum;
+@nextRequireCorrect = $ansNum;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Eliminate parentheses in the expression by expanding",
