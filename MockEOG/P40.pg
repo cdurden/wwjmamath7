@@ -164,6 +164,7 @@ END_SECTION
 #  Section
 ##############
 $section += 1;
+@requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = $nextRequireCorrect[0]..$ansNum;
 
 Context()->texStrings;
