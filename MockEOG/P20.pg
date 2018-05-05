@@ -86,7 +86,7 @@ $choice1 = RadioButtons(
     "Set up a proportion",
     labels => "ABC" );
 $choice1_hash = $choice1->cmp()->evaluate(
-    $inputs_ref->{ANS_NUM_TO_NAME(9)} );
+    $inputs_ref->{ANS_NUM_TO_NAME(4)} );
 $choice1_checker = sub {
     my ($correct,$student,$ansHash) = @_;
     return (1);
@@ -213,8 +213,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Find how much money Anna has left",
-             canshow =>$scaffold->requireCorrect(2..9),
-             iscorrect=>$scaffold->requireCorrect(10),
+             canshow =>$scaffold->requireCorrect(2..4),
+             iscorrect=>$scaffold->requireCorrect(5),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
