@@ -236,8 +236,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Write an expression for the retail price",
-             canshow =>$scaffold->requireCorrect(2..3), #always true
-             iscorrect=>$scaffold->requireCorrect(4),
+             canshow =>$scaffold->requireCorrect(2..4), #always true
+             iscorrect=>$scaffold->requireCorrect(5),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 
@@ -273,8 +273,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Describe the method for finding ${P1}% of the manufacturer price",
-             canshow =>$scaffold->requireCorrect(2..4),
-             iscorrect=>$scaffold->requireCorrect(5),
+             canshow =>$scaffold->requireCorrect(2..3),
+             iscorrect=>$scaffold->requireCorrect(4..5),
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 
@@ -306,8 +306,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Write an expression for the retail price",
-             canshow =>$scaffold->requireCorrect(2..3), #always true
-             iscorrect=>$scaffold->requireCorrect(4),
+             canshow =>$scaffold->requireCorrect(2..5), #always true
+             iscorrect=>$scaffold->requireCorrect(6),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 
@@ -341,11 +341,17 @@ END_SOLUTION
 ##############
 #  Section 4
 ##############
+if ($choice1_hash->{student_ans} eq 'A') {
+  $requireCorrect = 2..4
+} else {
+  $requireCorrect = 2..5
+}
+$nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Devise a plan to represent the markdown",
-             canshow =>1, #always true
-             iscorrect=>$scaffold->requireCorrect(2..3),
+             canshow =>$scaffold->requireCorrect(requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(nextRequireCorrect),
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 
@@ -363,16 +369,17 @@ $PAR
 
 END_SECTION
 
-
+$requireCorrect = $nextRequireCorrect
 if ($choice2_hash->{student_ans} eq 'A') {
 ##############
 #  Section 5
 ##############
+$nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Set up a proportion to relate the final price to the retail price",
-             canshow =>$scaffold->requireCorrect(2..3), #always true
-             iscorrect=>$scaffold->requireCorrect(4),
+             canshow =>$scaffold->requireCorrect(requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(nextRequireCorrect),
              section=>5 #designates that this is the first section
 },   <<'END_SECTION');
 
@@ -425,10 +432,13 @@ END_SOLUTION
 #  Section 6
 ##############
 
+$nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
-             canshow =>$scaffold->requireCorrect(2..3), #always true
-             iscorrect=>$scaffold->requireCorrect(4),
+             canshow =>$scaffold->requireCorrect(requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(nextRequireCorrect),
+             #canshow =>$scaffold->requireCorrect(2..3), #always true
+             #iscorrect=>$scaffold->requireCorrect(4),
              section=>6 #designates that this is the first section
 },   <<'END_SECTION');
 
@@ -471,11 +481,14 @@ END_SOLUTION
 ##############
 #  Section 5
 ##############
+$nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Describe the method for finding ${P2}% of the manufacturer price",
-             canshow =>$scaffold->requireCorrect(2..4),
-             iscorrect=>$scaffold->requireCorrect(5),
+             canshow =>$scaffold->requireCorrect(requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(nextRequireCorrect),
+             #canshow =>$scaffold->requireCorrect(2..4),
+             #iscorrect=>$scaffold->requireCorrect(5),
              section=>5 #designates that this is the first section
 },   <<'END_SECTION');
 
@@ -503,12 +516,14 @@ END_SOLUTION
 ##############
 #  Section 6
 ##############
-
+$nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
-             canshow =>$scaffold->requireCorrect(2..3), #always true
-             iscorrect=>$scaffold->requireCorrect(4),
+             canshow =>$scaffold->requireCorrect(requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(nextRequireCorrect),
+             #canshow =>$scaffold->requireCorrect(2..3), #always true
+             #iscorrect=>$scaffold->requireCorrect(4),
              section=>6 #designates that this is the first section
 },   <<'END_SECTION');
 
