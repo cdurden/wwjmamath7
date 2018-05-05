@@ -75,13 +75,6 @@ DISPLAY_SECTION( { name=>"$section: Determine what fraction of the guests brough
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
-$PAR
-We determine how many guests brought chips, we need to find
-\{SECTION_ANS($popup1->cmp), $popup1->menu() \}
-$PAR
-To find a fraction of a number:
-\{SECTION_ANS($popup2->cmp), $popup2->menu() \}.
-$PAR
 What fraction of the guests brought chips?
 $PAR
 \{SECTION_ANS($frac->cmp),$frac->ans_rule()\}
@@ -110,6 +103,12 @@ DISPLAY_SECTION( { name=>"$section: Solve the problem",
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
+$PAR
+To determine how many guests brought chips, we need to find
+\{SECTION_ANS($popup1->cmp), $popup1->menu() \}
+$PAR
+To find a fraction of a number:
+\{SECTION_ANS($popup2->cmp), $popup2->menu() \}.
 $PAR
 How many guests brought chips?
 $PAR
