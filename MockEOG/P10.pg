@@ -340,13 +340,13 @@ END_SOLUTION
 #  Section 4
 ##############
 if ($choice1_hash->{student_ans} eq 'A') {
-  @requireCorrect = 2..8
-  $choice2_hash = $choice1->cmp()->evaluate(
+  @requireCorrect = 2..8;
+  $choice2_hash = $choice2->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(10)} );
 } else {
-  $choice2_hash = $choice1->cmp()->evaluate(
+  $choice2_hash = $choice2->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(8)} );
-  @requireCorrect = 2..6
+  @requireCorrect = 2..6;
 }
 @nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
 
