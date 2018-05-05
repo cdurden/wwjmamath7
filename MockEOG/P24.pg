@@ -63,31 +63,76 @@ $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
+@nextRequireCorrect = [2];
+$section = 0;
 ##############
-#  Section 1
+#  Section
 ##############
-
-
-@requireCorrect = [2];
+$section += 1;
 @requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"1: Write an expression for the amount of money Evan earns",
+DISPLAY_SECTION( { name=>"$section: Write an expression for the amount of money Evan earns",
              canshow =>1, #always true
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-             section=>1 #designates that this is the first section
+             section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
 $PAR
-Write an expression that can be used to find the amount of money that Evan earns the number of 15-minute intervals that he picks strawberries is \( s \) and the number of 15-minute intervals that he picks blueberries is \( b \).
+Suppose the number of 15-minute intervals that Evan picks strawberries is \( s \) and the number of 15-minute intervals that he picks blueberries is \( b \).
+Write an expression, in terms of \( s \) and \( b \) that can be used to find the amount of money that Evan earns.
 
+$PAR
 \{SECTION_ANS($expr->cmp),$expr->ans_rule()\}
 
 
 END_SECTION
 
-SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>$section},<<'END_SOLUTION');
+$PAR
+The proportion that we found in the last section was:
+$PAR
+\( \frac{${P1}}{100} = \frac{ $part1 }{ $base_amount1 } \).
+$PAR
+To solve for \( $part1 \), ${BBOLD}multiply both sides${EBOLD} of the equation by \( m \).
+$PAR
+\( \frac{${P1}}{100} \cdot $base_amount1 = \frac{ $part1 }{ $base_amount1 } \cdot $base_amount1 \).
+$PAR
+When we multiply the right hand side by \( $base_amount1 \), it undoes the division by \( $base_amount1 \), and only \( $part1 \) is left there:
+$PAR
+\( \frac{${P1}}{100} \cdot $base_amount1 = $part1 \).
+END_SOLUTION
+
+##############
+#  Section
+##############
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Evaluate the expression using the given data",
+             canshow =>1, #always true
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Use the data from the problem to determine the values of \(s \) and \( b\), and \( expr \).
+
+$PAR
+\( s = \) \{SECTION_ANS($s->cmp),$s->ans_rule()\}
+
+$PAR
+\( b = \) \{SECTION_ANS($b->cmp),$b->ans_rule()\}
+
+$PAR
+\( $expr = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
+
+END_SECTION
+
+SECTION_SOLUTION({section=>$section},<<'END_SOLUTION');
 $PAR
 The proportion that we found in the last section was:
 $PAR
