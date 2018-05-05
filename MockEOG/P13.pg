@@ -104,9 +104,9 @@ END_TEXT
 ##############
 $final_eval_text = <<'END_TEXT';
 $PAR 
-Evaluate \( 2 \cdot $inputs_ref->{ANS_NUM_TO_NAME($ansNum)} \):
+Evaluate \( 2 \cdot $outer_paren)} \):
 $PAR
-\( 2  \cdot $inputs_ref->{ANS_NUM_TO_NAME($ansNum)} = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\} 
+\( 2  \cdot $outer_paren = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\} 
 
 END_TEXT
 
