@@ -49,7 +49,7 @@ $num2b = Formula("$P2");
 $den2b = Formula("100");
 $r = Formula("$percent1*m");
 $f1 = Formula("$percent2*r");
-$f2 = Formula("$percent2*percent1*m");
+$f2 = Formula("$percent2*$percent1*m");
 Context("ImplicitEquation");
 #$prop_eqn = Compute("x/$subtotal = $percent");
 Context()->variables->set(m=>{limits=>[0,50]},r=>{limits=>[0,50]},f=>{limits=>[0,50]});
