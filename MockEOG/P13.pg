@@ -157,7 +157,7 @@ TEXT(beginproblem());
 ##############
 
 $outer_paren_text = "test";
-if ($ans->cmp()->evaluate() == 1) {
+if ($outer_paren->cmp()->evaluate() == 1) {
   $outer_paren_text = <<'END_TEXT';
 $PAR 
 Replace \( 4^2 + (\frac{1}{2})^2 \) by the value that you found in part a:
