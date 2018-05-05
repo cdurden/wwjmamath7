@@ -372,11 +372,12 @@ $PAR
 END_SECTION
 
 @requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+2;
+
 if ($choice2_hash->{student_ans} eq 'A') {
 ##############
 #  Section 5
 ##############
-@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Set up a proportion to relate the final price to the retail price",
@@ -483,7 +484,6 @@ END_SOLUTION
 ##############
 #  Section 5
 ##############
-@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Describe the method for finding ${P2}% of the manufacturer price",
