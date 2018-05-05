@@ -197,6 +197,8 @@ $PAR
   indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
   );
 \}
+$PAR
+ \(${percent1} \text{ of } $savings = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
 
 
 END_SECTION
@@ -222,7 +224,7 @@ What is \( ${P1}% \) as a fraction or decimal? \{SECTION_ANS($percent1->cmp),$pe
 $PAR
 Thus, to find a  \( ${P1}% \) of ${DOLLAR}\( $savings \) quickly, we can \{SECTION_ANS($popup4->cmp), $popup4->menu() \} our subtotal ${DOLLAR}\($savings\) by \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}.
 $PAR
- \(${percent1} \cdot $savings = \) \{SECTION_ANS($saleprice1->cmp),$saleprice1->ans_rule()\}
+ \(${percent1} \text{ of } $savings = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
 
 END_SECTION
 
