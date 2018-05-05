@@ -96,7 +96,7 @@ END_SECTION
 
 SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
 $PAR
-To find \( ${P}% \) commission on \( ${sales} \) in sales, we can ${BBOLD}multiply${EBOLD} the value of goods sold $sales by \( $percent1 \).
+To find \( ${P}% \) commission on $\( ${sales} \) in sales, we can ${BBOLD}multiply${EBOLD} the value of goods sold $\( $sales \) by \( $percent1 \).
 
 
 END_SOLUTION
