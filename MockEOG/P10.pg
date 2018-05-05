@@ -236,8 +236,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Write an expression for the retail price",
-             canshow =>$scaffold->requireCorrect(2..4), #always true
-             iscorrect=>$scaffold->requireCorrect(5),
+             canshow =>$scaffold->requireCorrect(2..7), #always true
+             iscorrect=>$scaffold->requireCorrect(8),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 
@@ -342,9 +342,9 @@ END_SOLUTION
 #  Section 4
 ##############
 if ($choice1_hash->{student_ans} eq 'A') {
-  @requireCorrect = 2..7
+  @requireCorrect = 2..8
 } else {
-  @requireCorrect = 2..5
+  @requireCorrect = 2..6
 }
 @nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
 
