@@ -212,7 +212,7 @@ $PAR
 \( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
 
 $PAR
-The part is the retail price \( $part1 \), which is \( ${P1} \)% of the whole \( $base_amount1 \) (representing the manufacturer price). Substituting \( $part1 \) for the part, \( ${P1} \) for the %, and \( $base_amount1 \) for the whole gives us the proportion:
+The part is the retail price \( $part1 \), which is \( ${P1} \)% of the whole \( $base_amount1 \) (the manufacturer price):
 
 $PAR
 \( \frac{${P1}}{100} = \frac{ $part1 }{ $base_amount1 } \).
