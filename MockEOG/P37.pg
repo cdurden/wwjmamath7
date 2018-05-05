@@ -12,6 +12,7 @@ loadMacros(
 "parserMultiAnswer.pl",
 "contextPercent.pl",
 "contextCurrency.pl",
+"contextFraction.pl",
 "niceTables.pl",
 );
 
@@ -28,8 +29,9 @@ $ans_desc = "difference between the sale prices of the two stores";
 #Context("ImplicitEquation");
 Context()->variables->add(s=>"Real",b=>"Real");
 #Context()->variables->set(m=>{limits=>[0,50]},r=>{limits=>[0,50]},f=>{limits=>[0,50]});
-Context("LimitedNumeric-StrictFraction");
+#Context("LimitedNumeric-StrictFraction");
 #Context("LimitedNumeric-Fraction");
+Context("LimitedFraction");
 $total = Compute("518");
 $frac1 = Compute("12/100");
 $frac2 = Compute("1/10");
