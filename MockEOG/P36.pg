@@ -167,7 +167,7 @@ if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score
   if($inputs_ref->{ANS_NUM_TO_NAME($ansNum)} and $inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)}) {
     $text1 .= $terms1_text . $terms2_text;
   }
-  $ansNum += 1;
+  $ansNum += 2;
   if ($term11->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $term12->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1 &&
   $term21->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+2)})->{score} == 1 && $term22->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+3)})->{score} == 1) {
     $text1 .= $terms1_to_expand_text . $terms2_to_expand_text;
