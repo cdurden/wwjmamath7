@@ -188,7 +188,7 @@ To find the total after $\( $subtotal2 \) is marked down by \( $markdown2 \)%, w
 $PAR
 Choose a method for finding this percent:
 $PAR
-\{SECTION_ANS($choice1->cmp(checker => $choice1_checker), $choice1->buttons() \}
+\{SECTION_ANS($choice1->cmp(checker => $choice1_checker)), $choice1->buttons() \}
 
 END_SECTION
 
