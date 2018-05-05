@@ -272,7 +272,7 @@ END_SOLUTION
 ##############
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"2: Describe the method for finding ${P1}% of the manufacturer price",
+DISPLAY_SECTION( { name=>"2: Describe the procedure for finding ${P1}% of the manufacturer price",
              canshow =>$scaffold->requireCorrect(2..3),
              iscorrect=>$scaffold->requireCorrect(4..5),
              section=>2 #designates that this is the first section
@@ -314,10 +314,10 @@ DISPLAY_SECTION( { name=>"3: Write an expression for the retail price",
 $PAR
 Let \( m \) stand for the manufacturer price.
 $PAR
-Write an expression, in terms of \( m \), to represent the procedure that was outlined in the last section for finding \( $P1\)% of the manufacturer price.
+Using this variable, write an expression to represent your procedure for finding \( $P1\)% of the manufacturer price.
 
 $PAR
-\( r = \) \{SECTION_ANS($r->cmp),$r->ans_rule()\}
+Expression for the retail price in terms of \(m \): \{SECTION_ANS($r->cmp),$r->ans_rule()\}
 
 END_SECTION
 
@@ -402,7 +402,7 @@ DISPLAY_SECTION( { name=>"5: Set up a proportion to relate the final price to th
 
 Let \( r \) stand for the retail price. 
 $PAR
-Let \( f\) stand for the retail price.
+Let \( f\) stand for the final price.
 $PAR
 Set up a proportion that represents the fact that  \( f\) is \( $P2 \)% of \( r \). 
 
@@ -493,7 +493,7 @@ END_SOLUTION
 @nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+2;
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"5: Describe the method for finding ${P2}% of the manufacturer price",
+DISPLAY_SECTION( { name=>"5: Describe the procedure for finding ${P2}% of the manufacturer price",
              canshow =>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              #canshow =>$scaffold->requireCorrect(2..4),
@@ -538,22 +538,24 @@ DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
 },   <<'END_SECTION');
 
 $PAR
-Let the variable \( r \) stand for the retail price.
+In the last section, you outlined a procedure for finding the retail price.
 $PAR
-Write an expression, in terms of \( r \), to represent the procedure that was outlined in the last section for finding \( $P2\)% of the retail price.
+Let \( r \) stand for the retail price.
 
-$PAR
-\( f = \) \{SECTION_ANS($f1->cmp),$f1->ans_rule()\}
-
-$PAR
-In section 4, you found an expression for the retail price \( r\) in terms of \( m \). 
-
-In the expression that you just found for \( f \), replace \( r \) by the expression that you found.
-
- You should then obtain an expression for the final price \( f \), in terms of \( m \).
+Using this variable, write an expression to represent your procedure for finding \( $P2\)% of the retail price.
 
 $PAR
-\( f = \) \{SECTION_ANS($f2->cmp),$f2->ans_rule()\}
+Expression for the final price in terms of \( r \): \{SECTION_ANS($f1->cmp),$f1->ans_rule()\}
+
+$PAR
+In section 4, you found an expression for the retail price in terms of \( m \). 
+
+In the expression that you just found for the final price, replace \( r \) by the expression that you found for the retail price.
+
+ You should then obtain an expression for the final price, in terms of \( m \).
+
+$PAR
+Expression for the final price in terms of \( m \): \{SECTION_ANS($f2->cmp),$f2->ans_rule()\}
 
 
 END_SECTION
@@ -563,9 +565,9 @@ $PAR
 The $part2_desc is \( ${P2}% \) of the $base_amount2_desc.
 
 $PAR
-To find \( $part2 \), we multiply the $base_amount2_desc \( $base_amount2 \) by \( $percent2 \). In other words:
+To find the $part2_desc, we multiply the $base_amount2_desc \( $base_amount2 \) by \( $percent2 \). The expression that represents this is 
 $PAR
-\( f = ${percent2} \cdot r \).
+\( ${percent2} \cdot r \).
 
 END_SOLUTION
 
