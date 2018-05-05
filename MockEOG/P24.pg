@@ -34,7 +34,7 @@ Context()->variables->add(s=>"Real",b=>"Real");
 #Context()->variables->set(m=>{limits=>[0,50]},r=>{limits=>[0,50]},f=>{limits=>[0,50]});
 $expr = Formula("2s+2.4b");
 $s = Compute('4');
-$s = Compute('3');
+$b = Compute('3');
 $ans = Compute("2$s+2.4$b");
 
 BEGIN_TEXT
