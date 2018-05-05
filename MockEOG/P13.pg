@@ -74,7 +74,8 @@ if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{sco
 $outer_paren_text = <<"END_TEXT";
 $PAR 
 Replace \( 4^2 + (\frac{1}{2})^2 \) by the value that you found in part a:
-\( 2 \left(4^2 + \left(\frac{1}{2}\right)^2 \right) = \)  \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
+$PAR
+\( 2 \left(4^2 + \left(\frac{1}{2}\right)^2 \right) = \)  $ans->ans_rule()
 
 END_TEXT
 } else {
