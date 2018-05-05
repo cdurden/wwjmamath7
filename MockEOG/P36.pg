@@ -170,7 +170,7 @@ if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score
   $ansNum += 1;
   if ($term11->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $term12->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1 &&
   $term21->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+2)})->{score} == 1 && $term22->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+3)})->{score} == 1) {
-    $text .= $terms1_to_expand_text . $terms2_to_expand_text;
+    $text1 .= $terms1_to_expand_text . $terms2_to_expand_text;
     $text1 .= $expand_text;
     $ansNum += 4;
     if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
