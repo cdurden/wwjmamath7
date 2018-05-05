@@ -71,7 +71,7 @@ $choice1 = RadioButtons(
     "Set up a proportion",
     labels => "ABC" );
 $choice1_hash = $choice1->cmp()->evaluate(
-    $inputs_ref->{ANS_NUM_TO_NAME(7)} );
+    $inputs_ref->{ANS_NUM_TO_NAME(9)} );
 
 
 BEGIN_TEXT
@@ -158,7 +158,7 @@ END_SOLUTION
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Express the sale prices as percents of the regular prices",
              canshow =>$scaffold->requireCorrect(2..4),
-             iscorrect=>$scaffold->requireCorrect(5..7),
+             iscorrect=>$scaffold->requireCorrect(5..9),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -167,6 +167,7 @@ $PAR
 To find the total after $\( $subtotal2 \) is marked down by \( $markdown2 \)%, we need to find \{SECTION_ANS($P2->cmp), $P2->ans_rule(5)\}% of \{SECTION_ANS($subtotal2->cmp), $subtotal2->ans_rule()\}.
 $PAR
 Choose a method for finding this percent:
+$PAR
 \{SECTION_ANS($choice1->cmp), $choice1->buttons() \}
 
 END_SECTION
@@ -183,8 +184,8 @@ if (1) {
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Set up proportion",
-             canshow =>$scaffold->requireCorrect(2..7),
-             iscorrect=>$scaffold->requireCorrect(8),
+             canshow =>$scaffold->requireCorrect(2..9),
+             iscorrect=>$scaffold->requireCorrect(10),
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -232,8 +233,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Reflect on your reasoning (How to find a percent of a number quickly)",
-             canshow =>$scaffold->requireCorrect(2..7),
-             iscorrect=>$scaffold->requireCorrect(8),
+             canshow =>$scaffold->requireCorrect(2..9),
+             iscorrect=>$scaffold->requireCorrect(10),
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -295,8 +296,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Solve the problem",
-             canshow =>$scaffold->requireCorrect(2..8),
-             iscorrect=>$scaffold->requireCorrect(9),
+             canshow =>$scaffold->requireCorrect(2..10),
+             iscorrect=>$scaffold->requireCorrect(11),
              section=>5 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
