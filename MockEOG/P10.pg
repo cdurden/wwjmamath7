@@ -94,8 +94,8 @@ $multiansb = MultiAnswer($num1b, $den1b, $num2b, $den2b)->with(
   }
 );
 $choice1 = RadioButtons(
-    [ "Set up a proportion to relate the prices and then solve", "Convert the percent to a fraction or decimal and multiply it by the manufacturer price" ],
-    "Set up a proportion to relate the prices and then solve",
+    [ "Set up a proportion to relate the prices", "Convert the percent to a fraction or decimal and multiply it by the manufacturer price" ],
+    "Set up a proportion to relate the prices",
     labels => "ABC" );
 $choice1_checker = sub {
     my ($correct,$student,$ansHash) = @_;
@@ -350,8 +350,8 @@ $nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Devise a plan to represent the markdown",
-             canshow =>$scaffold->requireCorrect(requireCorrect),
-             iscorrect=>$scaffold->requireCorrect(nextRequireCorrect),
+             canshow =>$scaffold->requireCorrect($requireCorrect),
+             iscorrect=>$scaffold->requireCorrect($nextRequireCorrect),
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 
@@ -378,8 +378,8 @@ $nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Set up a proportion to relate the final price to the retail price",
-             canshow =>$scaffold->requireCorrect(requireCorrect),
-             iscorrect=>$scaffold->requireCorrect(nextRequireCorrect),
+             canshow =>$scaffold->requireCorrect($requireCorrect),
+             iscorrect=>$scaffold->requireCorrect($nextRequireCorrect),
              section=>5 #designates that this is the first section
 },   <<'END_SECTION');
 
@@ -435,8 +435,8 @@ END_SOLUTION
 $nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
-             canshow =>$scaffold->requireCorrect(requireCorrect),
-             iscorrect=>$scaffold->requireCorrect(nextRequireCorrect),
+             canshow =>$scaffold->requireCorrect($requireCorrect),
+             iscorrect=>$scaffold->requireCorrect($nextRequireCorrect),
              #canshow =>$scaffold->requireCorrect(2..3), #always true
              #iscorrect=>$scaffold->requireCorrect(4),
              section=>6 #designates that this is the first section
@@ -485,8 +485,8 @@ $nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Describe the method for finding ${P2}% of the manufacturer price",
-             canshow =>$scaffold->requireCorrect(requireCorrect),
-             iscorrect=>$scaffold->requireCorrect(nextRequireCorrect),
+             canshow =>$scaffold->requireCorrect($requireCorrect),
+             iscorrect=>$scaffold->requireCorrect($nextRequireCorrect),
              #canshow =>$scaffold->requireCorrect(2..4),
              #iscorrect=>$scaffold->requireCorrect(5),
              section=>5 #designates that this is the first section
@@ -520,8 +520,8 @@ $nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
-             canshow =>$scaffold->requireCorrect(requireCorrect),
-             iscorrect=>$scaffold->requireCorrect(nextRequireCorrect),
+             canshow =>$scaffold->requireCorrect($requireCorrect),
+             iscorrect=>$scaffold->requireCorrect($nextRequireCorrect),
              #canshow =>$scaffold->requireCorrect(2..3), #always true
              #iscorrect=>$scaffold->requireCorrect(4),
              section=>6 #designates that this is the first section
