@@ -176,6 +176,7 @@ DISPLAY_SECTION( { name=>"$section: Combine like terms",
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
+@nextRequireCorrect
 $PAR
 We have rewritten \( $expanded + $expr2 \) without parentheses.
 $PAR
