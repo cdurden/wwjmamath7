@@ -53,6 +53,7 @@ $saleprice2 = Compute("$subtotal2*$percent1");
 Context("LimitedNumeric-StrictFraction");
 $percent_frac1 = Compute("$P1/100");
 $percent_frac2 = Compute("$P2/100");
+$ans = Compute("$saleprice1-$saleprice2");
 #$percent = Compute('1.06');
 $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
   singleResult => 0,
