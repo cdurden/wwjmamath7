@@ -32,7 +32,7 @@ $popup4 = PopUp(["?", "multiply the manufacturer price by this number", "divide 
 #Context("ImplicitEquation");
 Context()->variables->add(s=>"Real",b=>"Real");
 #Context()->variables->set(m=>{limits=>[0,50]},r=>{limits=>[0,50]},f=>{limits=>[0,50]});
-$expr = ImplicitEquation("2s+2.4b");
+$expr = Formula("2s+2.4b");
 
 BEGIN_TEXT
 $PAR
