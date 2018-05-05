@@ -34,6 +34,19 @@ $popup1 = PopUp(["?", "sale prices", "discounts"], "sale prices");
 $popup2 = PopUp(["?", "sum", "difference", "product", "quotient"], "difference");
 $popup3 = PopUp(["?", "markup", "markdown", "percent"], "markdown");
 $popup4 = PopUp(["?", "multiply", "divide"], "multiply");
+$num1a = Formula("x");
+$den1a = Formula("24.95");
+$num2a = Formula("$P1");
+$den2a = Formula("100");
+$num1b = Formula("y");
+$den1b = Formula("25.80");
+$num2b = Formula("$P2");
+$den2b = Formula("100");
+Context("ImplicitEquation");
+#$prop_eqn = Compute("x/$subtotal = $percent");
+Context()->variables->set(x=>{limits=>[0,50]});
+$prop_eqna = ImplicitEquation("x/$den1a = $num2a/$den2a");
+$prop_eqnb = ImplicitEquation("x/$den1b = $num2b/$den2b");
 Context("LimitedPercent-strict");
 $percent1 = Compute("1+$markdown1/100");
 $percent2 = Compute("1+$markdown2/100");
@@ -82,9 +95,9 @@ $PAR
 Two sporting goods stores are having discount sales on basketballs.
 
 $PAR
-At one store, a basketball is on sale for 20% off the regular price of $24.95
-At the other store, the same kind of basketball is on sale for 25% off the regular price of $25.80.
-$PA$
+At one store, a basketball is on sale for 20% off the regular price of ${DOLLAR}24.95
+At the other store, the same kind of basketball is on sale for 25% off the regular price of ${DOLLAR}25.80.
+$PAR
 What is the difference between the sale prices of the two stores?
 
 END_TEXT
