@@ -39,8 +39,11 @@ $popup2 = PopUp(["?", "find 25% of this amount", "find 75% of this amount"], "fi
 $popup3 = PopUp(["?", "markup", "markdown", "percent"], "markdown");
 $popup4 = PopUp(["?", "multiply", "divide"], "multiply");
 Context()->variables->add(r=>"Real",m=>"Real",f=>"Real");
-$num1a = Formula("r");
-$den1a = Formula("m");
+$var_r = "r";
+$var_m = "m";
+$var_f = "f";
+$num1a = $var_r;
+$den1a = $var_m;
 $num2a = Formula("140");
 $den2a = Formula("100");
 $num1b = Formula("f");
