@@ -168,7 +168,6 @@ END_TEXT
 
 }
 
-$outer_paren_text = "test";
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"1: Devise a plan to relate the retail price to the manufacturer price",
              canshow =>1, #always true
