@@ -27,8 +27,8 @@ Context("Currency");
 $subtotal1 = Compute('24.95');
 $subtotal2 = Compute('25.80');
 Context("Numeric");
-$markdown1 = Compute('0.20');
-$markdown2 = Compute('0.25');
+$markdown1 = Compute('20');
+$markdown2 = Compute('25');
 $ans_desc = "difference between the sale prices of the two stores";
 $popup1 = PopUp(["?", "sale prices", "discounts"], "sale prices");
 $popup2 = PopUp(["?", "sum", "difference", "product", "quotient"], "difference");
@@ -43,11 +43,11 @@ Context("ImplicitEquation");
 Context()->variables->set(x=>{limits=>[0,50]});
 $prop_eqn = ImplicitEquation("x/24.90 = 1.06");
 Context("LimitedPercent-strict");
-$percent1 = Compute("1+$markdown1");
-$percent2 = Compute("1+$markdown1");
+$percent1 = Compute("1+$markdown1/100");
+$percent2 = Compute("1+$markdown2/100");
 Context("Numeric");
-$P1 = Compute("$percent1*100");
-$P2 = Compute("$percent2*100");
+$P1 = Compute("100-$markdown1");
+$P2 = Compute("100-$markdown2");
 $saleprice1 = Compute("$subtotal1*$percent1");
 $saleprice2 = Compute("$subtotal2*$percent2");
 $ans = Compute("$saleprice1-$saleprice2");
@@ -67,8 +67,8 @@ $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
   }
 );
 $choice1 = RadioButtons(
-    [ "Define a variable and set up an equation", "" ],
-    "Define a variable and set up an equation",
+    [ "Set up a proportion", "Convert the percent to a fraction or decimal and multiply it by the regular price" ],
+    "Set up a proportion",
     labels => "ABC" );
 $choice1_hash = $choice1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(2)} );
@@ -162,9 +162,9 @@ DISPLAY_SECTION( { name=>"3: Express the sale prices as percents of the regular 
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-To find the total after $\( $subtotal1 \) is marked down by \( $P1 \)%, we need to find \{SECTION_ANS($P1->cmp), $P1->ans_rule(5)\}% of \{SECTION_ANS($subtotal1->cmp), $subtotal1->ans_rule()\}.
+To find the total after $\( $subtotal1 \) is marked down by \( $markdown1 \)%, we need to find \{SECTION_ANS($P1->cmp), $P1->ans_rule(5)\}% of \{SECTION_ANS($subtotal1->cmp), $subtotal1->ans_rule()\}.
 $PAR
-To find the total after $\( $subtotal2 \) is marked down by \( $P2 \)%, we need to find \{SECTION_ANS($P2->cmp), $P2->ans_rule(5)\}% of \{SECTION_ANS($subtotal2->cmp), $subtotal2->ans_rule()\}.
+To find the total after $\( $subtotal2 \) is marked down by \( $markdown2 \)%, we need to find \{SECTION_ANS($P2->cmp), $P2->ans_rule(5)\}% of \{SECTION_ANS($subtotal2->cmp), $subtotal2->ans_rule()\}.
 $PAR
 Choose a method for finding this percent:
 \{SECTION_ANS($choice1->cmp), $choice1->buttons() \}
