@@ -1,0 +1,137 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+#$cp = new compoundProblem(
+#  parts => 2,                  # the total number of parts in this problem
+#  totalAnswers => 3,           # total answers in all parts combined
+#  parserValues => 1,           # make parser objects from student answers
+#  allowReset => $isProfessor,  # professors get Reset button for testing
+#);
+Context("Currency");
+$ans_desc = "difference between the sale prices of the two stores";
+$popup1 = PopUp(["?", "1/3 of 24", "1/4 of 24", "5/12 of 24"], "5/12 of 24");
+$popup2 = PopUp(["?", "multiply the number by the fraction", "divide the number by the fraction"], "multiply the number by the fraction");
+#Context("ImplicitEquation");
+Context()->variables->add(s=>"Real",b=>"Real");
+#Context()->variables->set(m=>{limits=>[0,50]},r=>{limits=>[0,50]},f=>{limits=>[0,50]});
+$frac = Compute("1-1/3-1/4");
+$total = Compute("24");
+$ans = Compute("$total*$frac");
+
+BEGIN_TEXT
+Mr. Adams had 24 guests at his house for a party.  Each guest brought one item.
+
+One-third of the guests brought drinks.
+One-fourth of the guests brought a dessert.
+The rest of the guests brought chips.
+How many guests brought chips?
+
+$PAR
+\{ $ans->ans_rule() \}
+END_TEXT
+
+ANS( $ans->cmp() );
+
+#if ($part == 2) {
+
+#BEGIN_TEXT
+#$PAR
+#${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+#
+#END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+$section = 0;
+##############
+#  Section
+##############
+$section += 1;
+@nextRequireCorrect = 2;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Determine what fraction of the guests brought chips",
+             canshow =>1, #always true
+             #canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+We determine how many guests brought chips, we need to find
+\{SECTION_ANS($popup1->cmp), $popup1->menu() \}
+$PAR
+To find a fraction of a number:
+\{SECTION_ANS($popup2->cmp), $popup2->menu() \}.
+$PAR
+What fraction of the guests brought chips?
+$PAR
+\{SECTION_ANS($frac->cmp),$frac->ans_rule()\}
+
+
+END_SECTION
+
+SECTION_SOLUTION({section=>$section},<<'END_SOLUTION');
+The fraction of the guests who brought chips is
+$PAR
+\( 1 - \frac{1}{3} - \frac{1}{4}  = \frac{12}{12} - \frac{4}{12} - \frac{3}{12} = \frac{5}{12} \)
+END_SOLUTION
+
+##############
+#  Section
+##############
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Solve the problem",
+#             canshow =>1, #always true
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+How many guests brought chips?
+$PAR
+\{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
+
+END_SECTION
+
+SECTION_SOLUTION({section=>$section},<<'END_SOLUTION');
+$PAR
+\( \frac{5}{12} \text{ of } 24 \) guests brought chips. This is
+$PAR
+\( \frac{5}{12} \cdot 24 = $ans \)
+END_SOLUTION
+
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+#}
+ENDDOCUMENT();
