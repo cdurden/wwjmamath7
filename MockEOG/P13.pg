@@ -100,6 +100,7 @@ Evaluate the terms inside the parentheses:
 \( 4^2 = \) \{SECTION_ANS($expr3->cmp),$expr3->ans_rule()\}
 \( (\frac{1}{2})^2 = \) \{SECTION_ANS($expr4->cmp),$expr4->ans_rule()\}
 END_TEXT
+}
 } else {
 $outer_paren_text = "";
 }
