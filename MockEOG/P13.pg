@@ -28,98 +28,13 @@ Context("Numeric");
 $expr1 = Compute("2(4^2+(1/2)^2)");
 $expr2 = Compute("(4^2+(1/2)^2)");
 $outer_paren = $expr2;
-$markup1 = Compute('40');
-$markdown2 = Compute('25');
-#Context("LimitedPercent-strict");
-Context("Numeric");
-$percent1 = Compute("1+$markup1/100");
-$percent2 = Compute("1-$markdown2/100");
-$percent = Compute("$percent2*$percent1");
-$markup = Compute("$percent*100-100");
-$ans = Compute("$percent2*$percent1");
-Context("Numeric");
-$P1 = Compute("100+$markup1");
-$P2 = Compute("100-$markdown2");
-$P = Compute("100+$markup");
-$ans_desc = "difference between the sale prices of the two stores";
 $popup1 = PopUp(["?", "Evaluate the expression inside the outer set of parentheses", "Multiply);
 $popup2 = PopUp(["?", "multiply the manufacturer price by this number", "divide the manufacturer price by this number", "multiply the retail price by this number", "divide the retail price by this number"], "multiply the manufacturer price by this number");
 $popup3 = PopUp(["?", "25% of the retail price", "125% of the retail price", "75% of the retail price"], "75% of the retail price");
 $popup4 = PopUp(["?", "multiply the manufacturer price by this number", "divide the manufacturer price by this number", "multiply the retail price by this number", "divide the retail price by this number"], "multiply the retail price by this number");
-Context()->variables->add(r=>"Real",m=>"Real",f=>"Real");
-$base_amount1_desc = 'manufacturer price';
-$base_amount1 = 'm';
-$part1 = 'r';
-$part1_desc = 'retail price';
-$base_amount2_desc = $part1_desc;
-$base_amount2 = 'r';
-$part2 = 'f';
-$part2_desc = 'final price';
-$num1a = Formula("r");
-$den1a = Formula("m");
-$num2a = Formula("$P1");
-$den2a = Formula("100");
-$num1b = Formula("f");
-$den1b = Formula("r");
-$num2b = Formula("$P2");
-$den2b = Formula("100");
-$r = Formula("$percent1*m");
-$f1 = Formula("$percent2*r");
-$f2 = Formula("$percent2*$percent1*m");
-Context("ImplicitEquation");
-#$prop_eqn = Compute("x/$subtotal = $percent");
-Context()->variables->add(r=>"Real",m=>"Real",f=>"Real");
-Context()->variables->set(m=>{limits=>[0,50]},r=>{limits=>[0,50]},f=>{limits=>[0,50]});
-#$prop_eqna = ImplicitEquation("r = 1.4 m");
-#$prop_eqnb = ImplicitEquation("f = $P2/100 r");
-$prop_eqna = ImplicitEquation("$num1a*$den2a = $num2a*$den1a");
-$prop_eqnb = ImplicitEquation("$num1b*$den2b = $num2b*$den1b");
-Context("LimitedNumeric-StrictFraction");
-$percent_frac1 = Compute("$P1/100");
-#$percent = Compute('1.06');
-$multiansa = MultiAnswer($num1a, $den1a, $num2a, $den2a)->with(
-  singleResult => 0,
-  allowBlankAnswers => 1,
-  checker => sub {
-      my ( $correct, $student, $self ) = @_;
-      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
-      my ( $n1, $d1, $n2, $d2 ) = @{$correct};
-      $eqn_ans_hash = $prop_eqna->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
-      return($eqn_ans_hash->{score});
-  }
-);
-$multiansb = MultiAnswer($num1b, $den1b, $num2b, $den2b)->with(
-  singleResult => 0,
-  allowBlankAnswers => 1,
-  checker => sub {
-      my ( $correct, $student, $self ) = @_;
-      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
-      my ( $n1, $d1, $n2, $d2 ) = @{$correct};
-      $eqn_ans_hash = $prop_eqnb->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
-      return($eqn_ans_hash->{score});
-  }
-);
-$choice1 = RadioButtons(
-    [ "Set up a proportion to relate the prices", "Convert the percent to a fraction or decimal and multiply it by the manufacturer price" ],
-    "Set up a proportion to relate the prices",
-    labels => "ABC" );
-$choice1_checker = sub {
-    my ($correct,$student,$ansHash) = @_;
-    return (1);
-    #return (($student->value eq 'A' or $student->value eq 'B') ? 1 : 0);
-};
-$choice1_hash = $choice1->cmp()->evaluate(
-    $inputs_ref->{ANS_NUM_TO_NAME(3)} );
-$choice2 = $choice1;
-$choice2_checker = $choice1_checker;
-
 
 BEGIN_TEXT
 $PAR
-A store sells ladders.
-The retail price was a 40 percent markup over the manufacturer price.
-A month later, the store reduced the retail price of the ladder by 25 percent.
-What percent markup is the new retail price over the manufacturer price?
 
 END_TEXT
 
