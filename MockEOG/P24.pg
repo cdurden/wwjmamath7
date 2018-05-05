@@ -63,14 +63,12 @@ $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
-@nextRequireCorrect = [2];
 $section = 0;
 ##############
 #  Section
 ##############
 $section += 1;
-@requireCorrect = @nextRequireCorrect;
-@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
+@nextRequireCorrect = [2];
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Write an expression for the amount of money Evan earns",
