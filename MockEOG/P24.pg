@@ -68,7 +68,7 @@ $section = 0;
 #  Section
 ##############
 $section += 1;
-@nextRequireCorrect = [2];
+@nextRequireCorrect = 2;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Write an expression for the amount of money Evan earns",
