@@ -27,6 +27,8 @@ Context("Currency");
 Context("Numeric");
 $expr1 = Compute("2(4^2+(1/2)^2)");
 $expr2 = Compute("(4^2+(1/2)^2)");
+$expr3 = Compute("4^2");
+$expr4 = Compute("(1/2)^2");
 $outer_paren = $expr2;
 $ans = $expr1;
 
@@ -88,9 +90,18 @@ $PAR
 
 END_TEXT
 
-}
 } else {
-$outer_paren_text = "test".$inputs_ref->{ANS_NUM_TO_NAME($ansNum)}. $outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)});
+
+$PAR
+$exponents_text = <<'END_TEXT';
+$PAR 
+
+Evaluate the terms inside the parentheses:
+\( 4^2 = \) \{SECTION_ANS($expr3->cmp),$expr3->ans_rule()\}
+\( (\frac{1}{2})^2 = \) \{SECTION_ANS($expr4->cmp),$expr4->ans_rule()\}
+END_TEXT
+} else {
+$outer_paren_text = "";
 }
 
 Context()->texStrings;
