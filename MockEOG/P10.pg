@@ -279,7 +279,8 @@ DISPLAY_SECTION( { name=>"2: Describe the procedure for finding the retail price
 },   <<'END_SECTION');
 
 $PAR
-${BBOLD}If we knew the manufacturer price${EBOLD}, we would find the retail price by calculating \( $P1\)% of the manufacturer price ${BBOLD}.
+${BBOLD}If we knew the manufacturer price${EBOLD}, we would find the retail price by calculating \( $P1\)% of the manufacturer price.
+$PAR
 How ${BBOLD}would${EBOLD} we do this?
 $PAR
 First, express \( ${P1}% \) as a fraction or decimal: \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}
@@ -503,7 +504,8 @@ DISPLAY_SECTION( { name=>"5: Describe the procedure for finding the final price 
 },   <<'END_SECTION');
 
 $PAR
-${BBOLD}If we knew the retail price${EBOLD}, we would find the final price by calculating \( $P2\)% of the retail price ${BBOLD}.
+${BBOLD}If we knew the retail price${EBOLD}, we would find the final price by calculating \( $P2\)% of the retail price.
+$PAR
 How ${BBOLD}would${EBOLD} we do this?
 $PAR
 First, express \( ${P2}% \) as a fraction or decimal: \{SECTION_ANS($percent2->cmp),$percent2->ans_rule()\}
