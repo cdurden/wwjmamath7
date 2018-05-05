@@ -1,0 +1,254 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+#$cp = new compoundProblem(
+#  parts => 2,                  # the total number of parts in this problem
+#  totalAnswers => 3,           # total answers in all parts combined
+#  parserValues => 1,           # make parser objects from student answers
+#  allowReset => $isProfessor,  # professors get Reset button for testing
+#);
+Context("Currency");
+$savings = Compute('50');
+$subtotal2 = Compute('25.80');
+Context("Numeric");
+$markdown1 = Compute('75');
+$markdown2 = Compute('25');
+Context("LimitedPercent-strict");
+$percent1 = Compute("1-$markdown1/100");
+$percent2 = Compute("1-$markdown2/100");
+Context("Numeric");
+$P1 = Compute("100-$markdown1");
+$P2 = Compute("100-$markdown2");
+$ans = Compute("$savings*$percent1");
+$ans_desc = "difference between the sale prices of the two stores";
+$popup1 = PopUp(["?", "how much Anna had saved", "How much the computer cost"], "how much Anna had saved");
+$popup2 = PopUp(["?", "find 25% of this amount", "find 75% of this amount"], "find 25% of this amount");
+$popup3 = PopUp(["?", "markup", "markdown", "percent"], "markdown");
+$popup4 = PopUp(["?", "multiply", "divide"], "multiply");
+Context()->variables->add(y=>"Real");
+$num1a = Formula("x");
+$den1a = Formula("24.95");
+$num2a = Formula("$P1");
+$den2a = Formula("100");
+$num1b = Formula("y");
+$den1b = Formula("25.80");
+$num2b = Formula("$P2");
+$den2b = Formula("100");
+Context("ImplicitEquation");
+#$prop_eqn = Compute("x/$subtotal = $percent");
+Context()->variables->set(x=>{limits=>[0,50]},y=>{limits=>[0,50]});
+$prop_eqna = ImplicitEquation("x/$den1a = $num2a/$den2a");
+$prop_eqnb = ImplicitEquation("y/$den1b = $num2b/$den2b");
+Context("LimitedNumeric-StrictFraction");
+$percent_frac1 = Compute("$P1/100");
+$percent_frac2 = Compute("$P2/100");
+#$percent = Compute('1.06');
+$multiansa = MultiAnswer($num1a, $den1a, $num2a, $den2a)->with(
+  singleResult => 0,
+  allowBlankAnswers => 1,
+  checker => sub {
+      my ( $correct, $student, $self ) = @_;
+      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
+      my ( $n1, $d1, $n2, $d2 ) = @{$correct};
+      $eqn_ans_hash = $prop_eqna->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
+      return($eqn_ans_hash->{score});
+  }
+);
+$multiansb = MultiAnswer($num1b, $den1b, $num2b, $den2b)->with(
+  singleResult => 0,
+  allowBlankAnswers => 1,
+  checker => sub {
+      my ( $correct, $student, $self ) = @_;
+      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
+      my ( $n1, $d1, $n2, $d2 ) = @{$correct};
+      $eqn_ans_hash = $prop_eqnb->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
+      return($eqn_ans_hash->{score});
+  }
+);
+$choice1 = RadioButtons(
+    [ "Set up a proportion", "Convert the percent to a fraction or decimal and multiply it by the regular price" ],
+    "Set up a proportion",
+    labels => "ABC" );
+$choice1_hash = $choice1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(9)} );
+$choice1_checker = sub {
+    my ($correct,$student,$ansHash) = @_;
+    return (1);
+    #return (($student->value eq 'A' or $student->value eq 'B') ? 1 : 0);
+};
+
+BEGIN_TEXT
+$PAR
+Anna saved $20 in a jar each month for \(2 \frac{1}{2} \) years. She spent 75% of her savings on a computer. How much money did Anna have left in the jar?
+
+END_TEXT
+
+$ans_hash = $ans->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+#if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
+#  $cp->incrementPart();
+#}
+
+#$part = $cp->part();
+
+
+BEGIN_TEXT
+$PAR
+\{ $ans->ans_rule() \}
+END_TEXT
+
+ANS( $ans->cmp() );
+
+#if ($part == 2) {
+
+BEGIN_TEXT
+$PAR
+${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+
+END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+##############
+#  Section 1
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"1: Devise a plan",
+             canshow =>1, #always true
+             iscorrect=>$scaffold->requireCorrect(2..3),
+             section=>1 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+The question asks us how much money Anna had left. To solve the problem completely, we can find \{SECTION_ANS($popup1->cmp), $popup1->menu() \} and then \{SECTION_ANS($popup2->cmp), $popup2->menu() \}.
+
+Which method would you like to use to find this percent?
+$PAR
+\{SECTION_ANS($choice1->cmp(checker => $choice1_checker)), $choice1->buttons() \}
+
+END_SECTION
+
+##############
+#  Section 2
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"2: How much did Anna have saved before she bought the computer?",
+             canshow =>$scaffold->requireCorrect(2..3), #always true
+             iscorrect=>$scaffold->requireCorrect(4),
+             section=>2 #designates that this is the first section
+},   <<'END_SECTION');
+How much did Anna have in savings before she bought the computer?
+
+$PAR
+\{SECTION_ANS($savings->cmp), $savings->ans_rule() \}
+
+END_SECTION
+
+SECTION_SOLUTION({section=>1},<<'END_SOLUTION');
+$PAR
+END_SOLUTION
+
+if ($choice1_hash->{student_ans} eq 'A') {
+##############
+#  Section 3a
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"3: Set up a proportion to find how much money Anna has left",
+             canshow =>$scaffold->requireCorrect(2..4),
+             iscorrect=>$scaffold->requireCorrect(5),
+             section=>3 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Choice: $choice1_hash->{student_ans}
+$PAR
+Let \( x\) stand for the amount of money Anna has after buying the computer, which is \( $P1 \)% of $DOLLAR\( $savings \). Set up a proportion that can be used to find \( x \).
+
+Hint: \( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
+
+$PAR
+\{SECTION_ANS($multiansa->cmp),
+  LayoutTable(
+  [
+  [$multiansa->ans_rule(8).$BR.$HR.$multiansa->ans_rule(8),
+  "=",
+  $multiansa->ans_rule(8).$BR.$HR.$multiansa->ans_rule(8)]
+  ],
+  indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
+  );
+\}
+
+
+END_SECTION
+
+SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+$PAR
+END_SOLUTION
+
+} else {
+
+##############
+#  Section 3
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"3: Find how much money Anna has left",
+             canshow =>$scaffold->requireCorrect(2..9),
+             iscorrect=>$scaffold->requireCorrect(10),
+             section=>3 #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+What is \( ${P1}% \) as a fraction or decimal? \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}
+$PAR
+Thus, to find a  \( ${P1}% \) of ${DOLLAR}\( $savings \) quickly, we can \{SECTION_ANS($popup4->cmp), $popup4->menu() \} our subtotal ${DOLLAR}\($savings\) by \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}.
+$PAR
+ \(${percent1} \cdot $savings = \) \{SECTION_ANS($saleprice1->cmp),$saleprice1->ans_rule()\}
+
+END_SECTION
+
+SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
+$PAR
+What is \( ${P}% \) as a fraction?
+\( ${P}% \) as a fraction is \( \frac{$P}{100} \).
+$PAR
+What is \( ${P}% \) as a decimal?
+\( ${P}% \) as a decimal is \( $percent \).
+$PAR
+Thus, to find a \( ${P}% \) of \( $subtotal \) quickly, we can ${BBOLD}multiply${EBOLD} our subtotal \( $subtotal \) by \( $percent \).
+END_SOLUTION
+
+
+}
+
+
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+#}
+ENDDOCUMENT();
