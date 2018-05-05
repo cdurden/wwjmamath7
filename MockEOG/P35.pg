@@ -17,12 +17,12 @@ loadMacros(
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 
-$cp = new compoundProblem(
-  parts => 2,                  # the total number of parts in this problem
-  totalAnswers => 3,           # total answers in all parts combined
-  parserValues => 1,           # make parser objects from student answers
-  allowReset => $isProfessor,  # professors get Reset button for testing
-);
+#$cp = new compoundProblem(
+#  parts => 2,                  # the total number of parts in this problem
+#  totalAnswers => 3,           # total answers in all parts combined
+#  parserValues => 1,           # make parser objects from student answers
+#  allowReset => $isProfessor,  # professors get Reset button for testing
+#);
 Context("Currency");
 $subtotal1 = Compute('24.95');
 $subtotal2 = Compute('25.80');
@@ -110,11 +110,11 @@ END_TEXT
 $ans_hash = $ans->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
-if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
-  $cp->incrementPart();
-}
+#if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
+#  $cp->incrementPart();
+#}
 
-$part = $cp->part();
+#$part = $cp->part();
 
 
 BEGIN_TEXT
@@ -124,7 +124,7 @@ END_TEXT
 
 ANS( $ans->cmp() );
 
-if ($part == 2) {
+#if ($part == 2) {
 
 BEGIN_TEXT
 $PAR
@@ -402,5 +402,5 @@ $opensection = $last_correct_section + 1;
 $scaffold->openSections(1..$opensection);
 
 
-}
+#}
 ENDDOCUMENT();
