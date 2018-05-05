@@ -1,0 +1,172 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+"contextLimitedPolynomial.pl"
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+#$cp = new compoundProblem(
+#  parts => 2,                  # the total number of parts in this problem
+#  totalAnswers => 3,           # total answers in all parts combined
+#  parserValues => 1,           # make parser objects from student answers
+#  allowReset => $isProfessor,  # professors get Reset button for testing
+#);
+Context("Currency");
+Context("Numeric");
+$expr1 = Formula("2(x-3)");
+$expr2 = Formula("4x+3");
+$expr = Compute("$expr1+$expr2");
+Context("LimitedPolynomial-Strict");
+$term1 = Compute("2x)");
+$term2 = Compute("-6)");
+$expanded = Compute("2x-6");
+$ans = Compute("6x");
+
+BEGIN_TEXT
+$PAR
+What is the value of \(2( 4^2 + (\frac{1}{2})^2) \)?
+
+END_TEXT
+
+$ans_hash = $ans->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+#if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
+#  $cp->incrementPart();
+#}
+
+#$part = $cp->part();
+
+
+BEGIN_TEXT
+$PAR
+\{ $ans->ans_rule() \}
+END_TEXT
+
+ANS( $ans->cmp() );
+
+#if ($part == 2) {
+
+#BEGIN_TEXT
+#$PAR
+#${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+#
+#END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+#########################
+# Responsive text logic
+#########################
+$ansNum = 2;
+
+##############
+$terms_text = <<'END_TEXT';
+$PAR
+
+${BBOLD}
+Find each of the terms in the expanded form of \( $expr1 \):
+${EBOLD}
+$PAR
+\( 2\cdot x= \) \{SECTION_ANS($term1->cmp),$term1->ans_rule()\}
+$PAR
+\( 2 \cdot 3 = \) \{SECTION_ANS($term2->cmp),$term2->ans_rule()\}
+
+END_TEXT
+
+##############
+$replace_paren_text = <<'END_TEXT';
+$PAR 
+Replace \( $expr1 \) by the expanded form of the expression:
+$PAR
+\( $expr = \{SECTION_ANS($expanded->cmp),$expanded->ans_rule()\} \( + $expr2 \) 
+
+END_TEXT
+
+##############
+$expand_text = <<'END_TEXT';
+$PAR 
+
+Expand \( $expr1 \):
+
+END_TEXT
+
+###############
+
+$ansNum = 2;
+$text = $expand_text;
+if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+  $text .= $replace_paren_text;
+  $ansNum += 1;
+} else {
+  $text .= $terms_text;
+  $ansNum += 1;
+  if ($expr3->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expr4->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
+    $text .= $terms_to_outer_paren_text;
+    $text .= $outer_paren_text;
+    $ansNum += 2;
+    if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+      $text .= $replace_outer_paren_text;
+      $ansNum += 1;
+      if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+        $ansNum += 1;
+        $text .= $final_eval_text;
+      }
+    }
+#  } else {
+#     if ($expr3->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 0) {
+#       $text .= $square1_text;
+#     }
+#     if ($expr4->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 0) {
+#       $text .= $square2_text;
+#     }
+  }
+}
+
+
+$section = 0;
+##############
+#  Section
+##############
+$section += 1;
+@nextRequireCorrect = 2;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Eliminate parentheses in the expression by expanding",
+             canshow =>1, #always true
+             #canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+\{EV3($text1);\}
+
+
+END_SECTION
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+#}
+ENDDOCUMENT();
