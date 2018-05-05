@@ -36,7 +36,7 @@ Context("Numeric");
 $P1 = Compute("100+$markup1");
 $P2 = Compute("100-$markdown2");
 $ans_desc = "difference between the sale prices of the two stores";
-$popup1 = PopUp(["?", "how much Anna had saved", "How much the computer cost"], "how much Anna had saved");
+$popup1 = PopUp(["?", "40% of the manufacturer price", "60% of the manufacturer price"], "40% of the manufacturer price");
 $popup2 = PopUp(["?", "find 25% of this amount", "find 75% of this amount"], "find 25% of this amount");
 $popup3 = PopUp(["?", "markup", "markdown", "percent"], "markdown");
 $popup4 = PopUp(["?", "multiply", "divide"], "multiply");
@@ -154,6 +154,7 @@ We are told that the price was first marked up by \( $markup1 \)%. What is the r
 $PAR
 The retail price is \{SECTION_ANS($popup1->cmp), $popup1->menu() \}.
 
+$PAR
 Which method would you like to use to find this percent?
 $PAR
 \{SECTION_ANS($choice1->cmp(checker => $choice1_checker)), $choice1->buttons() \}
