@@ -85,7 +85,7 @@ ${EBOLD}
 $PAR
 \( 2\cdot x= \) \{SECTION_ANS($term1->cmp),$term1->ans_rule()\}
 $PAR
-\( 2 \cdot 3 = \) \{SECTION_ANS($term2->cmp),$term2->ans_rule()\}
+\( 2 \cdot (-3) = \) \{SECTION_ANS($term2->cmp),$term2->ans_rule()\}
 
 END_TEXT
 
