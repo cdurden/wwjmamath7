@@ -71,18 +71,9 @@ TEXT(beginproblem());
 #  Section 1
 ##############
 
-$terms_text = '';
 $ansNum = 2;
-if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
-$outer_paren_text = <<'END_TEXT';
-$PAR 
-Replace \( 4^2 + (\frac{1}{2})^2 \) by the value that you found in part a:
-$PAR
-\( 2 \left(4^2 + \left(\frac{1}{2}\right)^2 \right) = 2 \cdot \) \{SECTION_ANS($outer_paren->cmp),$outer_paren->ans_rule()\} 
 
-END_TEXT
-$ansNum = 3;
-if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+#############
 $outer_paren_text .= <<'END_TEXT';
 $PAR 
 Evaluate \( 2 \cdot $inputs_ref->{ANS_NUM_TO_NAME($ansNum)} \):
@@ -91,8 +82,16 @@ $PAR
 
 END_TEXT
 
-} else {
+##############
+$replace_outer_paren_text = <<'END_TEXT';
+$PAR 
+Replace \( 4^2 + (\frac{1}{2})^2 \) by the value that you found in part a:
+$PAR
+\( 2 \left(4^2 + \left(\frac{1}{2}\right)^2 \right) = 2 \cdot \) \{SECTION_ANS($outer_paren->cmp),$outer_paren->ans_rule()\} 
 
+END_TEXT
+
+##############
 $terms_text = <<'END_TEXT';
 $PAR 
 
@@ -100,9 +99,15 @@ Evaluate the terms inside the parentheses:
 \( 4^2 = \) \{SECTION_ANS($expr3->cmp),$expr3->ans_rule()\}
 \( (\frac{1}{2})^2 = \) \{SECTION_ANS($expr4->cmp),$expr4->ans_rule()\}
 END_TEXT
-}
-} else {
-$outer_paren_text = "";
+
+###############
+
+$text = $outer_paren_text;
+if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+$text .= $replace_outer_paren_text;
+$ansNum = 3;
+if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 0) {
+$text .= $terms_text;
 }
 
 Context()->texStrings;
