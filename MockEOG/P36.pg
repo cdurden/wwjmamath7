@@ -140,13 +140,22 @@ END_TEXT
 
 
 ##############
-$expand_text = <<'END_TEXT';
+$expand1_text = <<'END_TEXT';
 $PAR 
 
-Expand \( $expr1 \) and \( $expr2 \)
+Expand \( $expr1 \)
 
 $PAR
 \( $expr1 = \) \{SECTION_ANS($expanded1->cmp),$expanded1->ans_rule()\} 
+
+END_TEXT
+
+##############
+$expand2_text = <<'END_TEXT';
+$PAR 
+
+Expand \( $expr2 \)
+
 $PAR
 \( $expr2 = \) \{SECTION_ANS($expanded2->cmp),$expanded2->ans_rule()\} 
 
@@ -170,8 +179,10 @@ if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score
   $ansNum += 2;
   if ($term11->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $term12->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1 &&
   $term21->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+2)})->{score} == 1 && $term22->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+3)})->{score} == 1) {
-    $text1 .= $terms1_to_expand_text . $terms2_to_expand_text;
-    $text1 .= $expand_text;
+    $text1 .= $expand1_text;
+    $text1 .= $terms1_to_expand_text;
+    $text1 .= $expand2_text;
+    $text1 .= $terms2_to_expand_text;
     $ansNum += 4;
     if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
       $text1 .= $replace_paren_text;
