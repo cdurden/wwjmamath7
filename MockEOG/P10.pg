@@ -90,7 +90,7 @@ $choice1 = RadioButtons(
     "Set up a proportion",
     labels => "ABC" );
 $choice1_hash = $choice1->cmp()->evaluate(
-    $inputs_ref->{ANS_NUM_TO_NAME(4)} );
+    $inputs_ref->{ANS_NUM_TO_NAME(3)} );
 $choice1_checker = sub {
     my ($correct,$student,$ansHash) = @_;
     return (1);
@@ -222,14 +222,14 @@ END_SOLUTION
 } else {
 
 ##############
-#  Section 3
+#  Section 2
 ##############
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"3: Find how much money Anna has left",
-             canshow =>$scaffold->requireCorrect(2..4),
-             iscorrect=>$scaffold->requireCorrect(5),
-             section=>3 #designates that this is the first section
+DISPLAY_SECTION( { name=>"2: Find how much money Anna has left",
+             canshow =>$scaffold->requireCorrect(2..3),
+             iscorrect=>$scaffold->requireCorrect(4),
+             section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
 What is \( ${P1}% \) as a fraction or decimal? \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}
@@ -240,7 +240,7 @@ $PAR
 
 END_SECTION
 
-SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
 $PAR
 What is \( ${P1}% \) as a fraction?
 \( ${P1}% \) as a fraction is \( \frac{$P}{100} \).
