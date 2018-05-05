@@ -164,7 +164,7 @@ END_SECTION
 #  Section
 ##############
 $section += 1;
-@nextRequireCorrect = nextRequireCorrect[0]..$ansNum;
+@nextRequireCorrect = $nextRequireCorrect[0]..$ansNum;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Combine like terms",
