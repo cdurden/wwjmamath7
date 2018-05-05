@@ -37,6 +37,7 @@ $ans = Compute("$percent2*$percent1");
 Context("Numeric");
 $P1 = Compute("100+$markup1");
 $P2 = Compute("100-$markdown2");
+$P = Compute("100+$markup");
 $ans_desc = "difference between the sale prices of the two stores";
 $popup1 = PopUp(["?", "40% of the manufacturer price", "60% of the manufacturer price", "140% of the manufacturer price", "160% of the manufacturer price"], "140% of the manufacturer price");
 $popup2 = PopUp(["?", "multiply the manufacturer price by this number", "divide the manufacturer price by this number", "multiply the retail price by this number", "divide the retail price by this number"], "multiply the manufacturer price by this number");
@@ -588,7 +589,7 @@ DISPLAY_SECTION( { name=>"7: Answer the question",
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              #canshow =>$scaffold->requireCorrect(2..3), #always true
              #iscorrect=>$scaffold->requireCorrect(4),
-             section=>6 #designates that this is the first section
+             section=>7 #designates that this is the first section
 },   <<'END_SECTION');
 
 $PAR
@@ -608,14 +609,13 @@ $PAR
 
 END_SECTION
 
-SECTION_SOLUTION({section=>5},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>7},<<'END_SOLUTION');
 $PAR
-The $part2_desc is \( ${P2}% \) of the $base_amount2_desc.
-
+We had to multiply by \( $percent1 \) and then by \( $percent 2 \). This is the same as multiplying by \( $percent1 \cdot $\percent2 = $percent \).
 $PAR
-To find the $part2_desc, we multiply the $base_amount2_desc \( $base_amount2 \) by \( $percent2 \). The expression that represents this is 
+\($percent \) as a percent is \( $P% \).
 $PAR
-\( ${percent2} \cdot r \).
+The markup is \( $P% - 100% = ${markup}% \).
 
 END_SOLUTION
 
