@@ -170,8 +170,8 @@ $section += 1;
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Combine like terms",
              #canshow =>1, #always true
-             #canshow =>$scaffold->requireCorrect(@requireCorrect),
-             canshow=>$done_expanding,
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             #canshow=>$done_expanding,
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
