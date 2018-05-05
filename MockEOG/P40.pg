@@ -116,25 +116,18 @@ if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score}
 } else {
   $text .= $terms_text;
   $ansNum += 1;
-  if ($expr3->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expr4->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
-    $text .= $terms_to_outer_paren_text;
-    $text .= $outer_paren_text;
+  if ($term1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $term2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
+    #$text .= $terms_to_outer_paren_text;
+    $text .= $expand_text;
     $ansNum += 2;
-    if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
-      $text .= $replace_outer_paren_text;
+    if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+      $text .= $replace_paren_text;
       $ansNum += 1;
-      if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
-        $ansNum += 1;
-        $text .= $final_eval_text;
-      }
+      #if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+      #  $ansNum += 1;
+      #  $text .= $final_eval_text;
+      #}
     }
-#  } else {
-#     if ($expr3->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 0) {
-#       $text .= $square1_text;
-#     }
-#     if ($expr4->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 0) {
-#       $text .= $square2_text;
-#     }
   }
 }
 
