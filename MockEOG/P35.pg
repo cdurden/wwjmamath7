@@ -187,10 +187,11 @@ To find the total after $\( $subtotal1 \) is marked down by \( $markdown1 \)%, w
 $PAR
 To find the total after $\( $subtotal2 \) is marked down by \( $markdown2 \)%, we need to find \{SECTION_ANS($P2->cmp), $P2->ans_rule(5)\}% of \{SECTION_ANS($subtotal2->cmp), $subtotal2->ans_rule()\}.
 $PAR
-Choose a method for finding this percent:
+Which method would you like to use to find this percent?
 $PAR
 \{SECTION_ANS($choice1->cmp(checker => $choice1_checker)), $choice1->buttons() \}
 
+$BR
 END_SECTION
 
 SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
