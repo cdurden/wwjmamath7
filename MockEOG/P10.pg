@@ -161,13 +161,13 @@ DISPLAY_SECTION( { name=>"1: Devise a plan to relate the retail price to the man
 },   <<'END_SECTION');
 
 $PAR
-We are told that the price was first marked up by \( $markup1 \)%. What is the retail price as a percent of the manufacturer price?
+The price was first marked up by \( $markup1 \)%. What was the retail price as a percent of the manufacturer price?
 
 $PAR
-The retail price is \{SECTION_ANS($popup1->cmp), $popup1->menu() \}.
+The retail price was \{SECTION_ANS($popup1->cmp), $popup1->menu() \}.
 
 $PAR
-Which method would you like to use to relate the retail price to the manufacturer price?
+Which method would you like to use to set up this percent problem?
 $PAR
 \{SECTION_ANS($choice1->cmp(checker => $choice1_checker)), $choice1->buttons() \}
 
@@ -328,7 +328,7 @@ END_SECTION
 
 SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
 $PAR
-The retail price is \( ${P1}% \) of the manufacturer price.
+The retail price was \( ${P1}% \) of the manufacturer price.
 
 $PAR
 To find \( r\), we multiply the manufacturer price \( m \) by \( $percent1 \). In other words:
@@ -366,13 +366,13 @@ DISPLAY_SECTION( { name=>"4: Devise a plan to represent the markdown",
 },   <<'END_SECTION');
 
 $PAR
-We are told that the retail price was marked down by \( $markdown2 \)%. What is the final price as a percent of the retail price?
+The retail price was marked down by \( $markdown2 \)%. What was the final price as a percent of the retail price?
 
 $PAR
-The final price is \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
+The final price was \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
 
 $PAR
-Which method would you like to use to relate the final price to the retail price?
+Which method would you like to use to set up this percent problem?
 $PAR
 \{SECTION_ANS($choice2->cmp(checker => $choice2_checker)), $choice2->buttons() \}
 
