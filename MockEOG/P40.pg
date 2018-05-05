@@ -155,6 +155,30 @@ $PAR
 
 
 END_SECTION
+##############
+#  Section
+##############
+$section += 1;
+@nextRequireCorrect = 2;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Combine like terms",
+             canshow =>1, #always true
+             #canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+We have rewritten \( $expanded + $expr2 \) without parentheses.
+$PAR
+Next, simplify the expression by combining like terms
+$PAR
+\( $expanded + $expr2 = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
+
+
+END_SECTION
+
 
 PROCESS_ANSWERS();
 
