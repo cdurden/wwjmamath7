@@ -119,7 +119,7 @@ $PAR
 To find a fraction of a number:
 \{SECTION_ANS($popup2->cmp), $popup2->menu() \}.
 $PAR
-How many guests brought chips?
+How much does Karen have for food?
 $PAR
 \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
 
