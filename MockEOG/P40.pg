@@ -31,7 +31,7 @@ $expr2 = Formula("4x+3");
 $expr = Compute("$expr1+$expr2");
 Context("LimitedPolynomial-Strict");
 $term1 = Compute("2x");
-$term2 = Compute("-6)");
+$term2 = Compute("-6");
 $expanded = Compute("2x-6");
 $ans = Compute("6x");
 
