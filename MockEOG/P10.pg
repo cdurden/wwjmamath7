@@ -346,7 +346,7 @@ if ($choice1_hash->{student_ans} eq 'A') {
 } else {
   @requireCorrect = 2..5
 }
-@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
+@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Devise a plan to represent the markdown",
@@ -369,12 +369,12 @@ $PAR
 
 END_SECTION
 
-$requireCorrect = $nextRequireCorrect
+$requireCorrect = $nextRequireCorrect;
 if ($choice2_hash->{student_ans} eq 'A') {
 ##############
 #  Section 5
 ##############
-@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
+@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Set up a proportion to relate the final price to the retail price",
@@ -432,7 +432,7 @@ END_SOLUTION
 #  Section 6
 ##############
 
-@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
+@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
              canshow =>$scaffold->requireCorrect($requireCorrect),
@@ -481,7 +481,7 @@ END_SOLUTION
 ##############
 #  Section 5
 ##############
-@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
+@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Describe the method for finding ${P2}% of the manufacturer price",
@@ -516,7 +516,7 @@ END_SOLUTION
 ##############
 #  Section 6
 ##############
-@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1
+@nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
