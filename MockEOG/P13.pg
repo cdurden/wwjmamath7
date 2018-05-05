@@ -78,7 +78,7 @@ Replace \( 4^2 + (\frac{1}{2})^2 \) by the value that you found in part a:
 
 END_TEXT
 } else {
-$outer_paren_text = "test";
+$outer_paren_text = "test".ANS_NUM_TO_NAME($ansNum)};
 }
 
 Context()->texStrings;
@@ -90,6 +90,7 @@ DISPLAY_SECTION( { name=>"1: Devise a plan to relate the retail price to the man
 $PAR
 What is the value of \( 4^2 + (\frac{1}{2})^2 \)?  \{SECTION_ANS($outer_paren->cmp),$outer_paren->ans_rule()\}
 
+$PAR
 $outer_paren_text
 
 
