@@ -94,7 +94,7 @@ $replace_paren_text = <<'END_TEXT';
 $PAR 
 Replace \( $expr1 \) by the expanded form of the expression:
 $PAR
-\( $expr = \{SECTION_ANS($expanded->cmp),$expanded->ans_rule()\} \( + $expr2 \) 
+\( $expr = \) \{SECTION_ANS($expanded->cmp),$expanded->ans_rule()\} \( + $expr2 \) 
 
 END_TEXT
 
@@ -103,6 +103,7 @@ $expand_text = <<'END_TEXT';
 $PAR 
 
 Expand \( $expr1 \):
+\( $expr1 = \) \{SECTION_ANS($expanded->cmp),$expanded->ans_rule()\} 
 
 END_TEXT
 
