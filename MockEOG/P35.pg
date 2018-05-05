@@ -71,7 +71,7 @@ $choice1 = RadioButtons(
     "Set up a proportion",
     labels => "ABC" );
 $choice1_hash = $choice1->cmp()->evaluate(
-    $inputs_ref->{ANS_NUM_TO_NAME(2)} );
+    $inputs_ref->{ANS_NUM_TO_NAME(7)} );
 
 
 BEGIN_TEXT
