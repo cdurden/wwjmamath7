@@ -91,7 +91,8 @@ $choice1_hash = $choice1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(9)} );
 $choice1_checker = sub {
     my ($correct,$student,$ansHash) = @_;
-    return (($student->value eq 'A' or $student->value eq 'B') ? 1 : 0);
+    return (1);
+    #return (($student->value eq 'A' or $student->value eq 'B') ? 1 : 0);
 };
 
 BEGIN_TEXT
