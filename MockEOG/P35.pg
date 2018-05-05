@@ -89,7 +89,10 @@ $choice1 = RadioButtons(
     labels => "ABC" );
 $choice1_hash = $choice1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(9)} );
-
+$choice1_checker = sub {
+    my ($correct,$student,$ansHash) = @_;
+    return (($student->value eq 'A' or $student->value eq 'B') ? 1 : 0);
+};
 
 BEGIN_TEXT
 $PAR
@@ -185,7 +188,7 @@ To find the total after $\( $subtotal2 \) is marked down by \( $markdown2 \)%, w
 $PAR
 Choose a method for finding this percent:
 $PAR
-\{SECTION_ANS($choice1->cmp), $choice1->buttons() \}
+\{SECTION_ANS($choice1->cmp(checker => $choice1_checker), $choice1->buttons() \}
 
 END_SECTION
 
@@ -262,7 +265,7 @@ END_SOLUTION
 ##############
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"4: Reflect on your reasoning (How to find a percent of a number quickly)",
+DISPLAY_SECTION( { name=>"4: Find the sale prices",
              canshow =>$scaffold->requireCorrect(2..9),
              iscorrect=>$scaffold->requireCorrect(10),
              section=>4 #designates that this is the first section
