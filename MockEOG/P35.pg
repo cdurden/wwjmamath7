@@ -162,9 +162,9 @@ DISPLAY_SECTION( { name=>"3: Express the sale prices as percents of the regular 
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-To find the total after $\( $subtotal1 \) is marked down by \( $P1 \}%, we need to find \{SECTION_ANS($P1->cmp), $P1->ans_rule(5)\}% of \{SECTION_ANS($subtotal1->cmp), $subtotal1->ans_rule()\}.
+To find the total after $\( $subtotal1 \) is marked down by \( $P1 \)%, we need to find \{SECTION_ANS($P1->cmp), $P1->ans_rule(5)\}% of \{SECTION_ANS($subtotal1->cmp), $subtotal1->ans_rule()\}.
 $PAR
-To find the total after $\( $subtotal2 \) is marked down by \( $P2 \}%, we need to find \{SECTION_ANS($P2->cmp), $P2->ans_rule(5)\}% of \{SECTION_ANS($subtotal2->cmp), $subtotal2->ans_rule()\}.
+To find the total after $\( $subtotal2 \) is marked down by \( $P2 \)%, we need to find \{SECTION_ANS($P2->cmp), $P2->ans_rule(5)\}% of \{SECTION_ANS($subtotal2->cmp), $subtotal2->ans_rule()\}.
 $PAR
 Choose a method for finding this percent:
 \{SECTION_ANS($choice1->cmp), $choice1->buttons() \}
