@@ -102,6 +102,13 @@ $PAR
 END_TEXT
 
 ##############
+$terms_to_outer_paren_text = <<'END_TEXT';
+$PAR 
+To evaluate \( ( 4^2 + (\frac{1}{2})^2 ) \), we need to add these two terms.
+
+END_TEXT
+
+##############
 $final_eval_text = <<'END_TEXT';
 $PAR 
 Evaluate \( 2 \cdot $outer_paren \):
@@ -125,6 +132,7 @@ if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{sco
   $text .= $terms_text;
   $ansNum += 1;
   if ($expr3->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expr4->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
+    $text .= $terms_to_outer_paren_text;
     $text .= $outer_paren_text;
     $ansNum += 2;
     if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
