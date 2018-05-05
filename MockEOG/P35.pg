@@ -30,8 +30,8 @@ Context("Numeric");
 $markdown1 = Compute('20');
 $markdown2 = Compute('25');
 Context("LimitedPercent-strict");
-$percent1 = Compute("1+$markdown1/100");
-$percent2 = Compute("1+$markdown2/100");
+$percent1 = Compute("1-$markdown1/100");
+$percent2 = Compute("1-$markdown2/100");
 Context("Numeric");
 $P1 = Compute("100-$markdown1");
 $P2 = Compute("100-$markdown2");
@@ -274,14 +274,14 @@ DISPLAY_SECTION( { name=>"4: Find the sale prices",
 $PAR
 What is \( ${P1}% \) as a fraction or decimal? \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}
 $PAR
-Thus, to find a  \( ${P1}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup2->cmp), $popup2->menu() \} our subtotal $subtotal by \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}.
+Thus, to find a  \( ${P1}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup4->cmp), $popup4->menu() \} our subtotal $subtotal by \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}.
 $PAR
  \(${percent1} \cdot $subtotal1 = \) \{SECTION_ANS($saleprice1->cmp),$saleprice1->ans_rule()\}
 
 $PAR
 What is \( ${P2}% \) as a fraction or decimal? \{SECTION_ANS($percent2->cmp),$percent2->ans_rule()\}
 $PAR
-Thus, to find a  \( ${P2}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup2->cmp), $popup2->menu() \} our subtotal $subtotal by \{SECTION_ANS($percent2->cmp),$percent2->ans_rule()\}.
+Thus, to find a  \( ${P2}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup4->cmp), $popup4->menu() \} our subtotal $subtotal by \{SECTION_ANS($percent2->cmp),$percent2->ans_rule()\}.
 $PAR
  \(${percent2} \cdot $subtotal2 = \) \{SECTION_ANS($saleprice2->cmp),$saleprice2->ans_rule()\}
 END_SECTION
