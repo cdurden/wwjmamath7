@@ -26,18 +26,23 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 #);
 Context("Currency");
 Context("Numeric");
-$expr1 = Formula("2(x-3)");
-$expr2 = Formula("4x+3");
+$expr1 = Formula("-3(3y-2x)");
+$expr2 = Formula("2(5x-4y)");
 $expr = Compute("$expr1+$expr2");
 Context("LimitedPolynomial-Strict");
-$term1 = Compute("2x");
-$term2 = Compute("-6");
-$expanded = Compute("2x-6");
-$ans = Compute("6x-3");
+$term11 = Compute("-9y");
+$term12 = Compute("6x");
+$term21 = Compute("10x");
+$term22 = Compute("-8y");
+$expanded1 = Compute("6x-9y");
+$expanded2 = Compute("10x-8y");
+$ans = Compute("16x-17y");
 
 BEGIN_TEXT
 $PAR
-What is the value of \(2( 4^2 + (\frac{1}{2})^2) \)?
+Which choice is equivalent to the expression shown below?
+$PAR
+\( -3(3y - 2x) + 2(5x - 4y) \)
 
 END_TEXT
 
@@ -76,40 +81,60 @@ TEXT(beginproblem());
 $ansNum = 2;
 
 ##############
-$terms_text = <<'END_TEXT';
+$terms1_text = <<'END_TEXT';
 $PAR
 
 Find each of the terms in the expanded form of \( $expr1 \):
 $PAR
-\( 2\cdot x= \) \{SECTION_ANS($term1->cmp),$term1->ans_rule()\}
+\( -3\cdot 3y= \) \{SECTION_ANS($term11->cmp),$term11->ans_rule()\}
 $PAR
-\( 2 \cdot (-3) = \) \{SECTION_ANS($term2->cmp),$term2->ans_rule()\}
+\( -3 \cdot (-2x) = \) \{SECTION_ANS($term12->cmp),$term12->ans_rule()\}
+
+END_TEXT
+##############
+$terms2_text = <<'END_TEXT';
+$PAR
+
+Find each of the terms in the expanded form of \( $expr2 \):
+$PAR
+\( 2\cdot 5x= \) \{SECTION_ANS($term21->cmp),$term21->ans_rule()\}
+$PAR
+\( 2 \cdot (-4y) = \) \{SECTION_ANS($term22->cmp),$term22->ans_rule()\}
 
 END_TEXT
 
 ##############
 $replace_paren_text = <<'END_TEXT';
 $PAR 
-Replace \( $expr1 \) by the expanded form of the expression:
+Replace \( $expr1 \) and \( $expr2 \) by the expanded forms of these expression:
 $PAR
-\( $expr = \) \{SECTION_ANS($expanded->cmp),$expanded->ans_rule()\} \( + $expr2 \) 
+\( $expr = \) \{SECTION_ANS($expanded1->cmp),$expanded1->ans_rule()\} \( + \{SECTION_ANS($expanded2->cmp),$expanded2->ans_rule()\} \) 
 
 END_TEXT
 
 ##############
-$terms_to_expand_text = <<'END_TEXT';
+$terms1_to_expand_text = <<'END_TEXT';
 $PAR 
 The expanded form of \( $expr1 \) is the sum of these terms.
 END_TEXT
 
 ##############
+$terms2_to_expand_text = <<'END_TEXT';
+$PAR 
+The expanded form of \( $expr2 \) is the sum of these terms.
+END_TEXT
+
+
+##############
 $expand_text = <<'END_TEXT';
 $PAR 
 
-Expand \( $expr1 \)
+Expand \( $expr1 \) and \( $expr2 \)
 
 $PAR
-\( $expr1 = \) \{SECTION_ANS($expanded->cmp),$expanded->ans_rule()\} 
+\( $expr1 = \) \{SECTION_ANS($expanded1->cmp),$expanded1->ans_rule()\} 
+$PAR
+\( $expr2 = \) \{SECTION_ANS($expanded2->cmp),$expanded2->ans_rule()\} 
 
 END_TEXT
 
@@ -125,10 +150,11 @@ if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score}
     $done_expanding = 1;
   }
 } else {
-  $text1 .= $terms_text;
+  $text1 .= $terms1_text . $terms2_text;
   $ansNum += 1;
-  if ($term1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $term2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
-    $text .= $terms_to_expand_text;
+  if ($term11->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $term12->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1 &&
+  $term21->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+2)})->{score} == 1 && $term22->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+3)})->{score} == 1) {
+    $text .= $terms1_to_expand_text . $terms2_to_expand_text;
     $text1 .= $expand_text;
     $ansNum += 2;
     if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
