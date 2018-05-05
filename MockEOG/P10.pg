@@ -457,7 +457,7 @@ DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
 },   <<'END_SECTION');
 
 $PAR
-Write an expression for the retail price \( f \), in terms of \( r \). Hint: Solve the proportion above for \( f \). Your answer should contain the variable \( r \).
+Write an expression for the final price \( f \), in terms of \( r \). Hint: Solve the proportion above for \( f \). Your answer should contain the variable \( r \).
 
 $PAR
 \( f = \) \{SECTION_ANS($f1->cmp),$f1->ans_rule()\}
