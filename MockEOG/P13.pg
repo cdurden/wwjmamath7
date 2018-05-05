@@ -71,7 +71,7 @@ TEXT(beginproblem());
 
 $ansNum = 2;
 if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
-$outer_paren_text = <<"END_TEXT";
+$outer_paren_text = <<'END_TEXT';
 $PAR 
 Replace \( 4^2 + (\frac{1}{2})^2 \) by the value that you found in part a:
 $PAR
@@ -90,9 +90,9 @@ DISPLAY_SECTION( { name=>"1: Devise a plan to relate the retail price to the man
 },   <<'END_SECTION');
 $PAR
 What is the value of \( 4^2 + (\frac{1}{2})^2 \)?  \{SECTION_ANS($outer_paren->cmp),$outer_paren->ans_rule()\}
-
 $PAR
-$outer_paren_text
+\{TEXT($outer_paren_text)\}
+
 
 
 END_SECTION
