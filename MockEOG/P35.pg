@@ -197,7 +197,7 @@ if ($choice1_hash->{student_ans} eq 'A') {
 ##############
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"4: Set up proportion",
+DISPLAY_SECTION( { name=>"4: Set up a proportion",
              canshow =>$scaffold->requireCorrect(2..9),
              iscorrect=>$scaffold->requireCorrect(10..11),
              section=>4 #designates that this is the first section
@@ -205,7 +205,7 @@ DISPLAY_SECTION( { name=>"4: Set up proportion",
 $PAR
 Choice: $choice1_hash->{student_ans}
 $PAR
-Let \( x\) stand for the sale price from the first store, which \( $P1 \)% of $DOLLAR\( $subtotal1 \). Set up a proportion that can be used to find \( x \).
+Let \( x\) stand for the sale price from the first store, which is \( $P1 \)% of $DOLLAR\( $subtotal1 \). Set up a proportion that can be used to find \( x \).
 
 Hint: \( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
 
@@ -221,9 +221,7 @@ $PAR
   );
 \}
 
-Let \( y\) stand for the sale price from the first store, which \( $P2 \)% of $DOLLAR\( $subtotal2 \). Set up a proportion that can be used to find \( y \).
-
-Hint: \( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
+Let \( y \) stand for the sale price from the second store, which is \( $P2 \)% of $DOLLAR\( $subtotal2 \). Set up a proportion that can be used to find \( y \).
 
 $PAR
 \{SECTION_ANS($multians2->cmp),
