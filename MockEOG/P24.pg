@@ -35,7 +35,7 @@ Context()->variables->add(s=>"Real",b=>"Real");
 $expr = Formula("2s+2.4b");
 $s = Compute('4');
 $b = Compute('3');
-$ans = Compute("2$s+2.4$b");
+$ans = Compute("2*$s+2.4*$b");
 
 BEGIN_TEXT
 Evan has a summer job to pick berries on a farm.
