@@ -369,7 +369,7 @@ $PAR
 
 END_SECTION
 
-$requireCorrect = $nextRequireCorrect;
+@requireCorrect = @nextRequireCorrect;
 if ($choice2_hash->{student_ans} eq 'A') {
 ##############
 #  Section 5
