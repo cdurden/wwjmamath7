@@ -54,7 +54,7 @@ $num2b = Formula("$P2");
 $den2b = Formula("100");
 Context("ImplicitEquation");
 #$prop_eqn = Compute("x/$subtotal = $percent");
-Context()->variables->set(x=>{limits=>[0,50]});
+Context()->variables->set(x=>{limits=>[0,50]},y=>{limits=>[0,50]});
 $prop_eqna = ImplicitEquation("x/$den1a = $num2a/$den2a");
 $prop_eqnb = ImplicitEquation("y/$den1b = $num2b/$den2b");
 Context("LimitedNumeric-StrictFraction");
