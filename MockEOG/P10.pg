@@ -38,11 +38,16 @@ $P2 = Compute("100-$markdown2");
 $ans_desc = "difference between the sale prices of the two stores";
 $popup1 = PopUp(["?", "40% of the manufacturer price", "60% of the manufacturer price", "140% of the manufacturer price", "160% of the manufacturer price"], "140% of the manufacturer price");
 $popup2 = PopUp(["?", "multiply the manufacturer price by this number", "divide the manufacturer price by this number", "multiply the retail price by this number", "divide the retail price by this number"], "multiply the manufacturer price by this number");
+$popup4 = PopUp(["?", "multiply the manufacturer price by this number", "divide the manufacturer price by this number", "multiply the retail price by this number", "divide the retail price by this number"], "multiply the retail price by this number");
 Context()->variables->add(r=>"Real",m=>"Real",f=>"Real");
+$base_amount1_desc = 'manufacturer price';
 $base_amount1 = 'm';
 $part1 = 'r';
+$part1_desc = 'retail price';
+$base_amount2_desc = $part1_desc;
 $base_amount2 = 'r';
 $part2 = 'f';
+$part2_desc = 'final price';
 $num1a = Formula("r");
 $den1a = Formula("m");
 $num2a = Formula("$P1");
@@ -91,13 +96,18 @@ $choice1 = RadioButtons(
     [ "Set up a proportion to relate the prices and then solve", "Convert the percent to a fraction or decimal and multiply it by the manufacturer price" ],
     "Set up a proportion to relate the prices and then solve",
     labels => "ABC" );
-$choice1_hash = $choice1->cmp()->evaluate(
-    $inputs_ref->{ANS_NUM_TO_NAME(3)} );
 $choice1_checker = sub {
     my ($correct,$student,$ansHash) = @_;
     return (1);
     #return (($student->value eq 'A' or $student->value eq 'B') ? 1 : 0);
 };
+$choice1_hash = $choice1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(3)} );
+$choice2 = $choice1;
+$choice2_checker = $choice1_checker;
+$choice2_hash = $choice1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(3)} );
+
 
 BEGIN_TEXT
 $PAR
@@ -142,7 +152,7 @@ TEXT(beginproblem());
 ##############
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"1: Devise a plan",
+DISPLAY_SECTION( { name=>"1: Devise a plan to relate the retail price to the manufacturer price",
              canshow =>1, #always true
              iscorrect=>$scaffold->requireCorrect(2..3),
              section=>1 #designates that this is the first section
@@ -212,7 +222,7 @@ $PAR
 \( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
 
 $PAR
-The part is the retail price \( $part1 \), which is \( ${P1} \)% of the whole \( $base_amount1 \) (the manufacturer price):
+The ${BBOLD}part${EBOLD} is the retail price \( $part1 \), which is \( ${P1} \)% of the ${BBOLD}whole${EBOLD} \( $base_amount1 \) (the manufacturer price):
 
 $PAR
 \( \frac{${P1}}{100} = \frac{ $part1 }{ $base_amount1 } \).
@@ -245,11 +255,11 @@ The proportion that we found in the last section was:
 $PAR
 \( \frac{${P1}}{100} = \frac{ $part1 }{ $base_amount1 } \).
 $PAR
-To solve this equation for \( $part1 \), we need to multiply both sides of the equation by \( m \).
+To solve for \( $part1 \), ${BBOLD}multiply both sides${EBOLD} of the equation by \( m \).
 $PAR
 \( \frac{${P1}}{100} \cdot $base_amount1 = \frac{ $part1 }{ $base_amount1 } \cdot $base_amount1 \).
 $PAR
-The \( $base_amount \) in the numerator and denominator of the right hand side cancel, so this equation is equivalent to:
+When we multiply the right hand side by \( $base_amount1 \), it undoes the division by \( $base_amount1 \), and only \( $part1 \) is left there:
 $PAR
 \( \frac{${P1}}{100} \cdot $base_amount1 = $part1 \).
 END_SOLUTION
@@ -280,12 +290,12 @@ END_SECTION
 SECTION_SOLUTION({section=>2},<<'END_SOLUTION');
 $PAR
 What is \( ${P1}% \) as a fraction?
-\( ${P1}% \) as a fraction is \( \frac{$P}{100} \).
+\( ${P1}% \) as a fraction is \( \frac{$P1}{100} \).
 $PAR
 What is \( ${P1}% \) as a decimal?
-\( ${P1}% \) as a decimal is \( $percent \).
+\( ${P1}% \) as a decimal is \( $percent1 \).
 $PAR
-Thus, to find a \( ${P1}% \) of the manufacturer quickly, we can ${BBOLD}multiply${EBOLD} the manufacturer price by \( $percent1 \).
+Thus, to find a \( ${P1}% \) of the manufacturer price quickly, we can ${BBOLD}multiply${EBOLD} the manufacturer price by \( $percent1 \).
 END_SOLUTION
 
 ##############
@@ -318,6 +328,219 @@ $PAR
 To find \( r\), we multiply the manufacturer price \( m \) by \( $percent1 \). In other words:
 $PAR
 \( r = ${percent1} \cdot m \).
+END_SOLUTION
+
+
+}
+
+##############
+#  Part 2
+##############
+
+##############
+#  Section 4
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"4: Devise a plan to represent the markdown",
+             canshow =>1, #always true
+             iscorrect=>$scaffold->requireCorrect(2..3),
+             section=>1 #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+After the manufacturer price was marked up to give the original retail price, the retail price was marked down. We are told that the retail price was marked down by \( $markdown2 \)%. What is the final price as a percent of the retail price?
+
+$PAR
+The final price is \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
+
+$PAR
+Which method would you like to use to relate the final price to the retail price?
+$PAR
+\{SECTION_ANS($choice2->cmp(checker => $choice2_checker)), $choice2->buttons() \}
+
+
+END_SECTION
+
+
+if ($choice2_hash->{student_ans} eq 'A') {
+##############
+#  Section 5
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"5: Set up a proportion to relate the final price to the retail price",
+             canshow =>$scaffold->requireCorrect(2..3), #always true
+             iscorrect=>$scaffold->requireCorrect(4),
+             section=>5 #designates that this is the first section
+},   <<'END_SECTION');
+
+Let the variable \( r \) stand for the retail price. 
+$PAR
+${BBOLD}
+Even though we do not know \( r \), we can set up a proportion that could be used to find \( $P2\)% of \( r \). 
+${EBOLD}
+
+In the last section, we found that the retail price, after the \( $markdown2 \)% markdown, is \( $P2\)% of \( r \).
+
+$PAR
+Let \( f\) stand for the retail price. Set up a proportion that represents the fact that  \( f\) is \( $P2 \)% of \( r \). 
+
+${BBOLD}
+Instead of entering a dollar amount for the retail price, use the variable \( r \).
+${EBOLD}
+
+Hint: \( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
+
+$PAR
+\{SECTION_ANS($multiansb->cmp),
+  LayoutTable(
+  [
+  [$multiansb->ans_rule(8).$BR.$HR.$multiansb->ans_rule(8),
+  "=",
+  $multiansb->ans_rule(8).$BR.$HR.$multiansb->ans_rule(8)]
+  ],
+  indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
+  );
+\}
+END_SECTION
+
+SECTION_SOLUTION({section=>5},<<'END_SOLUTION');
+$PAR
+
+To set up the proportion, we use the percent equation:
+$PAR
+\( \frac{%}{100} = \frac{ \text{part} }{ \text{whole} } \).
+
+$PAR
+The ${BBOLD}part${EBOLD} is the final price \( $part1 \), which is \( ${P2} \)% of the ${BBOLD}whole${EBOLD} \( $base_amount2 \) (the retail price):
+
+$PAR
+\( \frac{${P2}}{100} = \frac{ $part2 }{ $base_amount2 } \).
+
+END_SOLUTION
+
+##############
+#  Section 6
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
+             canshow =>$scaffold->requireCorrect(2..3), #always true
+             iscorrect=>$scaffold->requireCorrect(4),
+             section=>6 #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Write an expression for the retail price \( f \), in terms of \( r \). Hint: Solve the proportion above for \( f \). Your answer should contain the variable \( r \).
+
+$PAR
+\( f = \) \{SECTION_ANS($f1->cmp),$f1->ans_rule()\}
+
+$PAR
+In section 4, you found an expression for the retail price \( r\) in terms of \( m \). 
+
+In the expression that you just found for \( f \), replace \( r \) by the expression that you found.
+
+ You should then obtain an expression for the final price \( f \), in terms of \( m \).
+
+$PAR
+\( f = \) \{SECTION_ANS($f2->cmp),$f2->ans_rule()\}
+
+
+END_SECTION
+
+SECTION_SOLUTION({section=>6},<<'END_SOLUTION');
+$PAR
+The proportion that we found in the last section was:
+$PAR
+\( \frac{${P2}}{100} = \frac{ $part2 }{ $base_amount2 } \).
+$PAR
+To solve for \( $part2 \), ${BBOLD}multiply both sides${EBOLD} of the equation by \( m \).
+$PAR
+\( \frac{${P2}}{100} \cdot $base_amount2 = \frac{ $part2 }{ $base_amount2 } \cdot $base_amount2 \).
+$PAR
+When we multiply the right hand side by \( $base_amount2 \), it undoes the division by \( $base_amount2 \), and only \( $part2 \) is left there:
+$PAR
+\( \frac{${P2}}{100} \cdot $base_amount2 = $part2 \).
+END_SOLUTION
+
+} else {
+
+##############
+#  Section 5
+##############
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"5: Describe the method for finding ${P2}% of the manufacturer price",
+             canshow =>$scaffold->requireCorrect(2..4),
+             iscorrect=>$scaffold->requireCorrect(5),
+             section=>5 #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Even though we do not know the retail price, we can describe how we ${BBOLD}would${EBOLD} find \( $P2\)% of the retail price ${BBOLD}if the price was known${EBOLD}:
+$PAR
+First, express \( ${P2}% \) as a fraction or decimal: \{SECTION_ANS($percent2->cmp),$percent2->ans_rule()\}
+$PAR
+Then, \{SECTION_ANS($popup4->cmp), $popup4->menu() \}.
+
+
+END_SECTION
+
+SECTION_SOLUTION({section=>5},<<'END_SOLUTION');
+$PAR
+What is \( ${P2}% \) as a fraction?
+\( ${P2}% \) as a fraction is \( \frac{$P2}{100} \).
+$PAR
+What is \( ${P2}% \) as a decimal?
+\( ${P2}% \) as a decimal is \( $percent2 \).
+$PAR
+Thus, to find a \( ${P2}% \) of the retail price quickly, we can ${BBOLD}multiply${EBOLD} the manufacturer price by \( $percent2 \).
+END_SOLUTION
+
+##############
+#  Section 6
+##############
+
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
+             canshow =>$scaffold->requireCorrect(2..3), #always true
+             iscorrect=>$scaffold->requireCorrect(4),
+             section=>6 #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Let the variable \( r \) stand for the retail price.
+$PAR
+Write an expression, in terms of \( r \), to represent the procedure that was outlined in the last section for finding \( $P2\)% of the retail price.
+
+$PAR
+\( f = \) \{SECTION_ANS($f1->cmp),$f1->ans_rule()\}
+
+$PAR
+In section 4, you found an expression for the retail price \( r\) in terms of \( m \). 
+
+In the expression that you just found for \( f \), replace \( r \) by the expression that you found.
+
+ You should then obtain an expression for the final price \( f \), in terms of \( m \).
+
+$PAR
+\( f = \) \{SECTION_ANS($f2->cmp),$f2->ans_rule()\}
+
+
+END_SECTION
+
+SECTION_SOLUTION({section=>5},<<'END_SOLUTION');
+$PAR
+The $part2_desc is \( ${P2}% \) of the $base_amount2_desc.
+
+$PAR
+To find \( $part2 \), we multiply the $base_amount2_desc \( $base_amount2 \) by \( $percent2 \). In other words:
+$PAR
+\( f = ${percent2} \cdot r \).
+
 END_SOLUTION
 
 
