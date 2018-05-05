@@ -149,8 +149,8 @@ $section += 1;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Eliminate parentheses in the expression by expanding",
-             canshow =>1, #always true
-             #canshow =>$scaffold->requireCorrect(@requireCorrect),
+             canshow=>1, #always true
+             #canshow=>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
@@ -164,13 +164,13 @@ END_SECTION
 #  Section
 ##############
 $section += 1;
-@nextRequireCorrect = 2;
+@nextRequireCorrect = nextRequireCorrect[0]..$ansNum;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Combine like terms",
              #canshow =>1, #always true
              #canshow =>$scaffold->requireCorrect(@requireCorrect),
-             canshow =>$done_expanding,
+             canshow=>$done_expanding,
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
