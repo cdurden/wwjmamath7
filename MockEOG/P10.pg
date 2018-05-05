@@ -342,7 +342,7 @@ END_SOLUTION
 #  Section 4
 ##############
 if ($choice1_hash->{student_ans} eq 'A') {
-  @requireCorrect = 2..4
+  @requireCorrect = 2..7
 } else {
   @requireCorrect = 2..5
 }
