@@ -56,6 +56,7 @@ $f1 = Formula("$percent2*r");
 $f2 = Formula("$percent2*$percent1*m");
 Context("ImplicitEquation");
 #$prop_eqn = Compute("x/$subtotal = $percent");
+Context()->variables->add(r=>"Real",m=>"Real",f=>"Real");
 Context()->variables->set(m=>{limits=>[0,50]},r=>{limits=>[0,50]},f=>{limits=>[0,50]});
 $prop_eqna = ImplicitEquation("r = 1.4 m");
 $prop_eqnb = ImplicitEquation("f = $P2/100 r");
