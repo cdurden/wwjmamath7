@@ -78,7 +78,7 @@ Replace \( 4^2 + (\frac{1}{2})^2 \) by the value that you found in part a:
 
 END_TEXT
 } else {
-$outer_paren_text = "test".ANS_NUM_TO_NAME($ansNum)};
+$outer_paren_text = "test".$inputs_ref->{ANS_NUM_TO_NAME($ansNum)};
 }
 
 Context()->texStrings;
