@@ -60,34 +60,6 @@ Context("LimitedNumeric-StrictFraction");
 $percent_frac1 = Compute("$P1/100");
 $percent_frac2 = Compute("$P2/100");
 #$percent = Compute('1.06');
-$multiansa = MultiAnswer($num1a, $den1a, $num2a, $den2a)->with(
-  singleResult => 0,
-  allowBlankAnswers => 1,
-  checker => sub {
-      my ( $correct, $student, $self ) = @_;
-      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
-      my ( $n1, $d1, $n2, $d2 ) = @{$correct};
-      $eqn_ans_hash = $prop_eqna->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
-      return($eqn_ans_hash->{score});
-  }
-);
-$multiansb = MultiAnswer($num1b, $den1b, $num2b, $den2b)->with(
-  singleResult => 0,
-  allowBlankAnswers => 1,
-  checker => sub {
-      my ( $correct, $student, $self ) = @_;
-      my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
-      my ( $n1, $d1, $n2, $d2 ) = @{$correct};
-      $eqn_ans_hash = $prop_eqnb->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
-      return($eqn_ans_hash->{score});
-  }
-);
-$choice1 = RadioButtons(
-    [ "Set up a proportion", "Convert the percent to a fraction or decimal and multiply it by the regular price" ],
-    "Set up a proportion",
-    labels => "ABC" );
-$choice1_hash = $choice1->cmp()->evaluate(
-    $inputs_ref->{ANS_NUM_TO_NAME(9)} );
 
 
 ENDDOCUMENT();
