@@ -160,7 +160,7 @@ $text1 = $expand_text;
 if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
   $text1 .= $replace_paren_text;
   $ansNum += 2;
-  if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+  if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
     $done_expanding = 1;
   }
 } else {
@@ -171,10 +171,10 @@ if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score
     $text .= $terms1_to_expand_text . $terms2_to_expand_text;
     $text1 .= $expand_text;
     $ansNum += 4;
-    if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+    if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
       $text1 .= $replace_paren_text;
-      $ansNum += 1;
-      if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+      $ansNum += 2;
+      if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
         $done_expanding = 1;
         #$ansNum += 1;
         #$text .= $final_eval_text;
