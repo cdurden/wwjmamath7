@@ -33,6 +33,9 @@ $popup4 = PopUp(["?", "multiply the manufacturer price by this number", "divide 
 Context()->variables->add(s=>"Real",b=>"Real");
 #Context()->variables->set(m=>{limits=>[0,50]},r=>{limits=>[0,50]},f=>{limits=>[0,50]});
 $expr = Formula("2s+2.4b");
+$s = Compute('4');
+$s = Compute('3');
+$ans = Compute("2$s+2.4$b");
 
 BEGIN_TEXT
 $PAR
@@ -70,7 +73,7 @@ DISPLAY_SECTION( { name=>"1: Write an expression for the amount of money Evan ea
 },   <<'END_SECTION');
 
 $PAR
-Write an expression that can be used to find the amount of money that Evan earns if he works for \( s \) hours picking strawberries and \( b \) hours picking blueberries.
+Write an expression that can be used to find the amount of money that Evan earns if he works for \( s \) 15 minute intervals picking strawberries and \( b \) 15 minute intervals picking blueberries.
 
 \{SECTION_ANS($expr->cmp),$expr->ans_rule()\}
 
