@@ -109,19 +109,19 @@ END_TEXT
 ###############
 
 $ansNum = 2;
-$text = $expand_text;
+$text1 = $expand_text;
 if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
   $text .= $replace_paren_text;
   $ansNum += 1;
 } else {
-  $text .= $terms_text;
+  $text1 .= $terms_text;
   $ansNum += 1;
   if ($term1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $term2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
     #$text .= $terms_to_outer_paren_text;
-    $text .= $expand_text;
+    $text1 .= $expand_text;
     $ansNum += 2;
     if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
-      $text .= $replace_paren_text;
+      $text1 .= $replace_paren_text;
       $ansNum += 1;
       #if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
       #  $ansNum += 1;
