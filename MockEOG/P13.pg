@@ -32,6 +32,7 @@ $ans = $expr1;
 
 BEGIN_TEXT
 $PAR
+What is the value of \(2( 4^2 + (\frac{1}{2})^2) \)?
 
 END_TEXT
 
@@ -87,7 +88,7 @@ DISPLAY_SECTION( { name=>"1: Devise a plan to relate the retail price to the man
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-What is \( 4^2 + (\frac{1}{2})^2 \)?  \{SECTION_ANS($outer_paren->cmp),$outer_paren->ans_rule()\}
+What is the value of \( 4^2 + (\frac{1}{2})^2 \)?  \{SECTION_ANS($outer_paren->cmp),$outer_paren->ans_rule()\}
 
 $outer_paren_text
 
