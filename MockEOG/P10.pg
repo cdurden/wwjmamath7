@@ -378,8 +378,8 @@ if ($choice2_hash->{student_ans} eq 'A') {
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Set up a proportion to relate the final price to the retail price",
-             canshow =>$scaffold->requireCorrect($requireCorrect),
-             iscorrect=>$scaffold->requireCorrect($nextRequireCorrect),
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>5 #designates that this is the first section
 },   <<'END_SECTION');
 
@@ -435,8 +435,8 @@ END_SOLUTION
 @nextRequireCorrect = $requireCorrect[0]..$requireCorrect[-1]+1;
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
-             canshow =>$scaffold->requireCorrect($requireCorrect),
-             iscorrect=>$scaffold->requireCorrect($nextRequireCorrect),
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              #canshow =>$scaffold->requireCorrect(2..3), #always true
              #iscorrect=>$scaffold->requireCorrect(4),
              section=>6 #designates that this is the first section
@@ -485,8 +485,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"5: Describe the method for finding ${P2}% of the manufacturer price",
-             canshow =>$scaffold->requireCorrect($requireCorrect),
-             iscorrect=>$scaffold->requireCorrect($nextRequireCorrect),
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              #canshow =>$scaffold->requireCorrect(2..4),
              #iscorrect=>$scaffold->requireCorrect(5),
              section=>5 #designates that this is the first section
@@ -520,8 +520,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"6: Write an expression for the final price",
-             canshow =>$scaffold->requireCorrect($requireCorrect),
-             iscorrect=>$scaffold->requireCorrect($nextRequireCorrect),
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              #canshow =>$scaffold->requireCorrect(2..3), #always true
              #iscorrect=>$scaffold->requireCorrect(4),
              section=>6 #designates that this is the first section
