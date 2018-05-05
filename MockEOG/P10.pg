@@ -89,7 +89,7 @@ $multiansb = MultiAnswer($num1b, $den1b, $num2b, $den2b)->with(
       my ( $correct, $student, $self ) = @_;
       my ( $n1stu, $d1stu, $n2stu, $d2stu ) = @{$student};
       my ( $n1, $d1, $n2, $d2 ) = @{$correct};
-      $eqn_ans_hash = $prop_eqna->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
+      $eqn_ans_hash = $prop_eqnb->cmp()->evaluate("$n1stu/$d1stu = $n2stu/$d2stu");
       return($eqn_ans_hash->{score});
   }
 );
