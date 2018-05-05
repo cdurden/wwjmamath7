@@ -154,16 +154,6 @@ TEXT(beginproblem());
 ##############
 
 $outer_paren_text = "test";
-if ($ans->cmp()->evaluate() == 1) {
-  $outer_paren_text = <<'END_TEXT';
-$PAR 
-Replace \( 4^2 + (\frac{1}{2})^2 \) by the value that you found in part a:
-\( 2 \left(4^2 + \left(\frac{1}{2}\right)^2 \right) = \)  \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
-
-END_TEXT
-
-
-}
 
 $outer_paren_text = "test";
 Context()->texStrings;
