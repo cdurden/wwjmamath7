@@ -39,6 +39,18 @@ $term22 = Compute("-8y");
 $expanded1 = Compute("6x-9y");
 $expanded2 = Compute("10x-8y");
 $ans = Compute("16x-17y");
+$expanded = MultiAnswer($expanded1, $expanded2)->with(
+  singleResult => 0,
+  allowBlankAnswers => 1,
+  checker => sub {
+      my ( $correct, $student, $self ) = @_;
+      my ( $e1stu, $e2stu) = @{$student};
+      my ( $e1, $e2 ) = @{$correct};
+      $e1_ans_hash = $e1->cmp()->evaluate($e1stu);
+      $e2_ans_hash = $e2->cmp()->evaluate($e2stu);
+      return([$e1_ans_hash->{score},$e2_ans_hash->{score}]);
+  }
+);
 
 BEGIN_TEXT
 $PAR
@@ -145,10 +157,10 @@ END_TEXT
 $ansNum = 2;
 $done_expanding = 0;
 $text1 = $expand_text;
-if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
   $text1 .= $replace_paren_text;
-  $ansNum += 1;
-  if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
+  $ansNum += 2;
+  if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
     $done_expanding = 1;
   }
 } else {
@@ -158,7 +170,7 @@ if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score}
   $term21->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+2)})->{score} == 1 && $term22->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+3)})->{score} == 1) {
     $text .= $terms1_to_expand_text . $terms2_to_expand_text;
     $text1 .= $expand_text;
-    $ansNum += 2;
+    $ansNum += 4;
     if ($expanded->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
       $text1 .= $replace_paren_text;
       $ansNum += 1;
