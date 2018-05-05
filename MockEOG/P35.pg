@@ -275,14 +275,14 @@ DISPLAY_SECTION( { name=>"4: Find the sale prices",
 $PAR
 What is \( ${P1}% \) as a fraction or decimal? \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}
 $PAR
-Thus, to find a  \( ${P1}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup4->cmp), $popup4->menu() \} our subtotal $subtotal by \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}.
+Thus, to find a  \( ${P1}% \) of ${DOLLAR}\( $subtotal1 \) quickly, we can \{SECTION_ANS($popup4->cmp), $popup4->menu() \} our subtotal ${DOLLAR}\($subtotal1\) by \{SECTION_ANS($percent1->cmp),$percent1->ans_rule()\}.
 $PAR
  \(${percent1} \cdot $subtotal1 = \) \{SECTION_ANS($saleprice1->cmp),$saleprice1->ans_rule()\}
 
 $PAR
 What is \( ${P2}% \) as a fraction or decimal? \{SECTION_ANS($percent2->cmp),$percent2->ans_rule()\}
 $PAR
-Thus, to find a  \( ${P2}% \) of \( $subtotal \) quickly, we can \{SECTION_ANS($popup4->cmp), $popup4->menu() \} our subtotal $subtotal by \{SECTION_ANS($percent2->cmp),$percent2->ans_rule()\}.
+Thus, to find a  \( ${P2}% \) of ${DOLLAR}\( $subtotal1 \) quickly, we can \{SECTION_ANS($popup4->cmp), $popup4->menu() \} our subtotal ${DOLLAR}\( $subtotal \) by \{SECTION_ANS($percent2->cmp),$percent2->ans_rule()\}.
 $PAR
  \(${percent2} \cdot $subtotal2 = \) \{SECTION_ANS($saleprice2->cmp),$saleprice2->ans_rule()\}
 END_SECTION
