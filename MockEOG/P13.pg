@@ -175,7 +175,6 @@ DISPLAY_SECTION( { name=>"1: Devise a plan to relate the retail price to the man
 $PAR
 What is \( 4^2 + (\frac{1}{2})^2 \)?  \{SECTION_ANS($outer_paren->cmp),$outer_paren->ans_rule()\}
 
-$outer_paren_text
 
 
 END_SECTION
