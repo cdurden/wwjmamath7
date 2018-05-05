@@ -75,10 +75,8 @@ $ansNum = 2;
 
 #############
 $outer_paren_text .= <<'END_TEXT';
-$PAR 
-Evaluate \( 2 \cdot $inputs_ref->{ANS_NUM_TO_NAME($ansNum)} \):
 $PAR
-\( 2  \cdot $inputs_ref->{ANS_NUM_TO_NAME($ansNum)} = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\} 
+What is the value of \( 4^2 + (\frac{1}{2})^2 \)?  \{SECTION_ANS($outer_paren->cmp),$outer_paren->ans_rule()\}
 
 END_TEXT
 
@@ -103,6 +101,15 @@ $PAR
 
 END_TEXT
 
+##############
+$final_eval_text = <<'END_TEXT';
+$PAR 
+Evaluate \( 2 \cdot $inputs_ref->{ANS_NUM_TO_NAME($ansNum)} \):
+$PAR
+\( 2  \cdot $inputs_ref->{ANS_NUM_TO_NAME($ansNum)} = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\} 
+
+END_TEXT
+
 ###############
 
 $text = $outer_paren_text;
@@ -111,6 +118,8 @@ $text .= $replace_outer_paren_text;
 $ansNum = 3;
 if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 0) {
 $text .= $terms_text;
+} else {
+$text .= $final_eval_text;
 }
 }
 
@@ -120,8 +129,6 @@ DISPLAY_SECTION( { name=>"1: Devise a plan to relate the retail price to the man
              iscorrect=>$scaffold->requireCorrect(2..3),
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
-$PAR
-What is the value of \( 4^2 + (\frac{1}{2})^2 \)?  \{SECTION_ANS($outer_paren->cmp),$outer_paren->ans_rule()\}
 $PAR
 \{EV3($text);\}
 
