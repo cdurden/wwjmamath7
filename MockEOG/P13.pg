@@ -96,8 +96,11 @@ $terms_text = <<'END_TEXT';
 $PAR 
 
 Evaluate the terms inside the parentheses:
+$PAR
 \( 4^2 = \) \{SECTION_ANS($expr3->cmp),$expr3->ans_rule()\}
+$PAR
 \( (\frac{1}{2})^2 = \) \{SECTION_ANS($expr4->cmp),$expr4->ans_rule()\}
+
 END_TEXT
 
 ###############
