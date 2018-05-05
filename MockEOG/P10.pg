@@ -462,9 +462,7 @@ $PAR
 $PAR
 In section 3, you found an expression for the retail price \( r\) in terms of \( m \). 
 
-In the expression that you just found for \( f \), replace \( r \) by the expression that you found.
-
- You should then obtain an expression for the final price \( f \), in terms of \( m \).
+Substitute the expression that you found for \( r \) to obtain a new expression in terms of \( m \).
 
 $PAR
 \( f = \) \{SECTION_ANS($f2->cmp),$f2->ans_rule()\}
