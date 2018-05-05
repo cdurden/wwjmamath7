@@ -153,6 +153,7 @@ TEXT(beginproblem());
 #  Section 1
 ##############
 
+$outer_paren_text = "test";
 if ($ans->cmp()->evaluate() == 1) {
   $outer_paren_text = <<'END_TEXT';
 $PAR 
@@ -161,8 +162,10 @@ Replace \( 4^2 + (\frac{1}{2})^2 \) by the value that you found in part a:
 
 END_TEXT
 
+
 }
 
+$outer_paren_text = "test";
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"1: Devise a plan to relate the retail price to the manufacturer price",
              canshow =>1, #always true
