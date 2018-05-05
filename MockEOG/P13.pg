@@ -112,7 +112,7 @@ END_TEXT
 
 ###############
 
-$ansNum = 1;
+$ansNum = 2;
 $text = $outer_paren_text;
 if ($outer_paren->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1) {
   $text .= $replace_outer_paren_text;
