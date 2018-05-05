@@ -75,6 +75,7 @@ $section += 1;
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Write an expression for the amount of money Evan earns",
              canshow =>1, #always true
+             #canshow =>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
@@ -113,7 +114,8 @@ $section += 1;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Evaluate the expression using the given data",
-             canshow =>1, #always true
+#             canshow =>1, #always true
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
