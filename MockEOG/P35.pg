@@ -47,6 +47,7 @@ $num1a = Formula("x");
 $den1a = Formula("24.95");
 $num2a = Formula("$P1");
 $den2a = Formula("100");
+Context()->variables->add(y=>"Real");
 $num1b = Formula("y");
 $den1b = Formula("25.80");
 $num2b = Formula("$P2");
