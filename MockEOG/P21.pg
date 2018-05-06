@@ -151,13 +151,14 @@ END_SOLUTION
 ##############
 #  Section 3
 ##############
+$section = 3;
 
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"3: Set up an equation",
+DISPLAY_SECTION( { name=>"$section: Set up an equation",
              canshow =>$scaffold->requireCorrect(2..5),
              iscorrect=>$scaffold->requireCorrect(6..9),
-             section=>3 #designates that this is the first section
+             section=>section #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
 
@@ -178,20 +179,21 @@ Translate the verbal equation from the last section into an algebraic equation.
 
 END_SECTION
 
-SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>$section},<<'END_SOLUTION');
 $PAR
 END_SOLUTION
 
 ##############
 #  Section 4
 ##############
+$section = 4;
 
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"4: Solve the problem",
+DISPLAY_SECTION( { name=>"$section: Solve the problem",
              canshow =>$scaffold->requireCorrect(2..9),
              iscorrect=>$scaffold->requireCorrect(10),
-             section=>4 #designates that this is the first section
+             section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
 Solve the equation from section 3.
@@ -201,7 +203,7 @@ $PAR
 
 END_SECTION
 
-SECTION_SOLUTION({section=>4},<<'END_SOLUTION');
+SECTION_SOLUTION({section=>$section},<<'END_SOLUTION');
 END_SOLUTION
 
 
