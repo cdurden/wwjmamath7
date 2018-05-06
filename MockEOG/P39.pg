@@ -74,6 +74,7 @@ Context()->variables->add(y=>"Real");
 Context("LimitedPolynomial-Strict");
 #Context()->variables->add(y=>"Real");
 $lhs0 = Compute("12-x");
+$lhs_term2 = Compute("-x");
 $rhs0 = Compute("8");
 
 $lhs1 = Compute("-x");
@@ -136,7 +137,7 @@ DISPLAY_SECTION( { name=>"$section: Understand the operations",
 
 Rewrite the subtraction operation on the $variable_side of the equation as an equivalent addition operation:
 $PAR
-\( $lhs0 < 12 + \) \{SECTION_ANS($rhs_term2->cmp),$rhs_term2->ans_rule()\}
+\( 12 + \) \{SECTION_ANS($lhs_term2->cmp),$lhs_term2->ans_rule() \( < $rhs0 \)\}
 
 
 END_SECTION
