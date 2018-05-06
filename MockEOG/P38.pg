@@ -1,0 +1,263 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+"contextFraction.pl",
+"contextLimitedPolynomial.pl"
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+Context("Numeric");
+$final = Compute('44.75');
+$initial = Compute('36');
+$change = Formula('1.25x');
+#$cp = new compoundProblem(
+#  parts => 2,                  # the total number of parts in this problem
+#  totalAnswers => 3,           # total answers in all parts combined
+#  parserValues => 1,           # make parser objects from student answers
+#  allowReset => $isProfessor,  # professors get Reset button for testing
+#);
+#Context("Currency");
+
+$mc1 = RadioButtons(
+    [
+      "\( 7 \)",
+      "\( 8 \)",
+      "\( 9 \)",
+      "\( 10 \)",
+    ],
+    "\( 7 \)",
+    labels => "ABC" );
+
+$ans_hash1 = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+$eqn_or_ineq = "equation";
+$ineq = "=";
+sub iop {
+  my $op = $_[0];
+  my %inverses = ( 'multiply by' => 'divide by',
+                'divide by' => 'multiply by',
+                'add' => 'subtract',
+                'subtract' => 'add' );
+  my $re=join("|",keys %inverses);
+  (my $iop = $op) =~ s/($re)/$inverses{$1}/g;
+  return($iop);
+}
+Context("Numeric");
+Context()->flags->set(reduceConstants=>0);
+Context()->variables->add(y=>"Real");
+Context("LimitedPolynomial-Strict");
+$lhs0 = Compute("2x-12");
+$rhs0 = Compute("28");
+
+$lhs1 = Compute("2x");
+$rhs1 = Compute("40");
+
+$lhs2 = Compute("x");
+$rhs2 = Compute("20");
+$ans = $lhs3;
+$step1f = "multiply by 2";
+$step2f = "subtract 12";
+$variable_side = "the left hand side";
+
+$step1i = iop($step2f);
+$step2i = iop($step1f);
+$popup1 = PopUp(["?", "the left hand side", "the right hand side"], $variable_side);
+$popup2 = PopUp(["?", "$step1f, then $step2f", "$step2f, then $step1f"], "$step1f, then $step2f");
+$popup3 = PopUp(["?", "$step1f, then $step2f", "$step2f, then $step1f", "$step1i, then $step2i", "$step2i, then $step1i"], "$step1i, then $step2i");
+$popup4 = PopUp(["?", "do the same operation to the other side of the $eqn_or_ineq", "do the opposite operation to the other side of the $eqn_or_ineq"], "do the same operation to the other side of the $eqn_or_ineq");
+$popup5 = PopUp(["?", "get the variable by itself on one side of the $eqn_or_ineq", "get zero on one side of the $eqn_or_ineq", "get one on one side of the $eqn_or_ineq"], "get the variable by itself on one side of the $eqn_or_ineq");
+$popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
+$popup7 = PopUp(["?", "get the variable by itself on $variable_side", "get zero on $variable_side", "get one on $variable_side"], "get the variable by itself on $variable_side");
+$popup8 = PopUp(["?", ">", "<"], "<");
+$popup9 = PopUp(["?", ">", "<"], ">");
+$popup10 = PopUp(["?", "right", "left"], "right");
+$popup11 = PopUp(["?", "includes", "does not include"], "does not include");
+$popup12 = PopUp(["?", "the height of the tree", ""], "the height of the tree");
+$popup13 = PopUp(["?", "the growth of the tree", ""], "the growth of the tree");
+
+
+Context("ImplicitEquation");
+Context()->variables->set(x=>{limits=>[0,20]});
+$eqn = ImplicitEquation("$lhs0=$rhs0");
+
+BEGIN_TEXT
+Jacob is 12 years younger than twice Elizabeth's age. Jacob is 28 years old. How old is Elizabeth?
+$PAR
+\{ $mc1->buttons() \}
+
+END_TEXT
+
+ANS( $mc1->cmp() );
+
+$ans_hash = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+#if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
+#  $cp->incrementPart();
+#}
+
+#$part = $cp->part();
+
+
+$ansNum = 1;
+
+#if ($part == 2) {
+
+#BEGIN_TEXT
+#$PAR
+#${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+#
+#END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+$section = 0;
+
+##############
+#  Section
+##############
+$ansNum += 5;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Set up an equation",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Define the variable \( x \) to stand for the unknown.
+$PAR
+Let \( x \) stand for \{SECTION_ANS($popup12->cmp), $popup12->menu() \}.
+$PAR
+Write an expression to represent ${BBOLD}twice Elizabeth's age${EBOLD}: \{SECTION_ANS($expr1->cmp),$expr1->ans_rule()\} 
+$PAR
+Write an expression to represent ${BBOLD}12 years younger than twice Elizabeth's age${EBOLD}: \{SECTION_ANS($expr2->cmp),$expr2->ans_rule()\} 
+$PAR
+The problem says that this quantity is equal to Jason's age, which is \( 28 \) years old.
+$PAR
+Write an equation to represent this fact: \{SECTION_ANS($eqn->cmp),$eqn->ans_rule()\}
+
+END_SECTION
+
+
+##############
+#  Section
+##############
+$ansNum += 8;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Devise a plan",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+To obtain a valid $eqn_or_ineq, when we do an operation to one side of an $eqn_or_ineq, we must also
+\{SECTION_ANS($popup4->cmp), $popup4->menu() \}.
+$PAR
+To solve an $eqn_or_ineq, we must choose operations that will
+\{SECTION_ANS($popup5->cmp), $popup5->menu() \}.
+
+$PAR
+Which side of the $eqn_or_ineq \( $lhs0 $ineq $rhs0 \) contains the variable?
+\{SECTION_ANS($popup1->cmp), $popup1->menu() \}
+$PAR
+What is the order of operations on that side of the $eqn_or_ineq?
+\{SECTION_ANS($popup2->cmp), $popup2->menu() \}
+$PAR
+The inverse operations in the reverse order are
+\{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
+$PAR
+Doing the above operations to both sides of the $eqn_or_ineq will \{SECTION_ANS($popup7->cmp), $popup7->menu() \}.
+
+$PAR
+Therefore, our plan to solve the $eqn_or_ineq is:
+\{SECTION_ANS($popup3->cmp), $popup3->menu() \} on \{SECTION_ANS($popup6->cmp), $popup6->menu() \} of the $eqn_or_ineq.
+
+
+END_SECTION
+
+##############
+#  Section
+##############
+$ansNum += 2;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Carry out the first step of the plan",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+Carry out the first step of the plan: $step1i to both sides of the $eqn_or_ineq.
+$PAR
+\( $lhs0 $ineq $rhs0 \)
+$PAR
+\{SECTION_ANS($lhs1->cmp),$lhs1->ans_rule()\} = \{SECTION_ANS($rhs1->cmp),$rhs1->ans_rule()\}
+$PAR
+
+END_SECTION
+##############
+#  Section
+##############
+$ansNum += 2;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+Carry out the second step of the plan: $step2i to both sides of the $eqn_or_ineq.
+$PAR
+\( $lhs1 $ineq $rhs1 \)
+$PAR
+\{SECTION_ANS($lhs2->cmp),$lhs2->ans_rule()\}  =  \{SECTION_ANS($rhs2->cmp),$rhs2->ans_rule()\}
+$PAR
+
+END_SECTION
+
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+#}
+ENDDOCUMENT();
