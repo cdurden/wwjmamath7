@@ -66,6 +66,8 @@ $popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both si
 $popup7 = PopUp(["?", "get the variable by itself on $variable_side", "get zero on $variable_side", "get one on $variable_side"], "get the variable by itself on $variable_side");
 $popup8 = PopUp(["?", ">", "<"], "<");
 $popup9 = PopUp(["?", ">", "<"], ">");
+$popup10 = PopUp(["?", "right", "left"], "right");
+$popup11 = PopUp(["?", "includes", "does not include"], "does not include");
 
 Context("Numeric");
 #Context("LimitedFraction");
@@ -270,6 +272,33 @@ $PAR
 \( $lhs1 $ineq $rhs1 \)
 $PAR
 \{SECTION_ANS($lhs2->cmp),$lhs2->ans_rule()\}  \{SECTION_ANS($popup9->cmp), $popup9->menu() \}  \{SECTION_ANS($rhs2->cmp),$rhs2->ans_rule()\}
+$PAR
+
+END_SECTION
+
+##############
+#  Section
+##############
+$ansNum += 3;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Graph the solution set",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+Graph the solution set
+$PAR
+\( $lhs2 > $rhs2 \)
+$PAR
+The solution set includes all points \( x \) to the \{SECTION_ANS($popup10->cmp), $popup10->menu() \} of \( $rhs2 \) on the number line.
+$PAR
+The solution set \{SECTION_ANS($popup11->cmp), $popup11->menu() \} the point \( x = $rhs2 \).
 $PAR
 
 END_SECTION
