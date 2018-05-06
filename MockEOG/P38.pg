@@ -135,7 +135,7 @@ $section = 0;
 ##############
 #  Section
 ##############
-$ansNum += 5;
+$ansNum += 4;
 $section += 1;
 @requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = 2..$ansNum;
