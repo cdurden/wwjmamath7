@@ -26,41 +26,31 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 #  allowReset => $isProfessor,  # professors get Reset button for testing
 #);
 #Context("Currency");
+$step1 = "subtract 3";
+$step2 = "divide by 5";
+$popup1 = PopUp(["?", "left hand side", "right hand side"], "right hand side");
+$popup2 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3"], "multiply by 5, then add 3");
+$popup3 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3", "subtract 3, then divide by 5", "divide by 5, then subtract 3"], "subtract 3, then divide by 5");
+$popup4 = PopUp(["?", "do the same operation to the other side of the equation", "do the opposite operation to the other side of the equation"], "do the same operation to the other side of the equation");
+$popup5 = PopUp(["?", "isolate the variable", ""], "do the same operation to the other side of the equation");
+$popup5 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
+
 Context("Numeric");
 #Context("LimitedFraction");
 Context()->flags->set(reduceConstants=>0);
 Context()->variables->add(y=>"Real");
-$expr0 =  Formula("-4(x+2)-1/2*(2x-6)");
-$expr0 =  Formula("-4(x+2)-1/2*(2x-6)");
-$expr1 = Formula("-4(x+2)");
-$expr2 = Formula("-1/2*(2x-6)");
-$expr = Compute("$expr1+$expr2");
 Context("LimitedPolynomial-Strict");
-Context()->variables->add(y=>"Real");
-$term11 = Compute("-4x");
-$term12 = Compute("-8");
-$term21 = Compute("-x");
-$term22 = Compute("3");
-$expanded1 = Compute("-4x-8");
-$expanded2 = Compute("-x+3");
-$ans = Compute("-5x-5");
-$expanded = MultiAnswer($expanded1, $expanded2)->with(
-  singleResult => 0,
-  allowBlankAnswers => 1,
-  checker => sub {
-      my ( $correct, $student, $self ) = @_;
-      my ( $e1stu, $e2stu) = @{$student};
-      my ( $e1, $e2 ) = @{$correct};
-      $e1_ans_hash = $e1->cmp()->evaluate($e1stu);
-      $e2_ans_hash = $e2->cmp()->evaluate($e2stu);
-      return([$e1_ans_hash->{score},$e2_ans_hash->{score}]);
-  }
-);
+#Context()->variables->add(y=>"Real");
+$lhs1 = Compute("-2");
+$lhs2 = Compute("-5");
+$lhs3 = Compute("-1");
+$rhs1 = Compute("5x+3");
+$rhs2 = Compute("5x");
+$rhs3 = Compute("x");
 
 BEGIN_TEXT
 $PAR
-Which expression is equivalent to \( -4(x+2) - \frac{1}{2}(2x-6) \)?
-
+What is the value of \( x \) in the equation \( -2 = 5x + 3 \)?
 
 END_TEXT
 
@@ -102,7 +92,7 @@ $section += 1;
 @nextRequireCorrect = 2..$ansNum;
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Rewrite the difference as a sum",
+DISPLAY_SECTION( { name=>"$section: Devise a plan",
              canshow=>1, #always true
              #canshow=>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
@@ -110,9 +100,28 @@ DISPLAY_SECTION( { name=>"$section: Rewrite the difference as a sum",
 },   <<'END_SECTION');
 
 $PAR
-Rewrite \( $expr0 \) as a sum.
+To obtain a valid equation when we do an operation to one side of an equation, we must also
+\{SECTION_ANS($popup4->cmp), $popup4->menu() \}.
 $PAR
-\( $expr0 = \) \{SECTION_ANS($expr1->cmp),$expr1->ans_rule()\} \( + \) \{SECTION_ANS($expr2->cmp),$expr2->ans_rule()\} 
+To solve an equation, we must choose operations that will
+\{SECTION_ANS($popup5->cmp), $popup5->menu() \}.
+
+$PAR
+Which side of the equation contains the variable?
+$PAR
+The variable is on the 
+\{SECTION_ANS($popup1->cmp), $popup1->menu() \} of the equation.
+$PAR
+What is the order of operations on the right hand side of the equation?
+\{SECTION_ANS($popup2->cmp), $popup2->menu() \}
+$PAR
+The following operations will reverse these operations and thus isolate the variable:
+\{SECTION_ANS($popup3->cmp), $popup3->menu() \}
+
+$PAR
+Therefore, our plan to solve the equation is:
+\{SECTION_ANS($popup3->cmp), $popup3->menu() \} on \{SECTION_ANS($popup6->cmp), $popup6->menu() \} of the equation.
+
 
 END_SECTION
 #########################
@@ -220,44 +229,47 @@ if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score
 ##############
 #  Section
 ##############
+$ansNum += 2;
 $section += 1;
 @nextRequireCorrect = 2..$ansNum;
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Eliminate parentheses in the expression by expanding",
+DISPLAY_SECTION( { name=>"$section: Carry out the first step of the plan",
              canshow=>1, #always true
              #canshow=>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
+Carry out the first step of the plan: $step1 to both sides of the equation.
 $PAR
-\{EV3($text1);\}
-
+\( $lhs1 = $rhs1 \)
+$PAR
+\{SECTION_ANS($lhs2->cmp),$lhs2->ans_rule()\} \( = \) \{SECTION_ANS($rhs2->cmp),$rhs2->ans_rule()\}
+$PAR
 
 END_SECTION
 ##############
 #  Section
 ##############
+$ansNum += 2;
 $section += 1;
-@requireCorrect = @nextRequireCorrect;
-@nextRequireCorrect = $ansNum;
+@nextRequireCorrect = 2..$ansNum;
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Combine like terms",
-             #canshow =>1, #always true
-             canshow =>$scaffold->requireCorrect(@requireCorrect),
+DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
+             canshow=>1, #always true
+             #canshow=>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
+Carry out the second step of the plan: $step2 to both sides of the equation.
 $PAR
-We have rewritten \( $expr1 + $expr2 \) without parentheses.
+\( $lhs2 = $rhs2 \)
 $PAR
-Next, simplify the expression by combining like terms
+\{SECTION_ANS($lhs3->cmp),$lhs3->ans_rule()\} \( = \) \{SECTION_ANS($rhs3->cmp),$rhs3->ans_rule()\}
 $PAR
-\( $expanded1 + $expanded2 = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
-
 
 END_SECTION
 
