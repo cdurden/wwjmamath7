@@ -33,7 +33,7 @@ Context("Numeric");
 $P1 = Compute("100-$markdown1");
 $ans = Compute("$savings*$percent1");
 $ans_desc = "difference between the sale prices of the two stores";
-$popup1 = PopUp(["?", "how much Anna had saved", "How much the computer cost"], "how much Anna had saved");
+$popup1 = PopUp(["?", "how much Anna had saved", "how much the computer cost"], "how much Anna had saved");
 $popup2 = PopUp(["?", "find 25% of this amount", "find 75% of this amount"], "find 25% of this amount");
 $popup3 = PopUp(["?", "markup", "markdown", "percent"], "markdown");
 $popup4 = PopUp(["?", "multiply", "divide"], "multiply");
@@ -119,10 +119,6 @@ DISPLAY_SECTION( { name=>"1: Devise a plan",
 $PAR
 The question asks us how much money Anna had left. To solve the problem completely, we can find \{SECTION_ANS($popup1->cmp), $popup1->menu() \} and then \{SECTION_ANS($popup2->cmp), $popup2->menu() \}.
 
-Which method would you like to use to find this percent?
-$PAR
-\{SECTION_ANS($choice1->cmp(checker => $choice1_checker)), $choice1->buttons() \}
-
 END_SECTION
 
 ##############
@@ -139,6 +135,11 @@ How much did Anna have in savings before she bought the computer?
 
 $PAR
 \{SECTION_ANS($savings->cmp), $savings->ans_rule() \}
+
+$PAR
+Once we have found how much Anna saved, we need to find \( 25% \) of her savings. Which method would you like to use to find this percent?
+$PAR
+\{SECTION_ANS($choice1->cmp(checker => $choice1_checker)), $choice1->buttons() \}
 
 END_SECTION
 
