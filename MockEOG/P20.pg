@@ -128,7 +128,7 @@ END_SECTION
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: How much did Anna have saved before she bought the computer?",
              canshow =>$scaffold->requireCorrect(2..3), #always true
-             iscorrect=>$scaffold->requireCorrect(4),
+             iscorrect=>$scaffold->requireCorrect(4..5),
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 How much did Anna have in savings before she bought the computer, in dollars?
@@ -154,8 +154,8 @@ if ($choice1_hash->{student_ans} eq 'A') {
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Set up a proportion to find how much money Anna has left",
-             canshow =>$scaffold->requireCorrect(2..4),
-             iscorrect=>$scaffold->requireCorrect(5),
+             canshow =>$scaffold->requireCorrect(2..5),
+             iscorrect=>$scaffold->requireCorrect(6),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -194,8 +194,8 @@ END_SOLUTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Find how much money Anna has left",
-             canshow =>$scaffold->requireCorrect(2..4),
-             iscorrect=>$scaffold->requireCorrect(5),
+             canshow =>$scaffold->requireCorrect(2..5),
+             iscorrect=>$scaffold->requireCorrect(6),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
