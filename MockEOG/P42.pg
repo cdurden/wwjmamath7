@@ -88,7 +88,7 @@ $ans = $lhs3;
 
 BEGIN_TEXT
 Which set of numbers is included in the solution set of
- \( $lhs0 < $rhs0\)?
+ \( $lhs0 $ineq $rhs0 \)?
 $PAR
 $BR
 \{ $mc1->buttons() \}
@@ -140,7 +140,7 @@ DISPLAY_SECTION( { name=>"$section: Understand the operations",
 
 Rewrite the subtraction operation on the $variable_side of the $eqn_or_ineq \( $lhs0 $ineq $rhs0 \) as an equivalent addition operation:
 $PAR
-\( 12 + \) \{SECTION_ANS($lhs_term2->cmp),$lhs_term2->ans_rule()\} \( < $rhs0 \)
+\( 4 + \) \{SECTION_ANS($lhs_term2->cmp),$lhs_term2->ans_rule()\} \( < $rhs0 \)
 
 
 END_SECTION
