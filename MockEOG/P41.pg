@@ -109,9 +109,7 @@ To solve an equation, we must choose operations that will
 
 $PAR
 Which side of the equation \( $lhs1 = $rhs1 \) contains the variable?
-$PAR
-The variable is on the 
-\{SECTION_ANS($popup1->cmp), $popup1->menu() \} of the equation.
+The \{SECTION_ANS($popup1->cmp), $popup1->menu() \} of the equation.
 $PAR
 What is the order of operations on the right hand side of the equation?
 \{SECTION_ANS($popup2->cmp), $popup2->menu() \}
