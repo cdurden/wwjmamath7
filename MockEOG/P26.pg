@@ -85,24 +85,11 @@ $rhs1 = Formula("r");
 
 $ans = $lhs3;
 $step1f = "multiply by 2pi";
-$step2f = "multiply by pi";
 $variable_side = "the right hand side";
 
 $step1i = iop($step2f);
-$step2i = iop($step1f);
-$popup1 = PopUp(["?", "the left hand side", "the right hand side"], $variable_side);
-$popup2 = PopUp(["?", "$step1f, then $step2f", "$step2f, then $step1f"], "$step1f, then $step2f");
 $popup3 = PopUp(["?", "$step1f", "$step1i"], "$step1i");
-$popup4 = PopUp(["?", "do the same operation to the other side of the $eqn_or_ineq", "do the opposite operation to the other side of the $eqn_or_ineq"], "do the same operation to the other side of the $eqn_or_ineq");
-$popup5 = PopUp(["?", "get the variable by itself on one side of the $eqn_or_ineq", "get zero on one side of the $eqn_or_ineq", "get one on one side of the $eqn_or_ineq"], "get the variable by itself on one side of the $eqn_or_ineq");
 $popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
-$popup7 = PopUp(["?", "get the variable by itself on $variable_side", "get zero on $variable_side", "get one on $variable_side"], "get the variable by itself on $variable_side");
-$popup8 = PopUp(["?", ">", "<"], "<");
-$popup9 = PopUp(["?", ">", "<"], ">");
-$popup10 = PopUp(["?", "right", "left"], "right");
-$popup11 = PopUp(["?", "includes", "does not include"], "does not include");
-$popup12 = PopUp(["?", "the height of the tree", ""], "the height of the tree");
-$popup13 = PopUp(["?", "the growth of the tree", ""], "the growth of the tree");
 
 
 Context("ImplicitEquation");
