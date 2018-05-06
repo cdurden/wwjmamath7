@@ -173,8 +173,9 @@ $PAR
 $PAR
 
 $PAR
-The resulting equation is: \{SECTION_ANS($lhs1->cmp),$lhs1->ans_rule()\} = \{SECTION_ANS($rhs1->cmp),$rhs1->ans_rule()\}
-$PAR
+The resulting equation is:
+$PAR 
+\{SECTION_ANS($lhs1->cmp),$lhs1->ans_rule()\} \( = r \)
 
 END_SECTION
 
