@@ -240,7 +240,7 @@ DISPLAY_SECTION( { name=>"$section: Carry out the first step of the plan",
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
-Carry out the first step of the plan: $step1 to both sides of the $eqn_or_ineq.
+Carry out the first step of the plan: $step1i to both sides of the $eqn_or_ineq.
 $PAR
 \( $lhs0 $ineq $rhs0 \)
 $PAR
@@ -264,7 +264,7 @@ DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
-Carry out the second step of the plan: $step2 to both sides of the $eqn_or_ineq.
+Carry out the second step of the plan: $step2i to both sides of the $eqn_or_ineq.
 $PAR
 \( $lhs1 $ineq $rhs1 \)
 $PAR
