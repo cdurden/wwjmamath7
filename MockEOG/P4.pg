@@ -71,8 +71,8 @@ END_TEXT
 ANS( $mc1->cmp() );
 
 #if ($part == 2) {
-#Context("Numeric");
-Context("LimitedNumeric-Fraction");
+#Context("LimitedNumeric-Fraction");
+Context("Numeric");
 $rate = Compute('1.15');
 
 BEGIN_TEXT
@@ -117,11 +117,11 @@ DISPLAY_SECTION( { name=>"2: Find the ratios",
 $PAR
 Find the ratio of the total cost to the number of yards for each column of the table above.
 $BR
-First column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+First column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\} dollars/yard
 $BR
-Second column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+Second column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\} dollars/yard
 $BR
-Third column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+Third column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\} dollars/yard
 $BR 
 
 END_SECTION
