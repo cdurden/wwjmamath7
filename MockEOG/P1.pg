@@ -27,9 +27,6 @@ $eqn = ImplicitEquation("c = $unit_rate p ");
 
 BEGIN_TEXT
 $PAR
-${BBOLD}Key Concepts:${EBOLD} Unit rate, Constant of proportionality
-${BBOLD}Procedures:${EBOLD} Compute unit rates, Write an equation for a proportional relationship
-$PAR
 1. The table shows how much a store charges for certain numbers of pencils.
 $PAR
 \{
@@ -50,6 +47,11 @@ $PAR
 Based on the table, which equation could be used to calculate the cost, c, of any number of pencils, p?
 $BR
 \{ $mc->buttons() \}
+
+$PAR
+${BBOLD}Key Concepts:${EBOLD} Unit rate, Constant of proportionality
+$BR
+${BBOLD}Procedures:${EBOLD} Compute unit rates, Write an equation for a proportional relationship
 END_TEXT
 
 $showPartialCorrectAnswers = 1;
