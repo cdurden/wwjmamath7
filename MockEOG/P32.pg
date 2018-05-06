@@ -1,0 +1,107 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+"contextFraction.pl",
+"contextLimitedPolynomial.pl"
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$mc1 = RadioButtons(
+    [
+      "\( \frac{1}{12} \)",
+      "\( \frac{1}{6} \)",
+      "\( \frac{1}{4} \)",
+      "\( \frac{2}{3} \)",
+    ],
+    "\( \frac{1}{12} \)",
+    labels => "ABC" );
+
+$ans_hash1 = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+
+BEGIN_TEXT
+32. Jeremy will roll a number cube, numbered 1-6, twice. What is the probability of rolling an even number, then the number 3?
+
+$PAR
+\{ $mc1->buttons() \}
+
+END_TEXT
+
+ANS( $mc1->cmp() );
+
+$ans_hash = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+
+
+$ansNum = 1;
+
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+#$section = 0;
+###############
+##  Section
+###############
+#$ansNum += 4;
+#$section += 1;
+#@requireCorrect = @nextRequireCorrect;
+#@nextRequireCorrect = 2..$ansNum;
+#Context()->texStrings;
+#DISPLAY_SECTION( { name=>"$section: Set up an equation",
+#             canshow =>$scaffold->requireCorrect(@requireCorrect),
+#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+#             section=>$section #designates that this is the first section
+#},   <<'END_SECTION');
+#$PAR
+#
+#END_SECTION
+#
+#
+###############
+##  Section
+###############
+#$ansNum += 8;
+#$section += 1;
+#@requireCorrect = @nextRequireCorrect;
+#@nextRequireCorrect = 2..$ansNum;
+#
+#Context()->texStrings;
+#DISPLAY_SECTION( { name=>"$section: Devise a plan",
+#             #canshow=>1, #always true
+#             canshow=>$scaffold->requireCorrect(@requireCorrect),
+#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+#             section=>$section #designates that this is the first section
+#},   <<'END_SECTION');
+#
+#$PAR
+#
+#END_SECTION
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+#}
+ENDDOCUMENT();
