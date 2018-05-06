@@ -42,6 +42,14 @@ $mc1 = RadioButtons(
     "\( 30 \) meters",
     labels => "ABC" );
 
+$mc = new_checkbox_multiple_choice();
+$mc -> qa (
+"Which of the quantities in the circumference formula \( C = 2 \pi r \) are given in the problem?", 
+"\( C \)$BR",
+"\( r \)$BR",                
+);
+$mc -> makeLast("None of the above");
+
 $ans_hash1 = $mc1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
@@ -172,7 +180,9 @@ DISPLAY_SECTION( { name=>"$section: Set up an equation",
 },   <<'END_SECTION');
 
 $PAR
-Which of the quantities in the circumference formula \( C = 2 \pi r \) are given in the problem?
+\{ $mc -> print_q() \}
+$PAR
+\{ $mc -> print_a() \}
 $PAR
 Substitute the known values for these quantities, into the equation \( C = 2 \pi r \). 
 $PAR
