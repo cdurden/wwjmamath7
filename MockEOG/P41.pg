@@ -1,0 +1,274 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+"contextFraction.pl",
+"contextLimitedPolynomial.pl"
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+#$cp = new compoundProblem(
+#  parts => 2,                  # the total number of parts in this problem
+#  totalAnswers => 3,           # total answers in all parts combined
+#  parserValues => 1,           # make parser objects from student answers
+#  allowReset => $isProfessor,  # professors get Reset button for testing
+#);
+#Context("Currency");
+Context("Numeric");
+#Context("LimitedFraction");
+Context()->flags->set(reduceConstants=>0);
+Context()->variables->add(y=>"Real");
+$expr0 =  Formula("-4(x+2)-1/2*(2x-6)");
+$expr0 =  Formula("-4(x+2)-1/2*(2x-6)");
+$expr1 = Formula("-4(x+2)");
+$expr2 = Formula("-1/2*(2x-6)");
+$expr = Compute("$expr1+$expr2");
+Context("LimitedPolynomial-Strict");
+Context()->variables->add(y=>"Real");
+$term11 = Compute("-4x");
+$term12 = Compute("-8");
+$term21 = Compute("-x");
+$term22 = Compute("3");
+$expanded1 = Compute("-4x-8");
+$expanded2 = Compute("-x+3");
+$ans = Compute("-5x-5");
+$expanded = MultiAnswer($expanded1, $expanded2)->with(
+  singleResult => 0,
+  allowBlankAnswers => 1,
+  checker => sub {
+      my ( $correct, $student, $self ) = @_;
+      my ( $e1stu, $e2stu) = @{$student};
+      my ( $e1, $e2 ) = @{$correct};
+      $e1_ans_hash = $e1->cmp()->evaluate($e1stu);
+      $e2_ans_hash = $e2->cmp()->evaluate($e2stu);
+      return([$e1_ans_hash->{score},$e2_ans_hash->{score}]);
+  }
+);
+
+BEGIN_TEXT
+$PAR
+Which expression is equivalent to \( -4(x+2) - \frac{1}{2}(2x-6) \)?
+
+
+END_TEXT
+
+$ans_hash = $ans->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+#if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
+#  $cp->incrementPart();
+#}
+
+#$part = $cp->part();
+
+
+BEGIN_TEXT
+$PAR
+\{ $ans->ans_rule() \}
+END_TEXT
+
+ANS( $ans->cmp() );
+
+#if ($part == 2) {
+
+#BEGIN_TEXT
+#$PAR
+#${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+#
+#END_TEXT
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+$section = 0;
+$ansNum = 2;
+##############
+#  Section
+##############
+$section += 1;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Rewrite the difference as a sum",
+             canshow=>1, #always true
+             #canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Rewrite \( $expr0 \) as a sum.
+$PAR
+\( $expr0 = \) \{SECTION_ANS($expr1->cmp),$expr1->ans_rule()\} \( + \) \{SECTION_ANS($expr2->cmp),$expr2->ans_rule()\} 
+
+END_SECTION
+#########################
+# Responsive text logic
+#########################
+$ansNum += 2;
+
+##############
+$terms1_text = <<'END_TEXT';
+$PAR
+
+Find each of the terms in the expanded form of \( $expr1 \):
+$PAR
+\( -3\cdot 3y= \) \{SECTION_ANS($term11->cmp),$term11->ans_rule()\}
+$PAR
+\( -3 \cdot (-2x) = \) \{SECTION_ANS($term12->cmp),$term12->ans_rule()\}
+
+END_TEXT
+##############
+$terms2_text = <<'END_TEXT';
+$PAR
+
+Find each of the terms in the expanded form of \( $expr2 \):
+$PAR
+\( 2\cdot 5x= \) \{SECTION_ANS($term21->cmp),$term21->ans_rule()\}
+$PAR
+\( 2 \cdot (-4y) = \) \{SECTION_ANS($term22->cmp),$term22->ans_rule()\}
+
+END_TEXT
+
+##############
+$replace_paren_text = <<'END_TEXT';
+$PAR 
+Replace \( $expr1 \) and \( $expr2 \) by the expanded forms of these expression:
+$PAR
+\( $expr = \) \{SECTION_ANS($expanded1->cmp),$expanded1->ans_rule()\} \( + \) \{SECTION_ANS($expanded2->cmp),$expanded2->ans_rule()\} 
+
+END_TEXT
+
+##############
+$terms1_to_expand_text = <<'END_TEXT';
+$PAR 
+The expanded form of \( $expr1 \) is the sum of these terms.
+END_TEXT
+
+##############
+$terms2_to_expand_text = <<'END_TEXT';
+$PAR 
+The expanded form of \( $expr2 \) is the sum of these terms.
+END_TEXT
+
+
+##############
+$expand_text = <<'END_TEXT';
+$PAR 
+
+Expand \( $expr1 \) and \( $expr2 \)
+
+$PAR
+\( $expr1 = \) \{SECTION_ANS($expanded1->cmp),$expanded1->ans_rule()\} 
+$PAR
+\( $expr2 = \) \{SECTION_ANS($expanded2->cmp),$expanded2->ans_rule()\} 
+
+END_TEXT
+
+###############
+
+$text1 = $expand_text;
+if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
+  $text1 .= $replace_paren_text;
+  $ansNum += 2;
+  #if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
+  #}
+} else {
+  $text1 .= "$PAR At least one expanded expression was incorrect.";
+  $text1 .= $inputs_ref->{ANS_NUM_TO_NAME($ansNum)};
+  $text1 .= $inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)};
+  $ansNum += 2;
+  if($inputs_ref->{ANS_NUM_TO_NAME($ansNum)} and $inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)}) {
+    $text1 .= $terms1_text;
+    if ($term11->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $term12->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
+      $text1 .= $terms1_to_expand_text;
+    }
+    $text1 .= $terms2_text;
+    if ($term21->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+2)})->{score} == 1 && $term22->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+3)})->{score} == 1) {
+      $text1 .= $terms2_to_expand_text;
+    }
+  }
+  if ($term11->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $term12->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1 &&
+  $term21->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+2)})->{score} == 1 && $term22->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+3)})->{score} == 1) {
+    $text1 .= $expand_text;
+    $ansNum += 4;
+    if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
+      $text1 .= $replace_paren_text;
+      $ansNum += 2;
+      #if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
+        #$ansNum += 1;
+        #$text .= $final_eval_text;
+      #}
+    }
+  }
+}
+
+
+##############
+#  Section
+##############
+$section += 1;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Eliminate parentheses in the expression by expanding",
+             canshow=>1, #always true
+             #canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+\{EV3($text1);\}
+
+
+END_SECTION
+##############
+#  Section
+##############
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = $ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Combine like terms",
+             #canshow =>1, #always true
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+We have rewritten \( $expr1 + $expr2 \) without parentheses.
+$PAR
+Next, simplify the expression by combining like terms
+$PAR
+\( $expanded1 + $expanded2 = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
+
+
+END_SECTION
+
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+#}
+ENDDOCUMENT();
