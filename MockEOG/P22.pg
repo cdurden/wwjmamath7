@@ -134,10 +134,11 @@ $section = 0;
 ##############
 $ansNum += 2;
 $section += 1;
+@nextRequireCorrect = 2..$ansNum;
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Apply a general principle to relate the quantities in the problem",
-             canshow =>$scaffold->requireCorrect(2),
-             iscorrect=>$scaffold->requireCorrect(3..5),
+             canshow =>$scaffold->1,
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -164,10 +165,12 @@ END_SECTION
 ##############
 $ansNum += 5;
 $section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Set up an equation",
-             canshow =>$scaffold->requireCorrect(2),
-             iscorrect=>$scaffold->requireCorrect(3..5),
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
