@@ -35,7 +35,7 @@ $ans_hash1 = $mc1->cmp()->evaluate(
 
 
 BEGIN_TEXT
-Which choice shows three lengths that cannot be the lengths of the three sides of a triangle?
+25. Which choice shows three lengths that cannot be the lengths of the three sides of a triangle?
 $PAR
 \{ $mc1->buttons() \}
 

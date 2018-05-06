@@ -38,7 +38,7 @@ $b = Compute('3');
 $ans = Compute("2*$s+2.4*$b");
 
 BEGIN_TEXT
-Evan has a summer job to pick berries on a farm.
+24. Evan has a summer job to pick berries on a farm.
 
 He earns $2.00 every 15 minutes that he picks strawberries.
 He earns $2.40 for every 15 minutes that he picks blueberries.

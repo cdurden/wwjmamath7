@@ -97,7 +97,7 @@ $choice1_checker = sub {
 
 BEGIN_TEXT
 $PAR
-Two sporting goods stores are having discount sales on basketballs.
+35. Two sporting goods stores are having discount sales on basketballs.
 
 $PAR
 At one store, a basketball is on sale for 20% off the regular price of ${DOLLAR}24.95

@@ -45,7 +45,7 @@ $popup1 = PopUp(["?", "$frac3 of $total", "$frac2 of $total", "$frac1 of $total"
 $popup2 = PopUp(["?", "multiply the number by the fraction", "divide the number by the fraction"], "multiply the number by the fraction");
 
 BEGIN_TEXT
-Karen spends ${DOLLAR}450 on monthly bills. Of this total amount, \( 12% \) is for phone service, \( \frac{1}{10} \) is for Internet service, and \( \frac{2}{9} \) is for utilities. If the rest of the total amount is for food, how much does Karen have for food?
+37. Karen spends ${DOLLAR}450 on monthly bills. Of this total amount, \( 12% \) is for phone service, \( \frac{1}{10} \) is for Internet service, and \( \frac{2}{9} \) is for utilities. If the rest of the total amount is for food, how much does Karen have for food?
 
 $PAR
 \{ $ans->ans_rule() \}

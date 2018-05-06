@@ -73,7 +73,7 @@ $choice1_checker = sub {
 
 BEGIN_TEXT
 $PAR
-Anna saved $20 in a jar each month for \(2 \frac{1}{2} \) years. She spent 75% of her savings on a computer. How much money did Anna have left in the jar?
+20. Anna saved $20 in a jar each month for \(2 \frac{1}{2} \) years. She spent 75% of her savings on a computer. How much money did Anna have left in the jar?
 
 END_TEXT
 

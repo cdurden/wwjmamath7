@@ -66,7 +66,7 @@ $C = Formula("2*pi*r");
 Context("LimitedPolynomial-Strict");
 
 BEGIN_TEXT
-What is the approximate circumference of the circle that has a center at \( (2,1) \) and passes through the point \( (2,5) \)?
+45. What is the approximate circumference of the circle that has a center at \( (2,1) \) and passes through the point \( (2,5) \)?
 $PAR
 \{ $mc1->buttons() \}
 

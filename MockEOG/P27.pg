@@ -35,7 +35,7 @@ $ans_hash1 = $mc1->cmp()->evaluate(
 
 
 BEGIN_TEXT
-Angles T and V are complementary. Angle T has a measure of \( (2x+10)^\circ \). Angle V has a measure of \( 48^\circ \). What is the value of \( x \)?
+27. Angles T and V are complementary. Angle T has a measure of \( (2x+10)^\circ \). Angle V has a measure of \( 48^\circ \). What is the value of \( x \)?
 $PAR
 \{ $mc1->buttons() \}
 

@@ -87,7 +87,7 @@ $rhs2 = Compute("2");
 $ans = $lhs3;
 
 BEGIN_TEXT
-Which set of numbers is included in the solution set of \( $lhs0 $ineq $rhs0 \)?
+42. Which set of numbers is included in the solution set of \( $lhs0 $ineq $rhs0 \)?
 $PAR
 \{ $mc1->buttons() \}
 

@@ -54,7 +54,7 @@ $expanded = MultiAnswer($expanded1, $expanded2)->with(
 
 BEGIN_TEXT
 $PAR
-Which choice is equivalent to the expression shown below?
+36. Which choice is equivalent to the expression shown below?
 $PAR
 \( -3(3y - 2x) + 2(5x - 4y) \)
 

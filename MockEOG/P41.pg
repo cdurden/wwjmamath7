@@ -53,7 +53,7 @@ $ans = $lhs3;
 
 BEGIN_TEXT
 $PAR
-What is the value of \( x \) in the equation \( -2 = 5x + 3 \)?
+41. What is the value of \( x \) in the equation \( -2 = 5x + 3 \)?
 
 END_TEXT
 

@@ -17,12 +17,12 @@ loadMacros(
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 
-$cp = new compoundProblem(
-  parts => 2,                  # the total number of parts in this problem
-  totalAnswers => 3,           # total answers in all parts combined
-  parserValues => 1,           # make parser objects from student answers
-  allowReset => $isProfessor,  # professors get Reset button for testing
-);
+#$cp = new compoundProblem(
+#  parts => 2,                  # the total number of parts in this problem
+#  totalAnswers => 3,           # total answers in all parts combined
+#  parserValues => 1,           # make parser objects from student answers
+#  allowReset => $isProfessor,  # professors get Reset button for testing
+#);
 
 $mc = RadioButtons(
     [ "6%", "7%", "8%", "9%" ],
@@ -64,7 +64,7 @@ $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
 
 BEGIN_TEXT
 $PAR
-A notebook costs ${DOLLAR}4.50 plus sales tax.  After sales tax, the notebook is ${DOLLAR}4.86.  What is the sales tax rate?
+16. A notebook costs ${DOLLAR}4.50 plus sales tax.  After sales tax, the notebook is ${DOLLAR}4.86.  What is the sales tax rate?
 
 END_TEXT
 
@@ -72,11 +72,11 @@ ANS( $mc->cmp() );
 $ans_hash = $mc->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
-if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
-  $cp->incrementPart();
-}
-
-$part = $cp->part();
+#if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
+#  $cp->incrementPart();
+#}
+#
+#$part = $cp->part();
 
 
 BEGIN_TEXT
@@ -84,7 +84,7 @@ $PAR
 \{ $mc->buttons() \}
 END_TEXT
 
-if ($part == 2) {
+#if ($part == 2) {
 
 BEGIN_TEXT
 $PAR
@@ -243,5 +243,5 @@ $opensection = $last_correct_section + 1;
 $scaffold->openSections(1..$opensection);
 
 
-}
+#}
 ENDDOCUMENT();

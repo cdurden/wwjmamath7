@@ -35,7 +35,7 @@ $total = Compute("24");
 $ans = Compute("$total*$frac");
 
 BEGIN_TEXT
-Mr. Adams had 24 guests at his house for a party.  Each guest brought one item.
+11. Mr. Adams had 24 guests at his house for a party.  Each guest brought one item.
 
 One-third of the guests brought drinks.
 One-fourth of the guests brought a dessert.

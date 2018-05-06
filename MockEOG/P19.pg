@@ -59,7 +59,7 @@ $expanded = MultiAnswer($expanded1, $expanded2)->with(
 
 BEGIN_TEXT
 $PAR
-Which expression is equivalent to \( -4(x+2) - \frac{1}{2}(2x-6) \)?
+19. Which expression is equivalent to \( -4(x+2) - \frac{1}{2}(2x-6) \)?
 
 
 END_TEXT

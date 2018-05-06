@@ -24,7 +24,6 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 #  parserValues => 1,           # make parser objects from student answers
 #  allowReset => $isProfessor,  # professors get Reset button for testing
 #);
-Context("Currency");
 Context("Numeric");
 $expr1 = Formula("2(x-3)");
 $expr2 = Formula("4x+3");
@@ -37,7 +36,7 @@ $ans = Compute("6x-3");
 
 BEGIN_TEXT
 $PAR
-What is the value of \(2( 4^2 + (\frac{1}{2})^2) \)?
+40. What is the value of \(2( 4^2 + (\frac{1}{2})^2) \)?
 
 END_TEXT
 

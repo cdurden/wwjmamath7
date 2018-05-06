@@ -17,12 +17,12 @@ loadMacros(
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 
-$cp = new compoundProblem(
-  parts => 2,                  # the total number of parts in this problem
-  totalAnswers => 3,           # total answers in all parts combined
-  parserValues => 1,           # make parser objects from student answers
-  allowReset => $isProfessor,  # professors get Reset button for testing
-);
+#$cp = new compoundProblem(
+#  parts => 2,                  # the total number of parts in this problem
+#  totalAnswers => 3,           # total answers in all parts combined
+#  parserValues => 1,           # make parser objects from student answers
+#  allowReset => $isProfessor,  # professors get Reset button for testing
+#);
 
 $mc = RadioButtons(
     [ '$56', '$287', '$306', '467' ],
@@ -47,7 +47,7 @@ $ans = $income;
 
 BEGIN_TEXT
 $PAR
-Mr. Tucker earns $250 per week working in an appliance store.  In addition, he earns 2% commission on all of his sales.  Last week, he sold $2,800 worth of appliances.  What was Mr. Tucker's total income for the week?
+34. Mr. Tucker earns $250 per week working in an appliance store.  In addition, he earns 2% commission on all of his sales.  Last week, he sold $2,800 worth of appliances.  What was Mr. Tucker's total income for the week?
 
 END_TEXT
 
@@ -55,11 +55,11 @@ ANS( $mc->cmp() );
 $ans_hash = $mc->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
-if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
-  $cp->incrementPart();
-}
-
-$part = $cp->part();
+#if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
+#  $cp->incrementPart();
+#}
+#
+#$part = $cp->part();
 
 
 BEGIN_TEXT
@@ -67,7 +67,7 @@ $PAR
 \{ $mc->buttons() \}
 END_TEXT
 
-if ($part == 2) {
+#if ($part == 2) {
 
 BEGIN_TEXT
 $PAR
@@ -139,5 +139,5 @@ $opensection = $last_correct_section + 1;
 $scaffold->openSections(1..$opensection);
 
 
-}
+#}
 ENDDOCUMENT();

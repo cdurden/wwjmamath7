@@ -35,7 +35,7 @@ $ans_hash1 = $mc1->cmp()->evaluate(
 
 
 BEGIN_TEXT
-Laura's yard is in the shape of a square and a half circle.
+29. Laura's yard is in the shape of a square and a half circle.
 $PAR
 \{ image( "img/P29.png", width=>225, height=>243 ) \}
 $PAR

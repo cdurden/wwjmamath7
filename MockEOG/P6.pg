@@ -13,12 +13,12 @@ loadMacros(
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 
-$cp = new compoundProblem(
-  parts => 2,                  # the total number of parts in this problem
-  totalAnswers => 3,           # total answers in all parts combined
-  parserValues => 1,           # make parser objects from student answers
-  allowReset => $isProfessor,  # professors get Reset button for testing
-);
+#$cp = new compoundProblem(
+#  parts => 2,                  # the total number of parts in this problem
+#  totalAnswers => 3,           # total answers in all parts combined
+#  parserValues => 1,           # make parser objects from student answers
+#  allowReset => $isProfessor,  # professors get Reset button for testing
+#);
 
 
 $mc1 = RadioButtons(
@@ -35,7 +35,7 @@ $diff = Compute('1/18');
 BEGIN_TEXT
 $PAR
 
-A baker made two cakes of the same size.
+6. A baker made two cakes of the same size.
 
 $PAR
 At the end of the day, there was \( \frac{2}{3} \) of a chocolate cake left.
@@ -52,12 +52,12 @@ END_TEXT
 $ans_hash1 = $mc1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
-if ($ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0) {
-#$cp->part(2);
-$cp->incrementPart();
-}
-
-$part = $cp->part();
+#if ($ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0) {
+##$cp->part(2);
+#$cp->incrementPart();
+#}
+#
+#$part = $cp->part();
 
 BEGIN_TEXT
 $PAR
@@ -67,7 +67,7 @@ END_TEXT
 
 ANS( $mc1->cmp() );
 
-if ($part == 2) {
+#if ($part == 2) {
 
 BEGIN_TEXT
 $PAR
@@ -170,6 +170,6 @@ $last_correct_section = PROCESS_SECTIONS();
 
 $opensection = $last_correct_section + 1;
 $scaffold->openSections(1..$opensection);
-}
+#}
 
 ENDDOCUMENT();

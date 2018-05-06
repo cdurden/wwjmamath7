@@ -35,7 +35,7 @@ $ans_hash1 = $mc1->cmp()->evaluate(
 
 
 BEGIN_TEXT
-A triangular right prism is cut perpendicular to the base. What is the shape of the cross section?
+44. A triangular right prism is cut perpendicular to the base. What is the shape of the cross section?
 $PAR
 \{ $mc1->buttons() \}
 

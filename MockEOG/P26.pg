@@ -84,7 +84,7 @@ Context()->variables->set(r=>{limits=>[0,50]});
 $eqn = ImplicitEquation("$lhs0=$rhs0");
 
 BEGIN_TEXT
-The circumference of a circle is 188 meters. What is the approximate radius of the circle?
+26. The circumference of a circle is 188 meters. What is the approximate radius of the circle?
 $PAR
 \{ $mc1->buttons() \}
 

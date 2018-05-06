@@ -17,12 +17,12 @@ loadMacros(
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 
-$cp = new compoundProblem(
-  parts => 2,                  # the total number of parts in this problem
-  totalAnswers => 3,           # total answers in all parts combined
-  parserValues => 1,           # make parser objects from student answers
-  allowReset => $isProfessor,  # professors get Reset button for testing
-);
+#$cp = new compoundProblem(
+#  parts => 2,                  # the total number of parts in this problem
+#  totalAnswers => 3,           # total answers in all parts combined
+#  parserValues => 1,           # make parser objects from student answers
+#  allowReset => $isProfessor,  # professors get Reset button for testing
+#);
 Context("Currency");
 $subtotal = Compute('29.85');
 Context("Numeric");
@@ -70,7 +70,7 @@ $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
 
 BEGIN_TEXT
 $PAR
-The Smith family went out to dinner.
+17. The Smith family went out to dinner.
 $PAR
 The price of the meal was ${DOLLAR}29.85.
 $PAR
@@ -85,11 +85,11 @@ END_TEXT
 $ans_hash = $ans2->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
-if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
-  $cp->incrementPart();
-}
-
-$part = $cp->part();
+#if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
+#  $cp->incrementPart();
+#}
+#
+#$part = $cp->part();
 
 
 BEGIN_TEXT
@@ -99,7 +99,7 @@ END_TEXT
 
 ANS( $ans2->cmp() );
 
-if ($part == 2) {
+#if ($part == 2) {
 
 BEGIN_TEXT
 $PAR
@@ -245,5 +245,5 @@ $opensection = $last_correct_section + 1;
 $scaffold->openSections(1..$opensection);
 
 
-}
+#}
 ENDDOCUMENT();

@@ -98,7 +98,7 @@ Context()->variables->set(x=>{limits=>[0,20]});
 $eqn = ImplicitEquation("$lhs0=$rhs0");
 
 BEGIN_TEXT
-When Derek planted a tree it was \( 36 \) inches tall. The tree grew \( 1 \frac{1}{4} \) inches per year. The tree is not \( 44 \frac{3}{4} \) inches tall. How many years ago did Derek plant the tree?
+22. When Derek planted a tree it was \( 36 \) inches tall. The tree grew \( 1 \frac{1}{4} \) inches per year. The tree is not \( 44 \frac{3}{4} \) inches tall. How many years ago did Derek plant the tree?
 $PAR
 \{ $mc1->buttons() \}
 

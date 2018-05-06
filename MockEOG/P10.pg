@@ -113,7 +113,7 @@ $choice2_checker = $choice1_checker;
 
 BEGIN_TEXT
 $PAR
-A store sells ladders.
+10. A store sells ladders.
 The retail price was a 40 percent markup over the manufacturer price.
 A month later, the store reduced the retail price of the ladder by 25 percent.
 What percent markup is the new retail price over the manufacturer price?

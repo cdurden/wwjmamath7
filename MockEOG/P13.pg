@@ -34,7 +34,7 @@ $ans = $expr1;
 
 BEGIN_TEXT
 $PAR
-What is the value of \(2( 4^2 + (\frac{1}{2})^2) \)?
+13. What is the value of \(2( 4^2 + (\frac{1}{2})^2) \)?
 
 END_TEXT
 

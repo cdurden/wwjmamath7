@@ -98,7 +98,7 @@ Context()->variables->set(x=>{limits=>[0,40]});
 $eqn = ImplicitEquation("$lhs0=$rhs0");
 
 BEGIN_TEXT
-Jacob is 12 years younger than twice Elizabeth's age. Jacob is 28 years old. How old is Elizabeth?
+38. Jacob is 12 years younger than twice Elizabeth's age. Jacob is 28 years old. How old is Elizabeth?
 $PAR
 \{ $mc1->buttons() \}
 

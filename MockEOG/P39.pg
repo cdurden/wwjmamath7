@@ -87,7 +87,7 @@ $rhs2 = Compute("4");
 $ans = $lhs3;
 
 BEGIN_TEXT
-Which choice is a graph of the solution set for \( $lhs0 < $rhs0\)?
+39. Which choice is a graph of the solution set for \( $lhs0 < $rhs0\)?
 $PAR
 $BR
 \{ $mc1->buttons() \}
