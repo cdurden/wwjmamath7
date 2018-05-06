@@ -33,18 +33,18 @@ $mc->qa(
 '\{ image( "img/P39b.png", width=>298, height=>48 ) \}'
 );
 $mc->extra(
-      EV3('image( "img/P39a.png", width=>298, height=>48 )'),
-      EV3('\{ image( "img/P39c.png", width=>298, height=>48 ) \}'),
+      image( "img/P39a.png", width=>298, height=>48 ),
+      image( "img/P39c.png", width=>298, height=>48 ),
       image( "img/P39d.png", width=>298, height=>48 )
 );
 $mc1 = RadioButtons(
     [ 
-      "\{ image( 'img/P39a.png', width=>298, height=>48 ) \}",
-      "\{ image( 'img/P39b.png', width=>298, height=>48 ) \}",
-      "\{ image( 'img/P39c.png', width=>298, height=>48 ) \}",
-      "\{ image( 'img/P39d.png', width=>298, height=>48 ) \}",
+      image( 'img/P39a.png', width=>298, height=>48 ),
+      image( 'img/P39b.png', width=>298, height=>48 ),
+      image( 'img/P39c.png', width=>298, height=>48 ),
+      image( 'img/P39d.png', width=>298, height=>48 ),
     ],
-      "\{ image( 'img/P39b.png', width=>298, height=>48 ) \}",
+    image( 'img/P39b.png', width=>298, height=>48 ),
     labels => "ABC" );
 
 $ans_hash1 = $mc1->cmp()->evaluate(
