@@ -244,7 +244,7 @@ Carry out the first step of the plan: $step1 to both sides of the $eqn_or_ineq.
 $PAR
 \( $lhs0 $ineq $rhs0 \)
 $PAR
-\{SECTION_ANS($lhs2->cmp),$lhs2->ans_rule()\} \{SECTION_ANS($popup8->cmp), $popup8->menu() \} \{SECTION_ANS($rhs2->cmp),$rhs2->ans_rule()\}
+\{SECTION_ANS($lhs1->cmp),$lhs1->ans_rule()\} \{SECTION_ANS($popup8->cmp), $popup8->menu() \} \{SECTION_ANS($rhs1->cmp),$rhs1->ans_rule()\}
 $PAR
 
 END_SECTION
@@ -266,9 +266,9 @@ DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
 
 Carry out the second step of the plan: $step2 to both sides of the $eqn_or_ineq.
 $PAR
-\( $lhs2 $ineq $rhs2 \)
+\( $lhs1 $ineq $rhs1 \)
 $PAR
-\{SECTION_ANS($lhs3->cmp),$lhs3->ans_rule()\}  \{SECTION_ANS($popup9->cmp), $popup9->menu() \}  \{SECTION_ANS($rhs3->cmp),$rhs3->ans_rule()\}
+\{SECTION_ANS($lhs2->cmp),$lhs2->ans_rule()\}  \{SECTION_ANS($popup9->cmp), $popup9->menu() \}  \{SECTION_ANS($rhs2->cmp),$rhs2->ans_rule()\}
 $PAR
 
 END_SECTION
