@@ -10,6 +10,7 @@ loadMacros(
 "compoundProblem5.pl",
 "compoundProblem.pl",
 "contextLimitedNumeric.pl",
+"contextFraction.pl",
 "parserImplicitEquation.pl",
 );
 
@@ -60,7 +61,8 @@ Context()->flags->set(
 );
 $scale7 = Compute('15');
 $scale = Compute('15/7');
-Context("LimitedNumeric-Fraction");
+#Context("LimitedNumeric-Fraction");
+Context("LimitedFraction");
 $scale_frac = Compute('15/7');
 Context("ImplicitEquation");
 Context()->variables->add(a=>"Real", m=>"Real");
@@ -141,7 +143,7 @@ DISPLAY_SECTION( { name=>"3: Write the equation of the relatinship",
 },   <<'END_SECTION');
 $PAR
 In the last section you established the following key fact:
-The actual height (a) is \[ $scale_frac \] times the height of the model (\( m \)).
+The actual height (a) is \( $scale_frac \) times the height of the model (\( m \)).
 
 $PAR
 Write this as an equation.
