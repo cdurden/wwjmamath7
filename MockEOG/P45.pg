@@ -60,7 +60,7 @@ sub iop {
 Context("Numeric");
 Context()->flags->set(reduceConstants=>0);
 Context()->variables->add(r=>"Real");
-$C = Formula("2*pi*r")
+$C = Formula("2*pi*r");
 Context("LimitedPolynomial-Strict");
 $radius = Compute("4");
 $circumference = Compute("4*pi");
