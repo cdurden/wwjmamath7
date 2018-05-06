@@ -225,11 +225,11 @@ DISPLAY_SECTION( { name=>"$section: Combine like terms",
 },   <<'END_SECTION');
 
 $PAR
-We have rewritten \( $expanded + $expr2 \) without parentheses.
+We have rewritten \( $expr1 + $expr2 \) without parentheses.
 $PAR
 Next, simplify the expression by combining like terms
 $PAR
-\( $expanded + $expr2 = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
+\( $expanded1 + $expanded2 = \) \{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
 
 
 END_SECTION
