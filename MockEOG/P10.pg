@@ -601,7 +601,7 @@ $PAR
 $PAR
 What is this number as a percent?
 $PAR
-\{SECTION_ANS($percent->cmp),$percent->ans_rule()\}
+\{SECTION_ANS($percent->cmp),$P->ans_rule()\}%
 $PAR
 What percent markup is the final price over the manufacturer price?
 $PAR
