@@ -89,7 +89,7 @@ $popup8 = PopUp(["?", ">", "<"], "<");
 $popup9 = PopUp(["?", ">", "<"], ">");
 $popup10 = PopUp(["?", "right", "left"], "right");
 $popup11 = PopUp(["?", "includes", "does not include"], "does not include");
-$popup12 = PopUp(["?", "the height of the tree", ""], "the height of the tree");
+$popup12 = PopUp(["?", "Elizabeth's age", "Jacob's age"], "Elizabeth's age");
 $popup13 = PopUp(["?", "the growth of the tree", ""], "the growth of the tree");
 
 
