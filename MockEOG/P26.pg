@@ -184,7 +184,7 @@ DISPLAY_SECTION( { name=>"$section: Set up an equation",
 $PAR
 \{ $mc->print_q() \}
 $PAR
-\{SECTION_ANS(checkbox_cmp($mc->correct_ans), $mc->print_a() \}
+\{SECTION_ANS(checkbox_cmp($mc->correct_ans)), $mc->print_a() \}
 $PAR
 Substitute the known values for these quantities, into the equation \( C = 2 \pi r \). 
 $PAR
