@@ -26,7 +26,7 @@ $ans_hash = $ans->cmp()->evaluate(
 
 
 BEGIN_TEXT
-15. \( \overbar{SU} \) intersects \( \overbar{TV} \) at point \( R \). What is the value of \( x \), in degrees? 
+15. \( \overline{SU} \) intersects \( \overline{TV} \) at point \( R \). What is the value of \( x \), in degrees? 
 $PAR
 \{ image( "img/P15.png", width=>273, height=>322 ) \}
 $PAR
