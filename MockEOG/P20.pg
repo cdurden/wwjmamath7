@@ -64,7 +64,7 @@ $choice1 = RadioButtons(
     "Set up a proportion",
     labels => "ABC" );
 $choice1_hash = $choice1->cmp()->evaluate(
-    $inputs_ref->{ANS_NUM_TO_NAME(4)} );
+    $inputs_ref->{ANS_NUM_TO_NAME(5)} );
 $choice1_checker = sub {
     my ($correct,$student,$ansHash) = @_;
     return (1);
@@ -158,8 +158,6 @@ DISPLAY_SECTION( { name=>"3: Set up a proportion to find how much money Anna has
              iscorrect=>$scaffold->requireCorrect(6),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
-$PAR
-Choice: $choice1_hash->{student_ans}
 $PAR
 Let \( x\) stand for the amount of money Anna has after buying the computer, which is \( $P1 \)% of $DOLLAR\( $savings \). Set up a proportion that can be used to find \( x \).
 
