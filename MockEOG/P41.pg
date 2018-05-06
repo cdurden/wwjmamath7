@@ -240,8 +240,8 @@ $section += 1;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Carry out the first step of the plan",
-             canshow=>1, #always true
-             #canshow=>$scaffold->requireCorrect(@requireCorrect),
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
@@ -264,8 +264,8 @@ $section += 1;
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
-             canshow=>1, #always true
-             #canshow=>$scaffold->requireCorrect(@requireCorrect),
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
