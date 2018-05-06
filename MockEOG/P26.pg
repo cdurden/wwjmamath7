@@ -46,6 +46,8 @@ $mc = new_checkbox_multiple_choice();
 $mc -> qa (
 "Which of the quantities in the circumference formula \( C = 2 \pi r \) are given in the problem?", 
 "\( C \)$BR",
+);
+$mc -> extra(
 "\( r \)$BR",                
 );
 $mc -> makeLast("None of the above");
