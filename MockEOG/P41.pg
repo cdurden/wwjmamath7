@@ -67,6 +67,7 @@ $ans_hash = $ans->cmp()->evaluate(
 #$part = $cp->part();
 
 
+$ansNum = 1;
 BEGIN_TEXT
 $PAR
 \{ $ans->ans_rule() \}
@@ -87,7 +88,7 @@ INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
 $section = 0;
-$ansNum = 2;
+$ansNum += 8;
 ##############
 #  Section
 ##############
