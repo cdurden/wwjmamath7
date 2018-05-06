@@ -366,7 +366,7 @@ DISPLAY_SECTION( { name=>"4: Devise a plan to represent the markdown",
 },   <<'END_SECTION');
 
 $PAR
-The retail price was marked down by \( $markdown2 \)%. What was the final price as a percent of the retail price?
+The retail price was marked down by \( $markdown2 \)% to get the final price. What was the final price as a percent of the retail price?
 
 $PAR
 The final price was \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.

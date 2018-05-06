@@ -147,7 +147,7 @@ Fill in the blank: To determine how much yellow paint to use, we can
 $PAR
 How many liters of yellow paint should John use to make the new batch of orange paint?
 $BR
-\{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
+\{SECTION_ANS($rate->cmp), $rate->ans_rule() \} liters
 $BR
 END_SECTION
 
