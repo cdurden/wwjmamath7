@@ -23,8 +23,7 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 Context("Numeric");
 $final = Compute('44.75');
 $initial = Compute('36');
-Context("Formula");
-$change = Compute('1.25x');
+$change = Formula('1.25x');
 #$cp = new compoundProblem(
 #  parts => 2,                  # the total number of parts in this problem
 #  totalAnswers => 3,           # total answers in all parts combined
