@@ -173,7 +173,7 @@ $PAR
 $PAR
 \{SECTION_ANS(checkbox_cmp($mc->correct_ans)), $mc->print_a() \}
 $PAR
-Substitute the known values for these quantities, into the equation \( C = 2 \pi r \). 
+Substitute the known values for these quantities, into the equation \( C = 2 \pi r \) (You may use \( 3.14 \) for \( \pi \)). 
 $PAR
 What is the new equation? \{SECTION_ANS($eqn->cmp),$eqn->ans_rule()\}
 
@@ -201,6 +201,8 @@ $PAR
 $PAR
 The resulting equation is: \{SECTION_ANS($lhs1->cmp),$lhs1->ans_rule()\} = \{SECTION_ANS($rhs1->cmp),$rhs1->ans_rule()\}
 $PAR
+
+END_SECTION
 
 PROCESS_ANSWERS();
 
