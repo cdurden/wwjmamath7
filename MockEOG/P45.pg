@@ -64,39 +64,6 @@ Context()->flags->set(reduceConstants=>0);
 Context()->variables->add(r=>"Real");
 $C = Formula("2*pi*r");
 Context("LimitedPolynomial-Strict");
-$lhs0 = Compute("2x-12");
-$rhs0 = Compute("28");
-
-$lhs1 = Compute("2x");
-$rhs1 = Compute("40");
-
-$lhs2 = Compute("x");
-$rhs2 = Compute("20");
-$ans = $lhs3;
-$step1f = "multiply by 2";
-$step2f = "subtract 12";
-$variable_side = "the left hand side";
-
-$step1i = iop($step2f);
-$step2i = iop($step1f);
-$popup1 = PopUp(["?", "the left hand side", "the right hand side"], $variable_side);
-$popup2 = PopUp(["?", "$step1f, then $step2f", "$step2f, then $step1f"], "$step1f, then $step2f");
-$popup3 = PopUp(["?", "$step1f, then $step2f", "$step2f, then $step1f", "$step1i, then $step2i", "$step2i, then $step1i"], "$step1i, then $step2i");
-$popup4 = PopUp(["?", "do the same operation to the other side of the $eqn_or_ineq", "do the opposite operation to the other side of the $eqn_or_ineq"], "do the same operation to the other side of the $eqn_or_ineq");
-$popup5 = PopUp(["?", "get the variable by itself on one side of the $eqn_or_ineq", "get zero on one side of the $eqn_or_ineq", "get one on one side of the $eqn_or_ineq"], "get the variable by itself on one side of the $eqn_or_ineq");
-$popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
-$popup7 = PopUp(["?", "get the variable by itself on $variable_side", "get zero on $variable_side", "get one on $variable_side"], "get the variable by itself on $variable_side");
-$popup8 = PopUp(["?", ">", "<"], "<");
-$popup9 = PopUp(["?", ">", "<"], ">");
-$popup10 = PopUp(["?", "right", "left"], "right");
-$popup11 = PopUp(["?", "includes", "does not include"], "does not include");
-$popup12 = PopUp(["?", "the height of the tree", ""], "the height of the tree");
-$popup13 = PopUp(["?", "the growth of the tree", ""], "the growth of the tree");
-
-
-Context("ImplicitEquation");
-Context()->variables->set(x=>{limits=>[0,20]});
-$eqn = ImplicitEquation("$lhs0=$rhs0");
 
 BEGIN_TEXT
 What is the approximate circumference of the circle that has a center at \( (2,1) \) and passes through the point \( (2,5) \)?
