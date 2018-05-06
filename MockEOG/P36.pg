@@ -180,10 +180,10 @@ if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score
     if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
       $text1 .= $replace_paren_text;
       $ansNum += 2;
-      if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
+      #if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
         #$ansNum += 1;
         #$text .= $final_eval_text;
-      }
+      #}
     }
   }
 }
