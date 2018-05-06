@@ -184,7 +184,7 @@ Define a variable: Let \( x \) stand for \{SECTION_ANS($popup12->cmp), $popup12-
 $PAR
 Write an expression to represent the change in the tree's height: \{SECTION_ANS($change->cmp),$change->ans_rule()\} 
 $PAR
- \{SECTION_ANS($eqn->cmp),$eqn->ans_rule()\}
+Write an equation that relates the data above and the variable \( x \): \{SECTION_ANS($eqn->cmp),$eqn->ans_rule()\}
 
 END_SECTION
 
