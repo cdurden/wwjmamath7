@@ -120,7 +120,8 @@ What is the radius of the circle?
 \{SECTION_ANS($radius->cmp),$radius->ans_rule()\}
 $PAR
 Let \( r \) be the radius of a circle. What is the formula for the circumference of the circle? (Type "pi" for \( \pi \))
-\( C = \) \{SECTION_ANS($radius->cmp),$radius->ans_rule()\}
+$PAR
+\( C = \) \{SECTION_ANS($C->cmp),$C->ans_rule()\}
 
 END_SECTION
 
