@@ -137,7 +137,7 @@ $section += 1;
 @nextRequireCorrect = 2..$ansNum;
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Apply a general principle to relate the quantities in the problem",
-             canshow =>$scaffold->1,
+             canshow =>1,
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
