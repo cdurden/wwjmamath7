@@ -148,7 +148,7 @@ DISPLAY_SECTION( { name=>"$section: Set up an equation",
 $PAR
 Define the variable \( x \) to stand for the unknown.
 $PAR
-Let \( x \) stand for \{SECTION_ANS($popup12->cmp), $popup12->menu() \}.
+\( x = \) \{SECTION_ANS($popup12->cmp), $popup12->menu() \}.
 $PAR
 Write an expression to represent ${BBOLD}twice Elizabeth's age${EBOLD}: \{SECTION_ANS($expr1->cmp),$expr1->ans_rule()\} 
 $PAR
