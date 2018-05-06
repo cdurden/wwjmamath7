@@ -58,13 +58,13 @@ sub iop {
   return($iop);
 }
 Context("Numeric");
+$circumference = Compute("188");
 $radius = Compute("$circumference/(2*pi)");
 Context()->flags->set(reduceConstants=>0);
 Context()->variables->add(r=>"Real");
 $C = Formula("2*pi*r");
 Context("LimitedPolynomial-Strict");
 Context()->variables->add(r=>"Real");
-$circumference = Compute("188");
 $rhs0 = Compute("2*pi*r");
 $lhs0 = Compute("188");
 

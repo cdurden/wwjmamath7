@@ -114,12 +114,11 @@ DISPLAY_SECTION( { name=>"$section: Draw and label the circle",
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-Draw the circle.
+Draw the circle. Use your picture to find the radius \( r \).
 $PAR
-What is the radius of the circle?
-\{SECTION_ANS($radius->cmp),$radius->ans_rule()\}
+\( r = \) \{SECTION_ANS($radius->cmp),$radius->ans_rule()\} units
 $PAR
-Let \( r \) be the radius of a circle. What is the formula for the circumference of the circle? (Type "pi" for \( \pi \))
+What is the formula for the circumference of a circle? (Type "pi" for \( \pi \), and "r" for the radius)
 $PAR
 \( C = \) \{SECTION_ANS($C->cmp),$C->ans_rule()\}
 
