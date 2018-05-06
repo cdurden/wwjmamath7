@@ -162,7 +162,7 @@ DISPLAY_SECTION( { name=>"$section: Set up an equation",
 },   <<'END_SECTION');
 $PAR
 
-Let \( x\) stand for the ${BBOLD}$ans_desc${EBOLD}. Use numbers or symbols to represent each of the quantities below:
+Let \( x\) stand for the ${BBOLD}$ans_desc${EBOLD}. Use numbers and algebraic expressions to represent each of the dollar amounts below:
 
 $PAR
 Total amount Mr. Jones spent: \{SECTION_ANS($expr1->cmp),$expr1->ans_rule()\}
