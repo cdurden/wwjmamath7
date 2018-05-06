@@ -37,7 +37,8 @@ $var1 = "E";
 $unit2 = "hour";
 $unit1 = "dollar";
 $popup_yes = PopUp(["?", "Yes", "No"], "Yes");
-Context("LimitedNumeric-Fraction");
+#Context("LimitedNumeric-Fraction");
+Context("Numeric");
 $rate = Compute('12.25');
 Context("ImplicitEquation");
 Context()->variables->are($var1=>"Real", $var2=>"Real");
@@ -135,11 +136,11 @@ We can use an equation of the form \( $var1 = k $var2 \) to represent the relati
 $PAR
 To determine whether the relationship is proportional, find the ratio of the ${BBOLD}$quantity1_lc${EBOLD} to the ${BBOLD}$quantity2_lc${EBOLD} for each column of the table above.
 $BR
-Ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD} for the first column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+Ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD} for the first column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\} dollars/hour
 $BR
-Ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD} for the second column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+Ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD} for the second column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\} dollars/hour
 $BR
-Ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD} for the third column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\}
+Ratio of ${BBOLD}$quantity1_lc${EBOLD} to ${BBOLD}$quantity2_lc${EBOLD} for the third column: \{SECTION_ANS($rate->cmp), $rate->ans_rule()\} dollars/hour
 $PAR
 Does the table represent a proportional relationship?
 $BR
