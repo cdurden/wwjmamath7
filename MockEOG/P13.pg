@@ -28,7 +28,7 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 #Context("Numeric");
 #Context("Fraction");
 Context("LimitedFraction");
-Context()->flags->set(requirePureFraction=>1);
+Context()->flags->set(requirePureFraction=>1, showMixedNumbers=>0);
 #$expr1 = Compute("2(4^2+(1/2)^2)");
 #$expr2 = Compute("(4^2+(1/2)^2)");
 #$expr3 = Compute("4^2");
