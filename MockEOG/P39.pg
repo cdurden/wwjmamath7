@@ -279,7 +279,7 @@ END_SECTION
 ##############
 #  Section
 ##############
-$ansNum += 3;
+$ansNum += 2;
 $section += 1;
 @requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = 2..$ansNum;
