@@ -69,7 +69,7 @@ Context()->variables->add(r=>"Real");
 $rhs0 = Compute("$twopi*r");
 $lhs0 = Compute("188");
 
-$lhs1 = Compute("188/(2*pi)");
+$lhs1 = Compute("$radius");
 $rhs1 = Compute("r");
 
 $ans = $lhs3;
