@@ -47,6 +47,7 @@ $lhs3 = Compute("-1");
 $rhs1 = Compute("5x+3");
 $rhs2 = Compute("5x");
 $rhs3 = Compute("x");
+$ans = $lhs3;
 
 BEGIN_TEXT
 $PAR
