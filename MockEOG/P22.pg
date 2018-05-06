@@ -251,7 +251,7 @@ Carry out the first step of the plan: $step1i to both sides of the $eqn_or_ineq.
 $PAR
 \( $lhs0 $ineq $rhs0 \)
 $PAR
-\{SECTION_ANS($lhs1->cmp),$lhs1->ans_rule()\} \{SECTION_ANS($popup8->cmp), $popup8->menu() \} \{SECTION_ANS($rhs1->cmp),$rhs1->ans_rule()\}
+\{SECTION_ANS($lhs1->cmp),$lhs1->ans_rule()\} = \{SECTION_ANS($rhs1->cmp),$rhs1->ans_rule()\}
 $PAR
 
 END_SECTION
@@ -275,34 +275,7 @@ Carry out the second step of the plan: $step2i to both sides of the $eqn_or_ineq
 $PAR
 \( $lhs1 $ineq $rhs1 \)
 $PAR
-\{SECTION_ANS($lhs2->cmp),$lhs2->ans_rule()\}  \{SECTION_ANS($popup9->cmp), $popup9->menu() \}  \{SECTION_ANS($rhs2->cmp),$rhs2->ans_rule()\}
-$PAR
-
-END_SECTION
-
-##############
-#  Section
-##############
-$ansNum += 2;
-$section += 1;
-@requireCorrect = @nextRequireCorrect;
-@nextRequireCorrect = 2..$ansNum;
-
-Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Graph the solution set",
-             #canshow=>1, #always true
-             canshow=>$scaffold->requireCorrect(@requireCorrect),
-             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-             section=>$section #designates that this is the first section
-},   <<'END_SECTION');
-
-Graph the solution set
-$PAR
-\( $lhs2 > $rhs2 \)
-$PAR
-The solution set includes all points \( x \) to the \{SECTION_ANS($popup10->cmp), $popup10->menu() \} of \( $rhs2 \) on the number line.
-$PAR
-The solution set \{SECTION_ANS($popup11->cmp), $popup11->menu() \} the point \( x = $rhs2 \).
+\{SECTION_ANS($lhs2->cmp),$lhs2->ans_rule()\}  =  \{SECTION_ANS($rhs2->cmp),$rhs2->ans_rule()\}
 $PAR
 
 END_SECTION
