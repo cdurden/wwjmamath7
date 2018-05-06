@@ -235,6 +235,7 @@ END_TEXT
 ##############
 $ansNum += 2;
 $section += 1;
+@requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = 2..$ansNum;
 
 Context()->texStrings;
@@ -258,6 +259,7 @@ END_SECTION
 ##############
 $ansNum += 2;
 $section += 1;
+@requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = 2..$ansNum;
 
 Context()->texStrings;
