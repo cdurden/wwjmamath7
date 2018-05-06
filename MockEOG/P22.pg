@@ -31,14 +31,15 @@ $change = Formula('1.25x');
 #  allowReset => $isProfessor,  # professors get Reset button for testing
 #);
 #Context("Currency");
+
 $mc1 = RadioButtons(
-    [ 
-      "\( \{2.5, 8, 15 \} \)",
-      "\( \{8, 0, 1.5 \} \)",
-      "\( \{-15, 8, 0 \} \)",
-      "\( \{0, 2.5, 8 \} \)",
+    [
+      "\( 7 \)",
+      "\( 8 \)",
+      "\( 9 \)",
+      "\( 10 \)",
     ],
-    "\( \{2.5, 8, 15 \} \)",
+    "\( 7 \)",
     labels => "ABC" );
 
 $ans_hash1 = $mc1->cmp()->evaluate(
@@ -79,15 +80,15 @@ Context()->flags->set(reduceConstants=>0);
 Context()->variables->add(y=>"Real");
 Context("LimitedPolynomial-Strict");
 #Context()->variables->add(y=>"Real");
-$lhs0 = Compute("4-3x");
-$lhs_term2 = Compute("-3x");
-$rhs0 = Compute("-2");
+$rhs0 = Compute("36+1.25x");
+$rhs_term2 = Compute("1.25x");
+$lhs0 = Compute("44.75");
 
-$lhs1 = Compute("-3x");
-$rhs1 = Compute("-6");
+$lhs1 = Compute("8.75");
+$rhs1 = Compute("1.25x");
 
-$lhs2 = Compute("x");
-$rhs2 = Compute("2");
+$lhs2 = Compute("7");
+$rhs2 = Compute("x");
 $ans = $lhs3;
 
 Context("ImplicitEquation");
@@ -95,7 +96,7 @@ Context()->variables->set(x=>{limits=>[0,20]});
 $eqn = ImplicitEquation("$lhs0=$rhs0");
 
 BEGIN_TEXT
-Which set of numbers is included in the solution set of \( $lhs0 $ineq $rhs0 \)?
+When Derek planted a tree it was \( 36 \) inches tall. The tree grew \( 1 \frac{1}{4} \) inches per year. The tree is not \( 44 \frac{3}{4} \) inches tall. How many years ago did Derek plant the tree?
 $PAR
 \{ $mc1->buttons() \}
 
