@@ -1,0 +1,125 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+"contextFraction.pl",
+"contextLimitedPolynomial.pl"
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$mc1 = RadioButtons(
+    [
+      "MAD of student 3 = MAD of student 1",
+      "MAD of student 2 = MAD of student 1",
+      "MAD of student 1 < MAD of student 3",
+      "MAD of student 1 > MAD of student 2",
+    ],
+    "MAD of student 1 > MAD of student 2",
+    labels => "ABC" );
+
+$ans_hash1 = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+
+BEGIN_TEXT
+48. The table below shows the grades for three students on five assignments.
+$PAR
+\{
+DataTable(
+  [
+    ['Student','Grades'],
+    ['1', '77, 80, 100, 75, 82'],
+    ['2', '84, 92, 80, 82, 85'],
+    ['3', '88, 80, 79, 85, 90'],
+  ],
+  colheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+#  caption => '',
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+
+$PAR
+Which statement below is true about the mean absolute deviation (MAD) of the students?
+\{ $mc1->buttons() \}
+
+END_TEXT
+
+ANS( $mc1->cmp() );
+
+$ans_hash = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+
+
+$ansNum = 1;
+
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+#$section = 0;
+###############
+##  Section
+###############
+#$ansNum += 4;
+#$section += 1;
+#@requireCorrect = @nextRequireCorrect;
+#@nextRequireCorrect = 2..$ansNum;
+#Context()->texStrings;
+#DISPLAY_SECTION( { name=>"$section: Set up an equation",
+#             canshow =>$scaffold->requireCorrect(@requireCorrect),
+#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+#             section=>$section #designates that this is the first section
+#},   <<'END_SECTION');
+#$PAR
+#
+#END_SECTION
+#
+#
+###############
+##  Section
+###############
+#$ansNum += 8;
+#$section += 1;
+#@requireCorrect = @nextRequireCorrect;
+#@nextRequireCorrect = 2..$ansNum;
+#
+#Context()->texStrings;
+#DISPLAY_SECTION( { name=>"$section: Devise a plan",
+#             #canshow=>1, #always true
+#             canshow=>$scaffold->requireCorrect(@requireCorrect),
+#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+#             section=>$section #designates that this is the first section
+#},   <<'END_SECTION');
+#
+#$PAR
+#
+#END_SECTION
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+#}
+ENDDOCUMENT();
