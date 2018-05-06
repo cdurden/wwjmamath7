@@ -28,6 +28,7 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 #Context("Numeric");
 #Context("Fraction");
 Context("LimitedFraction");
+Context()->flags->set(requirePureFraction=>1);
 #$expr1 = Compute("2(4^2+(1/2)^2)");
 #$expr2 = Compute("(4^2+(1/2)^2)");
 #$expr3 = Compute("4^2");
@@ -41,7 +42,7 @@ $ans = $expr1;
 
 BEGIN_TEXT
 $PAR
-13. What is the value of \(2( 4^2 + (\frac{1}{2})^2) \)?
+13. What is the value of \(2( 4^2 + (\frac{1}{2})^2) \)? (Enter all answers as reduced improper fractions)
 
 END_TEXT
 
