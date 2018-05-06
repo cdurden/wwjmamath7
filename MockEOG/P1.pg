@@ -18,8 +18,8 @@ $unit_rate = Compute('0.18');
 Context("ImplicitEquation");
 Context()->variables->add(c=>"Real", p=>"Real");
 Context()->variables->set(
-c=>{limits=>[0,12]},
-p=>{limits=>[0,2.16]}
+c=>{limits=>[0,2.16]},
+p=>{limits=>[0,12]}
 );
 $eqn = ImplicitEquation("c = $unit_rate p ");
 
