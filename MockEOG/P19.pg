@@ -178,7 +178,6 @@ $PAR
 END_TEXT
 
 ###############
-$ansNum += 1;
 
 $text1 = $expand_text;
 if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
