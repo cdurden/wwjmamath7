@@ -188,6 +188,7 @@ if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score
   #}
 } else {
   $ansNum += 2;
+  $text1 .= "$PAR At least one expanded expression was incorrect.";
   if($inputs_ref->{ANS_NUM_TO_NAME($ansNum)} and $inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)}) {
     $text1 .= $terms1_text;
     if ($term11->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $term12->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
