@@ -28,7 +28,7 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 #Context("Currency");
 $step1 = "subtract 3";
 $step2 = "divide by 5";
-$popup1 = PopUp(["?", "left hand side", "right hand side"], "right hand side");
+$popup1 = PopUp(["?", "the left hand side", "the right hand side"], "the right hand side");
 $popup2 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3"], "multiply by 5, then add 3");
 $popup3 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3", "subtract 3, then divide by 5", "divide by 5, then subtract 3"], "subtract 3, then divide by 5");
 $popup4 = PopUp(["?", "do the same operation to the other side of the equation", "do the opposite operation to the other side of the equation"], "do the same operation to the other side of the equation");
@@ -109,7 +109,7 @@ To solve an equation, we must choose operations that will
 
 $PAR
 Which side of the equation \( $lhs1 = $rhs1 \) contains the variable?
-The \{SECTION_ANS($popup1->cmp), $popup1->menu() \} of the equation.
+\{SECTION_ANS($popup1->cmp), $popup1->menu() \}
 $PAR
 What is the order of operations on the right hand side of the equation?
 \{SECTION_ANS($popup2->cmp), $popup2->menu() \}
