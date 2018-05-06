@@ -131,7 +131,7 @@ DISPLAY_SECTION( { name=>"2: How much did Anna have saved before she bought the 
              iscorrect=>$scaffold->requireCorrect(4),
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
-How much did Anna have in savings before she bought the computer?
+How much did Anna have in savings before she bought the computer, in dollars?
 
 $PAR
 \{SECTION_ANS($savings->cmp), $savings->ans_rule() \}
