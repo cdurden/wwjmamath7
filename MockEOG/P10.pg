@@ -37,7 +37,7 @@ $ans = Compute("$percent2*$percent1");
 Context("Numeric");
 $P1 = Compute("100+$markup1");
 $P2 = Compute("100-$markdown2");
-$P = Compute("100+$markup");
+$P = Compute("$percent*100");
 $ans_desc = "difference between the sale prices of the two stores";
 $popup1 = PopUp(["?", "40% of the manufacturer price", "60% of the manufacturer price", "140% of the manufacturer price", "160% of the manufacturer price"], "140% of the manufacturer price");
 $popup2 = PopUp(["?", "multiply the manufacturer price by this number", "divide the manufacturer price by this number", "multiply the retail price by this number", "divide the retail price by this number"], "multiply the manufacturer price by this number");
