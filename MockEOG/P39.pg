@@ -61,8 +61,8 @@ $variable_side = "the left hand side";
 $popup1 = PopUp(["?", "the left hand side", "the right hand side"], $variable_side);
 $popup2 = PopUp(["?", "$step1f, then $step2f", "$step2f, then $step1f"], "$step1f, then $step2f");
 $popup3 = PopUp(["?", "$step1f, then $step2f", "$step2f, then $step1f", "$step1i, then $step2i", "$step2i, then $step1i"], "$step1i, then $step2i");
-$popup4 = PopUp(["?", "do the same operation to the other side of the equation", "do the opposite operation to the other side of the equation"], "do the same operation to the other side of the equation");
-$popup5 = PopUp(["?", "get the variable by itself on one side of the equation", "get zero on one side of the equation", "get one on one side of the equation"], "get the variable by itself on one side of the equation");
+$popup4 = PopUp(["?", "do the same operation to the other side of the $eqn_or_ineq", "do the opposite operation to the other side of the $eqn_or_ineq"], "do the same operation to the other side of the $eqn_or_ineq");
+$popup5 = PopUp(["?", "get the variable by itself on one side of the $eqn_or_ineq", "get zero on one side of the $eqn_or_ineq", "get one on one side of the $eqn_or_ineq"], "get the variable by itself on one side of the $eqn_or_ineq");
 $popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
 $popup7 = PopUp(["?", "get the variable by itself on $variable_side", "get zero on $variable_side", "get one on $variable_side"], "get the variable by itself on $variable_side");
 $popup8 = PopUp(["?", ">", "<"], "<");
@@ -242,7 +242,7 @@ DISPLAY_SECTION( { name=>"$section: Carry out the first step of the plan",
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
-Carry out the first step of the plan: $step1 to both sides of the equation.
+Carry out the first step of the plan: $step1 to both sides of the $eqn_or_ineq.
 $PAR
 \( $lhs1 = $rhs1 \)
 $PAR
@@ -266,7 +266,7 @@ DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
-Carry out the second step of the plan: $step2 to both sides of the equation.
+Carry out the second step of the plan: $step2 to both sides of the $eqn_or_ineq.
 $PAR
 \( $lhs2 < $rhs2 \)
 $PAR
