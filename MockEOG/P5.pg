@@ -46,7 +46,7 @@ Context()->variables->set(
 $var1=>{limits=>[0,26]},
 $var2=>{limits=>[0,318.50]}
 );
-$eqn = ImplicitEquation("$var1 = $rate $var2 ");
+$eqn = ImplicitEquation("$var2 = $rate $var1 ");
 
 BEGIN_TEXT
 $PAR
@@ -90,11 +90,11 @@ ANS( $mc1->cmp() );
 
 #if ($part == 2) {
 
-BEGIN_TEXT
-$PAR
-${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
-
-END_TEXT
+#BEGIN_TEXT
+#$PAR
+#${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+#
+#END_TEXT
 
 $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
@@ -132,7 +132,7 @@ DISPLAY_SECTION( { name=>"1: Verify that the relationship is proportional",
              section=>1 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-We can use an equation of the form \( $var1 = k $var2 \) to represent the relationship ${BBOLD}if it is proportional${EBOLD}.
+We can use an equation of the form \( $var2 = k $var1 \) to represent the relationship ${BBOLD}if it is proportional${EBOLD}.
 $PAR
 To determine whether the relationship is proportional, find the ratio of the ${BBOLD}$quantity1_lc${EBOLD} to the ${BBOLD}$quantity2_lc${EBOLD} for each column of the table above.
 $BR
