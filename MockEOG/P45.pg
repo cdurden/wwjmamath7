@@ -34,12 +34,12 @@ $change = Formula('1.25x');
 
 $mc1 = RadioButtons(
     [
-      "\( 8 \)",
-      "\( 14 \)",
-      "\( 16 \)",
-      "\( 20 \)",
+      "\( 8 \) units",
+      "\( 13 \) units",
+      "\( 25 \) units",
+      "\( 50 \) units",
     ],
-    "\( 20 \)",
+    "\( 25 \)",
     labels => "ABC" );
 
 $ans_hash1 = $mc1->cmp()->evaluate(
@@ -59,8 +59,11 @@ sub iop {
 }
 Context("Numeric");
 Context()->flags->set(reduceConstants=>0);
-Context()->variables->add(y=>"Real");
+Context()->variables->add(r=>"Real");
+$C = Formula("2*pi*r")
 Context("LimitedPolynomial-Strict");
+$radius = Compute("4");
+$circumference = Compute("4*pi");
 $lhs0 = Compute("2x-12");
 $rhs0 = Compute("28");
 
@@ -96,7 +99,7 @@ Context()->variables->set(x=>{limits=>[0,20]});
 $eqn = ImplicitEquation("$lhs0=$rhs0");
 
 BEGIN_TEXT
-Jacob is 12 years younger than twice Elizabeth's age. Jacob is 28 years old. How old is Elizabeth?
+What is the approximate circumference of the circle that has a center at \( (2,1) \) and passes through the point \( (2,5) \)?
 $PAR
 \{ $mc1->buttons() \}
 
@@ -133,28 +136,24 @@ $section = 0;
 ##############
 #  Section
 ##############
-$ansNum += 5;
+$ansNum += 2;
 $section += 1;
 @requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = 2..$ansNum;
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Set up an equation",
+DISPLAY_SECTION( { name=>"$section: Draw and label the circle",
              canshow =>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-Define the variable \( x \) to stand for the unknown.
+Draw the circle.
 $PAR
-Let \( x \) stand for \{SECTION_ANS($popup12->cmp), $popup12->menu() \}.
+What is the radius of the circle?
+\{SECTION_ANS($radius->cmp),$radius->ans_rule()\}
 $PAR
-Write an expression to represent ${BBOLD}twice Elizabeth's age${EBOLD}: \{SECTION_ANS($expr1->cmp),$expr1->ans_rule()\} 
-$PAR
-Write an expression to represent ${BBOLD}12 years younger than twice Elizabeth's age${EBOLD}: \{SECTION_ANS($expr2->cmp),$expr2->ans_rule()\} 
-$PAR
-The problem says that this quantity is equal to Jason's age, which is \( 28 \) years old.
-$PAR
-Write an equation to represent this fact: \{SECTION_ANS($eqn->cmp),$eqn->ans_rule()\}
+Let \( r \) be the radius of a circle. What is the formula for the circumference of the circle? (Type "pi" for \( \pi \))
+\( C = \) \{SECTION_ANS($radius->cmp),$radius->ans_rule()\}
 
 END_SECTION
 
@@ -162,13 +161,13 @@ END_SECTION
 ##############
 #  Section
 ##############
-$ansNum += 8;
+$ansNum += 1;
 $section += 1;
 @requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = 2..$ansNum;
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Devise a plan",
+DISPLAY_SECTION( { name=>"$section: Find the circumference of the circle",
              #canshow=>1, #always true
              canshow=>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
@@ -176,80 +175,13 @@ DISPLAY_SECTION( { name=>"$section: Devise a plan",
 },   <<'END_SECTION');
 
 $PAR
-To obtain a valid $eqn_or_ineq, when we do an operation to one side of an $eqn_or_ineq, we must also
-\{SECTION_ANS($popup4->cmp), $popup4->menu() \}.
+What is the circumference of the circle?
+\{SECTION_ANS($circumference->cmp),$circumference->ans_rule()\}
 $PAR
-To solve an $eqn_or_ineq, we must choose operations that will
-\{SECTION_ANS($popup5->cmp), $popup5->menu() \}.
-
-$PAR
-Which side of the $eqn_or_ineq \( $lhs0 $ineq $rhs0 \) contains the variable?
-\{SECTION_ANS($popup1->cmp), $popup1->menu() \}
-$PAR
-What is the order of operations on that side of the $eqn_or_ineq?
-\{SECTION_ANS($popup2->cmp), $popup2->menu() \}
-$PAR
-The inverse operations in the reverse order are
-\{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
-$PAR
-Doing the above operations to both sides of the $eqn_or_ineq will \{SECTION_ANS($popup7->cmp), $popup7->menu() \}.
-
-$PAR
-Therefore, our plan to solve the $eqn_or_ineq is:
-\{SECTION_ANS($popup3->cmp), $popup3->menu() \} on \{SECTION_ANS($popup6->cmp), $popup6->menu() \} of the $eqn_or_ineq.
-
+Use \( 3.14 \) for \( \pi \) to find the approximate circumference?
+\{SECTION_ANS($circumference->cmp),$circumference->ans_rule()\}
 
 END_SECTION
-
-##############
-#  Section
-##############
-$ansNum += 2;
-$section += 1;
-@requireCorrect = @nextRequireCorrect;
-@nextRequireCorrect = 2..$ansNum;
-
-Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Carry out the first step of the plan",
-             #canshow=>1, #always true
-             canshow=>$scaffold->requireCorrect(@requireCorrect),
-             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-             section=>$section #designates that this is the first section
-},   <<'END_SECTION');
-
-Carry out the first step of the plan: $step1i to both sides of the $eqn_or_ineq.
-$PAR
-\( $lhs0 $ineq $rhs0 \)
-$PAR
-\{SECTION_ANS($lhs1->cmp),$lhs1->ans_rule()\} = \{SECTION_ANS($rhs1->cmp),$rhs1->ans_rule()\}
-$PAR
-
-END_SECTION
-##############
-#  Section
-##############
-$ansNum += 2;
-$section += 1;
-@requireCorrect = @nextRequireCorrect;
-@nextRequireCorrect = 2..$ansNum;
-
-Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
-             #canshow=>1, #always true
-             canshow=>$scaffold->requireCorrect(@requireCorrect),
-             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-             section=>$section #designates that this is the first section
-},   <<'END_SECTION');
-
-Carry out the second step of the plan: $step2i to both sides of the $eqn_or_ineq.
-$PAR
-\( $lhs1 $ineq $rhs1 \)
-$PAR
-\{SECTION_ANS($lhs2->cmp),$lhs2->ans_rule()\}  =  \{SECTION_ANS($rhs2->cmp),$rhs2->ans_rule()\}
-$PAR
-
-END_SECTION
-
 
 PROCESS_ANSWERS();
 
