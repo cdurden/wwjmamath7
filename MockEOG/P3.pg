@@ -61,8 +61,8 @@ Context()->flags->set(
 );
 $scale7 = Compute('15');
 $scale = Compute('15/7');
-Context("LimitedNumeric-Fraction");
-#Context("LimitedFraction");
+#Context("LimitedNumeric-Fraction");
+Context("Fraction");
 $scale_frac = Compute('15/7');
 Context("ImplicitEquation");
 Context()->variables->add(a=>"Real", m=>"Real");
