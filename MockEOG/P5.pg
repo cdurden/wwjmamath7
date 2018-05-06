@@ -26,16 +26,16 @@ $mc1 = RadioButtons(
     '\(E = 12.25 h\)',
     labels => "ABC" );
 $popup1 = PopUp(["?", "multiply", "divide"], "divide");
-$quantity2 = "Hours worked";
-$quantity1 = "Amount earned";
+$quantity1 = "Hours worked";
+$quantity2 = "Amount earned";
 $quantity2_lc = lc($quantity2);
 $quantity1_lc = lc($quantity1);
 $popup2 = PopUp(["?", $quantity1, $quantity2], $quantity1);
 $popup3 = PopUp(["?", $quantity1, $quantity2], $quantity2);
-$var2 = "h";
-$var1 = "E";
-$unit2 = "hour";
-$unit1 = "dollar";
+$var1 = "h";
+$var2 = "E";
+$unit1 = "hour";
+$unit2 = "dollar";
 $popup_yes = PopUp(["?", "Yes", "No"], "Yes");
 #Context("LimitedNumeric-Fraction");
 Context("Numeric");
@@ -43,8 +43,8 @@ $rate = Compute('12.25');
 Context("ImplicitEquation");
 Context()->variables->are($var1=>"Real", $var2=>"Real");
 Context()->variables->set(
-$var2=>{limits=>[0,26]},
-$var1=>{limits=>[0,318.50]}
+$var1=>{limits=>[0,26]},
+$var2=>{limits=>[0,318.50]}
 );
 $eqn = ImplicitEquation("$var1 = $rate $var2 ");
 
