@@ -48,7 +48,7 @@ sub iop {
                 'add' => 'subtract',
                 'subtract' => 'add' );
   $re=join("|",keys %inverses);
-  ($iop = $op) ~= s/($re)/$dict{$1}/g;
+  ($iop = $op) ~= s/($re)/$inverses{$1}/g;
   return($iop);
 }
 $step1f = "multiply by -1";
