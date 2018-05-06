@@ -32,7 +32,7 @@ $popup1 = PopUp(["?", "the left hand side", "the right hand side"], "the right h
 $popup2 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3"], "multiply by 5, then add 3");
 $popup3 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3", "subtract 3, then divide by 5", "divide by 5, then subtract 3"], "subtract 3, then divide by 5");
 $popup4 = PopUp(["?", "do the same operation to the other side of the equation", "do the opposite operation to the other side of the equation"], "do the same operation to the other side of the equation");
-$popup5 = PopUp(["?", "isolate the variable", "get zero on one side of the equation", "get one on one side of the equation"], "isolate the variable");
+$popup5 = PopUp(["?", "get the variable by itself on one side of the equation", "get zero on one side of the equation", "get one on one side of the equation"], "get the variable by itself on one side of the equation");
 $popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
 
 Context("Numeric");
