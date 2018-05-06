@@ -39,7 +39,7 @@ $mc1 = RadioButtons(
       "\( 94 \) meters",
       "\( 128 \) meters",
     ],
-    "\( 25 \)",
+    "\( 30 \) meters",
     labels => "ABC" );
 
 $ans_hash1 = $mc1->cmp()->evaluate(
