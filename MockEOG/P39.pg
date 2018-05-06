@@ -40,20 +40,22 @@ $ans_hash1 = $mc1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
 $eqn_or_ineq = "inequality";
-sub iop {
-  my $op = $_[0];
-  my %inverses = ( 'multiply by' => 'divide by',
-                'divide by' => 'multiply by',
-                'add' => 'subtract',
-                'subtract' => 'add' );
-  my $re=join("|",keys %inverses);
-  (my $iop = $op) =~ s/($re)/$inverses{$1}/g;
-  return($iop);
-}
+#sub iop {
+#  my $op = $_[0];
+#  my %inverses = ( 'multiply by' => 'divide by',
+#                'divide by' => 'multiply by',
+#                'add' => 'subtract',
+#                'subtract' => 'add' );
+#  my $re=join("|",keys %inverses);
+#  (my $iop = $op) =~ s/($re)/$inverses{$1}/g;
+#  return($iop);
+#}
 $step1f = "multiply by -1";
 $step2f = "add 12";
-$step1i = iop($step2f);
-$step2i = iop($step1f);
+#$step1i = iop($step2f);
+#$step2i = iop($step1f);
+$step1i = $step2f;
+$step2i = $step1f;
 $variable_side = "the left hand side";
 $popup1 = PopUp(["?", "the left hand side", "the right hand side"], $variable_side);
 $popup2 = PopUp(["?", "$step1f, then $step2f", "$step2f, then $step1f"], "$step1f, then $step2f");
