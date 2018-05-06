@@ -158,7 +158,7 @@ Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Set up an equation",
              canshow =>$scaffold->requireCorrect(2..5),
              iscorrect=>$scaffold->requireCorrect(6..9),
-             section=>section #designates that this is the first section
+             section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
 
