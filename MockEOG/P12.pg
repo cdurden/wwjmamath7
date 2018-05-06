@@ -1,0 +1,92 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+"contextFraction.pl",
+"contextLimitedPolynomial.pl"
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$ans = Compute("437");
+$ans_hash = $ans->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+
+BEGIN_TEXT
+12. A kitchen is shaped like a rectangle with dimensions of \( 11 \frac{1}{2} \) ft by \( 9 \frac{1}{2} \) ft. The floor of the room is made of square tiles with a side length of \( \frac{1}{2} \) ft. What is the number of tiles that will cover the kitchen floor?
+$PAR
+\{ $ans->rule() \}
+
+END_TEXT
+
+ANS( $ans->cmp() );
+
+$ansNum = 1;
+
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+#$section = 0;
+###############
+##  Section
+###############
+#$ansNum += 4;
+#$section += 1;
+#@requireCorrect = @nextRequireCorrect;
+#@nextRequireCorrect = 2..$ansNum;
+#Context()->texStrings;
+#DISPLAY_SECTION( { name=>"$section: Set up an equation",
+#             canshow =>$scaffold->requireCorrect(@requireCorrect),
+#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+#             section=>$section #designates that this is the first section
+#},   <<'END_SECTION');
+#$PAR
+#
+#END_SECTION
+#
+#
+###############
+##  Section
+###############
+#$ansNum += 8;
+#$section += 1;
+#@requireCorrect = @nextRequireCorrect;
+#@nextRequireCorrect = 2..$ansNum;
+#
+#Context()->texStrings;
+#DISPLAY_SECTION( { name=>"$section: Devise a plan",
+#             #canshow=>1, #always true
+#             canshow=>$scaffold->requireCorrect(@requireCorrect),
+#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+#             section=>$section #designates that this is the first section
+#},   <<'END_SECTION');
+#
+#$PAR
+#
+#END_SECTION
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+#}
+ENDDOCUMENT();
