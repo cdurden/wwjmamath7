@@ -22,12 +22,12 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 
 $mc1 = RadioButtons(
     [
-      "\( 316 \text{m}^2 \)",
-      "\( 402 \text{m}^2 \)",
-      "\( 516 \text{m}^2 \)",
-      "\( 743 \text{m}^2 \)",
+      "\( 2 \text{cm}, 8 \text{cm}, 8 \text{cm} \)",
+      "\( 2 \text{cm}, 3 \text{cm}, 6 \text{cm} \)",
+      "\( 4 \text{cm}, 5 \text{cm}, 7 \text{cm} \)",
+      "\( 5 \text{cm}, 6 \text{cm}, 9 \text{cm} \)",
     ],
-    "\( 402 \text{m}^2 \)",
+    "\( 2 \text{cm}, 3 \text{cm}, 6 \text{cm} \)",
     labels => "ABC" );
 
 $ans_hash1 = $mc1->cmp()->evaluate(
@@ -35,11 +35,7 @@ $ans_hash1 = $mc1->cmp()->evaluate(
 
 
 BEGIN_TEXT
-Laura's yard is in the shape of a square and a half circle.
-$PAR
-\{ image( "img/P29.png", width=>225, height=>243 ) \}
-$PAR
-What is the approximate area of Laura's yard?
+Which choice shows three lengths that cannot be the lengths of the three sides of a triangle?
 $PAR
 \{ $mc1->buttons() \}
 
