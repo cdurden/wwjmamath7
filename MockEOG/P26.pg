@@ -67,7 +67,7 @@ $C = Formula("2*pi*r");
 #Context("LimitedPolynomial-Strict");
 Context()->variables->add(r=>"Real");
 #$rhs0 = Formula("$twopi*r");
-$rhs0 = Formula("6.28*r");
+$rhs0 = Formula("6.28r");
 $lhs0 = Formula("188");
 
 $lhs1 = Formula("$radius");
