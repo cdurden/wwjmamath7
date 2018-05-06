@@ -99,7 +99,7 @@ Context("ImplicitEquation");
 Context()->variables->set(r=>{limits=>[0,50]});
 #$eqn = ImplicitEquation("$lhs0=$rhs0");
 #$eqn = ImplicitEquation("$twopi r =$circumference");
-$eqn = ImplicitEquation("6r =$circumference");
+$eqn = ImplicitEquation("6r =188");
 
 BEGIN_TEXT
 The circumference of a circle is 188 meters. What is the approximate radius of the circle?
