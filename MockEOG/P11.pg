@@ -12,7 +12,7 @@ loadMacros(
 "parserMultiAnswer.pl",
 "contextPercent.pl",
 "contextCurrency.pl",
-"contextFractions.pl",
+"contextFraction.pl",
 "niceTables.pl",
 );
 
