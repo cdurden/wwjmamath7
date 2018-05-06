@@ -133,6 +133,7 @@ $section = 0;
 #  Section
 ##############
 $ansNum += 2;
+$section += 1;
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Apply a general principle to relate the quantities in the problem",
              canshow =>$scaffold->requireCorrect(2),
@@ -158,11 +159,11 @@ What is the change in the quantity?
 
 END_SECTION
 
-$section = 0;
 ##############
 #  Section
 ##############
 $ansNum += 5;
+$section += 1;
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Set up an equation",
              canshow =>$scaffold->requireCorrect(2),
