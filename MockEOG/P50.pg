@@ -20,19 +20,52 @@ loadMacros(
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 
-$ans = Compute("437");
-$ans_hash = $ans->cmp()->evaluate(
+$mc1 = RadioButtons(
+    [
+      "\( \frac{1}{12} \)",
+      "\( \frac{1}{6} \)",
+      "\( \frac{3}{12} \)",
+      "\( \frac{3}{7} \)",
+    ],
+    "\( \frac{1}{12} \)",
+    labels => "ABC" );
+
+$ans_hash1 = $mc1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
 
 BEGIN_TEXT
-12. A kitchen is shaped like a rectangle with dimensions of \( 11 \frac{1}{2} \) ft by \( 9 \frac{1}{2} \) ft. The floor of the room is made of square tiles with a side length of \( \frac{1}{2} \) ft. What is the number of tiles that will cover the kitchen floor?
+50. The table below shows the different choices for making a shake at a restaurant.  Joey will randomly select on dairy, one fruit, and one topping choice. 
 $PAR
-\{ $ans->ans_rule() \}
+\{
+DataTable(
+  [
+    ['Dairy Choices','Fruit Choices', 'Topping Choices'],
+    ['Ice cream', 'Pineapple', 'Peanuts'],
+    ['Yogurt', 'Strawberry', 'Granola'],
+    ['', 'Banana', ''],
+  ],
+  colheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+#  caption => '',
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+
+$PAR
+What is the probability that Joey's shake will be made iwth ice cream, pineapple, and granola?
+\{ $mc1->buttons() \}
 
 END_TEXT
 
-ANS( $ans->cmp() );
+ANS( $mc1->cmp() );
+
+$ans_hash = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+
 
 $ansNum = 1;
 
