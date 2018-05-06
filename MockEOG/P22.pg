@@ -180,7 +180,7 @@ Final value of the tree's height: \{SECTION_ANS($final->cmp),$final->ans_rule()\
 $PAR
 Initial value of the tree's height: \{SECTION_ANS($initial->cmp),$initial->ans_rule()\} 
 $PAR
-Define a variable: Let $x$ stand for the \{SECTION_ANS($popup4->cmp), $popup4->menu() \}.
+Define a variable: Let \( x \) stand for \{SECTION_ANS($popup12->cmp), $popup12->menu() \}.
 $PAR
 Write an expression to represent the change in the tree's height: \{SECTION_ANS($change->cmp),$change->ans_rule()\} 
 $PAR
