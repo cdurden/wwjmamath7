@@ -116,8 +116,8 @@ END_SECTION
 
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Understand the relationship",
-             canshow =>$scaffold->requireCorrect(2..4),
-             iscorrect=>$scaffold->requireCorrect(5),
+             canshow =>$scaffold->requireCorrect(2..5),
+             iscorrect=>$scaffold->requireCorrect(6),
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -135,8 +135,8 @@ END_SECTION
 ##############
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Write the equation of the relatinship",
-             canshow =>$scaffold->requireCorrect(2..5),
-             iscorrect=>$scaffold->requireCorrect(6),
+             canshow =>$scaffold->requireCorrect(2..6),
+             iscorrect=>$scaffold->requireCorrect(7),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -155,8 +155,8 @@ END_SECTION
 ##############
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Rewrite the equation of the relatinship",
-             canshow =>$scaffold->requireCorrect(2..6),
-             iscorrect=>$scaffold->requireCorrect(7),
+             canshow =>$scaffold->requireCorrect(2..7),
+             iscorrect=>$scaffold->requireCorrect(8),
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
