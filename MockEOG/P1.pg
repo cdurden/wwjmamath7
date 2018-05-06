@@ -99,7 +99,7 @@ DISPLAY_SECTION( { name=>"$section: Write the equation of the proportional relat
 $PAR
 Write the equation of the proportional relationship in the form \( c = k p \):
 $BR
-\{SECTION_ANS($unit_rate->cmp), $eqn->ans_rule() \}
+\{SECTION_ANS($eqn->cmp), $eqn->ans_rule() \}
 
 END_SECTION
 
