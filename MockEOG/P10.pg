@@ -605,7 +605,8 @@ $PAR
 $PAR
 What percent markup is the final price over the manufacturer price?
 $PAR
-\{SECTION_ANS($markup->cmp),$markup->ans_rule()\}
+\{SECTION_ANS($markup->cmp),$markup->ans_rule()\}%
+$BR
 
 END_SECTION
 
