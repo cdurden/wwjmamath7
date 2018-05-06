@@ -2,6 +2,8 @@ DOCUMENT();
 
 loadMacros(
 "PGstandard.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
 "parserRadioButtons.pl",
 "parserImplicitEquation.pl",
 "niceTables.pl",
@@ -50,51 +52,63 @@ END_TEXT
 $showPartialCorrectAnswers = 1;
 
 ANS( $mc->cmp() );
-$ans_hash1 = $mc->cmp()->evaluate( 
-    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
-#if ( $numOfAttempts > 0) {
-if ( $ans_hash1->{student_ans} ne '' && $ans_hash1->{score} == 0 ) {
+$ansNum = 1;
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+$section = 0;
+##############
+#  Section
+##############
+$ansNum += 1;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
 Context()->texStrings;
-BEGIN_TEXT
-$PAR
-${BBOLD}Hint$EBOLD
-$BR
-${BBOLD}Part 1 of 2:$EBOLD
+DISPLAY_SECTION( { name=>"$section: Find the unit rate or constant of proportionality",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
 $PAR
 Use the table to find the unit rate, \(k \), in dollars per pencil.
 $BR
-\(k = \) \{ $unit_rate->ans_rule() \} dollars per pencil
-END_TEXT
-Context()->normalStrings;
-ANS( $unit_rate->cmp());
+\(k = \) \{SECTION_ANS($unit_rate->cmp), $unit_rate->ans_rule() \} dollars per pencil
+END_SECTION
 
-$ans_hash2 = $unit_rate->cmp()->evaluate( 
-    $inputs_ref->{ANS_NUM_TO_NAME(2)} );
-}
-BEGIN_TEXT
-$PAR
-$ans_hash2->{score}
-END_TEXT
 
-if ( $ans_hash2->{student_ans} ne '' && $ans_hash2->{score} == 1 ) {
-BEGIN_TEXT
-$PAR
-${BBOLD}Hint$EBOLD
-$BR
-${BBOLD}Part 2 of 2:$EBOLD
+##############
+#  Section
+##############
+$ansNum += 8;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Write the equation of the proportional relationship",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
 $PAR
 Write the equation of the proportional relationship in the form \( c = k p \):
 $BR
-\{ $eqn->ans_rule() \}
-END_TEXT
-Context()->normalStrings;
-ANS( $eqn->cmp());
+\{SECTION_ANS($unit_rate->cmp), $eqn->ans_rule() \}
 
-$ans_hash3 = $eqn->cmp()->evaluate( 
-    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
-}
+END_SECTION
 
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
 
 
 ENDDOCUMENT();
