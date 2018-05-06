@@ -155,14 +155,12 @@ END_TEXT
 ###############
 
 $ansNum = 2;
-$done_expanding = 0;
 $text1 = $expand_text;
-if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
+if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
   $text1 .= $replace_paren_text;
   $ansNum += 2;
-  if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
-    $done_expanding = 1;
-  }
+  #if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
+  #}
 } else {
   $ansNum += 2;
   if($inputs_ref->{ANS_NUM_TO_NAME($ansNum)} and $inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)}) {
@@ -179,11 +177,10 @@ if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score
   $term21->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+2)})->{score} == 1 && $term22->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+3)})->{score} == 1) {
     $text1 .= $expand_text;
     $ansNum += 4;
-    if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
+    if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
       $text1 .= $replace_paren_text;
       $ansNum += 2;
-      if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
-        $done_expanding = 1;
+      if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
         #$ansNum += 1;
         #$text .= $final_eval_text;
       }
@@ -223,7 +220,6 @@ Context()->texStrings;
 DISPLAY_SECTION( { name=>"$section: Combine like terms",
              #canshow =>1, #always true
              canshow =>$scaffold->requireCorrect(@requireCorrect),
-             #canshow=>$done_expanding,
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
