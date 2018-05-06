@@ -190,7 +190,7 @@ DISPLAY_SECTION( { name=>"3: Write the equation of the relationship",
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-Write the equation of the proportional relationship in the form \( $var1 = k $var2 \), where \( k \) is the ${BBOLD}constant of proportionality${EBOLD}, in ${unit1}s per $unit2.
+Write the equation of the proportional relationship in the form \( $var2 = k $var1 \), where \( k \) is the ${BBOLD}constant of proportionality${EBOLD}, in ${unit1}s per $unit2.
 $PAR
 \{SECTION_ANS($eqn->cmp), $eqn->ans_rule() \}
 
@@ -200,7 +200,7 @@ END_SECTION
 
 SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
 $PAR
-The equation of a proportional relationship has the form \( $var1 = k $var2 \), where \( k \) is the ${BBOLD}constant of proportionality${EBOLD}:
+The equation of a proportional relationship has the form \( $var2 = k $var1 \), where \( k \) is the ${BBOLD}constant of proportionality${EBOLD}:
 
 Since \( k = $rate\), the equation is
 
