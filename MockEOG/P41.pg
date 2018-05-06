@@ -32,7 +32,7 @@ $popup1 = PopUp(["?", "the left hand side", "the right hand side"], "the right h
 $popup2 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3"], "multiply by 5, then add 3");
 $popup3 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3", "subtract 3, then divide by 5", "divide by 5, then subtract 3"], "subtract 3, then divide by 5");
 $popup4 = PopUp(["?", "do the same operation to the other side of the equation", "do the opposite operation to the other side of the equation"], "do the same operation to the other side of the equation");
-$popup5 = PopUp(["?", "isolate the variable", ""], "isolate the variable");
+$popup5 = PopUp(["?", "isolate the variable", "get zero on one side of the equation", "get one on one side of the equation"], "isolate the variable");
 $popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
 
 Context("Numeric");
@@ -114,8 +114,10 @@ $PAR
 What is the order of operations on that side of the equation?
 \{SECTION_ANS($popup2->cmp), $popup2->menu() \}
 $PAR
-The following operations will reverse these operations and thus isolate the variable:
-\{SECTION_ANS($popup3->cmp), $popup3->menu() \}
+The inverse operations in the reverse order are
+\{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
+$PAR
+Doing the above operations to both sides of the equation will \{SECTION_ANS($popup5->cmp), $popup5->menu() \}.
 
 $PAR
 Therefore, our plan to solve the equation is:
