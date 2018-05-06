@@ -50,7 +50,8 @@ END_TEXT
 
 ANS( $mc1->cmp() );
 #if ($part == 2) {
-$popup1 = PopUp(["?", "multiply both number in the ratio by 7", "divide both numbers in the ratio by 7", "subtract 6 from both numbers in the ratio", "add 6 to both numbers in the ratio"], "divide both numbers in the ratio by 7");
+$popup1 = PopUp(["?", "multiply", "divide"], "multiply");
+$popup2 = PopUp(["?", "multiply both number in the ratio by 7", "divide both numbers in the ratio by 7", "subtract 6 from both numbers in the ratio", "add 6 to both numbers in the ratio"], "divide both numbers in the ratio by 7");
 #$popup2 = PopUp(["?", "7 in to 15 ft", "", "subtract 6 from both numbers in the ratio", "add 6 to both numbers in the ratio"], "divide both numbers in the ratio by 7");
 Context("Numeric");
 Context()->flags->set(
@@ -100,7 +101,7 @@ Every \( 7 \) inches in the model represents \{SECTION_ANS($scale7->cmp),$scale7
 $PAR
 The ratio of inches in the model to feet in the actual statue is \(7\) inches to \(15\) feet.
 $PAR
-Which of the following operations can be used to find an equivalent ratio that gives the number of feet in the actual statue represented by \( 1 \) inch in the model? \{SECTION_ANS($popup1->cmp), $popup1->menu() \}
+Which of the following operations can be used to find an equivalent ratio that gives the number of feet in the actual statue represented by \( 1 \) inch in the model? \{SECTION_ANS($popup2->cmp), $popup2->menu() \}
 $PAR
 Every inch in the model represents \{SECTION_ANS($scale->cmp),$scale->ans_rule()\} feet in the actual statue.
 $PAR
