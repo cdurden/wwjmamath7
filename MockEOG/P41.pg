@@ -33,7 +33,7 @@ $popup2 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3"],
 $popup3 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3", "subtract 3, then divide by 5", "divide by 5, then subtract 3"], "subtract 3, then divide by 5");
 $popup4 = PopUp(["?", "do the same operation to the other side of the equation", "do the opposite operation to the other side of the equation"], "do the same operation to the other side of the equation");
 $popup5 = PopUp(["?", "isolate the variable", ""], "isolate the variable");
-$popup5 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
+$popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
 
 Context("Numeric");
 #Context("LimitedFraction");
