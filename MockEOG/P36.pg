@@ -122,7 +122,7 @@ $replace_paren_text = <<'END_TEXT';
 $PAR 
 Replace \( $expr1 \) and \( $expr2 \) by the expanded forms of these expression:
 $PAR
-\( $expr = \) \{SECTION_ANS($expanded1->cmp),$expanded1->ans_rule()\} \( + \{SECTION_ANS($expanded2->cmp),$expanded2->ans_rule()\} \) 
+\( $expr = \) \{SECTION_ANS($expanded1->cmp),$expanded1->ans_rule()\} \( + \) \{SECTION_ANS($expanded2->cmp),$expanded2->ans_rule()\} 
 
 END_TEXT
 
