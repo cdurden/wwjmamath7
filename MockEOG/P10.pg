@@ -33,7 +33,7 @@ $percent1 = Compute("1+$markup1/100");
 $percent2 = Compute("1-$markdown2/100");
 $percent = Compute("$percent2*$percent1");
 $markup = Compute("$percent*100-100");
-$ans = Compute("$percent2*$percent1");
+$ans = $markup;
 Context("Numeric");
 $P1 = Compute("100+$markup1");
 $P2 = Compute("100-$markdown2");
