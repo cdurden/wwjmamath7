@@ -40,6 +40,7 @@ $ans_hash1 = $mc1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
 $eqn_or_ineq = "inequality";
+$ineq = "<";
 #sub iop {
 #  my $op = $_[0];
 #  my %inverses = ( 'multiply by' => 'divide by',
@@ -135,7 +136,7 @@ DISPLAY_SECTION( { name=>"$section: Understand the operations",
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
-Rewrite the subtraction operation on the $variable_side of the equation as an equivalent addition operation:
+Rewrite the subtraction operation on the $variable_side of the $eqn_or_ineq \( $lhs0 $ineq $rhs0 \) as an equivalent addition operation:
 $PAR
 \( 12 + \) \{SECTION_ANS($lhs_term2->cmp),$lhs_term2->ans_rule()\} \( < $rhs0 \)
 
