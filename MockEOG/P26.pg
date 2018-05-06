@@ -167,7 +167,7 @@ DISPLAY_SECTION( { name=>"$section: Solve the equation",
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
-To solve the equation \( $lhs0 $ineq $rhs0 \), \{SECTION_ANS($popup3->cmp), $popup3->menu() \} to \{SECTION_ANS($popup6->cmp), $popup6->menu() \} of the $eqn_or_ineq.
+To solve the equation \( $lhs0 $ineq $rhs0 \), we need to \{SECTION_ANS($popup3->cmp), $popup3->menu() \} on \{SECTION_ANS($popup6->cmp), $popup6->menu() \} of the $eqn_or_ineq.
 $PAR
 
 $PAR
