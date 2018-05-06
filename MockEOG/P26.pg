@@ -84,7 +84,7 @@ $lhs1 = Formula("$radius");
 $rhs1 = Formula("r");
 
 $ans = $lhs3;
-$step1f = "multiply by 2";
+$step1f = "multiply by 2pi";
 $step2f = "multiply by pi";
 $variable_side = "the right hand side";
 
@@ -92,7 +92,7 @@ $step1i = iop($step2f);
 $step2i = iop($step1f);
 $popup1 = PopUp(["?", "the left hand side", "the right hand side"], $variable_side);
 $popup2 = PopUp(["?", "$step1f, then $step2f", "$step2f, then $step1f"], "$step1f, then $step2f");
-$popup3 = PopUp(["?", "$step1f, then $step2f", "$step2f, then $step1f", "$step1i, then $step2i", "$step2i, then $step1i"], "$step1i, then $step2i");
+$popup3 = PopUp(["?", "$step1f", "$step1i"], "$step1i");
 $popup4 = PopUp(["?", "do the same operation to the other side of the $eqn_or_ineq", "do the opposite operation to the other side of the $eqn_or_ineq"], "do the same operation to the other side of the $eqn_or_ineq");
 $popup5 = PopUp(["?", "get the variable by itself on one side of the $eqn_or_ineq", "get zero on one side of the $eqn_or_ineq", "get one on one side of the $eqn_or_ineq"], "get the variable by itself on one side of the $eqn_or_ineq");
 $popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
@@ -195,94 +195,25 @@ END_SECTION
 ##############
 #  Section
 ##############
-$ansNum += 8;
-$section += 1;
-@requireCorrect = @nextRequireCorrect;
-@nextRequireCorrect = 2..$ansNum;
-
-Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Devise a plan to solve the equation",
-             #canshow=>1, #always true
-             canshow=>$scaffold->requireCorrect(@requireCorrect),
-             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-             section=>$section #designates that this is the first section
-},   <<'END_SECTION');
-
-$PAR
-To obtain a valid $eqn_or_ineq, when we do an operation to one side of an $eqn_or_ineq, we must also
-\{SECTION_ANS($popup4->cmp), $popup4->menu() \}.
-$PAR
-To solve an $eqn_or_ineq, we must choose operations that will
-\{SECTION_ANS($popup5->cmp), $popup5->menu() \}.
-
-$PAR
-Which side of the $eqn_or_ineq \( $lhs0 $ineq $rhs0 \) contains the variable?
-\{SECTION_ANS($popup1->cmp), $popup1->menu() \}
-$PAR
-What is the order of operations on that side of the $eqn_or_ineq?
-\{SECTION_ANS($popup2->cmp), $popup2->menu() \}
-$PAR
-The inverse operations in the reverse order are
-\{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
-$PAR
-Doing the above operations to both sides of the $eqn_or_ineq will \{SECTION_ANS($popup7->cmp), $popup7->menu() \}.
-
-$PAR
-Therefore, our plan to solve the $eqn_or_ineq is:
-\{SECTION_ANS($popup3->cmp), $popup3->menu() \} on \{SECTION_ANS($popup6->cmp), $popup6->menu() \} of the $eqn_or_ineq.
-
-
-END_SECTION
-
-##############
-#  Section
-##############
 $ansNum += 2;
 $section += 1;
 @requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = 2..$ansNum;
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Carry out the first step of the plan",
+DISPLAY_SECTION( { name=>"$section: Solve the equation",
              #canshow=>1, #always true
              canshow=>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
-Carry out the first step of the plan: $step1i to both sides of the $eqn_or_ineq.
-$PAR
-\( $lhs0 $ineq $rhs0 \)
-$PAR
-\{SECTION_ANS($lhs1->cmp),$lhs1->ans_rule()\} = \{SECTION_ANS($rhs1->cmp),$rhs1->ans_rule()\}
+To solve the equation \( $lhs0 $ineq $rhs0 \), \{SECTION_ANS($popup3->cmp), $popup3->menu() \} to \{SECTION_ANS($popup6->cmp), $popup6->menu() \} of the $eqn_or_ineq.
 $PAR
 
-END_SECTION
-##############
-#  Section
-##############
-$ansNum += 2;
-$section += 1;
-@requireCorrect = @nextRequireCorrect;
-@nextRequireCorrect = 2..$ansNum;
-
-Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
-             #canshow=>1, #always true
-             canshow=>$scaffold->requireCorrect(@requireCorrect),
-             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-             section=>$section #designates that this is the first section
-},   <<'END_SECTION');
-
-Carry out the second step of the plan: $step2i to both sides of the $eqn_or_ineq.
 $PAR
-\( $lhs1 $ineq $rhs1 \)
+The resulting equation is: \{SECTION_ANS($lhs1->cmp),$lhs1->ans_rule()\} = \{SECTION_ANS($rhs1->cmp),$rhs1->ans_rule()\}
 $PAR
-\{SECTION_ANS($lhs2->cmp),$lhs2->ans_rule()\}  =  \{SECTION_ANS($rhs2->cmp),$rhs2->ans_rule()\}
-$PAR
-
-END_SECTION
-
 
 PROCESS_ANSWERS();
 
