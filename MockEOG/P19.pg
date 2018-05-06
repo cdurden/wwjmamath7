@@ -118,6 +118,7 @@ END_SECTION
 #########################
 # Responsive text logic
 #########################
+$ansNum += 1;
 
 ##############
 $terms1_text = <<'END_TEXT';
