@@ -108,7 +108,7 @@ To solve an equation, we must choose operations that will
 \{SECTION_ANS($popup5->cmp), $popup5->menu() \}.
 
 $PAR
-Which side of the equation contains the variable?
+Which side of the equation \( $lhs1 = $rhs1 \) contains the variable?
 $PAR
 The variable is on the 
 \{SECTION_ANS($popup1->cmp), $popup1->menu() \} of the equation.
