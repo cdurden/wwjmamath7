@@ -1,0 +1,92 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+"contextFraction.pl",
+"contextLimitedPolynomial.pl"
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$ans = Compute("3.2");
+$ans_hash = $ans->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+
+BEGIN_TEXT
+14. Brett made a scale drawing of a rectangular room in his house. The actual length of the room is \( 12 \frac{4}{5} \) ft. The scale use to make the drawing was \( \frac{1}{4} \text{ in. } = 1 \text{ ft.}\) What is the length, in inches, of the room in the drawing? 
+$PAR
+\{ $ans->ans_rule() \}
+
+END_TEXT
+
+ANS( $ans->cmp() );
+
+$ansNum = 1;
+
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+#$section = 0;
+###############
+##  Section
+###############
+#$ansNum += 4;
+#$section += 1;
+#@requireCorrect = @nextRequireCorrect;
+#@nextRequireCorrect = 2..$ansNum;
+#Context()->texStrings;
+#DISPLAY_SECTION( { name=>"$section: Set up an equation",
+#             canshow =>$scaffold->requireCorrect(@requireCorrect),
+#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+#             section=>$section #designates that this is the first section
+#},   <<'END_SECTION');
+#$PAR
+#
+#END_SECTION
+#
+#
+###############
+##  Section
+###############
+#$ansNum += 8;
+#$section += 1;
+#@requireCorrect = @nextRequireCorrect;
+#@nextRequireCorrect = 2..$ansNum;
+#
+#Context()->texStrings;
+#DISPLAY_SECTION( { name=>"$section: Devise a plan",
+#             #canshow=>1, #always true
+#             canshow=>$scaffold->requireCorrect(@requireCorrect),
+#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+#             section=>$section #designates that this is the first section
+#},   <<'END_SECTION');
+#
+#$PAR
+#
+#END_SECTION
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+#}
+ENDDOCUMENT();
