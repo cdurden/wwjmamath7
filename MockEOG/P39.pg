@@ -105,12 +105,6 @@ $ans_hash = $mc1->cmp()->evaluate(
 
 
 $ansNum = 1;
-BEGIN_TEXT
-$PAR
-\{ $ans->ans_rule() \}
-END_TEXT
-
-ANS( $ans->cmp() );
 
 #if ($part == 2) {
 
