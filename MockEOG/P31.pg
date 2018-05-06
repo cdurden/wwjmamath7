@@ -1,0 +1,110 @@
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+#"PGunion.pl",
+"parserRadioButtons.pl",
+"parserPopUp.pl",
+"compoundProblem5.pl",
+"compoundProblem.pl",
+"contextLimitedNumeric.pl",
+"parserImplicitEquation.pl",
+"parserMultiAnswer.pl",
+"contextPercent.pl",
+"contextCurrency.pl",
+"niceTables.pl",
+"contextFraction.pl",
+"contextLimitedPolynomial.pl"
+);
+
+$isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
+
+$mc1 = RadioButtons(
+    [
+      "\( 96 \)",
+      "\( 48 \)",
+      "\( 34 \)",
+      "\( 24 \)",
+    ],
+    "\( 24 \)",
+    labels => "ABC" );
+
+$ans_hash1 = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+
+BEGIN_TEXT
+31. The chart below shows the number of miles Sam drove each day for two weeks.
+$PAR
+\{ image( "img/P31.png", width=>586, height=>94 ) \}
+
+$PAR
+What is the approximate difference in average daily miles between the two weeks?
+\{ $mc1->buttons() \}
+
+END_TEXT
+
+ANS( $mc1->cmp() );
+
+$ans_hash = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+
+
+$ansNum = 1;
+
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+#$section = 0;
+###############
+##  Section
+###############
+#$ansNum += 4;
+#$section += 1;
+#@requireCorrect = @nextRequireCorrect;
+#@nextRequireCorrect = 2..$ansNum;
+#Context()->texStrings;
+#DISPLAY_SECTION( { name=>"$section: Set up an equation",
+#             canshow =>$scaffold->requireCorrect(@requireCorrect),
+#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+#             section=>$section #designates that this is the first section
+#},   <<'END_SECTION');
+#$PAR
+#
+#END_SECTION
+#
+#
+###############
+##  Section
+###############
+#$ansNum += 8;
+#$section += 1;
+#@requireCorrect = @nextRequireCorrect;
+#@nextRequireCorrect = 2..$ansNum;
+#
+#Context()->texStrings;
+#DISPLAY_SECTION( { name=>"$section: Devise a plan",
+#             #canshow=>1, #always true
+#             canshow=>$scaffold->requireCorrect(@requireCorrect),
+#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+#             section=>$section #designates that this is the first section
+#},   <<'END_SECTION');
+#
+#$PAR
+#
+#END_SECTION
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+#}
+ENDDOCUMENT();
