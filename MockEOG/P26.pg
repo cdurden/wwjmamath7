@@ -85,7 +85,7 @@ $rhs1 = Formula("r");
 
 $ans = $lhs3;
 $step1f = "multiply by 2";
-$step2f = "multiply by \( \pi \)";
+$step2f = "multiply by pi";
 $variable_side = "the right hand side";
 
 $step1i = iop($step2f);
