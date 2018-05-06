@@ -142,7 +142,7 @@ $section += 1;
 @requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = 2..$ansNum;
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Draw and label the circle",
+DISPLAY_SECTION( { name=>"$section: Write the formula for the circumference of a circle",
              canshow =>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
