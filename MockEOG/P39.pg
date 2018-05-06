@@ -41,14 +41,13 @@ $ans_hash1 = $mc1->cmp()->evaluate(
 
 $eqn_or_ineq = "inequality";
 sub iop {
-  $op = $_[0];
-  $iop = $op ~= s/
-  %inverses = ( 'multiply by' => 'divide by',
+  my $op = $_[0];
+  my %inverses = ( 'multiply by' => 'divide by',
                 'divide by' => 'multiply by',
                 'add' => 'subtract',
                 'subtract' => 'add' );
-  $re=join("|",keys %inverses);
-  ($iop = $op) ~= s/($re)/$inverses{$1}/g;
+  my $re=join("|",keys %inverses);
+  (my $iop = $op) ~= s/($re)/$inverses{$1}/g;
   return($iop);
 }
 $step1f = "multiply by -1";
