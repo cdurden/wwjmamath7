@@ -73,6 +73,8 @@ $popup8 = PopUp(["?", ">", "<"], "<");
 $popup9 = PopUp(["?", ">", "<"], ">");
 $popup10 = PopUp(["?", "right", "left"], "right");
 $popup11 = PopUp(["?", "includes", "does not include"], "does not include");
+$popup12 = PopUp(["?", "the height of the tree", ""], "the height of the tree");
+$popup13 = PopUp(["?", "the growth of the tree", ""], "the growth of the tree");
 
 Context("Numeric");
 #Context("LimitedFraction");
@@ -153,10 +155,10 @@ $ECENTER
 
 $PAR
 What is the quantity? 
-\{SECTION_ANS($popup4->cmp), $popup4->menu() \}
+\{SECTION_ANS($popup11->cmp), $popup11->menu() \}
 $PAR
 What is the change in the quantity?
-\{SECTION_ANS($popup5->cmp), $popup5->menu() \}.
+\{SECTION_ANS($popup12->cmp), $popup12->menu() \}.
 
 END_SECTION
 
