@@ -95,7 +95,7 @@ $popup13 = PopUp(["?", "the growth of the tree", ""], "the growth of the tree");
 
 
 Context("ImplicitEquation");
-Context()->variables->set(x=>{limits=>[0,20]});
+Context()->variables->set(r=>{limits=>[0,50]});
 $eqn = ImplicitEquation("$lhs0=$rhs0");
 
 BEGIN_TEXT
