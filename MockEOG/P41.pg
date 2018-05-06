@@ -111,7 +111,7 @@ $PAR
 Which side of the equation \( $lhs1 = $rhs1 \) contains the variable?
 \{SECTION_ANS($popup1->cmp), $popup1->menu() \}
 $PAR
-What is the order of operations on the right hand side of the equation?
+What is the order of operations on that side of the equation?
 \{SECTION_ANS($popup2->cmp), $popup2->menu() \}
 $PAR
 The following operations will reverse these operations and thus isolate the variable:
