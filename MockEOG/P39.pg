@@ -30,12 +30,12 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 $mc = new_multiple_choice();
 $mc->qa(
 "Which choice is a graph of the solution set for \( $lhs0 < $rhs0\)?",
-"\{ image( 'img/P39b.png', width=>298, height=>48 ) \}"
+'\{ image( "img/P39b.png", width=>298, height=>48 ) \}'
 );
 $mc->extra(
-      "\{ image( 'img/P39a.png', width=>298, height=>48 ) \}",
-      "\{ image( 'img/P39c.png', width=>298, height=>48 ) \}",
-      "\{ image( 'img/P39d.png', width=>298, height=>48 ) \}"
+      '\{ image( "img/P39a.png", width=>298, height=>48 ) \}',
+      '\{ image( "img/P39c.png", width=>298, height=>48 ) \}',
+      '\{ image( "img/P39d.png", width=>298, height=>48 ) \}'
 );
 $mc1 = RadioButtons(
     [ 
