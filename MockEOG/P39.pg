@@ -35,7 +35,7 @@ $mc->qa(
 $mc->extra(
       EV3('image( "img/P39a.png", width=>298, height=>48 )'),
       EV3('\{ image( "img/P39c.png", width=>298, height=>48 ) \}'),
-      '\{ image( "img/P39d.png", width=>298, height=>48 ) \}'
+      image( "img/P39d.png", width=>298, height=>48 )
 );
 $mc1 = RadioButtons(
     [ 
