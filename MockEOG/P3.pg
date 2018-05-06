@@ -117,25 +117,26 @@ END_SECTION
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"2: Understand the relationship",
              canshow =>$scaffold->requireCorrect(2..4),
-             iscorrect=>$scaffold->requireCorrect(5..6),
+             iscorrect=>$scaffold->requireCorrect(5),
              section=>2 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
 Based on the sentence that you completed in the last section, how would you find the actual height (a), if you knew the height of the model (m)?
 
 $PAR
-To get the actual height \( a \), I would \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the height of the model \( m \) by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
+To get the actual height \( a \), I would ${BBOLD}multiply${EBOLD} the height of the model \( m \) by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
 $PAR
 
 END_SECTION
+#To get the actual height \( a \), I would \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the height of the model \( m \) by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
 
 ##############
 #  Section 3
 ##############
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"3: Write the equation of the relatinship",
-             canshow =>$scaffold->requireCorrect(2..6),
-             iscorrect=>$scaffold->requireCorrect(7),
+             canshow =>$scaffold->requireCorrect(2..5),
+             iscorrect=>$scaffold->requireCorrect(6),
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
@@ -154,8 +155,8 @@ END_SECTION
 ##############
 Context()->texStrings;
 DISPLAY_SECTION( { name=>"4: Rewrite the equation of the relatinship",
-             canshow =>$scaffold->requireCorrect(2..7),
-             iscorrect=>$scaffold->requireCorrect(8),
+             canshow =>$scaffold->requireCorrect(2..6),
+             iscorrect=>$scaffold->requireCorrect(7),
              section=>4 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
