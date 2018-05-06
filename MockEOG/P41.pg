@@ -28,12 +28,14 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 #Context("Currency");
 $step1 = "subtract 3";
 $step2 = "divide by 5";
-$popup1 = PopUp(["?", "the left hand side", "the right hand side"], "the right hand side");
+$variable_side = "the right hand side";
+$popup1 = PopUp(["?", "the left hand side", "the right hand side"], $variable_side);
 $popup2 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3"], "multiply by 5, then add 3");
 $popup3 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3", "subtract 3, then divide by 5", "divide by 5, then subtract 3"], "subtract 3, then divide by 5");
 $popup4 = PopUp(["?", "do the same operation to the other side of the equation", "do the opposite operation to the other side of the equation"], "do the same operation to the other side of the equation");
 $popup5 = PopUp(["?", "get the variable by itself on one side of the equation", "get zero on one side of the equation", "get one on one side of the equation"], "get the variable by itself on one side of the equation");
 $popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
+$popup7 = PopUp(["?", "get the variable by itself on $variable_side", "get zero on $variable_side", "get one on $variable_side"], "get the variable by itself on $variable_side");
 
 Context("Numeric");
 #Context("LimitedFraction");
@@ -101,7 +103,7 @@ DISPLAY_SECTION( { name=>"$section: Devise a plan",
 },   <<'END_SECTION');
 
 $PAR
-To obtain a valid equation when we do an operation to one side of an equation, we must also
+To obtain a valid equation, when we do an operation to one side of an equation, we must also
 \{SECTION_ANS($popup4->cmp), $popup4->menu() \}.
 $PAR
 To solve an equation, we must choose operations that will
@@ -117,7 +119,7 @@ $PAR
 The inverse operations in the reverse order are
 \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
 $PAR
-Doing the above operations to both sides of the equation will \{SECTION_ANS($popup5->cmp), $popup5->menu() \}.
+Doing the above operations to both sides of the equation will \{SECTION_ANS($popup7->cmp), $popup7->menu() \}.
 
 $PAR
 Therefore, our plan to solve the equation is:
