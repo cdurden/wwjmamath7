@@ -26,16 +26,45 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 #  allowReset => $isProfessor,  # professors get Reset button for testing
 #);
 #Context("Currency");
-$step1 = "subtract 3";
-$step2 = "divide by 5";
-$variable_side = "the right hand side";
+$mc1 = RadioButtons(
+    [ 
+      "\{ image( "img/P39a.png", width=>298, height=>48 ) \}",
+      "\{ image( "img/P39b.png", width=>298, height=>48 ) \}",
+      "\{ image( "img/P39c.png", width=>298, height=>48 ) \}",
+      "\{ image( "img/P39d.png", width=>298, height=>48 ) \}",
+    ],
+      "\{ image( "img/P39b.png", width=>298, height=>48 ) \}",
+    labels => "ABC" );
+
+$ans_hash1 = $mc1->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+
+$eqn_or_ineq = "inequality";
+sub iop {
+  $op = $_[0];
+  $iop = $op ~= s/
+  %inverses = ( 'multiply by' => 'divide by',
+                'divide by' => 'multiply by',
+                'add' => 'subtract',
+                'subtract' => 'add' );
+  $re=join("|",keys %inverses);
+  $iop = $op ~= s/($re)/$dict{$1}/;
+  return($iop);
+}
+$step1f = "multiply by -1";
+$step2f = "add 12";
+$step1i = iop($step2f);
+$step2i = iop($step1f);
+$variable_side = "the left hand side";
 $popup1 = PopUp(["?", "the left hand side", "the right hand side"], $variable_side);
-$popup2 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3"], "multiply by 5, then add 3");
-$popup3 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3", "subtract 3, then divide by 5", "divide by 5, then subtract 3"], "subtract 3, then divide by 5");
+$popup2 = PopUp(["?", "$step1f, then $step2f", "$step2f, then $step1f"], "$step1f, then $step2f");
+$popup3 = PopUp(["?", "$step1f, then $step2f", "$step2f, then $step1f", "$step1i, then $step2i", "$step2i, then $step1i"], "$step1i, then $step2i");
 $popup4 = PopUp(["?", "do the same operation to the other side of the equation", "do the opposite operation to the other side of the equation"], "do the same operation to the other side of the equation");
 $popup5 = PopUp(["?", "get the variable by itself on one side of the equation", "get zero on one side of the equation", "get one on one side of the equation"], "get the variable by itself on one side of the equation");
 $popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
 $popup7 = PopUp(["?", "get the variable by itself on $variable_side", "get zero on $variable_side", "get one on $variable_side"], "get the variable by itself on $variable_side");
+$popup8 = PopUp(["?", ">", "<"], "<");
+$popup9 = PopUp(["?", ">", "<"], ">");
 
 Context("Numeric");
 #Context("LimitedFraction");
@@ -43,21 +72,28 @@ Context()->flags->set(reduceConstants=>0);
 Context()->variables->add(y=>"Real");
 Context("LimitedPolynomial-Strict");
 #Context()->variables->add(y=>"Real");
-$lhs1 = Compute("-2");
-$lhs2 = Compute("-5");
-$lhs3 = Compute("-1");
-$rhs1 = Compute("5x+3");
-$rhs2 = Compute("5x");
-$rhs3 = Compute("x");
+$lhs0 = Compute("12-x");
+$rhs0 = Compute("8");
+
+$lhs1 = Compute("-x");
+$rhs1 = Compute("-4");
+
+$lhs2 = Compute("x");
+$rhs2 = Compute("4");
 $ans = $lhs3;
 
 BEGIN_TEXT
+Which choice is a graph of the solution set for \( $lhs0 < $rhs0\)?
 $PAR
-What is the value of \( x \) in the equation \( -2 = 5x + 3 \)?
+$BR
+\{ $mc1->buttons() \}
+
 
 END_TEXT
 
-$ans_hash = $ans->cmp()->evaluate(
+ANS( $mc1->cmp() );
+
+$ans_hash = $mc1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
 #if ($ans_hash->{student_ans} ne '' && $ans_hash->{score} == 0) {
@@ -88,43 +124,66 @@ INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
 $section = 0;
-$ansNum += 8;
 ##############
 #  Section
 ##############
+$ansNum += 1;
 $section += 1;
 @nextRequireCorrect = 2..$ansNum;
 
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Devise a plan",
+DISPLAY_SECTION( { name=>"$section: Understand the operations",
              canshow=>1, #always true
              #canshow=>$scaffold->requireCorrect(@requireCorrect),
              iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 
+Rewrite the subtraction operation on the $variable_side of the equation as an equivalent addition operation:
 $PAR
-To obtain a valid equation, when we do an operation to one side of an equation, we must also
+\( $lhs0 < 12 + \) \{SECTION_ANS($rhs_term2->cmp),$rhs_term2->ans_rule()\}
+
+
+END_SECTION
+
+##############
+#  Section
+##############
+$ansNum += 8;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Devise a plan",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+To obtain a valid $eqn_or_ineq, when we do an operation to one side of an $eqn_or_ineq, we must also
 \{SECTION_ANS($popup4->cmp), $popup4->menu() \}.
 $PAR
-To solve an equation, we must choose operations that will
+To solve an $eqn_or_ineq, we must choose operations that will
 \{SECTION_ANS($popup5->cmp), $popup5->menu() \}.
 
 $PAR
-Which side of the equation \( $lhs1 = $rhs1 \) contains the variable?
+Which side of the $eqn_or_ineq \( $lhs1 = $rhs1 \) contains the variable?
 \{SECTION_ANS($popup1->cmp), $popup1->menu() \}
 $PAR
-What is the order of operations on that side of the equation?
+What is the order of operations on that side of the $eqn_or_ineq?
 \{SECTION_ANS($popup2->cmp), $popup2->menu() \}
 $PAR
 The inverse operations in the reverse order are
 \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
 $PAR
-Doing the above operations to both sides of the equation will \{SECTION_ANS($popup7->cmp), $popup7->menu() \}.
+Doing the above operations to both sides of the $eqn_or_ineq will \{SECTION_ANS($popup7->cmp), $popup7->menu() \}.
 
 $PAR
-Therefore, our plan to solve the equation is:
-\{SECTION_ANS($popup3->cmp), $popup3->menu() \} on \{SECTION_ANS($popup6->cmp), $popup6->menu() \} of the equation.
+Therefore, our plan to solve the $eqn_or_ineq is:
+\{SECTION_ANS($popup3->cmp), $popup3->menu() \} on \{SECTION_ANS($popup6->cmp), $popup6->menu() \} of the $eqn_or_ineq.
 
 
 END_SECTION
@@ -132,66 +191,6 @@ END_SECTION
 # Responsive text logic
 #########################
 #$ansNum += 2;
-
-##############
-$terms1_text = <<'END_TEXT';
-$PAR
-
-Find each of the terms in the expanded form of \( $expr1 \):
-$PAR
-\( -3\cdot 3y= \) \{SECTION_ANS($term11->cmp),$term11->ans_rule()\}
-$PAR
-\( -3 \cdot (-2x) = \) \{SECTION_ANS($term12->cmp),$term12->ans_rule()\}
-
-END_TEXT
-##############
-$terms2_text = <<'END_TEXT';
-$PAR
-
-Find each of the terms in the expanded form of \( $expr2 \):
-$PAR
-\( 2\cdot 5x= \) \{SECTION_ANS($term21->cmp),$term21->ans_rule()\}
-$PAR
-\( 2 \cdot (-4y) = \) \{SECTION_ANS($term22->cmp),$term22->ans_rule()\}
-
-END_TEXT
-
-##############
-$replace_paren_text = <<'END_TEXT';
-$PAR 
-Replace \( $expr1 \) and \( $expr2 \) by the expanded forms of these expression:
-$PAR
-\( $expr = \) \{SECTION_ANS($expanded1->cmp),$expanded1->ans_rule()\} \( + \) \{SECTION_ANS($expanded2->cmp),$expanded2->ans_rule()\} 
-
-END_TEXT
-
-##############
-$terms1_to_expand_text = <<'END_TEXT';
-$PAR 
-The expanded form of \( $expr1 \) is the sum of these terms.
-END_TEXT
-
-##############
-$terms2_to_expand_text = <<'END_TEXT';
-$PAR 
-The expanded form of \( $expr2 \) is the sum of these terms.
-END_TEXT
-
-
-##############
-$expand_text = <<'END_TEXT';
-$PAR 
-
-Expand \( $expr1 \) and \( $expr2 \)
-
-$PAR
-\( $expr1 = \) \{SECTION_ANS($expanded1->cmp),$expanded1->ans_rule()\} 
-$PAR
-\( $expr2 = \) \{SECTION_ANS($expanded2->cmp),$expanded2->ans_rule()\} 
-
-END_TEXT
-
-###############
 
 #$text1 = $expand_text;
 #if ($expanded1->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum)})->{score} == 1 && $expanded2->cmp()->evaluate($inputs_ref->{ANS_NUM_TO_NAME($ansNum+1)})->{score} == 1) {
@@ -233,7 +232,7 @@ END_TEXT
 ##############
 #  Section
 ##############
-$ansNum += 2;
+$ansNum += 3;
 $section += 1;
 @requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = 2..$ansNum;
@@ -250,14 +249,14 @@ Carry out the first step of the plan: $step1 to both sides of the equation.
 $PAR
 \( $lhs1 = $rhs1 \)
 $PAR
-\{SECTION_ANS($lhs2->cmp),$lhs2->ans_rule()\} \( = \) \{SECTION_ANS($rhs2->cmp),$rhs2->ans_rule()\}
+\{SECTION_ANS($lhs2->cmp),$lhs2->ans_rule()\} \{SECTION_ANS($popup8->cmp), $popup8->menu() \} \{SECTION_ANS($rhs2->cmp),$rhs2->ans_rule()\}
 $PAR
 
 END_SECTION
 ##############
 #  Section
 ##############
-$ansNum += 2;
+$ansNum += 3;
 $section += 1;
 @requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = 2..$ansNum;
@@ -272,9 +271,9 @@ DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
 
 Carry out the second step of the plan: $step2 to both sides of the equation.
 $PAR
-\( $lhs2 = $rhs2 \)
+\( $lhs2 < $rhs2 \)
 $PAR
-\{SECTION_ANS($lhs3->cmp),$lhs3->ans_rule()\} \( = \) \{SECTION_ANS($rhs3->cmp),$rhs3->ans_rule()\}
+\{SECTION_ANS($lhs3->cmp),$lhs3->ans_rule()\}  \{SECTION_ANS($popup9->cmp), $popup9->menu() \}  \{SECTION_ANS($rhs3->cmp),$rhs3->ans_rule()\}
 $PAR
 
 END_SECTION
