@@ -27,7 +27,7 @@ $eqn = ImplicitEquation("c = $unit_rate p ");
 
 BEGIN_TEXT
 $PAR
-The table shows how much a store charges for certain numbers of pencils.
+1. The table shows how much a store charges for certain numbers of pencils.
 $PAR
 \{
 DataTable(
