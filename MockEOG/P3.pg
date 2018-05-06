@@ -124,7 +124,7 @@ $PAR
 Based on the sentence that you completed in the last section, how would you find the actual height (a), if you knew the height of the model (m)?
 
 $PAR
-To get the actual height \( a \), I would ${BBOLD}multiply${EBOLD} the height of the model \( m \) by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
+To get the actual height \( a \), in feet, I would ${BBOLD}multiply${EBOLD} the height of the model \( m \), in inches, by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
 $PAR
 
 END_SECTION
