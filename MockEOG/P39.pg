@@ -167,7 +167,7 @@ To solve an $eqn_or_ineq, we must choose operations that will
 \{SECTION_ANS($popup5->cmp), $popup5->menu() \}.
 
 $PAR
-Which side of the $eqn_or_ineq \( $lhs1 = $rhs1 \) contains the variable?
+Which side of the $eqn_or_ineq \( $lhs0 $ineq $rhs0 \) contains the variable?
 \{SECTION_ANS($popup1->cmp), $popup1->menu() \}
 $PAR
 What is the order of operations on that side of the $eqn_or_ineq?
@@ -244,7 +244,7 @@ DISPLAY_SECTION( { name=>"$section: Carry out the first step of the plan",
 
 Carry out the first step of the plan: $step1 to both sides of the $eqn_or_ineq.
 $PAR
-\( $lhs1 = $rhs1 \)
+\( $lhs0 $ineq $rhs0 \)
 $PAR
 \{SECTION_ANS($lhs2->cmp),$lhs2->ans_rule()\} \{SECTION_ANS($popup8->cmp), $popup8->menu() \} \{SECTION_ANS($rhs2->cmp),$rhs2->ans_rule()\}
 $PAR
@@ -268,7 +268,7 @@ DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
 
 Carry out the second step of the plan: $step2 to both sides of the $eqn_or_ineq.
 $PAR
-\( $lhs2 < $rhs2 \)
+\( $lhs2 $ineq $rhs2 \)
 $PAR
 \{SECTION_ANS($lhs3->cmp),$lhs3->ans_rule()\}  \{SECTION_ANS($popup9->cmp), $popup9->menu() \}  \{SECTION_ANS($rhs3->cmp),$rhs3->ans_rule()\}
 $PAR
