@@ -32,6 +32,7 @@ $quantity1_lc = lc($quantity1);
 $quantity2_lc = lc($quantity2);
 $popup2 = PopUp(["?", $quantity1, $quantity2], $quantity1);
 $popup3 = PopUp(["?", $quantity1, $quantity2], $quantity2);
+$popup4 = PopUp(["?", "multiply the amount of red paint by 0.6", "divide the amount of red paint by 0.6", "add 0.6 to the amount of red paint", "add 0.6 to the amount of red paint"], "multiply the amount of red paint by 0.6");
 $var2 = "h";
 $var1 = "E";
 $unit1 = "liter of yellow";
@@ -70,11 +71,11 @@ ANS( $ans->cmp() );
 
 #if ($part == 2) {
 
-BEGIN_TEXT
-$PAR
-${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
-
-END_TEXT
+#BEGIN_TEXT
+#$PAR
+#${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+#
+#END_TEXT
 
 $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
@@ -139,7 +140,12 @@ DISPLAY_SECTION( { name=>"3: Solve the problem",
              section=>3 #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-Using the same ratio, how many liters of yellow paint should John use to make the new batch of orange paint?
+We found that the unit rate is \( $rate \) liters of yellow paint per liter of red paint.
+$PAR
+Fill in the blank: To determine how much yellow paint to use, we can
+\{SECTION_ANS($popup4->cmp), $popup4->menu() \}
+$PAR
+How many liters of yellow paint should John use to make the new batch of orange paint?
 $BR
 \{SECTION_ANS($rate->cmp), $rate->ans_rule() \}
 $BR
@@ -147,7 +153,7 @@ END_SECTION
 
 SECTION_SOLUTION({section=>3},<<'END_SOLUTION');
 $PAR
-The new batch of orange paint contains \( 1 \) liter of red paint. The unit rate tells us how much yellow paint we need:
+The new batch of orange paint contains \( 1 \) liter of red paint. 
 
 $PAR
 \( $rate  \frac{\text{ $unit1_pl}}{\text{$unit2}} = \frac{0.6 \text{ $unit1_pl}}{1 \text{ $unit2}} \)

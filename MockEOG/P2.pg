@@ -59,11 +59,11 @@ $rate1 = Compute('50/2');
 $rate2 = Compute('82/4');
 $difference = Compute('4.5');
 
-BEGIN_TEXT
-$PAR
-${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
-
-END_TEXT
+#BEGIN_TEXT
+#$PAR
+#${BBOLD}The answer that you entered was incorrect. The following sections will guide you through the solution.$EBOLD
+#
+#END_TEXT
 
 $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
