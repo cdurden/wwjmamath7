@@ -26,9 +26,11 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 #  allowReset => $isProfessor,  # professors get Reset button for testing
 #);
 #Context("Currency");
-#Context("Numeric");
-Context("LimitedFraction");
+Context("Numeric");
+#Context("LimitedFraction");
+Context()->flags->set(reduceConstants=>0);
 Context()->variables->add(y=>"Real");
+$expr0 =  Formula("-4(x+2)-1/2*(2x-6)");
 $expr0 =  Formula("-4(x+2)-1/2*(2x-6)");
 $expr1 = Formula("-4(x+2)");
 $expr2 = Formula("-1/2*(2x-6)");
