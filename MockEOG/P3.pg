@@ -12,6 +12,7 @@ loadMacros(
 "contextLimitedNumeric.pl",
 "contextFraction.pl",
 "parserImplicitEquation.pl",
+"niceTables.pl",
 );
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');

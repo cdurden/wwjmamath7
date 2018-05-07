@@ -8,6 +8,7 @@ loadMacros(
 "contextLimitedNumeric.pl",
 "PGML.pl",
 #"scaffold.pl",
+"niceTables.pl",
 );
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
