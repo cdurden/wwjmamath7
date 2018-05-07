@@ -64,6 +64,20 @@ $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
 
 BEGIN_TEXT
 $PAR
+\{
+DataTable(
+[
+  ['Key Concepts:','Markup/Markdown, Percent, Proportion'],
+  ['Procedures:','Set up a proportion, Solve a percent problem using a proportion']
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+$PAR
 16. A notebook costs ${DOLLAR}4.50 plus sales tax.  After sales tax, the notebook is ${DOLLAR}4.86.  What is the sales tax rate?
 
 END_TEXT

@@ -39,6 +39,20 @@ $unit2 = "pie";
 
 BEGIN_TEXT
 $PAR
+\{
+DataTable(
+[
+  ['Key Concepts:','Unit rate, Proportion'],
+  ['Procedures:','Compute unit rates, Set up a proportion']
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+$PAR
 7. Betty makes pies. To make \( 6 \) pies, she uses \( 7 \frac{1}{2} \) cups of flour. How many cups of flour are needed to make \( 1 \) pie?
 
 END_TEXT

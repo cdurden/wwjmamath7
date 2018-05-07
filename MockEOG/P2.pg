@@ -31,6 +31,20 @@ $mc2 = RadioButtons(
 
 BEGIN_TEXT
 $PAR
+\{
+DataTable(
+[
+  ['Key Concepts:','Unit rate'],
+  ['Procedures:','Compute unit rates']
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+$PAR
 2. Suppose that a butterfly can fly 82 feet in 4 seconds. A dragonfly can fly 50 feet in 2 seconds. Which can fly faster and by how much?
 END_TEXT
 

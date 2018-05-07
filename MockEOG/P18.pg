@@ -60,6 +60,20 @@ $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
 
 BEGIN_TEXT
 $PAR
+\{
+DataTable(
+[
+  ['Key Concepts:','Markup/Markdown, Percent, Proportion'],
+  ['Procedures:','Set up a proportion, Find a percent of a number']
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+$PAR
 18. Mr. Sanchez bought 2 magazines for $9.95 each and 1 book for $14.95.  If the sales tax is 6%, what is the total cost of Mr. Sanchez's purchases?
 
 END_TEXT

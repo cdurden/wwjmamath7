@@ -70,6 +70,20 @@ $multians = MultiAnswer($num1, $den1, $num2, $den2)->with(
 
 BEGIN_TEXT
 $PAR
+\{
+DataTable(
+[
+  ['Key Concepts:','Markup/Markdown, Percent, Proportion'],
+  ['Procedures:','Set up a proportion, Solve multi-step percent problem']
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+$PAR
 17. The Smith family went out to dinner.
 $PAR
 The price of the meal was ${DOLLAR}29.85.

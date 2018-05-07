@@ -31,7 +31,7 @@ $PAR
 DataTable(
 [
   ['Key Concepts:','Unit rate, Constant of proportionality, Proportional relationship'],
-  ['Procedures:','Compute unit rates, Write an equation for a proportional relationship']
+  ['Procedures:','Compute unit rates, Write the equation of a proportional relationship']
 ],
   rowheaders => 1,
   tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",

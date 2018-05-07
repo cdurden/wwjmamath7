@@ -41,6 +41,20 @@ $unit2 = "liter of red";
 
 BEGIN_TEXT
 $PAR
+\{
+DataTable(
+[
+  ['Key Concepts:','Unit rate, Proportion'],
+  ['Procedures:','Compute unit rates, Set up a proportion']
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+$PAR
 8. John mixed \( \frac{3}{4} \) liter of yellow paint with \( 1 \frac{1}{4} \) liters of red paint to make \( 2 \) liters of orange paint.
 
 $PAR

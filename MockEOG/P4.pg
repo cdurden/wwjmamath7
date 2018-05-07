@@ -32,6 +32,20 @@ $popup_yes = PopUp(["?", "Yes", "No"], "Yes");
 
 BEGIN_TEXT
 $PAR
+\{
+DataTable(
+[
+  ['Key Concepts:','Unit rate, Constant of proportionality, Proportional relationship'],
+  ['Procedures:','Compute unit rates, Write the equation of a proportional relationship']
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+$PAR
 4. Michelle bought the same fabric on 3 different occasions and recorded the data below.
 $PAR
 \{

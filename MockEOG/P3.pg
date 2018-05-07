@@ -25,6 +25,20 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 
 BEGIN_TEXT
 $PAR
+\{
+DataTable(
+[
+  ['Key Concepts:','Unit rate, Constant of proportionality, Proportional relationship'],
+  ['Procedures:','Compute unit rates, Write the equation of a proportional relationship']
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+$PAR
 3. Chad built a scale model of a statue. He built the model \( 7\) inches tall to represent the actual height of \( 15 \) feet. Which equation below represents the relationship between the actual height (\( a \)), in feet, and the height of the model ( \( m \)), in inches?
 END_TEXT
 
