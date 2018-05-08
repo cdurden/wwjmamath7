@@ -23,7 +23,36 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 $ans = Compute("437");
 $ans_hash = $ans->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+$popup8 = PopUp(["?", "vertical angles", "complementary angles", "supplementary angles"], "vertical angles");
+$popup9 = PopUp(["?", "are equal", "add up to \( 180^\circ \)", "add up to \( 90^\circ \)", , "add up to \( 360^\circ \)"], "are equal");
+Context("ImplicitEquation");
+$eqn = ImplicitEquation("75 = 3x-15");
 
+
+$step1 = "add 15";
+$step2 = "divide by 3";
+$variable_side = "the right hand side";
+$popup1 = PopUp(["?", "the left hand side", "the right hand side"], $variable_side);
+$popup2 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3"], "multiply by 5, then add 3");
+$popup3 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3", "subtract 3, then divide by 5", "divide by 5, then subtract 3"], "subtract 3, then divide by 5");
+$popup4 = PopUp(["?", "do the same operation to the other side of the equation", "do the opposite operation to the other side of the equation"], "do the same operation to the other side of the equation");
+$popup5 = PopUp(["?", "get the variable by itself on one side of the equation", "get zero on one side of the equation", "get one on one side of the equation"], "get the variable by itself on one side of the equation");
+$popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
+$popup7 = PopUp(["?", "get the variable by itself on $variable_side", "get zero on $variable_side", "get one on $variable_side"], "get the variable by itself on $variable_side");
+
+Context("Numeric");
+#Context("LimitedFraction");
+Context()->flags->set(reduceConstants=>0);
+Context()->variables->add(y=>"Real");
+Context("LimitedPolynomial-Strict");
+#Context()->variables->add(y=>"Real");
+$lhs1 = Compute("-2");
+$lhs2 = Compute("-5");
+$lhs3 = Compute("-1");
+$rhs1 = Compute("5x+3");
+$rhs2 = Compute("5x");
+$rhs3 = Compute("x");
+$ans = $lhs3;
 
 BEGIN_TEXT
 15. \( \overline{SU} \) intersects \( \overline{TV} \) at point \( R \). What is the value of \( x \), in degrees? 
@@ -43,44 +72,95 @@ $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
-#$section = 0;
-###############
-##  Section
-###############
-#$ansNum += 4;
-#$section += 1;
-#@requireCorrect = @nextRequireCorrect;
-#@nextRequireCorrect = 2..$ansNum;
-#Context()->texStrings;
-#DISPLAY_SECTION( { name=>"$section: Set up an equation",
-#             canshow =>$scaffold->requireCorrect(@requireCorrect),
-#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-#             section=>$section #designates that this is the first section
-#},   <<'END_SECTION');
-#$PAR
-#
-#END_SECTION
-#
-#
-###############
-##  Section
-###############
-#$ansNum += 8;
-#$section += 1;
-#@requireCorrect = @nextRequireCorrect;
-#@nextRequireCorrect = 2..$ansNum;
-#
-#Context()->texStrings;
-#DISPLAY_SECTION( { name=>"$section: Devise a plan",
-#             #canshow=>1, #always true
-#             canshow=>$scaffold->requireCorrect(@requireCorrect),
-#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-#             section=>$section #designates that this is the first section
-#},   <<'END_SECTION');
-#
-#$PAR
-#
-#END_SECTION
+$section = 0;
+##############
+#  Section
+##############
+$ansNum += 1;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Name the type of angle pair",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Fill in the blanks:
+The angles \( \angle SRT \) and \( \angle URV \) are 
+\{SECTION_ANS($popup8->cmp), $popup8->menu() \}.
+
+
+END_SECTION
+
+
+##############
+#  Section
+##############
+$ansNum += 1;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Identify the essential geometric principle",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Fill in the blank:
+The measures of vertical angles \{SECTION_ANS($popup9->cmp), $popup9->menu() \}.
+
+
+END_SECTION
+
+##############
+#  Section
+##############
+$ansNum += 1;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Use the geometric principle to set up an equation",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Use the geometric principle from the previous section and the data in the problem to write an equation:
+$PAR
+\{SECTION_ANS($eqn->cmp), $eqn->ans_rule() \}.
+
+##############
+#  Section
+##############
+$ansNum += 1;
+$section += 1;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Solve the equation",
+             canshow=>1, #always true
+             #canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Solve the equation from section 2.
+$PAR
+\( x = \) \{SECTION_ANS($ans->cmp), $ans->ans_rule() \}.
+
+
+END_SECTION
 
 PROCESS_ANSWERS();
 
@@ -90,5 +170,4 @@ $opensection = $last_correct_section + 1;
 $scaffold->openSections(1..$opensection);
 
 
-#}
 ENDDOCUMENT();
