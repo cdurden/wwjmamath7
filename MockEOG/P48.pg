@@ -197,7 +197,7 @@ DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
 },   <<'END_SECTION');
 
 $PAR
-What are the absolute deviations of the scores for each student?
+What are the absolute deviations of the scores from the means of each student?
 
 $PAR
 Student 1: \{SECTION_ANS($deviations1->cmp),
@@ -249,7 +249,7 @@ DISPLAY_SECTION( { name=>"$section: Carry out the third step of the plan",
 },   <<'END_SECTION');
 
 $PAR
-What is MAD for each student?
+What is the MAD for each student?
 $PAR
 Student 1: \{SECTION_ANS($mad1->cmp),$mad1->ans_rule()\}
 $PAR
