@@ -98,7 +98,7 @@ $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
-$showPartialCorrectAnswers = 0;
+#$showPartialCorrectAnswers = 0;
 
 $section = 0;
 ##############
