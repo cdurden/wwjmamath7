@@ -32,10 +32,6 @@ $mc1 = RadioButtons(
       $sample2,
       $sample3,
       $sample4,
-      "the first 25 students through the lunch line",
-      "ten random people from each seventh-grade class",
-      "all the students in a dance class",
-      "twenty of their friends",
     ],
     "ten random people from each seventh-grade class",
     labels => "ABC" );
@@ -76,25 +72,25 @@ $PAR
 Can you think of any reasons that $sample1 would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
 Write one or more reasons in the box below.
 $PAR
-\{ SECTION_ANS(essay_cmp), essay_box(3,48)\} 
+\{ SECTION_ANS(essay_cmp), essay_box(3,64)\} 
 $PAR
 Can you think of any reasons that $sample2 would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
 Write one or more reasons in the box below.
 $PAR
-\{ SECTION_ANS(essay_cmp), essay_box(3,48)\} 
+\{ SECTION_ANS(essay_cmp), essay_box(3,64)\} 
 $PAR
 Can you think of any reasons that $sample3 would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
 Write one or more reasons in the box below.
 $PAR
-\{ SECTION_ANS(essay_cmp), essay_box(3,48)\} 
+\{ SECTION_ANS(essay_cmp), essay_box(3,64)\} 
 $PAR
 Can you think of any reasons that $sample4 would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
 Write one or more reasons in the box below.
 $PAR
-\{ SECTION_ANS(essay_cmp), essay_box(3,48)\} 
+\{ SECTION_ANS(essay_cmp), essay_box(3,64)\} 
 $PAR
 Based on your answers, which group do you think is most likely to be representative of the seventh grade students?
-\{ SECTION_ANS(essay_cmp), essay_box(3,48)\} 
+\{ SECTION_ANS(essay_cmp), essay_box(3,64)\} 
 END_SECTION
 #
 #
