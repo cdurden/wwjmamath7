@@ -81,7 +81,7 @@ $stat = "mean";
 $entity1 = "student";
 $entity2 = "score";
 $popup1 = PopUp(["?", "find the mean score for the $entity1", "find the median score for the $entity1", "find the mode of the scores for the $entity1"], "find the mean score for the $entity1");
-$popup2 = PopUp(["?", "find the absolute deviation of each $entity2 from the mean of the $entity1", "find the absolute deviation of each $entity1 from the mean for the $entity2", "find the absolute deviation of each $entity1 from the median for the $entity2", "find the absolute deviation of each $entity2 from the median for the $entity1"], "find the absolute deviation of each $entity1 from the mean for the $entity2");
+$popup2 = PopUp(["?", "find the absolute deviation of each $entity2 from the mean of the $entity1", "find the absolute deviation of each $entity1 from the mean for the $entity2", "find the absolute deviation of each $entity1 from the median for the $entity2", "find the absolute deviation of each $entity2 from the median for the $entity1"], "find the absolute deviation of each $entity2 from the mean for the $entity1");
 $popup3 = PopUp(["?", "find the mean of the absolute deviations", "find the median of the absolute deviations"], "find the mean of the absolute deviations");
 $popup4 = PopUp(["?", "add them and then divide by the number of values", "put the numbers in order and find the middle number", "find the value that occurs the most frequently"], "add them and then divide by the number of values");
 
