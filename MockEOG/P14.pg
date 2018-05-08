@@ -35,11 +35,11 @@ $popup1 = PopUp(["?", "multiply", "divide"], "multiply");
 BEGIN_TEXT
 14. Brett made a scale drawing of a rectangular room in his house. The actual length of the room is \( 12 \frac{4}{5} \) ft. The scale use to make the drawing was \( \frac{1}{4} \text{ in. } = 1 \text{ ft.}\) What is the length, in inches, of the room in the drawing? 
 $PAR
-\{ $ans->ans_rule() \}
+\{ $scale_frac->ans_rule() \}
 
 END_TEXT
 
-ANS( $ans->cmp() );
+ANS( $scale_frac->cmp() );
 
 $ansNum = 1;
 
