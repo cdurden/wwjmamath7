@@ -29,7 +29,7 @@ $PAR
 \{
 DataTable(
 [
-  ['Key Concepts:',' htmlLink( "https://www.youtube.com/watch?v=RQ2nYUBVvqI", "Unit rate", "TARGET=\'_blank\'" ), Constant of proportionality, Proportional relationship'],
+  ['Key Concepts:',q{htmlLink( "https://www.youtube.com/watch?v=RQ2nYUBVvqI", "Unit rate", "TARGET='_blank'" )}, Constant of proportionality, Proportional relationship'],
   ['Procedures:','Compute unit rates, Write the equation of a proportional relationship']
 ],
   rowheaders => 1,
