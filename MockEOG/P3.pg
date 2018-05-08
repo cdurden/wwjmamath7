@@ -151,7 +151,7 @@ END_SECTION
 #  Section 3
 ##############
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"3: Write the equation of the relatinship",
+DISPLAY_SECTION( { name=>"3: Write the equation of the relationship",
              canshow =>$scaffold->requireCorrect(2..6),
              iscorrect=>$scaffold->requireCorrect(7),
              section=>3 #designates that this is the first section
@@ -171,7 +171,7 @@ END_SECTION
 #  Section 4
 ##############
 Context()->texStrings;
-DISPLAY_SECTION( { name=>"4: Rewrite the equation of the relatinship",
+DISPLAY_SECTION( { name=>"4: Rewrite the equation of the relationship",
              canshow =>$scaffold->requireCorrect(2..7),
              iscorrect=>$scaffold->requireCorrect(8),
              section=>4 #designates that this is the first section
