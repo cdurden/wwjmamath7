@@ -79,10 +79,12 @@ $ans_hash = $mc1->cmp()->evaluate(
 
 $stat = "mean";
 $entity1 = "student";
-$entity2 = "student";
+$entity2 = "score";
 $popup1 = PopUp(["?", "find the mean for each $entity1", "find the median for each $entity1", "find the mode for each $entity1"], "find the mean for each $entity1");
-$popup2 = PopUp(["?", "find the absolute deviation from the mean of each $entity2", "find the absolute deviation from the mean of each $entity1", "find the absolute deviation from the median of each $entity2", "find the absolute deviation from the median of each $entity1"], "find the absolute deviation from the mean of each $entity2");
+$popup2 = PopUp(["?", "find the absolute deviation of each $entity2 from the mean of the $entity1", "find the absolute deviation of each $entity1 from the mean for the $entity2", "find the absolute deviation of each $entity1 from the median for the $entity2", "find the absolute deviation of each $entity2 from the median for the $entity1"], "find the absolute deviation of each $entity1 from the mean for the $entity2");
 $popup3 = PopUp(["?", "find the mean of the absolute deviations", "find the median of the absolute deviations"], "find the mean of the absolute deviations");
+$popup4 = PopUp(["?", "add them and then divide by the number of values", "put the numbers in order and find the middle number", "find the value that occurs the most frequently"], "add them and then divide by the number of values");
+
 $mean1 = Compute("(77+80+100+75+82)/5");
 $mean2 = Compute("(84+92+80+82+85)/5");
 $mean3 = Compute("(88+80+79+85+90)/5");
@@ -135,7 +137,7 @@ DISPLAY_SECTION( { name=>"$section: Carry out the first step of the plan",
 },   <<'END_SECTION');
 $PAR
 To find the $stat of a set of values, we can
-\{SECTION_ANS($popup3->cmp), $popup3->menu() \}
+\{SECTION_ANS($popup4->cmp), $popup4->menu() \}
 
 $PAR
 What is the $stat for each $entity1?
