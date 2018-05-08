@@ -31,32 +31,6 @@ x=>{limits=>[0,180]},
 );
 $eqn = ImplicitEquation("75 = 3x-15");
 
-
-$step1 = "add 15";
-$step2 = "divide by 3";
-$variable_side = "the right hand side";
-$popup1 = PopUp(["?", "the left hand side", "the right hand side"], $variable_side);
-$popup2 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3"], "multiply by 5, then add 3");
-$popup3 = PopUp(["?", "add 3, then multiply by 5", "multiply by 5, then add 3", "subtract 3, then divide by 5", "divide by 5, then subtract 3"], "subtract 3, then divide by 5");
-$popup4 = PopUp(["?", "do the same operation to the other side of the equation", "do the opposite operation to the other side of the equation"], "do the same operation to the other side of the equation");
-$popup5 = PopUp(["?", "get the variable by itself on one side of the equation", "get zero on one side of the equation", "get one on one side of the equation"], "get the variable by itself on one side of the equation");
-$popup6 = PopUp(["?", "the left side", "the right side", "both sides"], "both sides");
-$popup7 = PopUp(["?", "get the variable by itself on $variable_side", "get zero on $variable_side", "get one on $variable_side"], "get the variable by itself on $variable_side");
-
-Context("Numeric");
-#Context("LimitedFraction");
-Context()->flags->set(reduceConstants=>0);
-Context()->variables->add(y=>"Real");
-Context("LimitedPolynomial-Strict");
-#Context()->variables->add(y=>"Real");
-$lhs1 = Compute("-2");
-$lhs2 = Compute("-5");
-$lhs3 = Compute("-1");
-$rhs1 = Compute("5x+3");
-$rhs2 = Compute("5x");
-$rhs3 = Compute("x");
-$ans = $lhs3;
-
 BEGIN_TEXT
 15. \( \overline{SU} \) intersects \( \overline{TV} \) at point \( R \). What is the value of \( x \), in degrees? 
 $PAR

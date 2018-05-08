@@ -193,33 +193,6 @@ $PAR
 
 END_SECTION
 
-##############
-#  Section
-##############
-$ansNum += 2;
-$section += 1;
-@requireCorrect = @nextRequireCorrect;
-@nextRequireCorrect = 2..$ansNum;
-
-Context()->texStrings;
-DISPLAY_SECTION( { name=>"$section: Graph the solution set",
-             #canshow=>1, #always true
-             canshow=>$scaffold->requireCorrect(@requireCorrect),
-             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-             section=>$section #designates that this is the first section
-},   <<'END_SECTION');
-
-Graph the solution set
-$PAR
-\( $lhs2 > $rhs2 \)
-$PAR
-The solution set includes all points \( x \) to the \{SECTION_ANS($popup10->cmp), $popup10->menu() \} of \( $rhs2 \) on the number line.
-$PAR
-The solution set \{SECTION_ANS($popup11->cmp), $popup11->menu() \} the point \( x = $rhs2 \).
-$PAR
-
-END_SECTION
-
 
 PROCESS_ANSWERS();
 
