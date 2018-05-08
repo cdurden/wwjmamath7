@@ -91,7 +91,7 @@ $deviations_checker = sub {
                $d4c->cmp()->evaluate($d4stu),
                $d5c->cmp()->evaluate($d5stu),
             ]);
-}
+};
 $deviations1 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
   singleResult => 0,
   allowBlankAnswers => 1,
