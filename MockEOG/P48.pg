@@ -224,7 +224,7 @@ DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
 },   <<'END_SECTION');
 
 $PAR
-What are the absolute deviations for each student?
+What are the absolute deviations of the scores for each student?
 
 $PAR
 Student 1: \{SECTION_ANS($deviations1->cmp),
