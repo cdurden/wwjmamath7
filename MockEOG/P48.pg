@@ -33,6 +33,17 @@ $mc1 = RadioButtons(
 $ans_hash1 = $mc1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
+$deviations1 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
+  singleResult => 0,
+  allowBlankAnswers => 1,
+  checker => sub {
+      my ( $correct, $student, $self ) = @_;
+      my ( $d1stu, $d2stu, $d3stu, $d4stu, $d5stu ) = @{$student};
+      my ( $d1, $d2, $d3, $d4, $d5 ) = @{$correct};
+      return([$d1stu==$d1,$d2stu==$d2,$d3stu==$d3,$d4stu==$d4,$d5stu==$d5]);
+  }
+);
+
 
 BEGIN_TEXT
 48. The table below shows the grades for three students on five assignments.
@@ -112,6 +123,144 @@ TEXT(beginproblem());
 #$PAR
 #
 #END_SECTION
+
+PROCESS_ANSWERS();
+
+$last_correct_section = PROCESS_SECTIONS();
+
+$opensection = $last_correct_section + 1;
+$scaffold->openSections(1..$opensection);
+
+
+#}
+ENDDOCUMENT();
+$stat = "mean";
+$entity1 = "student";
+$entity2 = "student";
+$popup1 = PopUp(["?", "find the mean for each $entity1", "find the median for each $entity1", "find the mode for each $entity1"], "the mean for each $entity1");
+$popup2 = PopUp(["?", "find the absolute deviation from the mean of each $entity2", "find the absolute deviation from the mean of each $entity1", "find the absolute deviation from the median of each $entity2", "find the absolute deviation from the median of each $entity1"], "find the absolute deviation from the mean of each $entity2");
+$popup3 = PopUp(["?", "find the mean of the absolute deviations", "find the median of the absolute deviations"], "find the mean of the absolute deviations");
+$mean1 = Compute("(77+80+100+75+82)/5");
+$mean2 = Compute("(84+92+80+82+85)/5");
+$mean3 = Compute("(88+80+79+85+90)/5");
+$diff = Compute("$median2-$median1");
+
+
+$ansNum = 1;
+
+
+$scaffold = Scaffold();
+INITIALIZE_SCAFFOLD('$scaffold');
+TEXT(beginproblem());
+
+$showPartialCorrectAnswers = 0;
+
+$section = 0;
+##############
+#  Section
+##############
+$ansNum += 2;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Devise a plan",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Annotate the problem (or rewrite the question on your scratch paper).
+$PAR
+The question asks us to compare the ${BBOLD}mean absolute deviation (MAD) of the students${EBOLD}. To find each MAD, we can \{SECTION_ANS($popup1->cmp), $popup1->menu() \}, then \{SECTION_ANS($popup2->cmp), $popup2->menu() \}, and then \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
+
+END_SECTION
+
+##############
+#  Section
+##############
+$ansNum += 4;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Carry out the first step of the plan",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+To find the $stat of a set of values, we can
+\{SECTION_ANS($popup3->cmp), $popup3->menu() \}
+
+$PAR
+What is the $stat for each $entity1?
+
+$BR
+Student 1: \{SECTION_ANS($mean1->cmp),$mean1->ans_rule()\}
+$BR
+Student 2: \{SECTION_ANS($mean2->cmp),$mean2->ans_rule()\}
+$BR
+Student 3: \{SECTION_ANS($mean3->cmp),$mean3->ans_rule()\}
+
+END_SECTION
+
+
+##############
+#  Section
+##############
+$ansNum += 8;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+What are the absolute deviations for each student?
+
+$PAR
+Student 1: \{SECTION_ANS($deviations1->cmp),
+  LayoutTable(
+  [
+  ['77', '80', '100', '75', '82'],
+  [$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5)]
+  ],
+  indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
+  );
+\}
+
+END_SECTION
+
+##############
+#  Section
+##############
+$ansNum += 8;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Carry out the third step of the plan",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+What is MAD for each student?
+$PAR
+Student 1: \{SECTION_ANS($mad1->cmp),$mad1->ans_rule()\}
+
+END_SECTION
 
 PROCESS_ANSWERS();
 

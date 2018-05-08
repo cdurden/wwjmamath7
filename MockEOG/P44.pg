@@ -151,7 +151,7 @@ DISPLAY_SECTION( { name=>"$section: Set up an equation",
 },   <<'END_SECTION');
 $PAR
 Draw a picture. For help,
-\{ htmlLink( "https://www.geogebra.org/m/PzZfHugP", "click here to use the GeoGebra cross sections tool", "TARGET='_blank'" ) \}.
+\{ htmlLink( "https://www.geogebra.org/m/PzZfHugP", "click here to use the GeoGebra cross sections tool", "TARGET='_blank'" ) \}. Select the triangular prism cross section, and use the sliders to rotate the plane so that it cuts perpendicular to the base.
 $PAR
 $BCENTER
 \{MODES(HTML=>$applet->insertAll(debug=>0, reinitialize_button=>0, 
