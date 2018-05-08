@@ -74,11 +74,14 @@ $popup3 = PopUp(["?", "find the mean of the absolute deviations", "find the medi
 $popup4 = PopUp(["?", "add them and then divide by the number of values", "put the numbers in order and find the middle number", "find the value that occurs the most frequently"], "add them and then divide by the number of values");
 
 @vals1 = ('77', '80', '100', '75', '82');
+@vals2 = ('84', '92', '80', '82', '85');
+@vals3 = ('88', '80', '79', '85', '90');
 $mean1 = Compute("(".join("+",@vals1).")/5");
+$mean2 = Compute("(".join("+",@vals2).")/5");
+$mean3 = Compute("(".join("+",@vals3).")/5");
 #$mean1 = Compute("(77+80+100+75+82)/5");
-$mean2 = Compute("(84+92+80+82+85)/5");
-$mean3 = Compute("(88+80+79+85+90)/5");
-my ($d1, $d2, $d3, $d4, $d5) = map{Compute("abs($mean1-$_)")} @vals1;
+#$mean2 = Compute("(84+92+80+82+85)/5");
+#$mean3 = Compute("(88+80+79+85+90)/5");
 $deviations_checker = sub {
       my ( $correct, $student, $self ) = @_;
       my ( $d1stu, $d2stu, $d3stu, $d4stu, $d5stu ) = @{$student};
@@ -91,11 +94,27 @@ $deviations_checker = sub {
                $d5c->cmp()->evaluate($d5stu)->{score},
             ]);
 };
+my ($d1, $d2, $d3, $d4, $d5) = map{Compute("abs($mean1-$_)")} @vals1;
 $deviations1 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
   singleResult => 0,
   allowBlankAnswers => 1,
   checker => $deviations_checker,
 );
+$mad1 = Compute("(".join("+",($d1, $d2, $d3, $d4, $d5)).")/5");
+my ($d1, $d2, $d3, $d4, $d5) = map{Compute("abs($mean1-$_)")} @vals2;
+$deviations2 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
+  singleResult => 0,
+  allowBlankAnswers => 1,
+  checker => $deviations_checker,
+);
+$mad2 = Compute("(".join("+",($d1, $d2, $d3, $d4, $d5)).")/5");
+my ($d1, $d2, $d3, $d4, $d5) = map{Compute("abs($mean1-$_)")} @vals3;
+$deviations3 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
+  singleResult => 0,
+  allowBlankAnswers => 1,
+  checker => $deviations_checker,
+);
+$mad3 = Compute("(".join("+",($d1, $d2, $d3, $d4, $d5)).")/5");
 
 
 
@@ -212,6 +231,10 @@ $PAR
 What is MAD for each student?
 $PAR
 Student 1: \{SECTION_ANS($mad1->cmp),$mad1->ans_rule()\}
+$PAR
+Student 2: \{SECTION_ANS($mad2->cmp),$mad2->ans_rule()\}
+$PAR
+Student 3: \{SECTION_ANS($mad3->cmp),$mad3->ans_rule()\}
 
 END_SECTION
 
