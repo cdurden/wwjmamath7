@@ -39,8 +39,8 @@ $deviations1 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
   checker => sub {
       my ( $correct, $student, $self ) = @_;
       my ( $d1stu, $d2stu, $d3stu, $d4stu, $d5stu ) = @{$student};
-      my ( $d1, $d2, $d3, $d4, $d5 ) = @{$correct};
-      return([$d1stu==$d1,$d2stu==$d2,$d3stu==$d3,$d4stu==$d4,$d5stu==$d5]);
+      my ( $d1c, $d2c, $d3c, $d4c, $d5c ) = @{$correct};
+      return([$d1stu==$d1c,$d2stu==$d2c,$d3stu==$d3c,$d4stu==$d4c,$d5stu==$d5c]);
   }
 );
 
