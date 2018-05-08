@@ -115,6 +115,7 @@ $deviations3 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
   checker => $deviations_checker,
 );
 $mad3 = Compute("(".join("+",($d1, $d2, $d3, $d4, $d5)).")/5");
+$vals3_ref = \@vals3;
 
 
 
@@ -222,7 +223,7 @@ $PAR
 Student 3: \{SECTION_ANS($deviations3->cmp),
   LayoutTable(
   [
-  row( @vals3 ),   
+  $vals3_ref,   
   [$deviations3->ans_rule(5),$deviations3->ans_rule(5),$deviations3->ans_rule(5),$deviations3->ans_rule(5),$deviations3->ans_rule(5)]
   ],
   indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
