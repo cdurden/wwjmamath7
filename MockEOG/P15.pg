@@ -26,6 +26,9 @@ $ans_hash = $ans->cmp()->evaluate(
 $popup8 = PopUp(["?", "vertical angles", "complementary angles", "supplementary angles"], "vertical angles");
 $popup9 = PopUp(["?", "are equal", "add up to \( 180^\circ \)", "add up to \( 90^\circ \)", , "add up to \( 360^\circ \)"], "are equal");
 Context("ImplicitEquation");
+Context()->variables->set(
+x=>{limits=>[0,180]},
+);
 $eqn = ImplicitEquation("75 = 3x-15");
 
 
