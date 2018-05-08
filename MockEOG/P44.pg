@@ -78,7 +78,7 @@ function enable3D() {
       setTimeout("enable3D()",1000);
    }
 }
-ww_applet_list["$appletName"].setConfig = function() {setAppletCoefficients()};
+ww_applet_list["$appletName"].setConfig = function() {enable3D()};
 </script>
 END_SCRIPT
 sub GEOGEBRA_PARAMS {
