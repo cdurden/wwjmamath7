@@ -209,21 +209,21 @@ Student 1: \{SECTION_ANS($deviations1->cmp),
   );
 \}
 $PAR
-Student 2: \{SECTION_ANS($deviations1->cmp),
+Student 2: \{SECTION_ANS($deviations2->cmp),
   LayoutTable(
   [
   ['77', '80', '100', '75', '82'],
-  [$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5)]
+  [$deviations2->ans_rule(5),$deviations2->ans_rule(5),$deviations2->ans_rule(5),$deviations2->ans_rule(5),$deviations2->ans_rule(5)]
   ],
   indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
   );
 \}
 $PAR
-Student 3: \{SECTION_ANS($deviations1->cmp),
+Student 3: \{SECTION_ANS($deviations3->cmp),
   LayoutTable(
   [
-  @vals3,   
-  [$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5)]
+  ['77', '80', '100', '75', '82'],
+  [$deviations3->ans_rule(5),$deviations3->ans_rule(5),$deviations3->ans_rule(5),$deviations3->ans_rule(5),$deviations3->ans_rule(5)]
   ],
   indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
   );
