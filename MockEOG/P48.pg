@@ -83,13 +83,12 @@ $deviations_checker = sub {
       my ( $correct, $student, $self ) = @_;
       my ( $d1stu, $d2stu, $d3stu, $d4stu, $d5stu ) = @{$student};
       my ( $d1c, $d2c, $d3c, $d4c, $d5c ) = @{$correct};
-      return($d1c->cmp()->evaluate($d1stu));
       return([
-               $d1c->cmp()->evaluate($d1stu),
-               $d2c->cmp()->evaluate($d2stu),
-               $d3c->cmp()->evaluate($d3stu),
-               $d4c->cmp()->evaluate($d4stu),
-               $d5c->cmp()->evaluate($d5stu),
+               $d1c->cmp()->evaluate($d1stu)->{score},
+               $d2c->cmp()->evaluate($d2stu)->{score},
+               $d3c->cmp()->evaluate($d3stu)->{score},
+               $d4c->cmp()->evaluate($d4stu)->{score},
+               $d5c->cmp()->evaluate($d5stu)->{score},
             ]);
 };
 $deviations1 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
