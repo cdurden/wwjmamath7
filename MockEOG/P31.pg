@@ -32,6 +32,12 @@ $mc1 = RadioButtons(
 
 $ans_hash1 = $mc1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+$popup1 = PopUp(["?", "the difference in the numbers of miles for each day", "the average number of miles for each week", "the average number of miles for each day"], "the average number of miles for each week");
+$popup2 = PopUp(["?", "find their difference", "find their average"], "find their difference");
+$popup3 = PopUp(["?", "add them and then divide by the number of values", "put the numbers in order and find the middle number", "find the value that occurs the most frequently"], "add them and then divide by the number of values");
+$avg1 = Compute("(30+26+48+34+42+25+48)/7");
+$avg2 = Compute("(32+23+50+32+44+23+218)/7");
+$diff = Compute("$avg2-$avg1");
 
 
 BEGIN_TEXT
@@ -41,6 +47,7 @@ $PAR
 
 $PAR
 What is the approximate difference in average daily miles between the two weeks?
+$PAR
 \{ $mc1->buttons() \}
 
 END_TEXT
@@ -59,44 +66,76 @@ $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
-#$section = 0;
-###############
-##  Section
-###############
-#$ansNum += 4;
-#$section += 1;
-#@requireCorrect = @nextRequireCorrect;
-#@nextRequireCorrect = 2..$ansNum;
-#Context()->texStrings;
-#DISPLAY_SECTION( { name=>"$section: Set up an equation",
-#             canshow =>$scaffold->requireCorrect(@requireCorrect),
-#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-#             section=>$section #designates that this is the first section
-#},   <<'END_SECTION');
-#$PAR
-#
-#END_SECTION
-#
-#
-###############
-##  Section
-###############
-#$ansNum += 8;
-#$section += 1;
-#@requireCorrect = @nextRequireCorrect;
-#@nextRequireCorrect = 2..$ansNum;
-#
-#Context()->texStrings;
-#DISPLAY_SECTION( { name=>"$section: Devise a plan",
-#             #canshow=>1, #always true
-#             canshow=>$scaffold->requireCorrect(@requireCorrect),
-#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-#             section=>$section #designates that this is the first section
-#},   <<'END_SECTION');
-#
-#$PAR
-#
-#END_SECTION
+$section = 0;
+##############
+#  Section
+##############
+$ansNum += 2;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Devise a plan",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+The question asks us to find the approximate difference in average daily miles between the two weeks. To solve the problem completely, we can find \{SECTION_ANS($popup1->cmp), $popup1->menu() \} and then \{SECTION_ANS($popup2->cmp), $popup2->menu() \}.
+
+END_SECTION
+
+##############
+#  Section
+##############
+$ansNum += 4;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Carry out the first step of the plan",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+To find the average of a set of values, we can
+\{SECTION_ANS($popup3->cmp), $popup3->menu() \}
+
+$PAR
+What are the average daily miles for each of the weeks?
+
+$BR
+Week 1: \{SECTION_ANS($avg1->cmp),$avg1->ans_rule()\}
+
+$BR
+Week 2: \{SECTION_ANS($avg2->cmp),$avg2->ans_rule()\}
+
+END_SECTION
+
+
+##############
+#  Section
+##############
+$ansNum += 8;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Carry out the second step of the plan",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+What is the difference in average daily miles between the two weeks?
+\{SECTION_ANS($diff->cmp),$diff->ans_rule()\}
+
+END_SECTION
 
 PROCESS_ANSWERS();
 

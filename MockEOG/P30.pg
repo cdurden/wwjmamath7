@@ -69,22 +69,22 @@ DISPLAY_SECTION( { name=>"$section: Think about the appropriateness of each answ
              section=>$section #designates that this is the first section
 },   <<'END_SECTION');
 $PAR
-Can you think of any reasons that ${BBOLD}$sample1${EBOLD} would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
+Can you think of any reasons that ${BBOLD}$sample1${EBOLD} would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of all of the seventh grade students?
 Write one or more reasons in the box below.
 $PAR
 \{ SECTION_ANS(essay_cmp), essay_box(3,64)\} 
 $PAR
-Can you think of any reasons that ${BBOLD}$sample2${EBOLD} would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
+Can you think of any reasons that ${BBOLD}$sample2${EBOLD} would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of all of the seventh grade students?
 Write one or more reasons in the box below.
 $PAR
 \{ SECTION_ANS(essay_cmp), essay_box(3,64)\} 
 $PAR
-Can you think of any reasons that ${BBOLD}$sample3${EBOLD} would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
+Can you think of any reasons that ${BBOLD}$sample3${EBOLD} would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of all of the seventh grade students?
 Write one or more reasons in the box below.
 $PAR
 \{ SECTION_ANS(essay_cmp), essay_box(3,64)\} 
 $PAR
-Can you think of any reasons that ${BBOLD}$sample4${EBOLD} would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
+Can you think of any reasons that ${BBOLD}$sample4${EBOLD} would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of all of the seventh grade students?
 Write one or more reasons in the box below.
 $PAR
 \{ SECTION_ANS(essay_cmp), essay_box(3,64)\} 
