@@ -65,20 +65,20 @@ you must enable JavaScript, or use another browser
 !);
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script language="javascript">
-function enable3D() {
+function enable3d() {
    var applet=getApplet("$appletName"); // alert("Updating coefficients");
    if (typeof(applet)!="undefined") {
-     if (typeof(applet.enable3D)!="undefined") {
-     applet.enable3D(true);
+     if (typeof(applet.enable3d)!="undefined") {
+     applet.enable3d(true);
 
      } else {
-          setTimeout("enable3D()", 1000);
+          setTimeout("enable3d()", 1000);
      }
    } else {
-      setTimeout("enable3D()",1000);
+      setTimeout("enable3d()",1000);
    }
 }
-ww_applet_list["$appletName"].setConfig = function() {enable3D()};
+ww_applet_list["$appletName"].setConfig = function() {enable3d()};
 </script>
 END_SCRIPT
 sub GEOGEBRA_PARAMS {
