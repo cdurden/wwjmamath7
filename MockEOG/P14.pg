@@ -23,11 +23,11 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 $ans = Compute("3.2");
 $ans_hash = $ans->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
-$scale_frac = Compute('1/4');
+$scale = Compute('1/4');
 Context("LimitedNumeric-Fraction");
-$scale_frac = Compute('5/2');
+$scale_frac = Compute('1/4');
 $dim1a = Compute('64/5');
-$dim1m = Compute("32");
+$dim1m = Compute("16/5");
 $popup1 = PopUp(["?", "multiply", "divide"], "multiply");
 
 
