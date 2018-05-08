@@ -85,7 +85,7 @@ $rhs1 = Compute("-6");
 $lhs2 = Compute("x");
 $rhs2 = Compute("2");
 $ans = $lhs3;
-
+Context()->texStrings;
 BEGIN_TEXT
 42. Which set of numbers is included in the solution set of \( $lhs0 $ineq $rhs0 \)?
 $PAR
