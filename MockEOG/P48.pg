@@ -101,14 +101,14 @@ $deviations1 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
   checker => $deviations_checker,
 );
 $mad1 = Compute("(".join("+",($d1, $d2, $d3, $d4, $d5)).")/5");
-my ($d1, $d2, $d3, $d4, $d5) = map{Compute("abs($mean1-$_)")} @vals2;
+my ($d1, $d2, $d3, $d4, $d5) = map{Compute("abs($mean2-$_)")} @vals2;
 $deviations2 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
   singleResult => 0,
   allowBlankAnswers => 1,
   checker => $deviations_checker,
 );
 $mad2 = Compute("(".join("+",($d1, $d2, $d3, $d4, $d5)).")/5");
-my ($d1, $d2, $d3, $d4, $d5) = map{Compute("abs($mean1-$_)")} @vals3;
+my ($d1, $d2, $d3, $d4, $d5) = map{Compute("abs($mean3-$_)")} @vals3;
 $deviations3 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
   singleResult => 0,
   allowBlankAnswers => 1,
