@@ -20,7 +20,7 @@ loadMacros(
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 
-$ans = Compute("437");
+$ans = Compute("30");
 $ans_hash = $ans->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 $popup8 = PopUp(["?", "vertical angles", "complementary angles", "supplementary angles"], "vertical angles");
