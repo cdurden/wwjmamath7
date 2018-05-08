@@ -222,7 +222,7 @@ $PAR
 Student 3: \{SECTION_ANS($deviations3->cmp),
   LayoutTable(
   [
-  @vals3,   
+  row( @vals3 ),   
   [$deviations3->ans_rule(5),$deviations3->ans_rule(5),$deviations3->ans_rule(5),$deviations3->ans_rule(5),$deviations3->ans_rule(5)]
   ],
   indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
