@@ -56,22 +56,24 @@ INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
 #$section = 0;
-###############
-##  Section
-###############
-#$ansNum += 4;
-#$section += 1;
-#@requireCorrect = @nextRequireCorrect;
-#@nextRequireCorrect = 2..$ansNum;
-#Context()->texStrings;
-#DISPLAY_SECTION( { name=>"$section: Set up an equation",
-#             canshow =>$scaffold->requireCorrect(@requireCorrect),
-#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-#             section=>$section #designates that this is the first section
-#},   <<'END_SECTION');
-#$PAR
-#
-#END_SECTION
+##############
+#  Section
+##############
+$ansNum += 4;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Set up an equation",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Draw a picture. For help, use the
+\{ htmlLink( "https://www.geogebra.org/m/PzZfHugP", "GeoGebra cross sections tool" ) \}.
+
+END_SECTION
 #
 #
 ###############
