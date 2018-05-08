@@ -27,7 +27,7 @@ $mc1 = RadioButtons(
       "\( 26^\circ \)",
       "\( 42^\circ \)",
     ],
-    "\( 19^\circ \)",
+    "\( 16^\circ \)",
     labels => "ABC" );
 
 $ans_hash1 = $mc1->cmp()->evaluate(
