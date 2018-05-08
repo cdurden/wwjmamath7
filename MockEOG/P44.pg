@@ -36,6 +36,7 @@ $applet =  GeogebraWebApplet(
    returnFieldName       => '',
    width                 => 640,              # may want to modify width
    height                => 640,              # may want to modify height
+   enable3d              => "true",
   # mayscript             => "true",
    debugMode             => 0,   # set debugMode to 0 for no debug
                                               # to 1 to make xml representation visible
@@ -69,7 +70,7 @@ function enable3d() {
    var applet=getApplet("$appletName"); // alert("Updating coefficients");
    if (typeof(applet)!="undefined") {
      if (typeof(applet.enable3d)!="undefined") {
-     applet.enable3d(true);
+     //applet.enable3d(true);
 
      } else {
           setTimeout("enable3d()", 1000);
