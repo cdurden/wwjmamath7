@@ -1,3 +1,4 @@
+%concepts = ( "Unit rate"=>"https://www.youtube.com/watch?v=RQ2nYUBVvqI");
 # TODO: add GeoGebra applet
 # https://www.geogebra.org/o/Zw8QRvQm
 
@@ -29,7 +30,7 @@ $PAR
 \{
 DataTable(
 [
-  ['Key Concepts:',htmlLink( "https://www.youtube.com/watch?v=RQ2nYUBVvqI", "Unit rate", "TARGET='_blank'" ).', Constant of proportionality, Proportional relationship'],
+  ['Key Concepts:',join(", ", map{ htmlLink( $concepts{$_}, $_, "TARGET='_blank'") } keys %concepts)],
   ['Procedures:','Compute unit rates, Write the equation of a proportional relationship']
 ],
   rowheaders => 1,
