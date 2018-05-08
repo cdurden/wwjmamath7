@@ -23,6 +23,9 @@ $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 $ans = Compute("3.2");
 $ans_hash = $ans->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+$scale_frac = Compute('1/4');
+$dim1a = Compute('64/5');
+$dim1m = Compute("$scale_frac*$dim1a");
 
 
 BEGIN_TEXT
@@ -41,23 +44,48 @@ $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
-#$section = 0;
-###############
-##  Section
-###############
-#$ansNum += 4;
-#$section += 1;
-#@requireCorrect = @nextRequireCorrect;
-#@nextRequireCorrect = 2..$ansNum;
-#Context()->texStrings;
-#DISPLAY_SECTION( { name=>"$section: Set up an equation",
-#             canshow =>$scaffold->requireCorrect(@requireCorrect),
-#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-#             section=>$section #designates that this is the first section
-#},   <<'END_SECTION');
-#$PAR
-#
-#END_SECTION
+$section = 0;
+##############
+#  Section
+##############
+$ansNum += 1;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Set up an equation",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Fill in the blank:
+$PAR
+Every foot of the room is represented by \{SECTION_ANS($scale->cmp),$scale->ans_rule()\} inches in the drawing.
+
+END_SECTION
+
+##############
+#  Section 2
+##############
+$ansNum += 3;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Use the scale factor to calculate actual dimensions based on the model",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+To get the dimensions of the drawing (in inches), I would \{SECTION_ANS($popup1->cmp), $popup1->menu() \} the dimensions of the actual room (in feet) by \{SECTION_ANS($scale_frac->cmp),$scale_frac->ans_rule()\}
+$PAR
+The length of the room is \( $dim1a \) feet, so the length in the model will be \{SECTION_ANS($dim1m->cmp), $dim1m->ans_rule() \} inches.
+
+
+END_SECTION
 #
 #
 ###############

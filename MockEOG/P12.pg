@@ -21,11 +21,27 @@ loadMacros(
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 
 $ans = Compute("437");
+$length_tiles = Compute("23");
+$width_tiles = Compute("19");
 $ans_hash = $ans->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
 
 BEGIN_TEXT
+$PAR
+\{
+DataTable(
+[
+  ['Key Concepts:','Area'],
+  ['Procedures:','Find the areas of 2D shapes']
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
 12. A kitchen is shaped like a rectangle with dimensions of \( 11 \frac{1}{2} \) ft by \( 9 \frac{1}{2} \) ft. The floor of the room is made of square tiles with a side length of \( \frac{1}{2} \) ft. What is the number of tiles that will cover the kitchen floor?
 $PAR
 \{ $ans->ans_rule() \}
@@ -41,23 +57,37 @@ $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
-#$section = 0;
-###############
-##  Section
-###############
-#$ansNum += 4;
-#$section += 1;
-#@requireCorrect = @nextRequireCorrect;
-#@nextRequireCorrect = 2..$ansNum;
-#Context()->texStrings;
-#DISPLAY_SECTION( { name=>"$section: Set up an equation",
-#             canshow =>$scaffold->requireCorrect(@requireCorrect),
-#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-#             section=>$section #designates that this is the first section
-#},   <<'END_SECTION');
-#$PAR
-#
-#END_SECTION
+$section = 0;
+##############
+#  Section
+##############
+$ansNum += 4;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Draw a picture",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Draw a picture.
+
+$PAR
+How many of the tiles can you line up along the side with length \( 11 \frac{1}{2} \) ft?
+\{SECTION_ANS($length_tiles->cmp),$length_tiles->ans_rule()\}
+
+$PAR
+How many of the tiles can you line up along the side with length \( 9 \frac{1}{2} \) ft?
+\{SECTION_ANS($width_tiles->cmp),$width_tiles->ans_rule()\}
+
+$PAR
+How many tiles will it take to cover the whole floor?
+\{SECTION_ANS($ans->cmp),$ans->ans_rule()\}
+
+
+END_SECTION
 #
 #
 ###############
