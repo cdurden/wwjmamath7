@@ -27,7 +27,7 @@ $scale_frac = Compute('1/4');
 Context("LimitedNumeric-Fraction");
 $scale_frac = Compute('5/2');
 $dim1a = Compute('64/5');
-$dim1m = Compute("$scale_frac*$dim1a");
+$dim1m = Compute("32");
 $popup1 = PopUp(["?", "multiply", "divide"], "multiply");
 
 
