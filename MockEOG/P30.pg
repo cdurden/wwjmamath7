@@ -20,8 +20,17 @@ loadMacros(
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');
 
+$sample1 = "the first 25 students through the lunch line";
+$sample2 = "ten random people from each seventh-grade class";
+$sample3 = "all the students in a dance class";
+$sample4 = "twenty of their friends";
+
 $mc1 = RadioButtons(
     [
+      $sample1,
+      $sample2,
+      $sample3,
+      $sample4,
       "the first 25 students through the lunch line",
       "ten random people from each seventh-grade class",
       "all the students in a dance class",
@@ -48,23 +57,41 @@ $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
-#$section = 0;
-###############
-##  Section
-###############
-#$ansNum += 4;
-#$section += 1;
-#@requireCorrect = @nextRequireCorrect;
-#@nextRequireCorrect = 2..$ansNum;
-#Context()->texStrings;
-#DISPLAY_SECTION( { name=>"$section: Set up an equation",
-#             canshow =>$scaffold->requireCorrect(@requireCorrect),
-#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-#             section=>$section #designates that this is the first section
-#},   <<'END_SECTION');
-#$PAR
-#
-#END_SECTION
+$section = 0;
+##############
+#  Section
+##############
+$ansNum += 4;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Think about the appropriateness of each answer choice",
+             canshow =>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+$PAR
+Can you think of any reasons that $sample1 would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
+Write one or more reasons in the box below.
+$PAR
+\{ SECTION_ANS(essay_cmp), essay_box()\} 
+Can you think of any reasons that $sample2 would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
+Write one or more reasons in the box below.
+$PAR
+\{ SECTION_ANS(essay_cmp), essay_box()\} 
+Can you think of any reasons that $sample3 would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
+Write one or more reasons in the box below.
+$PAR
+\{ SECTION_ANS(essay_cmp), essay_box()\} 
+Can you think of any reasons that $sample4 would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
+Write one or more reasons in the box below.
+$PAR
+\{ SECTION_ANS(essay_cmp), essay_box()\} 
+
+Based on your answers, which group do you think is most likely to be representative of the seventh grade students?
+\{ SECTION_ANS(essay_cmp), essay_box()\} 
+END_SECTION
 #
 #
 ###############
