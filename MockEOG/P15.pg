@@ -149,6 +149,7 @@ END_SECTION
 ##############
 $ansNum += 1;
 $section += 1;
+@requireCorrect = @nextRequireCorrect;
 @nextRequireCorrect = 2..$ansNum;
 
 Context()->texStrings;
