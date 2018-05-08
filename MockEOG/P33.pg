@@ -56,33 +56,6 @@ $median2 = Compute("141");
 $diff = Compute("$median2-$median1");
 
 
-BEGIN_TEXT
-31. The chart below shows the number of miles Sam drove each day for two weeks.
-$PAR
-\{ image( "img/P31.png", width=>586, height=>94 ) \}
-
-$PAR
-What is the approximate difference in average daily miles between the two weeks?
-$PAR
-\{ $mc1->buttons() \}
-
-END_TEXT
-
-ANS( $mc1->cmp() );
-
-
-
-$ansNum = 1;
-
-
-$scaffold = Scaffold();
-INITIALIZE_SCAFFOLD('$scaffold');
-TEXT(beginproblem());
-$ans_hash = $mc1->cmp()->evaluate(
-    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
-
-
-
 $ansNum = 1;
 
 
