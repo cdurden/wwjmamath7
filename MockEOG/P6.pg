@@ -34,6 +34,20 @@ $diff = Compute('1/18');
 
 BEGIN_TEXT
 $PAR
+\{
+DataTable(
+[
+  ['Key Concepts:',join(", ", map{ htmlLink( $concepts{$_}, $_, "TARGET='_blank'") } keys %concepts) ],
+  ['Procedures:',join(", ", map{ htmlLink( $procedures{$_}, $_, "TARGET='_blank'") } keys %procedures)]
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+$PAR
 
 6. A baker made two cakes of the same size.
 

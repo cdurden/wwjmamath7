@@ -1,3 +1,20 @@
+%concepts = (
+#"Unit rate"=>"https://www.youtube.com/watch?v=RQ2nYUBVvqI",
+#"Constant of proportionality"=>"https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-ratio-proportion/constant-of-proportionality/v/proportionality-constant-from-table",
+#"Proportional relationship"=>"https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-proportional-rel/v/introduction-to-proportional-relationships",
+"Proportion"=>"https://www.youtube.com/watch?v=USmit5zUGas",
+"Percent"=>"https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-intro-percents/v/describing-the-meaning-of-percent",
+"Markup/Markdown"=>"https://learnzillion.com/resources/9906/",
+);
+%procedures = (
+#"Compute a unit rate"=>"https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-ratio-proportion/cc-7th-rates/v/determining-rates-with-fractions",
+#"Write the equation of a proportional relationship"=>"https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-ratio-proportion/cc-7th-equations-of-proportional-relationships/v/equations-of-proportional-relationships",
+"Set up a proportion"=>"https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-write-and-solve-proportions/v/writing-proportions",
+#"Recognize a proportional relationship"=>"https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-proportional-rel/v/introduction-to-proportional-relationships",
+#"Find a percent of a number"=>"https://www.youtube.com/watch?v=rR95Cbcjzus&t=177s",
+#"Solve a percent problem using a proportion"=>"https://www.youtube.com/watch?v=Uf-Rl1e2I4Q",
+"Solve multi-step percent problems"=>"https://www.youtube.com/watch?v=JbK9wzNptSs",
+);
 DOCUMENT();
 
 loadMacros(

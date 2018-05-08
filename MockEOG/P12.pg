@@ -42,6 +42,7 @@ DataTable(
   align => 'l | l ',
 );
 \}
+$PAR
 12. A kitchen is shaped like a rectangle with dimensions of \( 11 \frac{1}{2} \) ft by \( 9 \frac{1}{2} \) ft. The floor of the room is made of square tiles with a side length of \( \frac{1}{2} \) ft. What is the number of tiles that will cover the kitchen floor?
 $PAR
 \{ $ans->ans_rule() \}
