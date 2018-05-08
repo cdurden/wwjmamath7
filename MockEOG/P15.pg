@@ -24,7 +24,7 @@ $ans = Compute("437");
 $ans_hash = $ans->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 $popup8 = PopUp(["?", "vertical angles", "complementary angles", "supplementary angles"], "vertical angles");
-$popup9 = PopUp(["?", "are equal", "add up to \( 180^\circ \)", "add up to \( 90^\circ \)", , "add up to \( 360^\circ \)"], "are equal");
+$popup9 = PopUp(["?", "are equal", "add up to 180 degrees", "add up to 90 degrees", , "add up to 360 degrees"], "are equal");
 Context("ImplicitEquation");
 Context()->variables->set(
 x=>{limits=>[0,180]},
