@@ -65,23 +65,17 @@ you must enable JavaScript, or use another browser
 !);
 TEXT( MODES(TeX=>'', HTML=><<END_SCRIPT ) );
 <script language="javascript">
-function setAppletCoefficients() {
+function enable3D() {
    var applet=getApplet("$appletName"); // alert("Updating coefficients");
    if (typeof(applet)!="undefined") {
-     if (typeof(applet.setValue)!="undefined") {
-     
-     ////////////////////////////////////////////////////////////////
-     //  List the values of the parameters to be set in the applet here
-     
-     // Set variables "c" and "d" in GeoGebra to values $c and $d from WebWork
-     //applet.setValue("c", $c); 
-     //applet.enable3D(true);
+     if (typeof(applet.enable3D)!="undefined") {
+     applet.enable3D(true);
 
      } else {
-          setTimeout("setAppletCoefficients()", 1000);
+          setTimeout("enable3D()", 1000);
      }
    } else {
-      setTimeout("setAppletCoefficients()",1000);
+      setTimeout("enable3D()",1000);
    }
 }
 ww_applet_list["$appletName"].setConfig = function() {setAppletCoefficients()};
