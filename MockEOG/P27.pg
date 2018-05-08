@@ -33,6 +33,15 @@ $mc1 = RadioButtons(
 $ans_hash1 = $mc1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
+$ans = Compute("30");
+$ans_hash = $ans->cmp()->evaluate(
+    $inputs_ref->{ANS_NUM_TO_NAME(1)} );
+$popup9 = PopUp(["?", "are equal", "add up to 180 degrees", "add up to 90 degrees", , "add up to 360 degrees"], "are equal");
+Context("ImplicitEquation");
+Context()->variables->set(
+x=>{limits=>[0,180]},
+);
+$eqn = ImplicitEquation("2x+10+48 = 180");
 
 BEGIN_TEXT
 27. Angles T and V are complementary. Angle T has a measure of \( (2x+10)^\circ \). Angle V has a measure of \( 48^\circ \). What is the value of \( x \)?
@@ -55,44 +64,75 @@ $scaffold = Scaffold();
 INITIALIZE_SCAFFOLD('$scaffold');
 TEXT(beginproblem());
 
-#$section = 0;
-###############
-##  Section
-###############
-#$ansNum += 4;
-#$section += 1;
-#@requireCorrect = @nextRequireCorrect;
-#@nextRequireCorrect = 2..$ansNum;
-#Context()->texStrings;
-#DISPLAY_SECTION( { name=>"$section: Set up an equation",
-#             canshow =>$scaffold->requireCorrect(@requireCorrect),
-#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-#             section=>$section #designates that this is the first section
-#},   <<'END_SECTION');
-#$PAR
-#
-#END_SECTION
-#
-#
-###############
-##  Section
-###############
-#$ansNum += 8;
-#$section += 1;
-#@requireCorrect = @nextRequireCorrect;
-#@nextRequireCorrect = 2..$ansNum;
-#
-#Context()->texStrings;
-#DISPLAY_SECTION( { name=>"$section: Devise a plan",
-#             #canshow=>1, #always true
-#             canshow=>$scaffold->requireCorrect(@requireCorrect),
-#             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
-#             section=>$section #designates that this is the first section
-#},   <<'END_SECTION');
-#
-#$PAR
-#
-#END_SECTION
+$section = 0;
+##############
+#  Section
+##############
+$ansNum += 1;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Identify the essential geometric principle",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Fill in the blank:
+The measures of complementary angles \{SECTION_ANS($popup9->cmp), $popup9->menu() \}.
+
+
+END_SECTION
+
+##############
+#  Section
+##############
+$ansNum += 1;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Use the geometric principle to set up an equation",
+             #canshow=>1, #always true
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Use the geometric principle from the previous section and the data in the problem to write an equation:
+$PAR
+\{SECTION_ANS($eqn->cmp), $eqn->ans_rule() \}.
+
+END_SECTION
+
+##############
+#  Section
+##############
+$ansNum += 1;
+$section += 1;
+@requireCorrect = @nextRequireCorrect;
+@nextRequireCorrect = 2..$ansNum;
+
+Context()->texStrings;
+DISPLAY_SECTION( { name=>"$section: Solve the equation",
+             canshow=>$scaffold->requireCorrect(@requireCorrect),
+             iscorrect=>$scaffold->requireCorrect(@nextRequireCorrect),
+             section=>$section #designates that this is the first section
+},   <<'END_SECTION');
+
+$PAR
+Solve the equation from section 3.
+$PAR
+\( x = \) \{SECTION_ANS($ans->cmp), $ans->ans_rule() \}.
+
+
+END_SECTION
 
 PROCESS_ANSWERS();
 
@@ -102,5 +142,4 @@ $opensection = $last_correct_section + 1;
 $scaffold->openSections(1..$opensection);
 
 
-#}
 ENDDOCUMENT();
