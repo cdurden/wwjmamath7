@@ -118,7 +118,7 @@ DISPLAY_SECTION( { name=>"$section: Devise a plan",
 $PAR
 Annotate the problem (or rewrite the question on your scratch paper).
 $PAR
-The question asks us to compare the ${BBOLD}mean absolute deviation (MAD) of the students${EBOLD}. To find each MAD, we can \{SECTION_ANS($popup1->cmp), $popup1->menu() \}, then \{SECTION_ANS($popup2->cmp), $popup2->menu() \}, and then \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
+The question asks us to compare the ${BBOLD}mean absolute deviation (MAD) of the students${EBOLD}. To find the MAD for a student, we can \{SECTION_ANS($popup1->cmp), $popup1->menu() \}, then \{SECTION_ANS($popup2->cmp), $popup2->menu() \}, and then \{SECTION_ANS($popup3->cmp), $popup3->menu() \}.
 
 END_SECTION
 
