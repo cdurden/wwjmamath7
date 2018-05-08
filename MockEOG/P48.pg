@@ -209,6 +209,28 @@ Student 1: \{SECTION_ANS($deviations1->cmp),
   indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
   );
 \}
+$PAR
+Student 2: \{SECTION_ANS($deviations1->cmp),
+  LayoutTable(
+  [
+  @vals2,   
+#  ['77', '80', '100', '75', '82'],
+  [$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5)]
+  ],
+  indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
+  );
+\}
+$PAR
+Student 3: \{SECTION_ANS($deviations1->cmp),
+  LayoutTable(
+  [
+  @vals3,   
+#  ['77', '80', '100', '75', '82'],
+  [$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5),$deviations1->ans_rule(5)]
+  ],
+  indent => 0, separation => 5, align => 'ccc', allcellcss => 'vertical-align: middle; padding: 5pt;'
+  );
+\}
 
 END_SECTION
 
