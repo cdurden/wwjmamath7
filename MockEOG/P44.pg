@@ -37,6 +37,7 @@ $applet =  GeogebraWebApplet(
    width                 => 640,              # may want to modify width
    height                => 640,              # may want to modify height
    enable3d              => "true",
+   appName               => '3d',
   # mayscript             => "true",
    debugMode             => 0,   # set debugMode to 0 for no debug
                                               # to 1 to make xml representation visible
