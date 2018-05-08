@@ -156,6 +156,11 @@ DISPLAY_SECTION( { name=>"$section: Set up an equation",
 $PAR
 Draw a picture. For help,
 \{ htmlLink( "https://www.geogebra.org/m/PzZfHugP", "click here to use the GeoGebra cross sections tool", "TARGET='_blank'" ) \}.
+$PAR
+$BCENTER
+MODES(HTML=>$applet->insertAll(debug=>0, reinitialize_button=>0, 
+includeAnswerBox=>0,), TeX=>$im).
+$ECENTER
 
 END_SECTION
 #
