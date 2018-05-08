@@ -76,22 +76,22 @@ $PAR
 Can you think of any reasons that $sample1 would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
 Write one or more reasons in the box below.
 $PAR
-\{ SECTION_ANS(essay_cmp), essay_box(162,3)\} 
+\{ SECTION_ANS(essay_cmp), essay_box(3,48)\} 
 Can you think of any reasons that $sample2 would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
 Write one or more reasons in the box below.
 $PAR
-\{ SECTION_ANS(essay_cmp), essay_box(162,3)\} 
+\{ SECTION_ANS(essay_cmp), essay_box(3,48)\} 
 Can you think of any reasons that $sample3 would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
 Write one or more reasons in the box below.
 $PAR
-\{ SECTION_ANS(essay_cmp), essay_box(162,3)\} 
+\{ SECTION_ANS(essay_cmp), essay_box(3,48)\} 
 Can you think of any reasons that $sample4 would ${BBOLD}not${EBOLD} be ${BBOLD}representative${EBOLD} of the seventh grade students?
 Write one or more reasons in the box below.
 $PAR
-\{ SECTION_ANS(essay_cmp), essay_box(162,3)\} 
+\{ SECTION_ANS(essay_cmp), essay_box(3,48)\} 
 
 Based on your answers, which group do you think is most likely to be representative of the seventh grade students?
-\{ SECTION_ANS(essay_cmp), essay_box()\} 
+\{ SECTION_ANS(essay_cmp), essay_box(3,48)\} 
 END_SECTION
 #
 #
