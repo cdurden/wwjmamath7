@@ -86,7 +86,7 @@ $popup3 = PopUp(["?", "find the mean of the absolute deviations", "find the medi
 $mean1 = Compute("(77+80+100+75+82)/5");
 $mean2 = Compute("(84+92+80+82+85)/5");
 $mean3 = Compute("(88+80+79+85+90)/5");
-$diff = Compute("$median2-$median1");
+$diff = Compute("$mean2-$mean1");
 
 
 $ansNum = 1;
