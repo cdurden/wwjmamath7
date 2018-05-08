@@ -142,6 +142,8 @@ Use the geometric principle from the previous section and the data in the proble
 $PAR
 \{SECTION_ANS($eqn->cmp), $eqn->ans_rule() \}.
 
+END_SECTION
+
 ##############
 #  Section
 ##############
@@ -158,7 +160,7 @@ DISPLAY_SECTION( { name=>"$section: Solve the equation",
 },   <<'END_SECTION');
 
 $PAR
-Solve the equation from section 2.
+Solve the equation from section 3.
 $PAR
 \( x = \) \{SECTION_ANS($ans->cmp), $ans->ans_rule() \}.
 
