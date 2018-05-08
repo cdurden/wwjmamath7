@@ -82,7 +82,9 @@ DISPLAY_SECTION( { name=>"$section: Devise a plan",
 },   <<'END_SECTION');
 
 $PAR
-The question asks us to find the approximate difference in average daily miles between the two weeks. To solve the problem completely, we can find \{SECTION_ANS($popup1->cmp), $popup1->menu() \} and then \{SECTION_ANS($popup2->cmp), $popup2->menu() \}.
+Annotate the problem.
+$PAR
+The question asks us to find the ${BBOLD}approximate difference in average daily miles${EBOLD} between the two weeks. To solve the problem completely, we can find \{SECTION_ANS($popup1->cmp), $popup1->menu() \} and then \{SECTION_ANS($popup2->cmp), $popup2->menu() \}.
 
 END_SECTION
 
