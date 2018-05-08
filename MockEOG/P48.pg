@@ -78,14 +78,12 @@ $mean1 = Compute("(".join("+",@vals1).")/5");
 #$mean1 = Compute("(77+80+100+75+82)/5");
 $mean2 = Compute("(84+92+80+82+85)/5");
 $mean3 = Compute("(88+80+79+85+90)/5");
-my ($d1, $d2, $d3, $d4, $d5) = map{Compute("abs($mean1-$_)")} ('77', '80', '100', '75', '82');
-$deviations1 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
-  singleResult => 0,
-  allowBlankAnswers => 1,
-  checker => sub {
+my ($d1, $d2, $d3, $d4, $d5) = map{Compute("abs($mean1-$_)")} @vals1;
+$deviations_checker = sub {
       my ( $correct, $student, $self ) = @_;
       my ( $d1stu, $d2stu, $d3stu, $d4stu, $d5stu ) = @{$student};
       my ( $d1c, $d2c, $d3c, $d4c, $d5c ) = @{$correct};
+      return($d1c->cmp()->evaluate($d1stu));
       return([
                $d1c->cmp()->evaluate($d1stu),
                $d2c->cmp()->evaluate($d2stu),
@@ -93,7 +91,11 @@ $deviations1 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
                $d4c->cmp()->evaluate($d4stu),
                $d5c->cmp()->evaluate($d5stu),
             ]);
-  }
+}
+$deviations1 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
+  singleResult => 0,
+  allowBlankAnswers => 1,
+  checker => $deviations_checker,
 );
 
 
