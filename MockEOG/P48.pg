@@ -33,6 +33,7 @@ $mc1 = RadioButtons(
 $ans_hash1 = $mc1->cmp()->evaluate(
     $inputs_ref->{ANS_NUM_TO_NAME(1)} );
 
+my ($d1, $d2, $d3, $d4, $d5) = ('77', '80', '100', '75', '82');
 $deviations1 = MultiAnswer($d1, $d2, $d3, $d4, $d5)->with(
   singleResult => 0,
   allowBlankAnswers => 1,
