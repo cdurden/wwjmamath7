@@ -75,7 +75,7 @@ function setAppletCoefficients() {
      
      // Set variables "c" and "d" in GeoGebra to values $c and $d from WebWork
      //applet.setValue("c", $c); 
-     applet.enable3D(true);
+     //applet.enable3D(true);
 
      } else {
           setTimeout("setAppletCoefficients()", 1000);
