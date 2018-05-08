@@ -30,8 +30,8 @@ $PAR
 \{
 DataTable(
 [
-  ['Key Concepts:','Unit rate, Constant of proportionality, Proportional relationship'],
-  ['Procedures:','Compute unit rates, Write the equation of a proportional relationship']
+  ['Key Concepts:',join(", ", map{ htmlLink( $concepts{$_}, $_, "TARGET='_blank'") } keys %concepts) ],
+  ['Procedures:',join(", ", map{ htmlLink( $procedures{$_}, $_, "TARGET='_blank'") } keys %procedures)]
 ],
   rowheaders => 1,
   tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",

@@ -35,8 +35,8 @@ $PAR
 \{
 DataTable(
 [
-  ['Key Concepts:','Unit rate'],
-  ['Procedures:','Compute unit rates']
+  ['Key Concepts:',join(", ", map{ htmlLink( $concepts{$_}, $_, "TARGET='_blank'") } keys %concepts) ],
+  ['Procedures:',join(", ", map{ htmlLink( $procedures{$_}, $_, "TARGET='_blank'") } keys %procedures)]
 ],
   rowheaders => 1,
   tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
@@ -101,10 +101,10 @@ $PAR
 What are the speeds?
 
 $BR
-Speed of the dragonfly: \{SECTION_ANS($rate1->cmp),$rate1->ans_rule()\}
+Speed of the dragonfly: \{SECTION_ANS($rate1->cmp),$rate1->ans_rule()\} feet per second
 
 $BR
-Speed of the butterfly: \{SECTION_ANS($rate2->cmp),$rate2->ans_rule()\}
+Speed of the butterfly: \{SECTION_ANS($rate2->cmp),$rate2->ans_rule()\} feet per second
 
 END_SECTION
 
