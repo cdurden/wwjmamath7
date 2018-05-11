@@ -1,3 +1,59 @@
+%concepts = (
+#"pi"=>"https://www.youtube.com/watch?v=cC0fZ_lkFpQ",
+#"Circumference and area of a circle"=>"https://www.youtube.com/watch?v=O-cawByg2aA",
+#"Cross-sections of 3D figures"=>"https://www.youtube.com/watch?v=hlD_j3AtxGs",
+#"Scale factor"=>"https://www.youtube.com/watch?v=HGFI_U5l-dA",
+#"Order of operations"=>"https://www.youtube.com/watch?v=dAgfnK528RA",
+#"Distributive property"=>"https://www.youtube.com/watch?v=v-6MShC82ow",
+#"Compound Probability"=>"https://www.youtube.com/watch?v=xLK0MWRwFYc",
+#"Complementary, Supplementary & Vertical Angles"=>"https://www.youtube.com/watch?v=QjwbvNdUSTk",
+#"Triangle Inequality"=>"https://www.khanacademy.org/math/geometry/hs-geo-foundations/hs-geo-polygons/v/triangle-inqequality-theorem",
+#"Triangle Inequality"=>"https://www.youtube.com/watch?v=ty-ko6zdNpY",
+#"Unit rate"=>"https://www.youtube.com/watch?v=RQ2nYUBVvqI",
+#"Constant of proportionality"=>"https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-ratio-proportion/constant-of-proportionality/v/proportionality-constant-from-table",
+#"Proportional relationship"=>"https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-proportional-rel/v/introduction-to-proportional-relationships",
+#"Proportion"=>"https://www.youtube.com/watch?v=USmit5zUGas",
+#"Percent"=>"https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-intro-percents/v/describing-the-meaning-of-percent",
+#"Markup"=>"https://learnzillion.com/resources/9906/",
+#"Mean, Median, Mode"=>"https://www.youtube.com/watch?v=B1HEzNTGeZ4",
+#"Solving a two-step equation"=>"https://www.youtube.com/watch?v=LDIiYKYvvdA",
+"Volume"=>"https://www.youtube.com/watch?v=qJwecTgce6c",
+);
+%procedures = (
+"Find the volume of a prism"=>"https://www.youtube.com/watch?v=6nJgDehGmI4",
+#"Visualize the cross-sections of 3D figures"=>"https://www.geogebra.org/m/PzZfHugP",
+#"Find the surface area of 3D figures"=>"https://www.youtube.com/watch?v=ZJ-VMcbLTaU",
+#"Find the surface area of a rectangular prism"=>"https://www.khanacademy.org/math/basic-geo/basic-geo-volume-sa/basic-geometry-surface-area/v/surface-area-of-a-box",
+#"Find the surface area of a triangular prism"=>"https://www.youtube.com/watch?v=mtMNvnm71Z0",
+#"Find the circumference of a circle"=>"http://virtualnerd.com/middle-math/geometry-measurement/circle-circumference-area/circle-circumference-from-radius",
+#"Identify values in scale drawings"=>"https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-geometry/cc-7th-scale-drawings/v/identifying-values-in-scale-drawings",
+#"Check is a value is a solution to an inequality"=>"http://virtualnerd.com/pre-algebra/inequalities-multi-step-equations/inequalities-graphs/define-inequalities/check-inequality-solution",
+#"Apply order of operations with fractions"=>"https://www.youtube.com/watch?v=ro6yRADn3Mw",
+#"Solve a two-step equation"=>"https://www.youtube.com/watch?v=KBpNLjiv8pk",
+#"Solve a two-step equation"=>"https://www.youtube.com/watch?v=p5e5mf_G3FI", # Fractional coefficient
+#"Find a fraction of a number"=>
+#"Expand an expression using the distributive property"=>"https://www.youtube.com/watch?v=V-5q6tKaRuM",
+#"Solve an age word problem"=>"https://www.youtube.com/watch?v=bAUT_Pux73w",
+#"Subtracting linear expressions"=>"https://learnzillion.com/resources/51851/",
+#"Find the median of a data set"=>"http://virtualnerd.com/sat-math/arithmetic/averages/median-data-set",
+#"Find the mean of a data set"=>"http://virtualnerd.com/middle-math/probability-statistics/mean-median-mode-range/mean-data-set"
+#"Find the mean of a set of numbers"=>"https://www.youtube.com/watch?v=DZYhvMCFE5Q",
+#"Compare data sets using means and mean absolute deviation"=>"https://learnzillion.com/lesson_plans/7720-compare-the-means-and-mads-of-two-data-sets/",
+#"Decide how to sample a population"=>"https://learnzillion.com/lesson_plans/4985-identify-a-representative-sample/",
+#"Find the area of a composite shape"=>"https://www.youtube.com/watch?v=by9-_95Zn08",
+#"Set up equation for angle pairs"=>"https://www.youtube.com/watch?v=_Xn08vjROU0",
+#"Work backward with geometric formulas"=>"https://www.youtube.com/watch?v=1pND890hnAs",
+#"Solve two-step inequalities with negative coefficients"=>"https://www.youtube.com/watch?v=2cQjqAZ8Wmw",
+#"Convert between percents, fractions, and decimals"=>"https://www.youtube.com/watch?v=JGxnd79DvOc",
+#"Solve percent problems"=>"https://www.youtube.com/watch?v=Iz9825HRurw",
+#"Compute a unit rate"=>"https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-ratio-proportion/cc-7th-rates/v/determining-rates-with-fractions",
+#"Write the equation of a proportional relationship"=>"https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-ratio-proportion/cc-7th-equations-of-proportional-relationships/v/equations-of-proportional-relationships",
+#"Set up a proportion"=>"https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-write-and-solve-proportions/v/writing-proportions",
+#"Recognize a proportional relationship"=>"https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-proportional-rel/v/introduction-to-proportional-relationships",
+#"Find a percent of a number"=>"https://www.youtube.com/watch?v=rR95Cbcjzus&t=177s",
+#"Solve a percent problem using a proportion"=>"https://www.youtube.com/watch?v=Uf-Rl1e2I4Q",
+#"Solve multi-step percent problems"=>"https://www.youtube.com/watch?v=JbK9wzNptSs",
+);
 DOCUMENT();
 
 loadMacros(
@@ -35,6 +91,21 @@ $ans_hash1 = $mc1->cmp()->evaluate(
 
 
 BEGIN_TEXT
+$PAR
+\{
+DataTable(
+[
+  ['Key Concepts:',join(", ", map{ htmlLink( $concepts{$_}, $_, "TARGET='_blank'") } keys %concepts) ],
+  ['Procedures:',join(", ", map{ htmlLink( $procedures{$_}, $_, "TARGET='_blank'") } keys %procedures)]
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+$PAR
 47. What is the volume of this triangular right prism?
 $PAR
 \{ image( "img/P47.png", width=>230, height=>153 ) \}
