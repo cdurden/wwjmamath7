@@ -12,7 +12,7 @@
 "Mean, Median, Mode"=>"https://www.youtube.com/watch?v=B1HEzNTGeZ4",
 );
 %procedures = (
-"Find the mean of a set of numbers"=>"https://www.youtube.com/watch?v=DZYhvMCFE5Q",
+"Find the average of a set of numbers"=>"https://www.youtube.com/watch?v=DZYhvMCFE5Q",
 #"Compare data sets using means and mean absolute deviation"=>"https://learnzillion.com/lesson_plans/7720-compare-the-means-and-mads-of-two-data-sets/",
 #"Decide how to sample a population"=>"https://learnzillion.com/lesson_plans/4985-identify-a-representative-sample/",
 #"Find the area of a composite shape"=>"https://www.youtube.com/watch?v=by9-_95Zn08",

@@ -84,8 +84,8 @@ $PAR
 \{
 DataTable(
 [
-  ['Key Concepts:','Markup/Markdown, Percent, Proportion'],
-  ['Procedures:','Set up a proportion, Solve a percent problem using a proportion']
+  ['Key Concepts:',join(", ", map{ htmlLink( $concepts{$_}, $_, "TARGET='_blank'") } keys %concepts) ],
+  ['Procedures:',join(", ", map{ htmlLink( $procedures{$_}, $_, "TARGET='_blank'") } keys %procedures)]
 ],
   rowheaders => 1,
   tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",

@@ -1,4 +1,3 @@
-
 %concepts = (
 "Scale factor"=>"https://www.youtube.com/watch?v=HGFI_U5l-dA",
 #"Order of operations"=>"https://www.youtube.com/watch?v=dAgfnK528RA",
@@ -58,6 +57,7 @@ loadMacros(
 "compoundProblem.pl",
 "contextLimitedNumeric.pl",
 "parserImplicitEquation.pl",
+"niceTables.pl",
 );
 
 $isProfessor = ($studentLogin eq 'dpvc' || $studentLogin eq 'professor');

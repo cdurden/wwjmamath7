@@ -1,4 +1,6 @@
 %concepts = (
+#"Area"=>"https://www.youtube.com/watch?v=xCdxURXMdFY",
+#"Perimeter"=>"https://www.youtube.com/watch?v=AAY1bsazcgM",
 #"pi"=>"https://www.youtube.com/watch?v=cC0fZ_lkFpQ",
 #"Circumference and area of a circle"=>"https://www.youtube.com/watch?v=O-cawByg2aA",
 #"Cross-sections of 3D figures"=>"https://www.youtube.com/watch?v=hlD_j3AtxGs",
@@ -18,10 +20,11 @@
 #"Mean, Median, Mode"=>"https://www.youtube.com/watch?v=B1HEzNTGeZ4",
 #"Solving a two-step equation"=>"https://www.youtube.com/watch?v=LDIiYKYvvdA",
 #"Volume"=>"https://www.youtube.com/watch?v=qJwecTgce6c",
-"Probability"=>"https://www.youtube.com/watch?v=AY3O_qsSnbE",
+#"Probability"=>"https://www.youtube.com/watch?v=AY3O_qsSnbE",
 );
 %procedures = (
-"Find a simple probability"=>"https://www.youtube.com/watch?v=yUaI0JriZtY",
+#"Find the area of a 2D shape"=>"https://www.youtube.com/watch?v=u2wWbu8Uw2s",
+#"Find a simple probability"=>"https://www.youtube.com/watch?v=yUaI0JriZtY",
 #"Find the volume of a prism"=>"https://www.youtube.com/watch?v=6nJgDehGmI4",
 #"Visualize the cross-sections of 3D figures"=>"https://www.geogebra.org/m/PzZfHugP",
 #"Find the surface area of 3D figures"=>"https://www.youtube.com/watch?v=ZJ-VMcbLTaU",
@@ -55,4 +58,5 @@
 #"Find a percent of a number"=>"https://www.youtube.com/watch?v=rR95Cbcjzus&t=177s",
 #"Solve a percent problem using a proportion"=>"https://www.youtube.com/watch?v=Uf-Rl1e2I4Q",
 #"Solve multi-step percent problems"=>"https://www.youtube.com/watch?v=JbK9wzNptSs",
+"Solving fractions word problems"=>"https://www.youtube.com/watch?v=XzBsmgoNK20",
 );

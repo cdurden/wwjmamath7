@@ -80,6 +80,20 @@ $expanded = MultiAnswer($expanded1, $expanded2)->with(
 
 BEGIN_TEXT
 $PAR
+\{
+DataTable(
+[
+  ['Key Concepts:',join(", ", map{ htmlLink( $concepts{$_}, $_, "TARGET='_blank'") } keys %concepts) ],
+  ['Procedures:',join(", ", map{ htmlLink( $procedures{$_}, $_, "TARGET='_blank'") } keys %procedures)]
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+$PAR
 19. Which expression is equivalent to \( -4(x+2) - \frac{1}{2}(2x-6) \)?
 
 

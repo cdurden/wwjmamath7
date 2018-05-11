@@ -92,6 +92,20 @@ $choice1_checker = sub {
 
 BEGIN_TEXT
 $PAR
+\{
+DataTable(
+[
+  ['Key Concepts:',join(", ", map{ htmlLink( $concepts{$_}, $_, "TARGET='_blank'") } keys %concepts) ],
+  ['Procedures:',join(", ", map{ htmlLink( $procedures{$_}, $_, "TARGET='_blank'") } keys %procedures)]
+],
+  rowheaders => 1,
+  tablecss => "border:solid 1px; border-spacing:5px; border-radius: 5px; border-collapse:collapse;",
+  allcellcss => "border:solid 1px;",
+  midrules => 1,
+  align => 'l | l ',
+);
+\}
+$PAR
 20. Anna saved $20 in a jar each month for \(2 \frac{1}{2} \) years. She spent 75% of her savings on a computer. How much money did Anna have left in the jar?
 
 END_TEXT
