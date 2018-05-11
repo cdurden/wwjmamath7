@@ -1,5 +1,12 @@
 
 %concepts = (
+#"pi"=>"https://www.youtube.com/watch?v=cC0fZ_lkFpQ",
+#"Circumference and area of a circle"=>"https://www.youtube.com/watch?v=O-cawByg2aA",
+#"Cross-sections of 3D figures"=>"https://www.youtube.com/watch?v=hlD_j3AtxGs",
+#"Scale factor"=>"https://www.youtube.com/watch?v=HGFI_U5l-dA",
+#"Order of operations"=>"https://www.youtube.com/watch?v=dAgfnK528RA",
+#"Distributive property"=>"https://www.youtube.com/watch?v=v-6MShC82ow",
+#"Compound Probability"=>"https://www.youtube.com/watch?v=xLK0MWRwFYc",
 #"Complementary, Supplementary & Vertical Angles"=>"https://www.youtube.com/watch?v=QjwbvNdUSTk",
 #"Triangle Inequality"=>"https://www.khanacademy.org/math/geometry/hs-geo-foundations/hs-geo-polygons/v/triangle-inqequality-theorem",
 #"Triangle Inequality"=>"https://www.youtube.com/watch?v=ty-ko6zdNpY",
@@ -9,9 +16,33 @@
 #"Proportion"=>"https://www.youtube.com/watch?v=USmit5zUGas",
 #"Percent"=>"https://www.khanacademy.org/math/pre-algebra/pre-algebra-ratios-rates/pre-algebra-intro-percents/v/describing-the-meaning-of-percent",
 #"Markup"=>"https://learnzillion.com/resources/9906/",
+#"Mean, Median, Mode"=>"https://www.youtube.com/watch?v=B1HEzNTGeZ4",
+#"Solving a two-step equation"=>"https://www.youtube.com/watch?v=LDIiYKYvvdA",
+#"Volume"=>"https://www.youtube.com/watch?v=qJwecTgce6c",
+#"Probability"=>"https://www.youtube.com/watch?v=AY3O_qsSnbE",
 );
 %procedures = (
-"Decide how to sample a population"=>"https://learnzillion.com/lesson_plans/4985-identify-a-representative-sample/",
+#"Find a simple probability"=>"https://www.youtube.com/watch?v=yUaI0JriZtY",
+#"Find the volume of a prism"=>"https://www.youtube.com/watch?v=6nJgDehGmI4",
+#"Visualize the cross-sections of 3D figures"=>"https://www.geogebra.org/m/PzZfHugP",
+#"Find the surface area of 3D figures"=>"https://www.youtube.com/watch?v=ZJ-VMcbLTaU",
+#"Find the surface area of a rectangular prism"=>"https://www.khanacademy.org/math/basic-geo/basic-geo-volume-sa/basic-geometry-surface-area/v/surface-area-of-a-box",
+#"Find the surface area of a triangular prism"=>"https://www.youtube.com/watch?v=mtMNvnm71Z0",
+#"Find the circumference of a circle"=>"http://virtualnerd.com/middle-math/geometry-measurement/circle-circumference-area/circle-circumference-from-radius",
+#"Identify values in scale drawings"=>"https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-geometry/cc-7th-scale-drawings/v/identifying-values-in-scale-drawings",
+#"Check is a value is a solution to an inequality"=>"http://virtualnerd.com/pre-algebra/inequalities-multi-step-equations/inequalities-graphs/define-inequalities/check-inequality-solution",
+#"Apply order of operations with fractions"=>"https://www.youtube.com/watch?v=ro6yRADn3Mw",
+#"Solve a two-step equation"=>"https://www.youtube.com/watch?v=KBpNLjiv8pk",
+#"Solve a two-step equation"=>"https://www.youtube.com/watch?v=p5e5mf_G3FI", # Fractional coefficient
+#"Find a fraction of a number"=>
+#"Expand an expression using the distributive property"=>"https://www.youtube.com/watch?v=V-5q6tKaRuM",
+#"Solve an age word problem"=>"https://www.youtube.com/watch?v=bAUT_Pux73w",
+#"Subtracting linear expressions"=>"https://learnzillion.com/resources/51851/",
+#"Find the median of a data set"=>"http://virtualnerd.com/sat-math/arithmetic/averages/median-data-set",
+#"Find the mean of a data set"=>"http://virtualnerd.com/middle-math/probability-statistics/mean-median-mode-range/mean-data-set"
+#"Find the mean of a set of numbers"=>"https://www.youtube.com/watch?v=DZYhvMCFE5Q",
+#"Compare data sets using means and mean absolute deviation"=>"https://learnzillion.com/resources/14282/",
+"Decide how to sample a population"=>"https://learnzillion.com/resources/48771/",
 #"Find the area of a composite shape"=>"https://www.youtube.com/watch?v=by9-_95Zn08",
 #"Set up equation for angle pairs"=>"https://www.youtube.com/watch?v=_Xn08vjROU0",
 #"Work backward with geometric formulas"=>"https://www.youtube.com/watch?v=1pND890hnAs",
